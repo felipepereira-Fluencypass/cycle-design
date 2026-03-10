@@ -1,0 +1,381 @@
+/* ============================================
+   CYCLE DESIGN — TYPOGRAPHY COMPOSITIONS
+   ============================================
+   Fonte: Figma (extraído via API)
+   
+   Tokens funcionais — USE ESTES nas interfaces.
+   Cada composição referencia os primitivos
+   definidos em typography-primitives.css
+   
+   Categorias:
+   1. Body (Conteúdo)
+   2. Subtitle (Apoio)
+   3. Headline (Destaque)
+   4. Display (Decorativo)
+   5. Button
+   ============================================ */
+
+
+/* ------------------------------------------
+   1. BODY (Conteúdo)
+   ------------------------------------------
+   Font family: var(--font-family-body)
+   Variações: regular + semibold
+   Uso: Parágrafos, textos de conteúdo
+   ------------------------------------------ */
+
+.body-xs {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);       /* 400 */
+  font-size: var(--font-size-4xs);               /* 10px / 0.625rem */
+  line-height: var(--line-height-3xs);            /* 16px / 1rem */
+  letter-spacing: var(--letter-spacing-none);     /* 0 */
+  text-decoration: var(--text-decoration-none);   /* none */
+}
+
+.body-xs-semibold {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);       /* 600 */
+  font-size: var(--font-size-4xs);               /* 10px / 0.625rem */
+  line-height: var(--line-height-3xs);            /* 16px / 1rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-sm {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);       /* 400 */
+  font-size: var(--font-size-3xs);               /* 12px / 0.75rem */
+  line-height: var(--line-height-2xs);            /* 18px / 1.125rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-sm-semibold {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);       /* 600 */
+  font-size: var(--font-size-3xs);               /* 12px / 0.75rem */
+  line-height: var(--line-height-2xs);            /* 18px / 1.125rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-md {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);       /* 400 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-xs);             /* 20px / 1.25rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-md-semibold {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);       /* 600 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-xs);             /* 20px / 1.25rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-lg {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-regular);       /* 400 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-sm);             /* 24px / 1.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.body-lg-semibold {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-semibold);       /* 600 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-sm);             /* 24px / 1.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+
+/* ------------------------------------------
+   2. SUBTITLE (Apoio)
+   ------------------------------------------
+   Font family: var(--font-family-headline)
+   Variações: bold (padrão), strikethrough, 
+              lg-regular
+   Uso: Apoio a títulos, informações 
+        complementares
+   ------------------------------------------ */
+
+.subtitle-sm {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-xs);             /* 20px / 1.25rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.subtitle-sm-strikethrough {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-xs);             /* 20px / 1.25rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-strikethrough); /* line-through */
+}
+
+.subtitle-md {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-sm);             /* 24px / 1.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.subtitle-md-strikethrough {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-sm);             /* 24px / 1.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-strikethrough); /* line-through */
+}
+
+.subtitle-lg {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-sm);                /* 18px / 1.125rem */
+  line-height: var(--line-height-md);             /* 28px / 1.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.subtitle-lg-strikethrough {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-sm);                /* 18px / 1.125rem */
+  line-height: var(--line-height-md);             /* 28px / 1.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-strikethrough); /* line-through */
+}
+
+.subtitle-lg-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-sm);                /* 18px / 1.125rem */
+  line-height: var(--line-height-md);             /* 28px / 1.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+
+/* ------------------------------------------
+   3. HEADLINE (Destaque)
+   ------------------------------------------
+   Font family: var(--font-family-headline)
+   Variações: bold (padrão) + regular
+   Uso: Títulos, destaques de conteúdo
+   ------------------------------------------ */
+
+.headline-sm {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-md);                /* 20px / 1.25rem */
+  line-height: var(--line-height-lg);             /* 30px / 1.875rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-sm-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-md);                /* 20px / 1.25rem */
+  line-height: var(--line-height-lg);             /* 30px / 1.875rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-md {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-lg);                /* 24px / 1.5rem */
+  line-height: var(--line-height-xl);             /* 32px / 2rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-md-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-lg);                /* 24px / 1.5rem */
+  line-height: var(--line-height-xl);             /* 32px / 2rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-lg {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-xl);                /* 32px / 2rem */
+  line-height: var(--line-height-2xl);            /* 40px / 2.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-lg-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-xl);                /* 32px / 2rem */
+  line-height: var(--line-height-2xl);            /* 40px / 2.5rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-xl {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-2xl);               /* 40px / 2.5rem */
+  line-height: var(--line-height-3xl);            /* 48px / 3rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-xl-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-2xl);               /* 40px / 2.5rem */
+  line-height: var(--line-height-3xl);            /* 48px / 3rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-xxl {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-3xl);               /* 48px / 3rem */
+  line-height: var(--line-height-4xl);            /* 60px / 3.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.headline-xxl-regular {
+  font-family: var(--font-family-headline);
+  font-weight: var(--font-weight-regular);        /* 400 */
+  font-size: var(--font-size-3xl);               /* 48px / 3rem */
+  line-height: var(--line-height-4xl);            /* 60px / 3.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+
+/* ------------------------------------------
+   4. DISPLAY (Decorativo)
+   ------------------------------------------
+   Font family: var(--font-family-display)
+   Variações: extrabold (padrão) + light
+   Uso: Textos decorativos, hero sections
+   ------------------------------------------ */
+
+.display-md {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-extrabold);      /* 800 */
+  font-size: var(--font-size-4xl);               /* 64px / 4rem */
+  line-height: var(--line-height-5xl);            /* 82px / 5.125rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.display-md-light {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-light);          /* 300 */
+  font-size: var(--font-size-4xl);               /* 64px / 4rem */
+  line-height: var(--line-height-5xl);            /* 82px / 5.125rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.display-lg {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-extrabold);      /* 800 */
+  font-size: var(--font-size-5xl);               /* 72px / 4.5rem */
+  line-height: var(--line-height-6xl);            /* 90px / 5.625rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.display-lg-light {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-light);          /* 300 */
+  font-size: var(--font-size-5xl);               /* 72px / 4.5rem */
+  line-height: var(--line-height-6xl);            /* 90px / 5.625rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+
+/* ------------------------------------------
+   5. BUTTON
+   ------------------------------------------
+   Font family: var(--font-family-body)
+   Variações: bold (padrão) + underline
+   Uso: Textos de botões e links
+   
+   Nota: line-height 1:1 com font-size
+   para controle preciso de altura
+   ------------------------------------------ */
+
+.button-sm {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-3xs);               /* 12px / 0.75rem */
+  line-height: var(--line-height-5xs);            /* 12px / 0.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.button-sm-underline {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-3xs);               /* 12px / 0.75rem */
+  line-height: var(--line-height-5xs);            /* 12px / 0.75rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-underline); /* underline */
+}
+
+.button-md {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-4xs);            /* 14px / 0.875rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.button-md-underline {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-2xs);               /* 14px / 0.875rem */
+  line-height: var(--line-height-4xs);            /* 14px / 0.875rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-underline); /* underline */
+}
+
+.button-lg {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-3xs);            /* 16px / 1rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-none);
+}
+
+.button-lg-underline {
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold);           /* 700 */
+  font-size: var(--font-size-xs);                /* 16px / 1rem */
+  line-height: var(--line-height-3xs);            /* 16px / 1rem */
+  letter-spacing: var(--letter-spacing-none);
+  text-decoration: var(--text-decoration-underline); /* underline */
+}

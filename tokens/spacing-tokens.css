@@ -1,0 +1,49 @@
+/* ============================================
+   CYCLE DESIGN — SPACING TOKENS
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   
+   Duas categorias:
+   - Spacing: gaps entre elementos (margin, gap)
+   - Spacing Inset: padding interno de componentes
+   
+   Valores em px com referência em rem.
+   Base: 16px = 1rem
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     SPACING (gap entre elementos)
+     Uso: margin, gap, espaçamento entre seções
+     ------------------------------------------ */
+  --spacing-quarck: 2px;    /* 0.125rem */
+  --spacing-nano: 4px;      /* 0.25rem */
+  --spacing-micro: 8px;     /* 0.5rem */
+  --spacing-mini: 12px;     /* 0.75rem */
+  --spacing-3xs: 16px;      /* 1rem */
+  --spacing-2xs: 20px;      /* 1.25rem */
+  --spacing-xs: 24px;       /* 1.5rem */
+  --spacing-sm: 32px;       /* 2rem */
+  --spacing-md: 40px;       /* 2.5rem */
+  --spacing-lg: 48px;       /* 3rem */
+  --spacing-xl: 56px;       /* 3.5rem */
+  --spacing-2xl: 64px;      /* 4rem */
+  --spacing-3xl: 80px;      /* 5rem */
+  --spacing-big: 120px;     /* 7.5rem */
+  --spacing-huge: 160px;    /* 10rem */
+  --spacing-giant: 200px;   /* 12.5rem */
+
+  /* ------------------------------------------
+     SPACING INSET (padding interno)
+     Uso: padding de componentes (botões, cards,
+     inputs, modais)
+     ------------------------------------------ */
+  --spacing-inset-2xs: 4px;   /* 0.25rem */
+  --spacing-inset-xs: 8px;    /* 0.5rem */
+  --spacing-inset-sm: 12px;   /* 0.75rem */
+  --spacing-inset-md: 16px;   /* 1rem */
+  --spacing-inset-lg: 24px;   /* 1.5rem */
+  --spacing-inset-xl: 32px;   /* 2rem */
+  --spacing-inset-2xl: 40px;  /* 2.5rem */
+}

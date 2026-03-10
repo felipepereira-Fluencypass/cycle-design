@@ -1,0 +1,276 @@
+/* ============================================
+   CYCLE DESIGN — COLOR COMPOSITIONS (Background)
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   
+   Tokens funcionais — USE ESTES nas interfaces.
+   Cada token referencia os primitivos definidos
+   em color-primitives.css
+   ============================================ */
+
+
+/* ------------------------------------------
+   LIGHT MODE (default)
+   ------------------------------------------ */
+:root,
+[data-theme="light"] {
+
+  /* BACKGROUND — Base */
+  --bg-primary: var(--color-white);                           /* #FFFFFF */
+  --bg-primary_alt: var(--color-white);                       /* #FFFFFF */
+  --bg-primary_hover: var(--color-gray-light-50);             /* #FAFAFA */
+  --bg-primary-solid: var(--color-gray-light-950);            /* #0D0D12 */
+  --bg-secondary: var(--color-gray-light-50);                 /* #FAFAFA */
+  --bg-secondary_alt: var(--color-gray-light-50);             /* #FAFAFA */
+  --bg-secondary_hover: var(--color-gray-light-100);          /* #F5F5F5 */
+  --bg-secondary_subtle: var(--color-gray-dark-25);           /* #FAFAFA */
+  --bg-secondary-solid: var(--color-gray-light-600);          /* #535862 */
+  --bg-tertiary: var(--color-gray-light-100);                 /* #F5F5F5 */
+  --bg-quaternary: var(--color-gray-light-200);               /* #E9EAEB */
+  --bg-active: var(--color-gray-light-50);                    /* #FAFAFA */
+  --bg-disabled: var(--color-gray-light-100);                 /* #F5F5F5 */
+  --bg-disabled_subtle: var(--color-gray-light-50);           /* #FAFAFA */
+  --bg-overlay: var(--color-gray-light-950);                  /* #0D0D12 */
+
+  /* BACKGROUND — Brand */
+  --bg-brand-primary: var(--color-brand-50);                  /* #FFE8E8 */
+  --bg-brand-primary_alt: var(--color-brand-50);              /* #FFE8E8 */
+  --bg-brand-hover: var(--color-brand-100);                   /* #FFD0D1 */
+  --bg-brand-secondary: var(--color-brand-100);               /* #FFD0D1 */
+  --bg-brand-solid: var(--color-brand-600);                   /* #D45558 */
+  --bg-brand-solid_hover: var(--color-brand-700);             /* #B33E41 */
+  --bg-brand-section: var(--color-brand-800);                 /* #8C2D2F */
+  --bg-brand-section_subtle: var(--color-brand-700);          /* #B33E41 */
+
+  /* BACKGROUND — Class */
+  --bg-class-primary: var(--color-class-50);                  /* #E0EBFF */
+  --bg-class-primary_alt: var(--color-class-50);              /* #E0EBFF */
+  --bg-class-hover: var(--color-class-100);                   /* #C2D6FF */
+  --bg-class-secondary: var(--color-class-100);               /* #C2D6FF */
+  --bg-class-solid: var(--color-class-600);                   /* #1A5FE0 */
+  --bg-class-solid_hover: var(--color-class-700);             /* #0F4BBC */
+  --bg-class-section: var(--color-class-800);                 /* #0A3590 */
+  --bg-class-section_subtle: var(--color-class-700);          /* #0F4BBC */
+
+  /* BACKGROUND — Private */
+  --bg-private-primary: var(--color-private-50);              /* #FFEDE0 */
+  --bg-private-primary_alt: var(--color-private-50);          /* #FFEDE0 */
+  --bg-private-hover: var(--color-private-100);               /* #FFD9C2 */
+  --bg-private-secondary: var(--color-private-100);           /* #FFD9C2 */
+  --bg-private-solid: var(--color-private-600);               /* #E56530 */
+  --bg-private-solid_hover: var(--color-private-700);         /* #BF4D20 */
+  --bg-private-section: var(--color-private-800);             /* #993A16 */
+  --bg-private-section_subtle: var(--color-private-700);      /* #BF4D20 */
+
+  /* BACKGROUND — Group */
+  --bg-group-primary: var(--color-group-50);                  /* #E0FFE9 */
+  --bg-group-primary_alt: var(--color-group-50);              /* #E0FFE9 */
+  --bg-group-hover: var(--color-group-100);                   /* #B8FFD0 */
+  --bg-group-secondary: var(--color-group-100);               /* #B8FFD0 */
+  --bg-group-solid: var(--color-group-600);                   /* #00C234 */
+  --bg-group-solid_hover: var(--color-group-700);             /* #009929 */
+  --bg-group-section: var(--color-group-800);                 /* #00731E */
+  --bg-group-section_subtle: var(--color-group-700);          /* #009929 */
+
+  /* BACKGROUND — Impulse */
+  --bg-impulse-primary: var(--color-impulse-50);              /* #F7E0FF */
+  --bg-impulse-primary_alt: var(--color-impulse-50);          /* #F7E0FF */
+  --bg-impulse-hover: var(--color-impulse-100);               /* #EFC2FF */
+  --bg-impulse-secondary: var(--color-impulse-100);           /* #EFC2FF */
+  --bg-impulse-solid: var(--color-impulse-600);               /* #7D0DD4 */
+  --bg-impulse-solid_hover: var(--color-impulse-700);         /* #6209A8 */
+  --bg-impulse-section: var(--color-impulse-800);             /* #48077C */
+  --bg-impulse-section_subtle: var(--color-impulse-700);      /* #6209A8 */
+
+  /* BACKGROUND — Semantic */
+  --bg-critical-primary: var(--color-critical-50);            /* #FFE8E8 */
+  --bg-critical-secondary: var(--color-critical-100);         /* #FFD0D0 */
+  --bg-critical-solid: var(--color-critical-600);             /* #B32020 */
+  --bg-critical-solid_hover: var(--color-critical-700);       /* #8F1717 */
+  --bg-warning-primary: var(--color-warning-50);              /* #FFF5D9 */
+  --bg-warning-secondary: var(--color-warning-100);           /* #FEEAB0 */
+  --bg-warning-solid: var(--color-warning-600);               /* #D48E00 */
+  --bg-warning-solid_hover: var(--color-warning-700);         /* #AA7200 */
+  --bg-positive-primary: var(--color-positive-50);            /* #E0FAF0 */
+  --bg-positive-secondary: var(--color-positive-100);         /* #B8F2D9 */
+  --bg-positive-solid: var(--color-positive-600);             /* #098A5E */
+  --bg-positive-solid_hover: var(--color-positive-700);       /* #07704C */
+}
+
+
+/* ------------------------------------------
+   DARK MODE
+   ------------------------------------------ */
+[data-theme="dark"] {
+
+  /* BACKGROUND — Base */
+  --bg-primary: var(--color-gray-dark-950);                   /* #0C0E12 */
+  --bg-primary_alt: var(--color-gray-dark-900);               /* #13161B */
+  --bg-primary_hover: var(--color-gray-dark-800);             /* #22262F */
+  --bg-primary-solid: var(--color-gray-dark-900);             /* #13161B */
+  --bg-secondary: var(--color-gray-dark-900);                 /* #13161B */
+  --bg-secondary_alt: var(--color-gray-dark-950);             /* #0C0E12 */
+  --bg-secondary_hover: var(--color-gray-dark-800);           /* #22262F */
+  --bg-secondary_subtle: var(--color-gray-dark-900);          /* #13161B */
+  --bg-secondary-solid: var(--color-gray-dark-600);           /* #61656C */
+  --bg-tertiary: var(--color-gray-dark-800);                  /* #22262F */
+  --bg-quaternary: var(--color-gray-dark-700);                /* #373A41 */
+  --bg-active: var(--color-gray-dark-800);                    /* #22262F */
+  --bg-disabled: var(--color-gray-dark-800);                  /* #22262F */
+  --bg-disabled_subtle: var(--color-gray-dark-900);           /* #13161B */
+  --bg-overlay: var(--color-gray-dark-800);                   /* #22262F */
+
+  /* BACKGROUND — Brand */
+  --bg-brand-primary: var(--color-brand-transparent-10);      /* #ED6A6D 10% */
+  --bg-brand-primary_alt: var(--color-gray-dark-800);         /* #22262F */
+  --bg-brand-hover: var(--color-brand-transparent-25);        /* #ED6A6D 30% */
+  --bg-brand-secondary: var(--color-brand-600);               /* #D45558 */
+  --bg-brand-solid: var(--color-brand-500);                   /* #ED6A6D */
+  --bg-brand-solid_hover: var(--color-brand-400);             /* #F57B7E */
+  --bg-brand-section: var(--color-brand-200);                 /* #FFB0B2 */
+  --bg-brand-section_subtle: var(--color-brand-300);          /* #FF8A8D */
+
+  /* BACKGROUND — Class */
+  --bg-class-primary: var(--color-class-transparent-10);      /* #2E74FF 10% */
+  --bg-class-primary_alt: var(--color-gray-dark-800);         /* #22262F */
+  --bg-class-hover: var(--color-class-transparent-25);        /* #2E74FF 30% */
+  --bg-class-secondary: var(--color-class-600);               /* #1A5FE0 */
+  --bg-class-solid: var(--color-class-500);                   /* #2E74FF */
+  --bg-class-solid_hover: var(--color-class-400);             /* #4D8AFF */
+  --bg-class-section: var(--color-class-200);                 /* #99BBFF */
+  --bg-class-section_subtle: var(--color-class-300);          /* #70A0FF */
+
+  /* BACKGROUND — Private */
+  --bg-private-primary: var(--color-private-transparent-10);  /* #FF8041 10% */
+  --bg-private-primary_alt: var(--color-gray-dark-800);       /* #22262F */
+  --bg-private-hover: var(--color-private-transparent-25);    /* #FF8041 25% */
+  --bg-private-secondary: var(--color-private-600);           /* #E56530 */
+  --bg-private-solid: var(--color-private-500);               /* #FF8041 */
+  --bg-private-solid_hover: var(--color-private-400);         /* #FF9158 */
+  --bg-private-section: var(--color-private-200);             /* #FFC09A */
+  --bg-private-section_subtle: var(--color-private-300);      /* #FFA570 */
+
+  /* BACKGROUND — Group */
+  --bg-group-primary: var(--color-group-transparent-10);      /* #00E73E 10% */
+  --bg-group-primary_alt: var(--color-gray-dark-800);         /* #22262F */
+  --bg-group-hover: var(--color-group-transparent-25);        /* #00E73E 25% */
+  --bg-group-secondary: var(--color-group-600);               /* #00C234 */
+  --bg-group-solid: var(--color-group-500);                   /* #00E73E */
+  --bg-group-solid_hover: var(--color-group-400);             /* #1AFF61 */
+  --bg-group-section: var(--color-group-200);                 /* #80FFB0 */
+  --bg-group-section_subtle: var(--color-group-300);          /* #47FF8A */
+
+  /* BACKGROUND — Impulse */
+  --bg-impulse-primary: var(--color-impulse-transparent-10);  /* #9810FA 10% */
+  --bg-impulse-primary_alt: var(--color-gray-dark-800);       /* #22262F */
+  --bg-impulse-hover: var(--color-impulse-transparent-25);    /* #9810FA 25% */
+  --bg-impulse-secondary: var(--color-impulse-600);           /* #7D0DD4 */
+  --bg-impulse-solid: var(--color-impulse-500);               /* #9810FA */
+  --bg-impulse-solid_hover: var(--color-impulse-400);         /* #B844FF */
+  --bg-impulse-section: var(--color-impulse-200);             /* #E29AFF */
+  --bg-impulse-section_subtle: var(--color-impulse-300);      /* #D070FF */
+
+  /* BACKGROUND — Semantic */
+  --bg-critical-primary: var(--color-critical-950);           /* #2E0606 */
+  --bg-critical-secondary: var(--color-critical-600);         /* #B32020 */
+  --bg-critical-solid: var(--color-critical-500);             /* #D42B2B */
+  --bg-critical-solid_hover: var(--color-critical-400);       /* #ED5555 */
+  --bg-warning-primary: var(--color-warning-950);             /* #332300 */
+  --bg-warning-secondary: var(--color-warning-600);           /* #D48E00 */
+  --bg-warning-solid: var(--color-warning-500);               /* #F5A800 */
+  --bg-warning-solid_hover: var(--color-warning-400);         /* #FDC028 */
+  --bg-positive-primary: var(--color-positive-950);           /* #022318 */
+  --bg-positive-secondary: var(--color-positive-600);         /* #098A5E */
+  --bg-positive-solid: var(--color-positive-500);             /* #0BA370 */
+  --bg-positive-solid_hover: var(--color-positive-400);       /* #1EC485 */
+}
+
+
+/* ------------------------------------------
+   AUTO DARK MODE (prefers-color-scheme)
+   ------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+
+    /* BACKGROUND — Base */
+    --bg-primary: var(--color-gray-dark-950);
+    --bg-primary_alt: var(--color-gray-dark-900);
+    --bg-primary_hover: var(--color-gray-dark-800);
+    --bg-primary-solid: var(--color-gray-dark-900);
+    --bg-secondary: var(--color-gray-dark-900);
+    --bg-secondary_alt: var(--color-gray-dark-950);
+    --bg-secondary_hover: var(--color-gray-dark-800);
+    --bg-secondary_subtle: var(--color-gray-dark-900);
+    --bg-secondary-solid: var(--color-gray-dark-600);
+    --bg-tertiary: var(--color-gray-dark-800);
+    --bg-quaternary: var(--color-gray-dark-700);
+    --bg-active: var(--color-gray-dark-800);
+    --bg-disabled: var(--color-gray-dark-800);
+    --bg-disabled_subtle: var(--color-gray-dark-900);
+    --bg-overlay: var(--color-gray-dark-800);
+
+    /* BACKGROUND — Brand */
+    --bg-brand-primary: var(--color-brand-transparent-10);
+    --bg-brand-primary_alt: var(--color-gray-dark-800);
+    --bg-brand-hover: var(--color-brand-transparent-25);
+    --bg-brand-secondary: var(--color-brand-600);
+    --bg-brand-solid: var(--color-brand-500);
+    --bg-brand-solid_hover: var(--color-brand-400);
+    --bg-brand-section: var(--color-brand-200);
+    --bg-brand-section_subtle: var(--color-brand-300);
+
+    /* BACKGROUND — Class */
+    --bg-class-primary: var(--color-class-transparent-10);
+    --bg-class-primary_alt: var(--color-gray-dark-800);
+    --bg-class-hover: var(--color-class-transparent-25);
+    --bg-class-secondary: var(--color-class-600);
+    --bg-class-solid: var(--color-class-500);
+    --bg-class-solid_hover: var(--color-class-400);
+    --bg-class-section: var(--color-class-200);
+    --bg-class-section_subtle: var(--color-class-300);
+
+    /* BACKGROUND — Private */
+    --bg-private-primary: var(--color-private-transparent-10);
+    --bg-private-primary_alt: var(--color-gray-dark-800);
+    --bg-private-hover: var(--color-private-transparent-25);
+    --bg-private-secondary: var(--color-private-600);
+    --bg-private-solid: var(--color-private-500);
+    --bg-private-solid_hover: var(--color-private-400);
+    --bg-private-section: var(--color-private-200);
+    --bg-private-section_subtle: var(--color-private-300);
+
+    /* BACKGROUND — Group */
+    --bg-group-primary: var(--color-group-transparent-10);
+    --bg-group-primary_alt: var(--color-gray-dark-800);
+    --bg-group-hover: var(--color-group-transparent-25);
+    --bg-group-secondary: var(--color-group-600);
+    --bg-group-solid: var(--color-group-500);
+    --bg-group-solid_hover: var(--color-group-400);
+    --bg-group-section: var(--color-group-200);
+    --bg-group-section_subtle: var(--color-group-300);
+
+    /* BACKGROUND — Impulse */
+    --bg-impulse-primary: var(--color-impulse-transparent-10);
+    --bg-impulse-primary_alt: var(--color-gray-dark-800);
+    --bg-impulse-hover: var(--color-impulse-transparent-25);
+    --bg-impulse-secondary: var(--color-impulse-600);
+    --bg-impulse-solid: var(--color-impulse-500);
+    --bg-impulse-solid_hover: var(--color-impulse-400);
+    --bg-impulse-section: var(--color-impulse-200);
+    --bg-impulse-section_subtle: var(--color-impulse-300);
+
+    /* BACKGROUND — Semantic */
+    --bg-critical-primary: var(--color-critical-950);
+    --bg-critical-secondary: var(--color-critical-600);
+    --bg-critical-solid: var(--color-critical-500);
+    --bg-critical-solid_hover: var(--color-critical-400);
+    --bg-warning-primary: var(--color-warning-950);
+    --bg-warning-secondary: var(--color-warning-600);
+    --bg-warning-solid: var(--color-warning-500);
+    --bg-warning-solid_hover: var(--color-warning-400);
+    --bg-positive-primary: var(--color-positive-950);
+    --bg-positive-secondary: var(--color-positive-600);
+    --bg-positive-solid: var(--color-positive-500);
+    --bg-positive-solid_hover: var(--color-positive-400);
+  }
+}

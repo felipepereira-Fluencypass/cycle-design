@@ -1,0 +1,20 @@
+{
+  "name": "cycle-design",
+  "version": "1.0.0",
+  "description": "Projeto Cycle Design iniciado",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipepereira-Fluencypass/cycle-design.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felipepereira-Fluencypass/cycle-design/issues"
+  },
+  "homepage": "https://github.com/felipepereira-Fluencypass/cycle-design#readme"
+}

@@ -1,0 +1,17 @@
+/* ============================================
+   CYCLE DESIGN — BORDER WIDTH TOKENS
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     BORDER WIDTH
+     ------------------------------------------ */
+  --border-none: 0px;
+  --border-hairline: 1px;
+  --border-thin: 2px;
+  --border-thick: 4px;
+  --border-heavy: 8px;
+}

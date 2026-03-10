@@ -1,0 +1,194 @@
+/* ============================================
+   CYCLE DESIGN — COLOR PRIMITIVES
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   
+   ⚠️  Tokens primitivos — NÃO referenciar 
+   diretamente nas interfaces. Use os tokens 
+   funcionais (Colors Compositions).
+   
+   Status: COMPLETO ✓
+   11 paletas + base colors
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     BASE
+     ------------------------------------------ */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-backdrop: rgba(0, 0, 0, 0.6);
+  --color-overlay: rgba(255, 255, 255, 0.6);
+  --color-transparent: rgba(255, 255, 255, 0);
+
+  /* ------------------------------------------
+     GRAY (Light Mode)
+     ------------------------------------------ */
+  --color-gray-light-25: #FDFDFD;
+  --color-gray-light-50: #FAFAFA;
+  --color-gray-light-100: #F5F5F5;
+  --color-gray-light-200: #E9EAEB;
+  --color-gray-light-300: #D5D7DA;
+  --color-gray-light-400: #A4A7AE;
+  --color-gray-light-500: #717680;
+  --color-gray-light-600: #535862;
+  --color-gray-light-700: #414651;
+  --color-gray-light-800: #252B37;
+  --color-gray-light-900: #181D27;
+  --color-gray-light-950: #0D0D12;
+
+  /* ------------------------------------------
+     GRAY (Dark Mode)
+     ------------------------------------------ */
+  --color-gray-dark-25: #FAFAFA;
+  --color-gray-dark-50: #F7F7F7;
+  --color-gray-dark-100: #F0F0F1;
+  --color-gray-dark-200: #ECECED;
+  --color-gray-dark-300: #CECFD2;
+  --color-gray-dark-400: #94979C;
+  --color-gray-dark-500: #85888E;
+  --color-gray-dark-600: #61656C;
+  --color-gray-dark-700: #373A41;
+  --color-gray-dark-800: #22262F;
+  --color-gray-dark-900: #13161B;
+  --color-gray-dark-950: #0C0E12;
+
+  /* ------------------------------------------
+     BRAND
+     ------------------------------------------ */
+  --color-brand-25: #FFF5F5;
+  --color-brand-50: #FFE8E8;
+  --color-brand-100: #FFD0D1;
+  --color-brand-200: #FFB0B2;
+  --color-brand-300: #FF8A8D;
+  --color-brand-400: #F57B7E;
+  --color-brand-500: #ED6A6D;
+  --color-brand-600: #D45558;
+  --color-brand-700: #B33E41;
+  --color-brand-800: #8C2D2F;
+  --color-brand-900: #6B1E20;
+  --color-brand-950: #4A1214;
+  --color-brand-transparent-10: rgba(237, 106, 109, 0.1);
+  --color-brand-transparent-25: rgba(237, 106, 109, 0.3);
+
+  /* ------------------------------------------
+     CLASS
+     ------------------------------------------ */
+  --color-class-25: #F0F5FF;
+  --color-class-50: #E0EBFF;
+  --color-class-100: #C2D6FF;
+  --color-class-200: #99BBFF;
+  --color-class-300: #70A0FF;
+  --color-class-400: #4D8AFF;
+  --color-class-500: #2E74FF;
+  --color-class-600: #1A5FE0;
+  --color-class-700: #0F4BBC;
+  --color-class-800: #0A3590;
+  --color-class-900: #062268;
+  --color-class-950: #031244;
+  --color-class-transparent-10: rgba(46, 116, 255, 0.1);
+  --color-class-transparent-25: rgba(46, 116, 255, 0.3);
+
+  /* ------------------------------------------
+     PRIVATE
+     ------------------------------------------ */
+  --color-private-25: #FFF6F0;
+  --color-private-50: #FFEDE0;
+  --color-private-100: #FFD9C2;
+  --color-private-200: #FFC09A;
+  --color-private-300: #FFA570;
+  --color-private-400: #FF9158;
+  --color-private-500: #FF8041;
+  --color-private-600: #E56530;
+  --color-private-700: #BF4D20;
+  --color-private-800: #993A16;
+  --color-private-900: #73270E;
+  --color-private-950: #4D1608;
+  --color-private-transparent-10: rgba(255, 128, 65, 0.1);
+  --color-private-transparent-25: rgba(255, 128, 65, 0.25);
+
+  /* ------------------------------------------
+     GROUP
+     ------------------------------------------ */
+  --color-group-25: #F0FFF4;
+  --color-group-50: #E0FFE9;
+  --color-group-100: #B8FFD0;
+  --color-group-200: #80FFB0;
+  --color-group-300: #47FF8A;
+  --color-group-400: #1AFF61;
+  --color-group-500: #00E73E;
+  --color-group-600: #00C234;
+  --color-group-700: #009929;
+  --color-group-800: #00731E;
+  --color-group-900: #004D14;
+  --color-group-950: #00330D;
+  --color-group-transparent-10: rgba(0, 231, 62, 0.1);
+  --color-group-transparent-25: rgba(0, 231, 62, 0.25);
+
+  /* ------------------------------------------
+     IMPULSE
+     ------------------------------------------ */
+  --color-impulse-25: #FCF0FF;
+  --color-impulse-50: #F7E0FF;
+  --color-impulse-100: #EFC2FF;
+  --color-impulse-200: #E29AFF;
+  --color-impulse-300: #D070FF;
+  --color-impulse-400: #B844FF;
+  --color-impulse-500: #9810FA;
+  --color-impulse-600: #7D0DD4;
+  --color-impulse-700: #6209A8;
+  --color-impulse-800: #48077C;
+  --color-impulse-900: #300550;
+  --color-impulse-950: #1E0334;
+  --color-impulse-transparent-10: rgba(152, 16, 250, 0.1);
+  --color-impulse-transparent-25: rgba(152, 16, 250, 0.25);
+
+  /* ------------------------------------------
+     POSITIVE
+     ------------------------------------------ */
+  --color-positive-25: #F0FDF7;
+  --color-positive-50: #E0FAF0;
+  --color-positive-100: #B8F2D9;
+  --color-positive-200: #80E8BC;
+  --color-positive-300: #47D99E;
+  --color-positive-400: #1EC485;
+  --color-positive-500: #0BA370;
+  --color-positive-600: #098A5E;
+  --color-positive-700: #07704C;
+  --color-positive-800: #05523A;
+  --color-positive-900: #033526;
+  --color-positive-950: #022318;
+
+  /* ------------------------------------------
+     WARNING
+     ------------------------------------------ */
+  --color-warning-25: #FFFBF0;
+  --color-warning-50: #FFF5D9;
+  --color-warning-100: #FEEAB0;
+  --color-warning-200: #FEDD80;
+  --color-warning-300: #FECF50;
+  --color-warning-400: #FDC028;
+  --color-warning-500: #F5A800;
+  --color-warning-600: #D48E00;
+  --color-warning-700: #AA7200;
+  --color-warning-800: #7D5400;
+  --color-warning-900: #523800;
+  --color-warning-950: #332300;
+
+  /* ------------------------------------------
+     CRITICAL
+     ------------------------------------------ */
+  --color-critical-25: #FFF5F5;
+  --color-critical-50: #FFE8E8;
+  --color-critical-100: #FFD0D0;
+  --color-critical-200: #FFB0B0;
+  --color-critical-300: #FF8585;
+  --color-critical-400: #ED5555;
+  --color-critical-500: #D42B2B;
+  --color-critical-600: #B32020;
+  --color-critical-700: #8F1717;
+  --color-critical-800: #6B1010;
+  --color-critical-900: #470A0A;
+  --color-critical-950: #2E0606;
+}

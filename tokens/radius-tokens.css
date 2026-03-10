@@ -1,0 +1,21 @@
+/* ============================================
+   CYCLE DESIGN — BORDER RADIUS TOKENS
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     BORDER RADIUS
+     ------------------------------------------ */
+  --radius-none: 0px;
+  --radius-xs: 4px;       /* 0.25rem */
+  --radius-sm: 8px;       /* 0.5rem */
+  --radius-md: 12px;      /* 0.75rem */
+  --radius-lg: 16px;      /* 1rem */
+  --radius-xl: 20px;      /* 1.25rem */
+  --radius-xxl: 24px;     /* 1.5rem */
+  --radius-pill: 500px;   /* Formato pill/capsule */
+  --radius-circular: 1000px; /* Círculo perfeito */
+}

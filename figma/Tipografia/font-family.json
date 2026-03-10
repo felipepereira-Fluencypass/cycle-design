@@ -1,0 +1,53 @@
+{
+  "font-family-body": {
+    "$type": "string",
+    "$value": "Open Sans",
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4141:735",
+      "com.figma.scopes": [
+        "FONT_FAMILY"
+      ],
+      "com.figma.type": "string",
+      "com.figma.isOverride": true
+    }
+  },
+  "font-family-headline": {
+    "$type": "string",
+    "$value": "Open Sans",
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4141:734",
+      "com.figma.scopes": [
+        "FONT_FAMILY"
+      ],
+      "com.figma.type": "string",
+      "com.figma.isOverride": true
+    }
+  },
+  "font-family-display": {
+    "$type": "string",
+    "$value": "Open Sans",
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4141:835",
+      "com.figma.scopes": [
+        "FONT_FAMILY"
+      ],
+      "com.figma.type": "string",
+      "com.figma.isOverride": true
+    }
+  },
+  "font-family-mono": {
+    "$type": "string",
+    "$value": "Fira Code",
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4141:736",
+      "com.figma.scopes": [
+        "FONT_FAMILY"
+      ],
+      "com.figma.type": "string",
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

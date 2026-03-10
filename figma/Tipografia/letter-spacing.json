@@ -1,0 +1,16 @@
+{
+  "letter-spacing-none": {
+    "$type": "number",
+    "$value": 0,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4157:366",
+      "com.figma.scopes": [
+        "LETTER_SPACING"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

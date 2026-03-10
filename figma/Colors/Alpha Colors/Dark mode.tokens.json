@@ -1,0 +1,83 @@
+{
+  "backdrop": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0,
+        0,
+        0
+      ],
+      "alpha": 0.6000000238418579,
+      "hex": "#000000"
+    },
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4282:3479",
+      "com.figma.scopes": [
+        "ALL_SCOPES"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:21b815addc62f316337ae59f6121d70b94eb1dc9/-1:-1",
+        "targetVariableName": "backdrop",
+        "targetVariableSetId": "VariableCollectionId:fba2def430fcc3896c5d2c5dd68099d0ddc9824e/-1:-1",
+        "targetVariableSetName": "Colors/Base"
+      },
+      "com.figma.isOverride": true
+    }
+  },
+  "overlay": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        1,
+        1
+      ],
+      "alpha": 0.6000000238418579,
+      "hex": "#FFFFFF"
+    },
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4282:3480",
+      "com.figma.scopes": [
+        "ALL_SCOPES"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:88935727b8f89f296ddcc64d2c5ad53c73971e8e/-1:-1",
+        "targetVariableName": "overlay",
+        "targetVariableSetId": "VariableCollectionId:fba2def430fcc3896c5d2c5dd68099d0ddc9824e/-1:-1",
+        "targetVariableSetName": "Colors/Base"
+      },
+      "com.figma.isOverride": true
+    }
+  },
+  "transparent": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        1,
+        1,
+        1
+      ],
+      "alpha": 0,
+      "hex": "#FFFFFF"
+    },
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4282:3481",
+      "com.figma.scopes": [
+        "ALL_SCOPES"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:08d67278e336dcbef091b7d106661a88c540a376/-1:-1",
+        "targetVariableName": "transparent",
+        "targetVariableSetId": "VariableCollectionId:fba2def430fcc3896c5d2c5dd68099d0ddc9824e/-1:-1",
+        "targetVariableSetName": "Colors/Base"
+      },
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Dark mode"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "font-weight-light": {
+    "$type": "number",
+    "$value": 300,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:361",
+      "com.figma.scopes": [
+        "FONT_STYLE"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "font-weight-regular": {
+    "$type": "number",
+    "$value": 400,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:362",
+      "com.figma.scopes": [
+        "FONT_STYLE"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "font-weight-semibold": {
+    "$type": "number",
+    "$value": 600,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:363",
+      "com.figma.scopes": [
+        "FONT_STYLE"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "font-weight-bold": {
+    "$type": "number",
+    "$value": 700,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:364",
+      "com.figma.scopes": [
+        "FONT_STYLE"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "font-weight-extrabold": {
+    "$type": "number",
+    "$value": 800,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:365",
+      "com.figma.scopes": [
+        "FONT_STYLE"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

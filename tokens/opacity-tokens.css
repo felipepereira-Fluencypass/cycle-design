@@ -1,0 +1,22 @@
+/* ============================================
+   CYCLE DESIGN — OPACITY TOKENS
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   
+   Valores em CSS (0 a 1).
+   Comentários com valor Figma (0 a 100%).
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     OPACITY
+     ------------------------------------------ */
+  --opacity-transparent: 0;         /* 0% */
+  --opacity-semitransparent: 0.08;  /* 8% */
+  --opacity-light: 0.16;            /* 16% */
+  --opacity-medium: 0.32;           /* 32% */
+  --opacity-intense: 0.64;          /* 64% */
+  --opacity-semiopaque: 0.72;       /* 72% */
+  --opacity-opaque: 1;              /* 100% */
+}

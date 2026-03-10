@@ -1,0 +1,277 @@
+/* ============================================
+   CYCLE DESIGN — GRID SYSTEM
+   ============================================
+   Sistema de grid responsivo baseado nos 
+   breakpoints definidos no Figma, seguindo
+   padrões de mercado (Bootstrap, Material,
+   Carbon/IBM).
+
+   Abordagem: Mobile-first
+   Tipo: Stretch (colunas flexíveis)
+   
+   Referência dos breakpoints do Figma:
+   sm: 320px  | md: 672px  | lg: 1056px
+   xl: 1312px | max: 1584px
+   ============================================ */
+
+:root {
+
+  /* ------------------------------------------
+     BREAKPOINTS
+     ------------------------------------------ */
+  --breakpoint-sm: 320px;
+  --breakpoint-md: 672px;
+  --breakpoint-lg: 1056px;
+  --breakpoint-xl: 1312px;
+  --breakpoint-max: 1584px;
+
+  /* ------------------------------------------
+     GRID — Colunas por breakpoint
+     ------------------------------------------ */
+  --grid-columns-sm: 4;
+  --grid-columns-md: 8;
+  --grid-columns-lg: 16;
+  --grid-columns-xl: 16;
+  --grid-columns-max: 16;
+
+  /* ------------------------------------------
+     GRID — Gutter (espaço entre colunas)
+     Padrão mercado: 16px mobile, 32px desktop
+     ------------------------------------------ */
+  --grid-gutter-sm: 16px;
+  --grid-gutter-md: 16px;
+  --grid-gutter-lg: 32px;
+  --grid-gutter-xl: 32px;
+  --grid-gutter-max: 32px;
+
+  /* ------------------------------------------
+     GRID — Margin (espaço nas laterais)
+     Padrão mercado: 16px mobile, cresce com tela
+     ------------------------------------------ */
+  --grid-margin-sm: 16px;
+  --grid-margin-md: 16px;
+  --grid-margin-lg: 32px;
+  --grid-margin-xl: 32px;
+  --grid-margin-max: 32px;
+
+  /* ------------------------------------------
+     PANEL (painel lateral)
+     Usado em versões "With Panel"
+     ------------------------------------------ */
+  --grid-panel-width: 256px;
+}
+
+
+/* ============================================
+   GRID CLASSES UTILITÁRIAS
+   ============================================ */
+
+/* Container responsivo */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--grid-margin-sm);
+  padding-right: var(--grid-margin-sm);
+}
+
+/* Grid base com CSS Grid */
+.grid {
+  display: grid;
+  gap: var(--grid-gutter-sm);
+  grid-template-columns: repeat(var(--grid-columns-sm), 1fr);
+}
+
+/* Span de colunas (base mobile) */
+.col-1  { grid-column: span 1; }
+.col-2  { grid-column: span 2; }
+.col-3  { grid-column: span 3; }
+.col-4  { grid-column: span 4; }
+
+
+/* ------------------------------------------
+   md — 672px+ (8 colunas, gutter 16px)
+   ------------------------------------------ */
+@media (min-width: 672px) {
+  .container {
+    max-width: var(--breakpoint-md);
+    padding-left: var(--grid-margin-md);
+    padding-right: var(--grid-margin-md);
+  }
+
+  .grid {
+    gap: var(--grid-gutter-md);
+    grid-template-columns: repeat(var(--grid-columns-md), 1fr);
+  }
+
+  .col-md-1  { grid-column: span 1; }
+  .col-md-2  { grid-column: span 2; }
+  .col-md-3  { grid-column: span 3; }
+  .col-md-4  { grid-column: span 4; }
+  .col-md-5  { grid-column: span 5; }
+  .col-md-6  { grid-column: span 6; }
+  .col-md-7  { grid-column: span 7; }
+  .col-md-8  { grid-column: span 8; }
+}
+
+
+/* ------------------------------------------
+   lg — 1056px+ (16 colunas, gutter 32px)
+   ------------------------------------------ */
+@media (min-width: 1056px) {
+  .container {
+    max-width: var(--breakpoint-lg);
+    padding-left: var(--grid-margin-lg);
+    padding-right: var(--grid-margin-lg);
+  }
+
+  .grid {
+    gap: var(--grid-gutter-lg);
+    grid-template-columns: repeat(var(--grid-columns-lg), 1fr);
+  }
+
+  .col-lg-1  { grid-column: span 1; }
+  .col-lg-2  { grid-column: span 2; }
+  .col-lg-3  { grid-column: span 3; }
+  .col-lg-4  { grid-column: span 4; }
+  .col-lg-5  { grid-column: span 5; }
+  .col-lg-6  { grid-column: span 6; }
+  .col-lg-7  { grid-column: span 7; }
+  .col-lg-8  { grid-column: span 8; }
+  .col-lg-9  { grid-column: span 9; }
+  .col-lg-10 { grid-column: span 10; }
+  .col-lg-11 { grid-column: span 11; }
+  .col-lg-12 { grid-column: span 12; }
+  .col-lg-13 { grid-column: span 13; }
+  .col-lg-14 { grid-column: span 14; }
+  .col-lg-15 { grid-column: span 15; }
+  .col-lg-16 { grid-column: span 16; }
+}
+
+
+/* ------------------------------------------
+   xl — 1312px+ (16 colunas, gutter 32px)
+   ------------------------------------------ */
+@media (min-width: 1312px) {
+  .container {
+    max-width: var(--breakpoint-xl);
+    padding-left: var(--grid-margin-xl);
+    padding-right: var(--grid-margin-xl);
+  }
+
+  .grid {
+    gap: var(--grid-gutter-xl);
+    grid-template-columns: repeat(var(--grid-columns-xl), 1fr);
+  }
+
+  .col-xl-1  { grid-column: span 1; }
+  .col-xl-2  { grid-column: span 2; }
+  .col-xl-3  { grid-column: span 3; }
+  .col-xl-4  { grid-column: span 4; }
+  .col-xl-5  { grid-column: span 5; }
+  .col-xl-6  { grid-column: span 6; }
+  .col-xl-7  { grid-column: span 7; }
+  .col-xl-8  { grid-column: span 8; }
+  .col-xl-9  { grid-column: span 9; }
+  .col-xl-10 { grid-column: span 10; }
+  .col-xl-11 { grid-column: span 11; }
+  .col-xl-12 { grid-column: span 12; }
+  .col-xl-13 { grid-column: span 13; }
+  .col-xl-14 { grid-column: span 14; }
+  .col-xl-15 { grid-column: span 15; }
+  .col-xl-16 { grid-column: span 16; }
+}
+
+
+/* ------------------------------------------
+   max — 1584px+ (16 colunas, gutter 32px)
+   ------------------------------------------ */
+@media (min-width: 1584px) {
+  .container {
+    max-width: var(--breakpoint-max);
+    padding-left: var(--grid-margin-max);
+    padding-right: var(--grid-margin-max);
+  }
+
+  .grid {
+    gap: var(--grid-gutter-max);
+    grid-template-columns: repeat(var(--grid-columns-max), 1fr);
+  }
+
+  .col-max-1  { grid-column: span 1; }
+  .col-max-2  { grid-column: span 2; }
+  .col-max-3  { grid-column: span 3; }
+  .col-max-4  { grid-column: span 4; }
+  .col-max-5  { grid-column: span 5; }
+  .col-max-6  { grid-column: span 6; }
+  .col-max-7  { grid-column: span 7; }
+  .col-max-8  { grid-column: span 8; }
+  .col-max-9  { grid-column: span 9; }
+  .col-max-10 { grid-column: span 10; }
+  .col-max-11 { grid-column: span 11; }
+  .col-max-12 { grid-column: span 12; }
+  .col-max-13 { grid-column: span 13; }
+  .col-max-14 { grid-column: span 14; }
+  .col-max-15 { grid-column: span 15; }
+  .col-max-16 { grid-column: span 16; }
+}
+
+
+/* ------------------------------------------
+   LAYOUT COM PANEL (painel lateral)
+   
+   Uso:
+   <div class="layout-with-panel">
+     <aside class="panel">...</aside>
+     <main class="content">
+       <div class="grid">...</div>
+     </main>
+   </div>
+   ------------------------------------------ */
+.layout-with-panel {
+  display: flex;
+  width: 100%;
+}
+
+.layout-with-panel .panel {
+  width: var(--grid-panel-width);
+  flex-shrink: 0;
+}
+
+.layout-with-panel .content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Com panel, lg reduz pra 8 colunas */
+@media (min-width: 1056px) {
+  .layout-with-panel .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Com panel, xl volta pra 16 colunas */
+@media (min-width: 1312px) {
+  .layout-with-panel .grid {
+    grid-template-columns: repeat(16, 1fr);
+  }
+}
+
+
+/* ============================================
+   EXEMPLO DE USO
+   ============================================
+
+   <div class="container">
+     <div class="grid">
+       <!-- Full width mobile, metade no desktop -->
+       <div class="col-4 col-md-4 col-lg-8">
+         Conteúdo
+       </div>
+       <div class="col-4 col-md-4 col-lg-8">
+         Conteúdo
+       </div>
+     </div>
+   </div>
+
+   ============================================ */

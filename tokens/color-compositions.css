@@ -1,0 +1,469 @@
+/* ============================================
+   CYCLE DESIGN — COLOR COMPOSITIONS
+   ============================================
+   Fonte: Figma Variables (exportado em JSON)
+   
+   Tokens funcionais — USE ESTES nas interfaces.
+   Cada token referencia os primitivos definidos
+   em color-primitives.css
+   
+   Theme switching via [data-theme="dark"] ou
+   prefers-color-scheme
+   
+   Status: COMPLETO ✓ (Alpha + Text + Border + Foreground)
+   Background colors em arquivo separado.
+   ============================================ */
+
+
+/* ------------------------------------------
+   LIGHT MODE (default)
+   ------------------------------------------ */
+:root,
+[data-theme="light"] {
+
+  /* ALPHA — Iguais em light e dark mode */
+  --alpha-backdrop: var(--color-backdrop);                    /* #000000 60% */
+  --alpha-overlay: var(--color-overlay);                      /* #FFFFFF 60% */
+  --alpha-transparent: var(--color-transparent);              /* #FFFFFF 0% */
+
+  /* TEXT — Base */
+  --text-primary: var(--color-gray-light-900);                /* #181D27 */
+  --text-primary_on-brand: var(--color-white);                /* #FFFFFF */
+  --text-secondary: var(--color-gray-light-700);              /* #414651 */
+  --text-secondary_hover: var(--color-gray-light-800);        /* #252B37 */
+  --text-secondary_on-brand: var(--color-brand-50);           /* #FFE8E8 */
+  --text-tertiary: var(--color-gray-light-600);               /* #535862 */
+  --text-tertiary_hover: var(--color-gray-light-700);         /* #414651 */
+  --text-tertiary_on-brand: var(--color-brand-100);           /* #FFD0D1 */
+  --text-quaternary: var(--color-gray-light-500);             /* #717680 */
+  --text-quaternary_on-brand: var(--color-brand-200);         /* #FFB0B2 */
+  --text-white: var(--color-white);                           /* #FFFFFF */
+  --text-black: var(--color-gray-light-900);                  /* #181D27 */
+  --text-disabled: var(--color-gray-light-500);               /* #717680 */
+  --text-placeholder: var(--color-gray-light-500);            /* #717680 */
+  --text-placeholder_subtle: var(--color-gray-light-300);     /* #D5D7DA */
+
+  /* TEXT — Semantic */
+  --text-critical-primary: var(--color-critical-600);         /* #B32020 */
+  --text-warning-primary: var(--color-warning-700);           /* #AA7200 */
+  --text-positive-primary: var(--color-positive-600);         /* #098A5E */
+
+  /* TEXT — Brand */
+  --text-brand-primary: var(--color-brand-600);               /* #D45558 */
+  --text-brand-secondary: var(--color-brand-800);             /* #8C2D2F */
+  --text-brand-secondary_hover: var(--color-brand-900);       /* #6B1E20 */
+  --text-brand-tertiary: var(--color-brand-900);              /* #6B1E20 */
+  --text-brand-tertiary_alt: var(--color-brand-950);          /* #4A1214 */
+
+  /* TEXT — Class */
+  --text-class-primary: var(--color-class-600);               /* #1A5FE0 */
+  --text-class-secondary: var(--color-class-800);             /* #0A3590 */
+  --text-class-secondary_hover: var(--color-class-900);       /* #062268 */
+  --text-class-tertiary: var(--color-class-900);              /* #062268 */
+  --text-class-tertiary_alt: var(--color-class-950);          /* #031244 */
+
+  /* TEXT — Private */
+  --text-private-primary: var(--color-private-600);           /* #E56530 */
+  --text-private-secondary: var(--color-private-800);         /* #993A16 */
+  --text-private-secondary_hover: var(--color-private-900);   /* #73270E */
+  --text-private-tertiary: var(--color-private-900);          /* #73270E */
+  --text-private-tertiary_alt: var(--color-private-950);      /* #4D1608 */
+
+  /* TEXT — Group */
+  --text-group-primary: var(--color-group-600);               /* #00C234 */
+  --text-group-secondary: var(--color-group-800);             /* #00731E */
+  --text-group-secondary_hover: var(--color-group-900);       /* #004D14 */
+  --text-group-tertiary: var(--color-group-900);              /* #004D14 */
+  --text-group-tertiary_alt: var(--color-group-950);          /* #00330D */
+
+  /* TEXT — Impulse */
+  --text-impulse-primary: var(--color-impulse-600);           /* #7D0DD4 */
+  --text-impulse-secondary: var(--color-impulse-800);         /* #48077C */
+  --text-impulse-secondary_hover: var(--color-impulse-900);   /* #300550 */
+  --text-impulse-tertiary: var(--color-impulse-900);          /* #300550 */
+  --text-impulse-tertiary_alt: var(--color-impulse-950);      /* #1E0334 */
+
+  /* BORDER — Base */
+  --border-primary: var(--color-gray-light-300);              /* #D5D7DA */
+  --border-secondary: var(--color-gray-light-200);            /* #E9EAEB */
+  --border-tertiary: var(--color-gray-light-100);             /* #F5F5F5 */
+  --border-quaternary: var(--color-gray-light-400);           /* #A4A7AE */
+  --border-disabled: var(--color-gray-light-300);             /* #D5D7DA */
+  --border-disabled_subtle: var(--color-gray-light-200);      /* #E9EAEB */
+
+  /* BORDER — Brand */
+  --border-brand: var(--color-brand-500);                     /* #ED6A6D */
+  --border-brand_hover: var(--color-brand-700);               /* #B33E41 */
+  --border-brand_alt: var(--color-brand-600);                 /* #D45558 */
+
+  /* BORDER — Class */
+  --border-class: var(--color-class-500);                     /* #2E74FF */
+  --border-class_hover: var(--color-class-700);               /* #0F4BBC */
+  --border-class_alt: var(--color-class-600);                 /* #1A5FE0 */
+
+  /* BORDER — Private */
+  --border-private: var(--color-private-500);                 /* #FF8041 */
+  --border-private_hover: var(--color-private-700);           /* #BF4D20 */
+  --border-private_alt: var(--color-private-600);             /* #E56530 */
+
+  /* BORDER — Group */
+  --border-group: var(--color-group-500);                     /* #00E73E */
+  --border-group_hover: var(--color-group-700);               /* #009929 */
+  --border-group_alt: var(--color-group-600);                 /* #00C234 */
+
+  /* BORDER — Impulse */
+  --border-impulse: var(--color-impulse-500);                 /* #9810FA */
+  --border-impulse_hover: var(--color-impulse-700);           /* #6209A8 */
+  --border-impulse_alt: var(--color-impulse-600);             /* #7D0DD4 */
+
+  /* FOREGROUND — Base */
+  --fg-primary: var(--color-gray-light-900);                  /* #181D27 */
+  --fg-secondary: var(--color-gray-light-700);                /* #414651 */
+  --fg-secondary_hover: var(--color-gray-light-800);          /* #252B37 */
+  --fg-tertiary: var(--color-gray-light-600);                 /* #535862 */
+  --fg-tertiary_hover: var(--color-gray-light-700);           /* #414651 */
+  --fg-quaternary: var(--color-gray-light-400);               /* #A4A7AE */
+  --fg-quaternary_hover: var(--color-gray-light-500);         /* #717680 */
+  --fg-white: var(--color-white);                             /* #FFFFFF */
+  --fg-disabled: var(--color-gray-light-400);                 /* #A4A7AE */
+  --fg-disabled_subtle: var(--color-gray-light-300);          /* #D5D7DA */
+
+  /* FOREGROUND — Brand */
+  --fg-brand-primary: var(--color-brand-600);                 /* #D45558 */
+  --fg-brand-primary_alt: var(--color-brand-600);             /* #D45558 */
+  --fg-brand-secondary: var(--color-brand-500);               /* #ED6A6D */
+  --fg-brand-secondary_alt: var(--color-brand-500);           /* #ED6A6D */
+
+  /* FOREGROUND — Class */
+  --fg-class-primary: var(--color-class-600);                 /* #1A5FE0 */
+  --fg-class-primary_alt: var(--color-class-600);             /* #1A5FE0 */
+  --fg-class-secondary: var(--color-class-500);               /* #2E74FF */
+  --fg-class-secondary_alt: var(--color-class-500);           /* #2E74FF */
+
+  /* FOREGROUND — Private */
+  --fg-private-primary: var(--color-private-600);             /* #E56530 */
+  --fg-private-primary_alt: var(--color-private-600);         /* #E56530 */
+  --fg-private-secondary: var(--color-private-500);           /* #FF8041 */
+  --fg-private-secondary_alt: var(--color-private-500);       /* #FF8041 */
+
+  /* FOREGROUND — Group */
+  --fg-group-primary: var(--color-group-600);                 /* #00C234 */
+  --fg-group-primary_alt: var(--color-group-600);             /* #00C234 */
+  --fg-group-secondary: var(--color-group-500);               /* #00E73E */
+  --fg-group-secondary_alt: var(--color-group-500);           /* #00E73E */
+
+  /* FOREGROUND — Impulse */
+  --fg-impulse-primary: var(--color-impulse-600);             /* #7D0DD4 */
+  --fg-impulse-primary_alt: var(--color-impulse-600);         /* #7D0DD4 */
+  --fg-impulse-secondary: var(--color-impulse-500);           /* #9810FA */
+  --fg-impulse-secondary_alt: var(--color-impulse-500);       /* #9810FA */
+
+  /* FOREGROUND — Semantic */
+  --fg-critical-primary: var(--color-critical-600);           /* #B32020 */
+  --fg-critical-secondary: var(--color-critical-500);         /* #D42B2B */
+  --fg-warning-primary: var(--color-warning-600);             /* #D48E00 */
+  --fg-warning-secondary: var(--color-warning-500);           /* #F5A800 */
+  --fg-positive-primary: var(--color-positive-600);           /* #098A5E */
+  --fg-positive-secondary: var(--color-positive-500);         /* #0BA370 */
+}
+
+
+/* ------------------------------------------
+   DARK MODE
+   ------------------------------------------ */
+[data-theme="dark"] {
+
+  /* ALPHA — Iguais em light e dark mode */
+  --alpha-backdrop: var(--color-backdrop);                    /* #000000 60% */
+  --alpha-overlay: var(--color-overlay);                      /* #FFFFFF 60% */
+  --alpha-transparent: var(--color-transparent);              /* #FFFFFF 0% */
+
+  /* TEXT — Base */
+  --text-primary: var(--color-gray-dark-50);                  /* #F7F7F7 */
+  --text-primary_on-brand: var(--color-brand-25);             /* #FFF5F5 */
+  --text-secondary: var(--color-gray-dark-300);               /* #CECFD2 */
+  --text-secondary_hover: var(--color-gray-dark-200);         /* #ECECED */
+  --text-secondary_on-brand: var(--color-brand-50);           /* #FFE8E8 */
+  --text-tertiary: var(--color-gray-dark-400);                /* #94979C */
+  --text-tertiary_hover: var(--color-gray-dark-300);          /* #CECFD2 */
+  --text-tertiary_on-brand: var(--color-brand-100);           /* #FFD0D1 */
+  --text-quaternary: var(--color-gray-dark-500);              /* #85888E */
+  --text-quaternary_on-brand: var(--color-brand-200);         /* #FFB0B2 */
+  --text-white: var(--color-gray-dark-50);                    /* #F7F7F7 */
+  --text-black: var(--color-gray-dark-900);                   /* #13161B */
+  --text-disabled: var(--color-gray-dark-500);                /* #85888E */
+  --text-placeholder: var(--color-gray-dark-400);             /* #94979C */
+  --text-placeholder_subtle: var(--color-gray-dark-700);      /* #373A41 */
+
+  /* TEXT — Semantic */
+  --text-critical-primary: var(--color-critical-400);         /* #ED5555 */
+  --text-warning-primary: var(--color-warning-300);           /* #FECF50 */
+  --text-positive-primary: var(--color-positive-400);         /* #1EC485 */
+
+  /* TEXT — Brand */
+  --text-brand-primary: var(--color-brand-400);               /* #F57B7E */
+  --text-brand-secondary: var(--color-brand-200);             /* #FFB0B2 */
+  --text-brand-secondary_hover: var(--color-brand-100);       /* #FFD0D1 */
+  --text-brand-tertiary: var(--color-brand-100);              /* #FFD0D1 */
+  --text-brand-tertiary_alt: var(--color-brand-50);           /* #FFE8E8 */
+
+  /* TEXT — Class */
+  --text-class-primary: var(--color-class-400);               /* #4D8AFF */
+  --text-class-secondary: var(--color-class-200);             /* #99BBFF */
+  --text-class-secondary_hover: var(--color-class-100);       /* #C2D6FF */
+  --text-class-tertiary: var(--color-class-100);              /* #C2D6FF */
+  --text-class-tertiary_alt: var(--color-class-50);           /* #E0EBFF */
+
+  /* TEXT — Private */
+  --text-private-primary: var(--color-private-400);           /* #FF9158 */
+  --text-private-secondary: var(--color-private-200);         /* #FFC09A */
+  --text-private-secondary_hover: var(--color-private-100);   /* #FFD9C2 */
+  --text-private-tertiary: var(--color-private-100);          /* #FFD9C2 */
+  --text-private-tertiary_alt: var(--color-private-50);       /* #FFEDE0 */
+
+  /* TEXT — Group */
+  --text-group-primary: var(--color-group-400);               /* #1AFF61 */
+  --text-group-secondary: var(--color-group-200);             /* #80FFB0 */
+  --text-group-secondary_hover: var(--color-group-100);       /* #B8FFD0 */
+  --text-group-tertiary: var(--color-group-100);              /* #B8FFD0 */
+  --text-group-tertiary_alt: var(--color-group-50);           /* #E0FFE9 */
+
+  /* TEXT — Impulse */
+  --text-impulse-primary: var(--color-impulse-400);           /* #B844FF */
+  --text-impulse-secondary: var(--color-impulse-200);         /* #E29AFF */
+  --text-impulse-secondary_hover: var(--color-impulse-100);   /* #EFC2FF */
+  --text-impulse-tertiary: var(--color-impulse-100);          /* #EFC2FF */
+  --text-impulse-tertiary_alt: var(--color-impulse-50);       /* #F7E0FF */
+
+  /* BORDER — Base */
+  --border-primary: var(--color-gray-dark-700);               /* #373A41 */
+  --border-secondary: var(--color-gray-dark-800);             /* #22262F */
+  --border-tertiary: var(--color-gray-dark-800);              /* #22262F */
+  --border-quaternary: var(--color-gray-dark-600);            /* #61656C */
+  --border-disabled: var(--color-gray-dark-700);              /* #373A41 */
+  --border-disabled_subtle: var(--color-gray-dark-800);       /* #22262F */
+
+  /* BORDER — Brand */
+  --border-brand: var(--color-brand-400);                     /* #F57B7E */
+  --border-brand_hover: var(--color-brand-200);               /* #FFB0B2 */
+  --border-brand_alt: var(--color-brand-300);                 /* #FF8A8D */
+
+  /* BORDER — Class */
+  --border-class: var(--color-class-400);                     /* #4D8AFF */
+  --border-class_hover: var(--color-class-200);               /* #99BBFF */
+  --border-class_alt: var(--color-class-300);                 /* #70A0FF */
+
+  /* BORDER — Private */
+  --border-private: var(--color-private-400);                 /* #FF9158 */
+  --border-private_hover: var(--color-private-200);           /* #FFC09A */
+  --border-private_alt: var(--color-private-300);             /* #FFA570 */
+
+  /* BORDER — Group */
+  --border-group: var(--color-group-400);                     /* #1AFF61 */
+  --border-group_hover: var(--color-group-200);               /* #80FFB0 */
+  --border-group_alt: var(--color-group-300);                 /* #47FF8A */
+
+  /* BORDER — Impulse */
+  --border-impulse: var(--color-impulse-400);                 /* #B844FF */
+  --border-impulse_hover: var(--color-impulse-200);           /* #E29AFF */
+  --border-impulse_alt: var(--color-impulse-300);             /* #D070FF */
+
+  /* FOREGROUND — Base */
+  --fg-primary: var(--color-white);                           /* #FFFFFF */
+  --fg-secondary: var(--color-gray-dark-300);                 /* #CECFD2 */
+  --fg-secondary_hover: var(--color-gray-dark-200);           /* #ECECED */
+  --fg-tertiary: var(--color-gray-dark-400);                  /* #94979C */
+  --fg-tertiary_hover: var(--color-gray-dark-300);            /* #CECFD2 */
+  --fg-quaternary: var(--color-gray-dark-600);                /* #61656C */
+  --fg-quaternary_hover: var(--color-gray-dark-500);          /* #85888E */
+  --fg-white: var(--color-white);                             /* #FFFFFF */
+  --fg-disabled: var(--color-gray-dark-500);                  /* #85888E */
+  --fg-disabled_subtle: var(--color-gray-dark-600);           /* #61656C */
+
+  /* FOREGROUND — Brand */
+  --fg-brand-primary: var(--color-brand-500);                 /* #ED6A6D */
+  --fg-brand-primary_alt: var(--color-gray-dark-300);         /* #CECFD2 */
+  --fg-brand-secondary: var(--color-brand-400);               /* #F57B7E */
+  --fg-brand-secondary_alt: var(--color-gray-dark-600);       /* #61656C */
+
+  /* FOREGROUND — Class */
+  --fg-class-primary: var(--color-class-500);                 /* #2E74FF */
+  --fg-class-primary_alt: var(--color-gray-dark-300);         /* #CECFD2 */
+  --fg-class-secondary: var(--color-class-400);               /* #4D8AFF */
+  --fg-class-secondary_alt: var(--color-gray-dark-600);       /* #61656C */
+
+  /* FOREGROUND — Private */
+  --fg-private-primary: var(--color-private-500);             /* #FF8041 */
+  --fg-private-primary_alt: var(--color-gray-dark-300);       /* #CECFD2 */
+  --fg-private-secondary: var(--color-private-400);           /* #FF9158 */
+  --fg-private-secondary_alt: var(--color-gray-dark-600);     /* #61656C */
+
+  /* FOREGROUND — Group */
+  --fg-group-primary: var(--color-group-500);                 /* #00E73E */
+  --fg-group-primary_alt: var(--color-gray-dark-300);         /* #CECFD2 */
+  --fg-group-secondary: var(--color-group-400);               /* #1AFF61 */
+  --fg-group-secondary_alt: var(--color-gray-dark-600);       /* #61656C */
+
+  /* FOREGROUND — Impulse */
+  --fg-impulse-primary: var(--color-impulse-500);             /* #9810FA */
+  --fg-impulse-primary_alt: var(--color-gray-dark-300);       /* #CECFD2 */
+  --fg-impulse-secondary: var(--color-impulse-400);           /* #B844FF */
+  --fg-impulse-secondary_alt: var(--color-gray-dark-600);     /* #61656C */
+
+  /* FOREGROUND — Semantic */
+  --fg-critical-primary: var(--color-critical-500);           /* #D42B2B */
+  --fg-critical-secondary: var(--color-critical-400);         /* #ED5555 */
+  --fg-warning-primary: var(--color-warning-500);             /* #F5A800 */
+  --fg-warning-secondary: var(--color-warning-400);           /* #FDC028 */
+  --fg-positive-primary: var(--color-positive-500);           /* #0BA370 */
+  --fg-positive-secondary: var(--color-positive-400);         /* #1EC485 */
+}
+
+
+/* ------------------------------------------
+   AUTO DARK MODE (prefers-color-scheme)
+   ------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+
+    /* TEXT — Base */
+    --text-primary: var(--color-gray-dark-50);
+    --text-primary_on-brand: var(--color-brand-25);
+    --text-secondary: var(--color-gray-dark-300);
+    --text-secondary_hover: var(--color-gray-dark-200);
+    --text-secondary_on-brand: var(--color-brand-50);
+    --text-tertiary: var(--color-gray-dark-400);
+    --text-tertiary_hover: var(--color-gray-dark-300);
+    --text-tertiary_on-brand: var(--color-brand-100);
+    --text-quaternary: var(--color-gray-dark-500);
+    --text-quaternary_on-brand: var(--color-brand-200);
+    --text-white: var(--color-gray-dark-50);
+    --text-black: var(--color-gray-dark-900);
+    --text-disabled: var(--color-gray-dark-500);
+    --text-placeholder: var(--color-gray-dark-400);
+    --text-placeholder_subtle: var(--color-gray-dark-700);
+
+    /* TEXT — Semantic */
+    --text-critical-primary: var(--color-critical-400);
+    --text-warning-primary: var(--color-warning-300);
+    --text-positive-primary: var(--color-positive-400);
+
+    /* TEXT — Brand */
+    --text-brand-primary: var(--color-brand-400);
+    --text-brand-secondary: var(--color-brand-200);
+    --text-brand-secondary_hover: var(--color-brand-100);
+    --text-brand-tertiary: var(--color-brand-100);
+    --text-brand-tertiary_alt: var(--color-brand-50);
+
+    /* TEXT — Class */
+    --text-class-primary: var(--color-class-400);
+    --text-class-secondary: var(--color-class-200);
+    --text-class-secondary_hover: var(--color-class-100);
+    --text-class-tertiary: var(--color-class-100);
+    --text-class-tertiary_alt: var(--color-class-50);
+
+    /* TEXT — Private */
+    --text-private-primary: var(--color-private-400);
+    --text-private-secondary: var(--color-private-200);
+    --text-private-secondary_hover: var(--color-private-100);
+    --text-private-tertiary: var(--color-private-100);
+    --text-private-tertiary_alt: var(--color-private-50);
+
+    /* TEXT — Group */
+    --text-group-primary: var(--color-group-400);
+    --text-group-secondary: var(--color-group-200);
+    --text-group-secondary_hover: var(--color-group-100);
+    --text-group-tertiary: var(--color-group-100);
+    --text-group-tertiary_alt: var(--color-group-50);
+
+    /* TEXT — Impulse */
+    --text-impulse-primary: var(--color-impulse-400);
+    --text-impulse-secondary: var(--color-impulse-200);
+    --text-impulse-secondary_hover: var(--color-impulse-100);
+    --text-impulse-tertiary: var(--color-impulse-100);
+    --text-impulse-tertiary_alt: var(--color-impulse-50);
+
+    /* BORDER — Base */
+    --border-primary: var(--color-gray-dark-700);
+    --border-secondary: var(--color-gray-dark-800);
+    --border-tertiary: var(--color-gray-dark-800);
+    --border-quaternary: var(--color-gray-dark-600);
+    --border-disabled: var(--color-gray-dark-700);
+    --border-disabled_subtle: var(--color-gray-dark-800);
+
+    /* BORDER — Brand */
+    --border-brand: var(--color-brand-400);
+    --border-brand_hover: var(--color-brand-200);
+    --border-brand_alt: var(--color-brand-300);
+
+    /* BORDER — Class */
+    --border-class: var(--color-class-400);
+    --border-class_hover: var(--color-class-200);
+    --border-class_alt: var(--color-class-300);
+
+    /* BORDER — Private */
+    --border-private: var(--color-private-400);
+    --border-private_hover: var(--color-private-200);
+    --border-private_alt: var(--color-private-300);
+
+    /* BORDER — Group */
+    --border-group: var(--color-group-400);
+    --border-group_hover: var(--color-group-200);
+    --border-group_alt: var(--color-group-300);
+
+    /* BORDER — Impulse */
+    --border-impulse: var(--color-impulse-400);
+    --border-impulse_hover: var(--color-impulse-200);
+    --border-impulse_alt: var(--color-impulse-300);
+
+    /* FOREGROUND — Base */
+    --fg-primary: var(--color-white);
+    --fg-secondary: var(--color-gray-dark-300);
+    --fg-secondary_hover: var(--color-gray-dark-200);
+    --fg-tertiary: var(--color-gray-dark-400);
+    --fg-tertiary_hover: var(--color-gray-dark-300);
+    --fg-quaternary: var(--color-gray-dark-600);
+    --fg-quaternary_hover: var(--color-gray-dark-500);
+    --fg-white: var(--color-white);
+    --fg-disabled: var(--color-gray-dark-500);
+    --fg-disabled_subtle: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Brand */
+    --fg-brand-primary: var(--color-brand-500);
+    --fg-brand-primary_alt: var(--color-gray-dark-300);
+    --fg-brand-secondary: var(--color-brand-400);
+    --fg-brand-secondary_alt: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Class */
+    --fg-class-primary: var(--color-class-500);
+    --fg-class-primary_alt: var(--color-gray-dark-300);
+    --fg-class-secondary: var(--color-class-400);
+    --fg-class-secondary_alt: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Private */
+    --fg-private-primary: var(--color-private-500);
+    --fg-private-primary_alt: var(--color-gray-dark-300);
+    --fg-private-secondary: var(--color-private-400);
+    --fg-private-secondary_alt: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Group */
+    --fg-group-primary: var(--color-group-500);
+    --fg-group-primary_alt: var(--color-gray-dark-300);
+    --fg-group-secondary: var(--color-group-400);
+    --fg-group-secondary_alt: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Impulse */
+    --fg-impulse-primary: var(--color-impulse-500);
+    --fg-impulse-primary_alt: var(--color-gray-dark-300);
+    --fg-impulse-secondary: var(--color-impulse-400);
+    --fg-impulse-secondary_alt: var(--color-gray-dark-600);
+
+    /* FOREGROUND — Semantic */
+    --fg-critical-primary: var(--color-critical-500);
+    --fg-critical-secondary: var(--color-critical-400);
+    --fg-warning-primary: var(--color-warning-500);
+    --fg-warning-secondary: var(--color-warning-400);
+    --fg-positive-primary: var(--color-positive-500);
+    --fg-positive-secondary: var(--color-positive-400);
+  }
+}

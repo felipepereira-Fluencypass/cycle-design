@@ -1,0 +1,130 @@
+/* ============================================
+   CYCLE DESIGN — GRADIENTS
+   ============================================
+   Fonte: Figma (extraído via API)
+   
+   Referenciando primitivos de color-primitives.css
+   
+   COMO USAR:
+   Os tokens definem as cores com direção padrão
+   (to left / 270deg). Para alterar o ângulo em
+   um componente específico, use as cores do 
+   gradient diretamente:
+   
+   .meu-componente {
+     background: linear-gradient(
+       135deg,
+       var(--color-brand-900),
+       var(--color-brand-500)
+     );
+   }
+   ============================================ */
+
+
+/* ------------------------------------------
+   LIGHT MODE (default)
+   ------------------------------------------ */
+:root,
+[data-theme="light"] {
+
+  /* GRAY GRADIENTS — Escuros */
+  --gradient-gray-500-600: linear-gradient(to left, var(--color-gray-light-600), var(--color-gray-light-500));
+  --gradient-gray-600-700: linear-gradient(to left, var(--color-gray-light-700), var(--color-gray-light-600));
+  --gradient-gray-600-800: linear-gradient(to left, var(--color-gray-light-800), var(--color-gray-light-600));
+  --gradient-gray-700-800: linear-gradient(to left, var(--color-gray-light-800), var(--color-gray-light-700));
+  --gradient-gray-600-900: linear-gradient(to left, var(--color-gray-light-900), var(--color-gray-light-600));
+  --gradient-gray-700-900: linear-gradient(to left, var(--color-gray-light-900), var(--color-gray-light-700));
+
+  /* GRAY GRADIENTS — Claros */
+  --gradient-gray-50-white: linear-gradient(to left, var(--color-gray-light-50), var(--color-white));
+  --gradient-gray-100-white: linear-gradient(to left, var(--color-gray-light-100), var(--color-white));
+  --gradient-gray-100-25: linear-gradient(to left, var(--color-gray-light-100), var(--color-gray-light-25));
+  --gradient-gray-100-50: linear-gradient(to left, var(--color-gray-light-100), var(--color-gray-light-50));
+  --gradient-gray-200-25: linear-gradient(to left, var(--color-gray-light-200), var(--color-gray-light-25));
+  --gradient-gray-200-50: linear-gradient(to left, var(--color-gray-light-200), var(--color-gray-light-50));
+  --gradient-gray-200-100: linear-gradient(to left, var(--color-gray-light-200), var(--color-gray-light-100));
+
+  /* BRAND GRADIENT */
+  --gradient-brand: linear-gradient(to left, var(--color-brand-900), var(--color-brand-500));
+
+  /* CLASS GRADIENT */
+  --gradient-class: linear-gradient(to left, var(--color-class-900), var(--color-class-500));
+
+  /* PRIVATE GRADIENT */
+  --gradient-private: linear-gradient(to left, var(--color-private-900), var(--color-private-500));
+
+  /* GROUP GRADIENT */
+  --gradient-group: linear-gradient(to left, var(--color-group-900), var(--color-group-500));
+
+  /* IMPULSE GRADIENT */
+  --gradient-impulse: linear-gradient(to left, var(--color-impulse-900), var(--color-impulse-500));
+}
+
+
+/* ------------------------------------------
+   DARK MODE
+   ------------------------------------------ */
+[data-theme="dark"] {
+
+  /* GRAY GRADIENTS — Escuros */
+  --gradient-gray-500-600: linear-gradient(to left, var(--color-gray-dark-600), var(--color-gray-dark-500));
+  --gradient-gray-600-700: linear-gradient(to left, var(--color-gray-dark-700), var(--color-gray-dark-600));
+  --gradient-gray-600-800: linear-gradient(to left, var(--color-gray-dark-800), var(--color-gray-dark-700));
+  --gradient-gray-700-800: linear-gradient(to left, var(--color-gray-dark-800), var(--color-gray-dark-700));
+  --gradient-gray-600-900: linear-gradient(to left, var(--color-gray-dark-900), var(--color-gray-dark-600));
+  --gradient-gray-700-900: linear-gradient(to left, var(--color-gray-dark-900), var(--color-gray-dark-700));
+
+  /* GRAY GRADIENTS — Claros */
+  --gradient-gray-50-white: linear-gradient(to left, var(--color-gray-dark-50), var(--color-white));
+  --gradient-gray-100-white: linear-gradient(to left, var(--color-gray-dark-100), var(--color-white));
+  --gradient-gray-100-25: linear-gradient(to left, var(--color-gray-dark-100), var(--color-gray-dark-25));
+  --gradient-gray-100-50: linear-gradient(to left, var(--color-gray-dark-100), var(--color-gray-dark-50));
+  --gradient-gray-200-25: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-25));
+  --gradient-gray-200-50: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-50));
+  --gradient-gray-200-100: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-100));
+
+  /* BRAND GRADIENT */
+  --gradient-brand: linear-gradient(to left, var(--color-brand-900), var(--color-brand-transparent-25));
+
+  /* CLASS GRADIENT */
+  --gradient-class: linear-gradient(to left, var(--color-class-900), var(--color-class-transparent-25));
+
+  /* PRIVATE GRADIENT */
+  --gradient-private: linear-gradient(to left, var(--color-private-900), var(--color-private-transparent-25));
+
+  /* GROUP GRADIENT */
+  --gradient-group: linear-gradient(to left, var(--color-group-900), var(--color-group-transparent-25));
+
+  /* IMPULSE GRADIENT */
+  --gradient-impulse: linear-gradient(to left, var(--color-impulse-950), var(--color-impulse-transparent-25));
+}
+
+
+/* ------------------------------------------
+   AUTO DARK MODE (prefers-color-scheme)
+   ------------------------------------------ */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+
+    --gradient-gray-500-600: linear-gradient(to left, var(--color-gray-dark-600), var(--color-gray-dark-500));
+    --gradient-gray-600-700: linear-gradient(to left, var(--color-gray-dark-700), var(--color-gray-dark-600));
+    --gradient-gray-600-800: linear-gradient(to left, var(--color-gray-dark-800), var(--color-gray-dark-700));
+    --gradient-gray-700-800: linear-gradient(to left, var(--color-gray-dark-800), var(--color-gray-dark-700));
+    --gradient-gray-600-900: linear-gradient(to left, var(--color-gray-dark-900), var(--color-gray-dark-600));
+    --gradient-gray-700-900: linear-gradient(to left, var(--color-gray-dark-900), var(--color-gray-dark-700));
+
+    --gradient-gray-50-white: linear-gradient(to left, var(--color-gray-dark-50), var(--color-white));
+    --gradient-gray-100-white: linear-gradient(to left, var(--color-gray-dark-100), var(--color-white));
+    --gradient-gray-100-25: linear-gradient(to left, var(--color-gray-dark-100), var(--color-gray-dark-25));
+    --gradient-gray-100-50: linear-gradient(to left, var(--color-gray-dark-100), var(--color-gray-dark-50));
+    --gradient-gray-200-25: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-25));
+    --gradient-gray-200-50: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-50));
+    --gradient-gray-200-100: linear-gradient(to left, var(--color-gray-dark-200), var(--color-gray-dark-100));
+
+    --gradient-brand: linear-gradient(to left, var(--color-brand-900), var(--color-brand-transparent-25));
+    --gradient-class: linear-gradient(to left, var(--color-class-900), var(--color-class-transparent-25));
+    --gradient-private: linear-gradient(to left, var(--color-private-900), var(--color-private-transparent-25));
+    --gradient-group: linear-gradient(to left, var(--color-group-900), var(--color-group-transparent-25));
+    --gradient-impulse: linear-gradient(to left, var(--color-impulse-950), var(--color-impulse-transparent-25));
+  }
+}

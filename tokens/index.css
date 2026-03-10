@@ -1,0 +1,19 @@
+/* Cycle Design — Tokens */
+
+/* 1. Primitivos */
+@import "./typography-primitives.css";
+@import "./color-primitives.css";
+
+/* 2. Composições */
+@import "./typography-compositions.css";
+@import "./color-compositions.css";
+@import "./color-compositions-bg.css";
+@import "./gradients.css";
+
+/* 3. Utilitários */
+@import "./border-width-tokens.css";
+@import "./radius-tokens.css";
+@import "./shadow-tokens.css";
+@import "./opacity-tokens.css";
+@import "./spacing-tokens.css";
+@import "./grid-tokens.css";

@@ -1,0 +1,82 @@
+{
+  "opacity-transparent": {
+    "$type": "number",
+    "$value": 0,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4290:171",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-semitransparent": {
+    "$type": "number",
+    "$value": 8,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4290:172",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-light": {
+    "$type": "number",
+    "$value": 16,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4291:71",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-medium": {
+    "$type": "number",
+    "$value": 32,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4291:72",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-intense": {
+    "$type": "number",
+    "$value": 64,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4291:73",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-semiopaque": {
+    "$type": "number",
+    "$value": 72,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4291:74",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "opacity-opaque": {
+    "$type": "number",
+    "$value": 100,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4291:76",
+      "com.figma.scopes": [
+        "OPACITY"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

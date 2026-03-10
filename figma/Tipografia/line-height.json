@@ -1,0 +1,164 @@
+{
+  "line-height-5xs": {
+    "$type": "number",
+    "$value": 12,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4154:1490",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.codeSyntax": {
+        "WEB": "line-height-narrow",
+        "ANDROID": "line-height-narrow",
+        "iOS": "line-height-narrow"
+      },
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-4xs": {
+    "$type": "number",
+    "$value": 14,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:351",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-3xs": {
+    "$type": "number",
+    "$value": 16,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:352",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-2xs": {
+    "$type": "number",
+    "$value": 18,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:353",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-xs": {
+    "$type": "number",
+    "$value": 20,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:354",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-sm": {
+    "$type": "number",
+    "$value": 24,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:355",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-md": {
+    "$type": "number",
+    "$value": 28,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:356",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-lg": {
+    "$type": "number",
+    "$value": 30,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:383",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-xl": {
+    "$type": "number",
+    "$value": 32,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:384",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-2xl": {
+    "$type": "number",
+    "$value": 40,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:385",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-3xl": {
+    "$type": "number",
+    "$value": 48,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:386",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-4xl": {
+    "$type": "number",
+    "$value": 60,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:387",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-5xl": {
+    "$type": "number",
+    "$value": 82,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:388",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "line-height-6xl": {
+    "$type": "number",
+    "$value": 90,
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4155:389",
+      "com.figma.scopes": [
+        "LINE_HEIGHT"
+      ],
+      "com.figma.isOverride": true
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "Mode 1"
+  }
+}

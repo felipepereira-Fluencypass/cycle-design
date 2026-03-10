@@ -1,0 +1,7 @@
+@import "../tokens/theme.css";
+
+/* Cycle Design System Entry */
+
+:root {
+  font-family: var(--font-family-body, system-ui);
+}

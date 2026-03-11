@@ -40,6 +40,13 @@ const navigation: NavGroup[] = [
     ],
   },
   {
+    label: 'AI Ready',
+    items: [
+      { label: 'llms.txt', path: '/ai/llms-txt' },
+      { label: 'MCP Server', path: '/ai/mcp' },
+    ],
+  },
+  {
     label: 'Components',
     items: [
       { label: 'Em breve', path: '/components', disabled: true },

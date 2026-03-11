@@ -47,9 +47,8 @@ export default function LlmsTxt() {
       <section className={styles.section}>
         <h2 className={styles.h2}>O que é llms.txt?</h2>
         <p className={styles.p}>
-          <strong>llms.txt</strong> é um padrão da indústria — adotado por shadcn/ui, MUI e outros
-          design systems — que permite que ferramentas de IA encontrem e consumam a documentação de
-          um projeto de forma estruturada.
+          <strong>llms.txt</strong> é um padrão que permite que ferramentas de IA encontrem e
+          consumam a documentação de um projeto de forma estruturada.
         </p>
         <p className={styles.p}>
           É um arquivo de texto na raiz do repositório com um índice navegável: título, descrição

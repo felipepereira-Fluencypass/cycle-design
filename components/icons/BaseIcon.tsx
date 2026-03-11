@@ -23,6 +23,14 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
 
   const { size: px, stroke } = ICON_SIZES[size]
 
+  // Os valores de stroke do Figma são pixels visuais no tamanho renderizado.
+  // Como o viewBox é sempre 24×24, o SVG escala o strokeWidth junto com o ícone.
+  // Precisamos normalizar para coordenadas do viewBox:
+  //   strokeWidth no viewBox = visualStroke × (24 / displaySize)
+  // Assim o stroke visual final sempre corresponde ao valor do Design System.
+  const VIEWBOX_SIZE = 24
+  const normalizedStroke = stroke * (VIEWBOX_SIZE / px)
+
   const svgProps = {
     ref,
     width: px,
@@ -30,7 +38,7 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
     viewBox: '0 0 24 24',
     fill: 'none',
     stroke: 'currentColor',
-    strokeWidth: stroke,
+    strokeWidth: normalizedStroke,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
     className,

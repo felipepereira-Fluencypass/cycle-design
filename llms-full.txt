@@ -1,0 +1,1078 @@
+# Cycle Design
+
+> Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `@cycle/design` npm package.
+
+---
+
+# Cycle Design — Overview
+
+Cycle Design is the Design System for **Fluencypass**. It provides a complete set of design tokens and (in the future) React components that ensure visual consistency across all Fluencypass products.
+
+## Key Facts
+
+- **Package:** `@cycle/design`
+- **Framework:** React + TypeScript
+- **Styling:** CSS Custom Properties (CSS variables)
+- **Fonts:** Open Sans (body, headline, display) + Fira Code (mono)
+- **Themes:** Light mode (default) + Dark mode via `[data-theme="dark"]`
+- **Source of truth:** Figma variables, exported as JSON and converted to CSS custom properties
+
+## Architecture
+
+Tokens are organized in two layers:
+
+1. **Primitives** — Raw values (color hex codes, font sizes, spacing pixels). These should never be used directly in interfaces.
+2. **Compositions (functional tokens)** — Semantic tokens that reference primitives. These are what you use in your code. They automatically adapt between light and dark mode.
+
+```
+Figma Variables → JSON export → CSS Custom Properties → React components
+```
+
+## Token Categories
+
+| Category | Description | Token count |
+|----------|-------------|-------------|
+| Colors (primitives) | 11 palettes with 12 steps each | ~150 |
+| Colors (functional) | Text, border, foreground, background | ~200 |
+| Typography | 38 composition classes + primitive tokens | ~50 |
+| Spacing | Gap (16 tokens) + Inset/padding (7 tokens) | 23 |
+| Shadows | 7 elevation levels | 7 |
+| Border radius | 9 sizes (none to circular) | 9 |
+| Border width | 5 sizes (none to heavy) | 5 |
+| Opacity | 7 levels (transparent to opaque) | 7 |
+| Gradients | 13 gray + 5 branded | 18 |
+| Grid | 5 breakpoints + responsive classes | 5 |
+
+## Brand Palettes
+
+Cycle Design has 5 brand palettes in addition to neutral and semantic colors:
+
+| Palette | Purpose | Color |
+|---------|---------|-------|
+| **Brand** | Fluencypass brand identity | Red/coral |
+| **Class** | "Class" product feature | Blue |
+| **Private** | "Private" product feature | Orange |
+| **Group** | "Group" product feature | Green |
+| **Impulse** | "Impulse" product feature | Purple |
+
+Each palette provides tokens for text, border, foreground, and background with variations: primary, secondary, hover, solid, section.
+
+## Mandatory Rules
+
+1. **Always use tokens** — never hardcode color values, font sizes, spacing, etc.
+2. **Use functional tokens, not primitives** — e.g., use `--text-primary` instead of `--color-gray-light-900`
+3. **Never recreate existing components** — always import from `@cycle/design`
+4. **Edit source files directly** — never duplicate a component to modify it
+5. **Use typography classes** — 38 pre-built styles available (body, subtitle, headline, display, button)
+
+---
+
+# Cycle Design — Installation
+
+## Install the package
+
+```bash
+npm install @cycle/design
+```
+
+## Import tokens
+
+Import CSS token files in your main stylesheet or entry point. Order matters — primitives must come before compositions:
+
+```css
+/* 1. Primitives (base values) */
+@import '@cycle/design/tokens/typography-primitives.css';
+@import '@cycle/design/tokens/color-primitives.css';
+
+/* 2. Compositions (functional tokens) */
+@import '@cycle/design/tokens/typography-compositions.css';
+@import '@cycle/design/tokens/color-compositions.css';
+@import '@cycle/design/tokens/color-compositions-bg.css';
+@import '@cycle/design/tokens/gradients.css';
+
+/* 3. Utilities */
+@import '@cycle/design/tokens/border-width-tokens.css';
+@import '@cycle/design/tokens/radius-tokens.css';
+@import '@cycle/design/tokens/shadow-tokens.css';
+@import '@cycle/design/tokens/opacity-tokens.css';
+@import '@cycle/design/tokens/spacing-tokens.css';
+@import '@cycle/design/tokens/grid-tokens.css';
+```
+
+## Load fonts
+
+Cycle Design uses Open Sans and Fira Code. Add them to your HTML `<head>`:
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+```
+
+## Usage example
+
+```css
+.card {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  padding: var(--spacing-inset-md);
+  border: var(--border-hairline) solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+}
+```
+
+```html
+<h2 class="headline-md">Title</h2>
+<p class="body-md">Paragraph text</p>
+<button class="button-md">Click me</button>
+```
+
+## File structure
+
+```
+@cycle/design/
+├── tokens/
+│   ├── color-primitives.css        — Base color palettes
+│   ├── color-compositions.css      — Functional text/border/foreground colors
+│   ├── color-compositions-bg.css   — Functional background colors
+│   ├── typography-primitives.css   — Font families, sizes, weights
+│   ├── typography-compositions.css — 38 ready-to-use typography classes
+│   ├── spacing-tokens.css          — Gap and padding tokens
+│   ├── shadow-tokens.css           — Shadow elevation levels
+│   ├── radius-tokens.css           — Border radius values
+│   ├── border-width-tokens.css     — Border width values
+│   ├── opacity-tokens.css          — Opacity levels
+│   ├── gradients.css               — Linear gradients
+│   └── grid-tokens.css             — Responsive grid system
+└── components/                     — (future) React components
+```
+
+---
+
+# Cycle Design — Dark Mode
+
+## How it works
+
+Dark mode is controlled via the `data-theme` attribute on the `<html>` element:
+
+```html
+<!-- Light mode (default) -->
+<html data-theme="light">
+
+<!-- Dark mode -->
+<html data-theme="dark">
+```
+
+The system also respects `prefers-color-scheme` automatically. If no `data-theme` attribute is set, the user's OS preference is used.
+
+## Why functional tokens matter
+
+When you use functional tokens (not primitives), dark mode works automatically with zero code changes:
+
+```css
+/* This works in both light AND dark mode */
+.card {
+  color: var(--text-primary);        /* Light: #181D27 | Dark: #F7F7F7 */
+  background: var(--bg-primary);     /* Light: #FFFFFF | Dark: #0C0E12 */
+  border-color: var(--border-primary); /* Light: #D5D7DA | Dark: #373A41 */
+}
+```
+
+Using primitives directly breaks dark mode:
+
+```css
+/* BAD — this will NOT adapt to dark mode */
+.card {
+  color: var(--color-gray-light-900); /* Always #181D27, even in dark mode */
+}
+```
+
+## Implementation in JavaScript/React
+
+```tsx
+// Toggle theme
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const next = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+}
+
+// Respect OS preference on load
+function initTheme() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+}
+```
+
+## How theme switching works internally
+
+The CSS uses three selectors to cover all scenarios:
+
+1. **`:root, [data-theme="light"]`** — Light mode values (default)
+2. **`[data-theme="dark"]`** — Dark mode values when explicitly set
+3. **`@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) }`** — Auto dark mode when no explicit theme is set
+
+This means:
+- If `data-theme="light"` is set, light mode is always used
+- If `data-theme="dark"` is set, dark mode is always used
+- If no `data-theme` is set, the OS preference is respected
+
+---
+
+# Cycle Design — Color Tokens
+
+The color system has two layers: **primitives** (raw hex values) and **functional tokens** (semantic, theme-aware). Always use functional tokens in your code.
+
+## Primitive Palettes
+
+11 color palettes, each with 12 steps (25, 50, 100–950). These are the raw values — do NOT use them directly in interfaces.
+
+| Palette | Prefix | Description |
+|---------|--------|-------------|
+| Gray Light | `--color-gray-light-*` | Gray scale for light mode |
+| Gray Dark | `--color-gray-dark-*` | Gray scale for dark mode |
+| Brand | `--color-brand-*` | Brand identity (red/coral) |
+| Class | `--color-class-*` | "Class" feature (blue) |
+| Private | `--color-private-*` | "Private" feature (orange) |
+| Group | `--color-group-*` | "Group" feature (green) |
+| Impulse | `--color-impulse-*` | "Impulse" feature (purple) |
+| Positive | `--color-positive-*` | Success states (green) |
+| Warning | `--color-warning-*` | Warning states (yellow/amber) |
+| Critical | `--color-critical-*` | Error/danger states (red) |
+
+Base colors: `--color-white` (#FFFFFF), `--color-black` (#000000), `--color-backdrop` (rgba(0,0,0,0.6)), `--color-overlay` (rgba(255,255,255,0.6)).
+
+Brand palettes also include transparent variants: `--color-brand-transparent-10`, `--color-brand-transparent-25`, etc.
+
+## Functional Tokens — Text Colors
+
+Use `--text-*` tokens for all text colors. They automatically adapt between light and dark mode.
+
+### Base text
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--text-primary` | #181D27 | #F7F7F7 | Main text, headings |
+| `--text-secondary` | #414651 | #CECFD2 | Supporting text |
+| `--text-tertiary` | #535862 | #94979C | Less important text |
+| `--text-quaternary` | #717680 | #85888E | Least important text |
+| `--text-disabled` | #717680 | #85888E | Disabled state |
+| `--text-placeholder` | #717680 | #94979C | Input placeholders |
+| `--text-placeholder_subtle` | #D5D7DA | #373A41 | Subtle placeholders |
+| `--text-white` | #FFFFFF | #F7F7F7 | Text on dark backgrounds |
+| `--text-primary_on-brand` | #FFFFFF | #FFF5F5 | Text on brand backgrounds |
+
+### Semantic text
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--text-critical-primary` | #B32020 | #ED5555 | Error messages |
+| `--text-warning-primary` | #AA7200 | #FECF50 | Warning messages |
+| `--text-positive-primary` | #098A5E | #1EC485 | Success messages |
+
+### Brand text (each brand palette follows this pattern)
+
+| Token | Usage |
+|-------|-------|
+| `--text-{palette}-primary` | Primary brand text |
+| `--text-{palette}-secondary` | Secondary brand text |
+| `--text-{palette}-secondary_hover` | Hover state |
+| `--text-{palette}-tertiary` | Tertiary brand text |
+| `--text-{palette}-tertiary_alt` | Alternative tertiary |
+
+Where `{palette}` is: `brand`, `class`, `private`, `group`, `impulse`.
+
+## Functional Tokens — Border Colors
+
+Use `--border-*` tokens for all borders.
+
+### Base borders
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--border-primary` | #D5D7DA | #373A41 | Default borders |
+| `--border-secondary` | #E9EAEB | #22262F | Subtle borders |
+| `--border-tertiary` | #F5F5F5 | #22262F | Very subtle borders |
+| `--border-quaternary` | #A4A7AE | #61656C | Stronger borders |
+| `--border-disabled` | #D5D7DA | #373A41 | Disabled borders |
+
+### Brand borders (pattern for each palette)
+
+| Token | Usage |
+|-------|-------|
+| `--border-{palette}` | Default brand border |
+| `--border-{palette}_hover` | Hover state |
+| `--border-{palette}_alt` | Alternative shade |
+
+Where `{palette}` is: `brand`, `class`, `private`, `group`, `impulse`.
+
+## Functional Tokens — Foreground/Icon Colors
+
+Use `--fg-*` tokens for icons, indicators, and other foreground elements.
+
+### Base foreground
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--fg-primary` | #181D27 | #FFFFFF | Primary icons |
+| `--fg-secondary` | #414651 | #CECFD2 | Secondary icons |
+| `--fg-tertiary` | #535862 | #94979C | Tertiary icons |
+| `--fg-quaternary` | #A4A7AE | #61656C | Quaternary icons |
+| `--fg-white` | #FFFFFF | #FFFFFF | Icons on dark backgrounds |
+| `--fg-disabled` | #A4A7AE | #85888E | Disabled icons |
+
+### Brand foreground (pattern for each palette)
+
+| Token | Usage |
+|-------|-------|
+| `--fg-{palette}-primary` | Primary brand icon |
+| `--fg-{palette}-primary_alt` | Alternative primary |
+| `--fg-{palette}-secondary` | Secondary brand icon |
+| `--fg-{palette}-secondary_alt` | Alternative secondary |
+
+### Semantic foreground
+
+| Token | Usage |
+|-------|-------|
+| `--fg-critical-primary` / `--fg-critical-secondary` | Error icons |
+| `--fg-warning-primary` / `--fg-warning-secondary` | Warning icons |
+| `--fg-positive-primary` / `--fg-positive-secondary` | Success icons |
+
+## Functional Tokens — Background Colors
+
+Use `--bg-*` tokens for all backgrounds.
+
+### Base backgrounds
+
+| Token | Light | Dark | Usage |
+|-------|-------|------|-------|
+| `--bg-primary` | #FFFFFF | #0C0E12 | Main background |
+| `--bg-primary_alt` | #FFFFFF | #13161B | Alternative main |
+| `--bg-primary_hover` | #FAFAFA | #22262F | Hover state |
+| `--bg-primary-solid` | #0D0D12 | #13161B | Solid dark bg |
+| `--bg-secondary` | #FAFAFA | #13161B | Secondary background |
+| `--bg-tertiary` | #F5F5F5 | #22262F | Tertiary background |
+| `--bg-quaternary` | #E9EAEB | #373A41 | Quaternary background |
+| `--bg-active` | #FAFAFA | #22262F | Active state |
+| `--bg-disabled` | #F5F5F5 | #22262F | Disabled background |
+| `--bg-overlay` | #0D0D12 | #22262F | Overlay background |
+
+### Brand backgrounds (pattern for each palette)
+
+| Token | Usage |
+|-------|-------|
+| `--bg-{palette}-primary` | Light tinted background |
+| `--bg-{palette}-primary_alt` | Alternative tinted |
+| `--bg-{palette}-hover` | Hover state |
+| `--bg-{palette}-secondary` | Secondary brand bg |
+| `--bg-{palette}-solid` | Solid brand color bg |
+| `--bg-{palette}-solid_hover` | Solid hover state |
+| `--bg-{palette}-section` | Full section background |
+| `--bg-{palette}-section_subtle` | Subtle section background |
+
+### Semantic backgrounds
+
+| Token | Usage |
+|-------|-------|
+| `--bg-critical-primary` / `--bg-critical-secondary` | Error backgrounds |
+| `--bg-critical-solid` / `--bg-critical-solid_hover` | Solid error backgrounds |
+| `--bg-warning-primary` / `--bg-warning-secondary` | Warning backgrounds |
+| `--bg-warning-solid` / `--bg-warning-solid_hover` | Solid warning backgrounds |
+| `--bg-positive-primary` / `--bg-positive-secondary` | Success backgrounds |
+| `--bg-positive-solid` / `--bg-positive-solid_hover` | Solid success backgrounds |
+
+## Alpha Tokens
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--alpha-backdrop` | rgba(0,0,0,0.6) | Modal backdrop |
+| `--alpha-overlay` | rgba(255,255,255,0.6) | Light overlay |
+| `--alpha-transparent` | rgba(255,255,255,0) | Fully transparent |
+
+## Usage Examples
+
+```css
+/* Card with semantic colors */
+.card {
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: var(--border-hairline) solid var(--border-primary);
+}
+
+/* Error state */
+.error {
+  color: var(--text-critical-primary);
+  background: var(--bg-critical-primary);
+  border-color: var(--border-brand); /* if using brand */
+}
+
+/* Brand section */
+.hero {
+  color: var(--text-primary_on-brand);
+  background: var(--bg-brand-section);
+}
+```
+
+---
+
+# Cycle Design — Typography Tokens
+
+The typography system has two layers: **primitive tokens** (raw values) and **composition classes** (ready-to-use CSS classes).
+
+## Primitive Tokens
+
+### Font Families
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--font-family-body` | 'Open Sans', sans-serif | Paragraphs, content |
+| `--font-family-headline` | 'Open Sans', sans-serif | Titles, headings |
+| `--font-family-display` | 'Open Sans', sans-serif | Decorative, hero text |
+| `--font-family-mono` | 'Fira Code', monospace | Code blocks |
+
+### Font Weights
+
+| Token | Value |
+|-------|-------|
+| `--font-weight-light` | 300 |
+| `--font-weight-regular` | 400 |
+| `--font-weight-semibold` | 600 |
+| `--font-weight-bold` | 700 |
+| `--font-weight-extrabold` | 800 |
+
+### Font Sizes
+
+| Token | Value |
+|-------|-------|
+| `--font-size-4xs` | 0.625rem (10px) |
+| `--font-size-3xs` | 0.75rem (12px) |
+| `--font-size-2xs` | 0.875rem (14px) |
+| `--font-size-xs` | 1rem (16px) |
+| `--font-size-sm` | 1.125rem (18px) |
+| `--font-size-md` | 1.25rem (20px) |
+| `--font-size-lg` | 1.5rem (24px) |
+| `--font-size-xl` | 2rem (32px) |
+| `--font-size-2xl` | 2.5rem (40px) |
+| `--font-size-3xl` | 3rem (48px) |
+| `--font-size-4xl` | 4rem (64px) |
+| `--font-size-5xl` | 4.5rem (72px) |
+
+### Line Heights
+
+| Token | Value |
+|-------|-------|
+| `--line-height-5xs` | 0.75rem (12px) |
+| `--line-height-4xs` | 0.875rem (14px) |
+| `--line-height-3xs` | 1rem (16px) |
+| `--line-height-2xs` | 1.125rem (18px) |
+| `--line-height-xs` | 1.25rem (20px) |
+| `--line-height-sm` | 1.5rem (24px) |
+| `--line-height-md` | 1.75rem (28px) |
+| `--line-height-lg` | 1.875rem (30px) |
+| `--line-height-xl` | 2rem (32px) |
+| `--line-height-2xl` | 2.5rem (40px) |
+| `--line-height-3xl` | 3rem (48px) |
+| `--line-height-4xl` | 3.75rem (60px) |
+| `--line-height-5xl` | 5.125rem (82px) |
+| `--line-height-6xl` | 5.625rem (90px) |
+
+### Other
+
+| Token | Value |
+|-------|-------|
+| `--letter-spacing-none` | 0 |
+| `--text-decoration-none` | none |
+| `--text-decoration-underline` | underline |
+| `--text-decoration-strikethrough` | line-through |
+
+## Composition Classes (38 total)
+
+These are ready-to-use CSS classes. Apply them directly to HTML elements.
+
+### Body (content text)
+
+| Class | Size | Weight | Usage |
+|-------|------|--------|-------|
+| `.body-xs` | 10px | Regular (400) | Captions, fine print |
+| `.body-xs-semibold` | 10px | Semibold (600) | Emphasized captions |
+| `.body-sm` | 12px | Regular (400) | Small text, labels |
+| `.body-sm-semibold` | 12px | Semibold (600) | Emphasized labels |
+| `.body-md` | 14px | Regular (400) | Default body text |
+| `.body-md-semibold` | 14px | Semibold (600) | Emphasized body |
+| `.body-lg` | 16px | Regular (400) | Large body text |
+| `.body-lg-semibold` | 16px | Semibold (600) | Emphasized large body |
+
+### Subtitle (supporting text)
+
+| Class | Size | Weight | Usage |
+|-------|------|--------|-------|
+| `.subtitle-sm` | 14px | Bold (700) | Small subtitle |
+| `.subtitle-sm-strikethrough` | 14px | Regular + line-through | Strikethrough price |
+| `.subtitle-md` | 16px | Bold (700) | Medium subtitle |
+| `.subtitle-md-strikethrough` | 16px | Regular + line-through | Strikethrough text |
+| `.subtitle-lg` | 18px | Bold (700) | Large subtitle |
+| `.subtitle-lg-strikethrough` | 18px | Regular + line-through | Large strikethrough |
+| `.subtitle-lg-regular` | 18px | Regular (400) | Large subtitle, light weight |
+
+### Headline (titles)
+
+| Class | Size | Weight | Usage |
+|-------|------|--------|-------|
+| `.headline-sm` | 20px | Bold (700) | Small heading |
+| `.headline-sm-regular` | 20px | Regular (400) | Light small heading |
+| `.headline-md` | 24px | Bold (700) | Medium heading |
+| `.headline-md-regular` | 24px | Regular (400) | Light medium heading |
+| `.headline-lg` | 32px | Bold (700) | Large heading |
+| `.headline-lg-regular` | 32px | Regular (400) | Light large heading |
+| `.headline-xl` | 40px | Bold (700) | Extra large heading |
+| `.headline-xl-regular` | 40px | Regular (400) | Light extra large heading |
+| `.headline-xxl` | 48px | Bold (700) | Largest heading |
+| `.headline-xxl-regular` | 48px | Regular (400) | Light largest heading |
+
+### Display (decorative)
+
+| Class | Size | Weight | Usage |
+|-------|------|--------|-------|
+| `.display-md` | 64px | Extrabold (800) | Hero text |
+| `.display-md-light` | 64px | Light (300) | Light hero text |
+| `.display-lg` | 72px | Extrabold (800) | Large hero text |
+| `.display-lg-light` | 72px | Light (300) | Light large hero |
+
+### Button (buttons and links)
+
+| Class | Size | Weight | Decoration | Usage |
+|-------|------|--------|------------|-------|
+| `.button-sm` | 12px | Bold (700) | none | Small button |
+| `.button-sm-underline` | 12px | Bold (700) | underline | Small link |
+| `.button-md` | 14px | Bold (700) | none | Medium button |
+| `.button-md-underline` | 14px | Bold (700) | underline | Medium link |
+| `.button-lg` | 16px | Bold (700) | none | Large button |
+| `.button-lg-underline` | 16px | Bold (700) | underline | Large link |
+
+Note: Button classes use 1:1 line-height (line-height equals font-size) for precise height control.
+
+## Usage Examples
+
+```html
+<!-- Content -->
+<p class="body-md">Default paragraph text</p>
+<span class="body-sm-semibold">Emphasized label</span>
+
+<!-- Headings -->
+<h1 class="headline-xl">Page Title</h1>
+<h2 class="headline-md">Section Title</h2>
+<h3 class="subtitle-lg">Subsection</h3>
+
+<!-- Hero -->
+<h1 class="display-lg">Welcome</h1>
+<p class="display-md-light">Subtitle hero text</p>
+
+<!-- Buttons -->
+<button class="button-md">Submit</button>
+<a class="button-sm-underline" href="#">Learn more</a>
+
+<!-- Prices -->
+<span class="subtitle-md-strikethrough">$29.99</span>
+<span class="subtitle-md">$19.99</span>
+```
+
+---
+
+# Cycle Design — Spacing Tokens
+
+Two categories of spacing tokens: **Spacing** (for gaps between elements) and **Spacing Inset** (for internal padding).
+
+## Spacing (gap between elements)
+
+Use for `margin`, `gap`, and spacing between sections.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--spacing-quarck` | 2px | Micro adjustments |
+| `--spacing-nano` | 4px | Icons, badges |
+| `--spacing-micro` | 8px | Between small elements |
+| `--spacing-mini` | 12px | Compact padding |
+| `--spacing-3xs` | 16px | Default padding |
+| `--spacing-2xs` | 20px | Comfortable gap |
+| `--spacing-xs` | 24px | Gap between cards |
+| `--spacing-sm` | 32px | Small sections |
+| `--spacing-md` | 40px | Medium sections |
+| `--spacing-lg` | 48px | Large sections |
+| `--spacing-xl` | 56px | Extra large sections |
+| `--spacing-2xl` | 64px | Very large sections |
+| `--spacing-3xl` | 80px | Between major sections |
+| `--spacing-big` | 120px | Page sections |
+| `--spacing-huge` | 160px | Large page sections |
+| `--spacing-giant` | 200px | Maximum spacing |
+
+## Spacing Inset (internal padding)
+
+Use for `padding` inside components (buttons, cards, inputs, modals).
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--spacing-inset-2xs` | 4px | Micro padding (badges) |
+| `--spacing-inset-xs` | 8px | Compact padding (tags) |
+| `--spacing-inset-sm` | 12px | Small padding (small buttons) |
+| `--spacing-inset-md` | 16px | Default padding (cards, inputs) |
+| `--spacing-inset-lg` | 24px | Comfortable padding (sections) |
+| `--spacing-inset-xl` | 32px | Large padding (modals) |
+| `--spacing-inset-2xl` | 40px | Maximum padding (hero sections) |
+
+## Usage Examples
+
+```css
+/* Card layout */
+.card {
+  padding: var(--spacing-inset-md);        /* 16px internal padding */
+  gap: var(--spacing-micro);               /* 8px between child elements */
+  margin-bottom: var(--spacing-xs);        /* 24px below the card */
+}
+
+/* Section spacing */
+.section {
+  padding: var(--spacing-lg) 0;            /* 48px vertical spacing */
+}
+
+/* Button padding */
+.button {
+  padding: var(--spacing-inset-xs) var(--spacing-inset-md);  /* 8px top/bottom, 16px left/right */
+}
+
+/* Grid gap */
+.grid-layout {
+  display: grid;
+  gap: var(--spacing-3xs);                 /* 16px gap */
+}
+```
+
+---
+
+# Cycle Design — Shadow Tokens
+
+7 shadow levels for progressive elevation. All shadows use `#0A0D12` (gray-light-950) as base color with varying opacities and multiple layers.
+
+## Shadow Scale
+
+| Token | Layers | Usage |
+|-------|--------|-------|
+| `--shadow-xs` | 1 layer | Subtle, almost imperceptible. Badges, tags |
+| `--shadow-sm` | 2 layers | Light elevation. Cards, inputs |
+| `--shadow-md` | 2 layers | Medium elevation. Dropdowns |
+| `--shadow-lg` | 3 layers | High elevation. Popovers |
+| `--shadow-xl` | 3 layers | Strong emphasis. Large modals |
+| `--shadow-2xl` | 2 layers | Maximum emphasis. Overlays |
+| `--shadow-3xl` | 2 layers | Ultra emphasis. Floating elements |
+
+## Values
+
+```css
+--shadow-xs:  0px 1px 2px 0px rgba(10, 13, 18, 0.05);
+
+--shadow-sm:  0px 1px 2px -1px rgba(0, 0, 0, 0.1),
+              0px 1px 3px 0px rgba(10, 13, 18, 0.1);
+
+--shadow-md:  0px 2px 4px -2px rgba(0, 0, 0, 0.06),
+              0px 4px 6px -1px rgba(10, 13, 18, 0.1);
+
+--shadow-lg:  0px 2px 2px -1px rgba(0, 0, 0, 0.04),
+              0px 4px 6px -2px rgba(10, 13, 18, 0.03),
+              0px 12px 16px -4px rgba(10, 13, 18, 0.08);
+
+--shadow-xl:  0px 3px 3px -1.5px rgba(0, 0, 0, 0.04),
+              0px 8px 8px -4px rgba(10, 13, 18, 0.03),
+              0px 20px 24px -4px rgba(10, 13, 18, 0.08);
+
+--shadow-2xl: 0px 4px 4px -2px rgba(10, 13, 18, 0.04),
+              0px 24px 48px -12px rgba(10, 13, 18, 0.18);
+
+--shadow-3xl: 0px 5px 5px -2.5px rgba(10, 13, 18, 0.04),
+              0px 32px 64px -12px rgba(10, 13, 18, 0.14);
+```
+
+## Usage Examples
+
+```css
+/* Input field */
+.input { box-shadow: var(--shadow-xs); }
+.input:focus { box-shadow: var(--shadow-sm); }
+
+/* Card */
+.card { box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: var(--shadow-md); }
+
+/* Dropdown menu */
+.dropdown { box-shadow: var(--shadow-md); }
+
+/* Modal */
+.modal { box-shadow: var(--shadow-xl); }
+
+/* Full-screen overlay */
+.overlay { box-shadow: var(--shadow-2xl); }
+```
+
+---
+
+# Cycle Design — Border & Radius Tokens
+
+## Border Width
+
+5 border width tokens for consistent borders across the interface.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--border-none` | 0px | No border |
+| `--border-hairline` | 1px | Default border (cards, inputs, dividers) |
+| `--border-thin` | 2px | Emphasized border (focus states) |
+| `--border-thick` | 4px | Strong border (active tabs, indicators) |
+| `--border-heavy` | 8px | Heavy border (decorative, accents) |
+
+## Border Radius
+
+9 radius tokens for consistent rounding.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--radius-none` | 0px | No rounding (sharp corners) |
+| `--radius-xs` | 4px | Subtle rounding (badges, tags) |
+| `--radius-sm` | 8px | Default rounding (cards, inputs, buttons) |
+| `--radius-md` | 12px | Medium rounding (modals, popovers) |
+| `--radius-lg` | 16px | Large rounding (cards, sections) |
+| `--radius-xl` | 20px | Extra large rounding |
+| `--radius-xxl` | 24px | Very large rounding |
+| `--radius-pill` | 500px | Pill/capsule shape (tags, chips) |
+| `--radius-circular` | 1000px | Perfect circle (avatars, round buttons) |
+
+## Usage Examples
+
+```css
+/* Default card */
+.card {
+  border: var(--border-hairline) solid var(--border-primary);
+  border-radius: var(--radius-sm);
+}
+
+/* Input field */
+.input {
+  border: var(--border-hairline) solid var(--border-primary);
+  border-radius: var(--radius-sm);
+}
+.input:focus {
+  border-width: var(--border-thin);
+}
+
+/* Pill button */
+.pill-button {
+  border-radius: var(--radius-pill);
+}
+
+/* Avatar */
+.avatar {
+  border-radius: var(--radius-circular);
+}
+
+/* Tab indicator */
+.tab.active {
+  border-bottom: var(--border-thick) solid var(--border-brand);
+}
+```
+
+---
+
+# Cycle Design — Opacity Tokens
+
+7 opacity levels for consistent transparency control.
+
+## Opacity Scale
+
+| Token | CSS Value | Percentage | Usage |
+|-------|-----------|------------|-------|
+| `--opacity-transparent` | 0 | 0% | Fully invisible |
+| `--opacity-semitransparent` | 0.08 | 8% | Very subtle tint, hover states |
+| `--opacity-light` | 0.16 | 16% | Light tint, subtle overlays |
+| `--opacity-medium` | 0.32 | 32% | Medium transparency, disabled states |
+| `--opacity-intense` | 0.64 | 64% | Visible but transparent |
+| `--opacity-semiopaque` | 0.72 | 72% | Mostly visible |
+| `--opacity-opaque` | 1 | 100% | Fully visible |
+
+## Usage Examples
+
+```css
+/* Disabled element */
+.disabled {
+  opacity: var(--opacity-medium);
+  pointer-events: none;
+}
+
+/* Subtle hover overlay */
+.card:hover::after {
+  opacity: var(--opacity-semitransparent);
+}
+
+/* Watermark */
+.watermark {
+  opacity: var(--opacity-light);
+}
+```
+
+---
+
+# Cycle Design — Gradient Tokens
+
+Linear gradients with light/dark mode support. Default direction: `to left` (270deg).
+
+## Gray Gradients (13 variants)
+
+### Dark gray gradients
+
+| Token | Light mode colors |
+|-------|------------------|
+| `--gradient-gray-500-600` | gray-light-500 → gray-light-600 |
+| `--gradient-gray-600-700` | gray-light-600 → gray-light-700 |
+| `--gradient-gray-600-800` | gray-light-600 → gray-light-800 |
+| `--gradient-gray-700-800` | gray-light-700 → gray-light-800 |
+| `--gradient-gray-600-900` | gray-light-600 → gray-light-900 |
+| `--gradient-gray-700-900` | gray-light-700 → gray-light-900 |
+
+### Light gray gradients
+
+| Token | Light mode colors |
+|-------|------------------|
+| `--gradient-gray-50-white` | white → gray-light-50 |
+| `--gradient-gray-100-white` | white → gray-light-100 |
+| `--gradient-gray-100-25` | gray-light-25 → gray-light-100 |
+| `--gradient-gray-100-50` | gray-light-50 → gray-light-100 |
+| `--gradient-gray-200-25` | gray-light-25 → gray-light-200 |
+| `--gradient-gray-200-50` | gray-light-50 → gray-light-200 |
+| `--gradient-gray-200-100` | gray-light-100 → gray-light-200 |
+
+In dark mode, all gray gradients automatically switch to use `--color-gray-dark-*` values.
+
+## Brand Gradients (5 palettes)
+
+| Token | Light mode | Dark mode |
+|-------|-----------|-----------|
+| `--gradient-brand` | brand-500 → brand-900 | brand-transparent-25 → brand-900 |
+| `--gradient-class` | class-500 → class-900 | class-transparent-25 → class-900 |
+| `--gradient-private` | private-500 → private-900 | private-transparent-25 → private-900 |
+| `--gradient-group` | group-500 → group-900 | group-transparent-25 → group-900 |
+| `--gradient-impulse` | impulse-500 → impulse-900 | impulse-transparent-25 → impulse-950 |
+
+## Custom Direction
+
+The default direction is `to left` (270deg). To use a different angle, use the primitive color tokens directly:
+
+```css
+.hero-banner {
+  background: linear-gradient(
+    135deg,
+    var(--color-brand-900),
+    var(--color-brand-500)
+  );
+}
+```
+
+## Usage Examples
+
+```css
+/* Hero section with brand gradient */
+.hero {
+  background: var(--gradient-brand);
+}
+
+/* Subtle gray background */
+.section {
+  background: var(--gradient-gray-100-white);
+}
+
+/* Dark footer */
+.footer {
+  background: var(--gradient-gray-700-900);
+  color: var(--text-white);
+}
+```
+
+---
+
+# Cycle Design — Grid System
+
+Mobile-first responsive grid based on Figma breakpoints. Uses CSS Grid with stretch (flexible) columns.
+
+## Breakpoints
+
+| Token | Width | Columns | Gutter | Margin |
+|-------|-------|---------|--------|--------|
+| `--breakpoint-sm` | 320px | 4 | 16px | 16px |
+| `--breakpoint-md` | 672px | 8 | 16px | 16px |
+| `--breakpoint-lg` | 1056px | 16 | 32px | 32px |
+| `--breakpoint-xl` | 1312px | 16 | 32px | 32px |
+| `--breakpoint-max` | 1584px | 16 | 32px | 32px |
+
+## Grid Tokens
+
+```css
+/* Columns per breakpoint */
+--grid-columns-sm: 4;
+--grid-columns-md: 8;
+--grid-columns-lg: 16;
+--grid-columns-xl: 16;
+--grid-columns-max: 16;
+
+/* Gutter (space between columns) */
+--grid-gutter-sm: 16px;
+--grid-gutter-md: 16px;
+--grid-gutter-lg: 32px;
+--grid-gutter-xl: 32px;
+--grid-gutter-max: 32px;
+
+/* Margin (space on sides) */
+--grid-margin-sm: 16px;
+--grid-margin-md: 16px;
+--grid-margin-lg: 32px;
+--grid-margin-xl: 32px;
+--grid-margin-max: 32px;
+
+/* Side panel width */
+--grid-panel-width: 256px;
+```
+
+## CSS Classes
+
+### Container
+
+`.container` — Responsive wrapper with max-width and padding margins per breakpoint.
+
+### Grid
+
+`.grid` — CSS Grid container with responsive columns and gutters.
+
+### Column Spans
+
+| Breakpoint | Classes | Columns |
+|------------|---------|---------|
+| sm (default) | `.col-1` to `.col-4` | 4 |
+| md (672px+) | `.col-md-1` to `.col-md-8` | 8 |
+| lg (1056px+) | `.col-lg-1` to `.col-lg-16` | 16 |
+| xl (1312px+) | `.col-xl-1` to `.col-xl-16` | 16 |
+| max (1584px+) | `.col-max-1` to `.col-max-16` | 16 |
+
+### Layout with Panel
+
+For layouts with a side panel (256px), the grid automatically adjusts:
+- At `lg`: reduces to 8 columns
+- At `xl`: returns to 16 columns
+
+```html
+<div class="layout-with-panel">
+  <aside class="panel">Sidebar</aside>
+  <main class="content">
+    <div class="grid">...</div>
+  </main>
+</div>
+```
+
+## Usage Examples
+
+```html
+<!-- Basic responsive layout -->
+<div class="container">
+  <div class="grid">
+    <!-- Full width on mobile, half on desktop -->
+    <div class="col-4 col-md-4 col-lg-8">Content</div>
+    <div class="col-4 col-md-4 col-lg-8">Content</div>
+  </div>
+</div>
+
+<!-- Three-column layout on desktop -->
+<div class="container">
+  <div class="grid">
+    <div class="col-4 col-md-4 col-lg-5">Sidebar</div>
+    <div class="col-4 col-md-4 col-lg-6">Main</div>
+    <div class="col-4 col-md-8 col-lg-5">Aside</div>
+  </div>
+</div>
+```
+
+---
+
+# Cycle Design — Design Decisions
+
+Reference document with all decisions and guidelines defined during the planning of Cycle Design.
+
+## Vision
+
+**Goal:** Build a complete design system (code + documentation + design) that serves as the single source of truth for the entire Fluencypass team (+5 people), with light and dark theme support.
+
+**Team profile:** Design-led, with technical collaboration.
+
+**Priority:** Long-term robustness and scalability.
+
+## Architecture
+
+### Components
+- React + TypeScript component library
+- Published as npm package (`@cycle/design`)
+- Strong typing of all props — serves as living documentation and safety net
+
+### Tokens
+- Source of truth: Figma variables
+- Colors, typography, spacing, border radius and breakpoints defined as Figma variables, exportable as JSON
+- Shadows defined as Figma components (extracted manually or via Figma connection)
+- In code: tokens converted to CSS custom properties with theme switching support (light/dark)
+
+### Documentation
+- Custom React documentation site (no Storybook initially)
+- Deployed on Vercel or Netlify
+- Each component will have: interactive preview, props table, usage examples, and guidelines
+
+### Figma Integration
+- Code Connect mapping each Figma component to the actual code component
+- Update flow: Figma change → share updated node/JSON → generate corresponding code
+
+## Storybook Decision
+
+**Current decision:** Start without Storybook, using custom documentation site.
+
+**Rationale:**
+- Faster initial velocity without configuration overhead
+- Team iterates faster on first components
+- Zero learning curve for documentation tool
+
+**Open door for the future:**
+- Component structure is 100% Storybook-compatible
+- When the team feels the need (~10-15 mature components), Storybook can be added
+- No work will be lost in migration
+
+## AI Integration (Vibe Coding)
+
+AI tools (Claude Code, Cursor, Windsurf, Bolt) don't access Storybook or documentation sites — they read code files. For correct usage, they need:
+
+1. Component code with typed TypeScript props
+2. Rules file (`CLAUDE.md`, `.cursorrules`) at the project root
+3. Usage examples within code or context files
+
+## Protections Against AI Mistakes
+
+| Protection | How it works |
+|------------|-------------|
+| Package architecture | Components are exported with typed interfaces. Changes are made in source files. |
+| Rules file for AI | Explicit instructions to never duplicate components. |
+| TypeScript | Incompatible prop changes cause errors everywhere the component is used. |
+| Git | Complete version history. Any change can be reverted. |
+| Semantic versioning | Breaking changes only in major versions, with changelog. |
+
+## Update Flow
+
+```
+Designer changes in Figma
+    → Shares updated node/JSON
+    → AI generates updated code (visible diff)
+    → Dev team reviews and applies
+    → TypeScript validates nothing broke
+    → New package version published
+    → Projects update dependency
+```
+
+---
+

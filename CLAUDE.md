@@ -257,6 +257,18 @@ Cada paleta tem tokens de text, border, foreground e background com variações 
 
 ---
 
+## Documentação AI-ready
+
+O Cycle Design disponibiliza documentação estruturada para LLMs:
+
+- **`llms.txt`** — Índice navegável no formato padrão llms.txt (links para docs detalhados)
+- **`llms-full.txt`** — Conteúdo completo inline (para consumo direto por LLMs)
+- **`ai/`** — Pasta com documentação Markdown detalhada de cada categoria de token
+
+Ao responder perguntas sobre o Design System, consulte os arquivos em `ai/` para informações completas sobre tokens, instalação, dark mode e decisões de design.
+
+---
+
 ## Fonte de verdade
 
 - **Design:** Figma → Cycle • Design System

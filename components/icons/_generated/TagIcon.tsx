@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function TagIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M3 3h8l10 10-8 8L3 11z"/><path fill="#181D27" d="M7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+      <path d="M3 3h8l10 10-8 8L3 11z"/><path d="M7.5 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
     </BaseIcon>
   )
 }

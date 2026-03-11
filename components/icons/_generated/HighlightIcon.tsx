@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function HighlightIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="m15 3 6 6-11 11H4v-6z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M4 20h17M13 5l6 6"/>
+      <path d="m15 3 6 6-11 11H4v-6z"/><path d="M4 20h17M13 5l6 6"/>
     </BaseIcon>
   )
 }

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function LoginIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M15 21h4c.5 0 1-.5 1-1V4c0-.5-.5-1-1-1h-4"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m8 17-5-5 5-5"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 12h12"/>
+      <path d="M15 21h4c.5 0 1-.5 1-1V4c0-.5-.5-1-1-1h-4"/><path d="m8 17-5-5 5-5"/><path d="M3 12h12"/>
     </BaseIcon>
   )
 }

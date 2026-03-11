@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CalendarIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeWidth="1.5" d="M18 5H6a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3Z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 10h18M8 3v4m8-4v4"/><path fill="#181D27" d="M8 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2M12 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2M16 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+      <path d="M18 5H6a3 3 0 0 0-3 3v11a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3Z"/><path d="M3 10h18M8 3v4m8-4v4"/><path d="M8 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2M12 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2M16 16a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
     </BaseIcon>
   )
 }

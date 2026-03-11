@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CompletionIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M22 12c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2M16 2.3c2.3.8 4.2 2.5 5.3 4.7"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m8 12 3 3 5-6"/>
+      <path d="M22 12c0 5.5-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2M16 2.3c2.3.8 4.2 2.5 5.3 4.7"/><path d="m8 12 3 3 5-6"/>
     </BaseIcon>
   )
 }

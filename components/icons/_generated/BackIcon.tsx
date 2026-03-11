@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function BackIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M10 8V5l-7 7 7 7v-3c5 0 8.5 1.5 11 5-1-6-5-11-11-13Z"/>
+      <path d="M10 8V5l-7 7 7 7v-3c5 0 8.5 1.5 11 5-1-6-5-11-11-13Z"/>
     </BaseIcon>
   )
 }

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function PresentationIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeWidth="1.5" d="M20 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M12 16v6m-4 0h8M7 9h10M7 12h6"/>
+      <path d="M20 3H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"/><path d="M12 16v6m-4 0h8M7 9h10M7 12h6"/>
     </BaseIcon>
   )
 }

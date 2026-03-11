@@ -16,6 +16,7 @@ import Shadows from '@/pages/tokens/Shadows'
 import BordersRadius from '@/pages/tokens/BordersRadius'
 import Opacity from '@/pages/tokens/Opacity'
 import Grid from '@/pages/tokens/Grid'
+import Icons from '@/pages/tokens/Icons'
 import Decisions from '@/pages/guidelines/Decisions'
 import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/tokens/borders-radius" element={<BordersRadius />} />
           <Route path="/tokens/opacity" element={<Opacity />} />
           <Route path="/tokens/grid" element={<Grid />} />
+          <Route path="/tokens/icons" element={<Icons />} />
           <Route path="/guidelines/decisions" element={<Decisions />} />
           <Route path="/ai/llms-txt" element={<LlmsTxt />} />
           <Route path="/ai/mcp" element={<Mcp />} />

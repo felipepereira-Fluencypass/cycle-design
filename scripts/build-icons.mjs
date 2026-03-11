@@ -46,15 +46,21 @@ const SVGO_CONFIG = {
       },
     },
     'removeDimensions',
+    // Remove cores e stroke de TODOS os elementos (svg, path, circle, rect, etc.)
+    // Sem o prefixo "svg:", aplica em qualquer elemento filho.
+    // Garante que fills/strokes hardcoded não sobrescrevam o BaseIcon.
     {
       name: 'removeAttrs',
       params: {
         attrs: [
-          'svg:fill',
-          'svg:stroke',
-          'svg:stroke-width',
-          'svg:stroke-linecap',
-          'svg:stroke-linejoin',
+          'fill',
+          'stroke',
+          'stroke-width',
+          'stroke-linecap',
+          'stroke-linejoin',
+          'stroke-miterlimit',
+          'color',
+          'xmlns',
         ],
       },
     },

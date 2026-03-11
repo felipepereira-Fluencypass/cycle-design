@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function MenuIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M4 6h16M4 12h16M4 18h10"/>
+      <path d="M4 6h16M4 12h16M4 18h10"/>
     </BaseIcon>
   )
 }

@@ -3,6 +3,10 @@
  *
  * Objetivo: otimizar SVGs preservando a estrutura stroke-based.
  * Todos os ícones são desenhados em 24×24px no Figma.
+ *
+ * Regra central: NENHUM elemento filho (path, circle, rect...) deve ter
+ * fill, stroke ou stroke-width hardcoded. Todos esses valores são
+ * controlados pelo BaseIcon via herança CSS do SVG pai.
  */
 export default {
   plugins: [
@@ -21,16 +25,22 @@ export default {
     },
     // Remove width/height do SVG — definidos via props no React
     'removeDimensions',
-    // Remove atributos de stroke/fill hardcoded — controlados pelo BaseIcon
+    // Remove cores e stroke de TODOS os elementos (svg, path, circle, rect, etc.)
+    // Sem o prefixo "svg:", o SVGO aplica a remoção em qualquer elemento.
+    // Isso garante que fills e strokes hardcoded (#181D27, #000, etc.) não
+    // sobrescrevam o stroke="currentColor" e strokeWidth do BaseIcon.
     {
       name: 'removeAttrs',
       params: {
         attrs: [
-          'svg:fill',
-          'svg:stroke',
-          'svg:stroke-width',
-          'svg:stroke-linecap',
-          'svg:stroke-linejoin',
+          'fill',
+          'stroke',
+          'stroke-width',
+          'stroke-linecap',
+          'stroke-linejoin',
+          'stroke-miterlimit',
+          'color',
+          'xmlns',
         ],
       },
     },

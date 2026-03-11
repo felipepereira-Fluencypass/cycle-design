@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function VolumeOffIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M11 5 6 9H3c-.6 0-1 .4-1 1v4c0 .6.4 1 1 1h3l5 4z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="m15 9 6 6m0-6-6 6"/>
+      <path d="M11 5 6 9H3c-.6 0-1 .4-1 1v4c0 .6.4 1 1 1h3l5 4z"/><path d="m15 9 6 6m0-6-6 6"/>
     </BaseIcon>
   )
 }

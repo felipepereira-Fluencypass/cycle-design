@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function PlayIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M4 5.723a1.72 1.72 0 0 1 2.49-1.54l12.555 6.277c1.268.635 1.268 2.445 0 3.08L6.49 19.816A1.72 1.72 0 0 1 4 18.276z"/>
+      <path d="M4 5.723a1.72 1.72 0 0 1 2.49-1.54l12.555 6.277c1.268.635 1.268 2.445 0 3.08L6.49 19.816A1.72 1.72 0 0 1 4 18.276z"/>
     </BaseIcon>
   )
 }

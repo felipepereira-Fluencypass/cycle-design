@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function ScheduleIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeWidth="1.5" d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M16 2v4M8 2v4M3 9h18M7 13h4m-4 3.5h10M13 13h4"/>
+      <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path d="M16 2v4M8 2v4M3 9h18M7 13h4m-4 3.5h10M13 13h4"/>
     </BaseIcon>
   )
 }

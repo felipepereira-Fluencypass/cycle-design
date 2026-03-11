@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function BookmarkIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M5 3h14c.6 0 1 .4 1 1v17l-8-4-8 4V4c0-.6.4-1 1-1Z"/>
+      <path d="M5 3h14c.6 0 1 .4 1 1v17l-8-4-8 4V4c0-.6.4-1 1-1Z"/>
     </BaseIcon>
   )
 }

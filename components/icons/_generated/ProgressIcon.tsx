@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function ProgressIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 21h18"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m5 16 4-5 4 3 3-6 5-3"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 3v18"/>
+      <path d="M3 21h18"/><path d="m5 16 4-5 4 3 3-6 5-3"/><path d="M3 3v18"/>
     </BaseIcon>
   )
 }

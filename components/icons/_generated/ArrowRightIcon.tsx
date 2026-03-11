@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function ArrowRightIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M5 12h14"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m13 6 6 6-6 6"/>
+      <path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>
     </BaseIcon>
   )
 }

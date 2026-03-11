@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function MilestoneIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="m12 3 9 9-9 9-9-9z"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M12 8v8m-4-4h8"/>
+      <path d="m12 3 9 9-9 9-9-9z"/><path d="M12 8v8m-4-4h8"/>
     </BaseIcon>
   )
 }

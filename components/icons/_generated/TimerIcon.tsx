@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function TimerIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeWidth="1.5" d="M12 22a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 10v4l3 2"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M10 2h4m-2 0v3"/>
+      <path d="M12 22a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 10v4l3 2"/><path d="M10 2h4m-2 0v3"/>
     </BaseIcon>
   )
 }

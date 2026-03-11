@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CollapseIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M4 14h6v6M20 10h-6V4"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="m14 10 7-7M3 21l7-7"/>
+      <path d="M4 14h6v6M20 10h-6V4"/><path d="m14 10 7-7M3 21l7-7"/>
     </BaseIcon>
   )
 }

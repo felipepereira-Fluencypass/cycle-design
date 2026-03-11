@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CloseIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="m6 6 12 12m0-12L6 18"/>
+      <path d="m6 6 12 12m0-12L6 18"/>
     </BaseIcon>
   )
 }

@@ -33,6 +33,7 @@ const navigation: NavGroup[] = [
       { label: 'Borders & Radius', path: '/tokens/borders-radius' },
       { label: 'Opacity', path: '/tokens/opacity' },
       { label: 'Grid', path: '/tokens/grid' },
+      { label: 'Icons', path: '/tokens/icons' },
     ],
   },
   {

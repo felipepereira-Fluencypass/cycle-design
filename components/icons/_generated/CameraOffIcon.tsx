@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CameraOffIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 3h6l2 3h4c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H7"/><path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 6c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1M9.5 9.5c-.9.8-1.5 1.9-1.5 3.2C8 15 9.8 17 12 17c1.3 0 2.4-.6 3.2-1.5M2 2l20 20"/>
+      <path d="M9 3h6l2 3h4c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1H7"/><path d="M3 6c-.6 0-1 .4-1 1v12c0 .6.4 1 1 1M9.5 9.5c-.9.8-1.5 1.9-1.5 3.2C8 15 9.8 17 12 17c1.3 0 2.4-.6 3.2-1.5M2 2l20 20"/>
     </BaseIcon>
   )
 }

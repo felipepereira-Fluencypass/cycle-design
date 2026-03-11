@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CheckpointIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M5 3v18"/><path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M5 4h13l-4 5 4 5H5"/>
+      <path d="M5 3v18"/><path d="M5 4h13l-4 5 4 5H5"/>
     </BaseIcon>
   )
 }

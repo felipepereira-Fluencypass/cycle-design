@@ -1,5 +1,5 @@
 import { forwardRef } from 'react'
-import type { Ref, SVGAttributes } from 'react'
+import type { Ref } from 'react'
 import { ICON_SIZES } from './sizes'
 import type { IconProps } from './types'
 
@@ -23,7 +23,7 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
 
   const { size: px, stroke } = ICON_SIZES[size]
 
-  const svgProps: SVGAttributes<SVGSVGElement> = {
+  const svgProps = {
     ref,
     width: px,
     height: px,
@@ -31,8 +31,8 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
     fill: 'none',
     stroke: 'currentColor',
     strokeWidth: stroke,
-    strokeLinecap: 'round',
-    strokeLinejoin: 'round',
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
     className,
     ...rest,
   }

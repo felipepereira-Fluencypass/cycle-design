@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function FilterIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M3 6h18M6 12h12m-8 6h4"/>
+      <path d="M3 6h18M6 12h12m-8 6h4"/>
     </BaseIcon>
   )
 }

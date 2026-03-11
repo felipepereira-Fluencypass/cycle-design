@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function DotLiveIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path fill="#181D27" stroke="#181D27" strokeWidth="1.5" d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+      <path d="M12 18a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
     </BaseIcon>
   )
 }

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function RayIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinejoin="round" strokeWidth="1.5" d="M13 2 9 13h3.5L10 22 20 9h-5l2.5-7z"/>
+      <path d="M13 2 9 13h3.5L10 22 20 9h-5l2.5-7z"/>
     </BaseIcon>
   )
 }

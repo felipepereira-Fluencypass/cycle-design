@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function RedoIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 9H9c-3.3 0-6 2.7-6 6s2.7 6 6 6h9"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m17 5 4 4-4 4"/>
+      <path d="M21 9H9c-3.3 0-6 2.7-6 6s2.7 6 6 6h9"/><path d="m17 5 4 4-4 4"/>
     </BaseIcon>
   )
 }

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function CheckIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="m4 12 6 6L20 7"/>
+      <path d="m4 12 6 6L20 7"/>
     </BaseIcon>
   )
 }

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function SentenceIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path stroke="#181D27" strokeLinecap="round" strokeWidth="1.5" d="M4 7h16M4 12h12M4 17h8"/><path stroke="#181D27" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14v6m0 0-2-2m2 2 2-2"/>
+      <path d="M4 7h16M4 12h12M4 17h8"/><path d="M19 14v6m0 0-2-2m2 2 2-2"/>
     </BaseIcon>
   )
 }

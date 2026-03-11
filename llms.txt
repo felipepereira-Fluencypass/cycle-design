@@ -22,3 +22,7 @@
 ## Guidelines
 
 - [Design Decisions](ai/decisions.md): Architecture decisions, Storybook rationale, AI integration strategy, protections against mistakes, and update flow.
+
+## MCP Server
+
+- [MCP Server](ai/mcp.md): Model Context Protocol server for AI integrations. Allows AI assistants to browse tokens, search documentation, and look up specific CSS variables using natural language. Works with Claude Code, Cursor, VS Code, and more.

@@ -1,0 +1,32 @@
+{
+  "name": "@cycle/mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Cycle Design — browse tokens and documentation via AI assistants",
+  "type": "module",
+  "bin": {
+    "cycle-mcp": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "typescript": "^5.5.3"
+  },
+  "files": [
+    "dist",
+    "docs"
+  ],
+  "keywords": [
+    "cycle-design",
+    "design-system",
+    "mcp",
+    "fluencypass"
+  ]
+}

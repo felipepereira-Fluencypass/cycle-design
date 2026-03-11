@@ -264,8 +264,20 @@ O Cycle Design disponibiliza documentação estruturada para LLMs:
 - **`llms.txt`** — Índice navegável no formato padrão llms.txt (links para docs detalhados)
 - **`llms-full.txt`** — Conteúdo completo inline (para consumo direto por LLMs)
 - **`ai/`** — Pasta com documentação Markdown detalhada de cada categoria de token
+- **`mcp/`** — MCP server para integração com assistentes de IA (Claude Code, Cursor, VS Code)
 
 Ao responder perguntas sobre o Design System, consulte os arquivos em `ai/` para informações completas sobre tokens, instalação, dark mode e decisões de design.
+
+### MCP Server — Setup
+
+```bash
+# Claude Code
+claude mcp add cycle-design -- node /path/to/cycle-design/mcp/dist/index.js
+
+# VS Code / Cursor — adicionar em .vscode/mcp.json ou .cursor/mcp.json
+```
+
+Tools disponíveis: `list_topics`, `get_doc`, `search_docs`, `get_token_value`, `get_all_docs`. Veja `ai/mcp.md` para documentação completa.
 
 ---
 

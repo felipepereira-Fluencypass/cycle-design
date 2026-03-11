@@ -1,6 +1,15 @@
 import type { SVGAttributes } from 'react'
 import type { IconSize } from './sizes'
 
+/**
+ * Presets de animação disponíveis para ícones.
+ * - spin   — rotação contínua
+ * - pulse  — pulsação de escala e opacidade
+ * - bounce — movimento vertical ritmado
+ * - draw   — traço se "desenha" (apenas ícones stroke)
+ */
+export type IconAnimation = 'spin' | 'pulse' | 'bounce' | 'draw'
+
 export type { IconSize }
 
 /**
@@ -46,6 +55,8 @@ export interface IconManifestEntry {
 type BaseIconSharedProps = Omit<SVGAttributes<SVGSVGElement>, 'aria-label'> & {
   /** Tamanho visual. Define width, height e strokeWidth automaticamente. Default: 'sm' */
   size?: IconSize
+  /** Animação pré-definida. Aplica uma CSS animation ao SVG. */
+  animation?: IconAnimation
 }
 
 /**

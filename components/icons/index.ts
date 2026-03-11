@@ -8,7 +8,7 @@
  */
 
 // Tipos sempre disponíveis
-export type { IconProps, IconSize, IconCategory, IconStatus } from './types'
+export type { IconProps, IconSize, IconCategory, IconStatus, IconAnimation } from './types'
 
 export { AchievementIcon } from './_generated/AchievementIcon'
 export { AiIcon } from './_generated/AiIcon'

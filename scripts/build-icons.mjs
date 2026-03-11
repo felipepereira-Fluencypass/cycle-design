@@ -46,23 +46,54 @@ const SVGO_CONFIG = {
       },
     },
     'removeDimensions',
-    // Remove cores e stroke de TODOS os elementos (svg, path, circle, rect, etc.)
-    // Sem o prefixo "svg:", aplica em qualquer elemento filho.
-    // Garante que fills/strokes hardcoded não sobrescrevam o BaseIcon.
+    // Plugin customizado: normaliza cores e stroke de todos os elementos.
+    //
+    // Regras por elemento filho (path, circle, rect, etc.):
+    //   fill="#color"  → fill="currentColor"  (mantém preenchimento, usa cor dinâmica)
+    //   fill="none"    → sem alteração         (preenchimento vazio intencional)
+    //   stroke="#color"→ removido              (herda stroke="currentColor" do SVG pai)
+    //   stroke-width   → removido              (herda strokeWidth calculado pelo BaseIcon)
+    //   stroke-linecap → removido              (herda strokeLinecap="round" do BaseIcon)
+    //   stroke-linejoin→ removido              (herda strokeLinejoin="round" do BaseIcon)
+    //
+    // Regras para o elemento <svg> raiz:
+    //   todos os atributos de cor/stroke → removidos (BaseIcon define via props)
     {
-      name: 'removeAttrs',
-      params: {
-        attrs: [
-          'fill',
-          'stroke',
-          'stroke-width',
-          'stroke-linecap',
-          'stroke-linejoin',
-          'stroke-miterlimit',
-          'color',
-          'xmlns',
-        ],
-      },
+      name: 'normalizeCycleIcon',
+      fn: () => ({
+        element: {
+          enter(node) {
+            if (node.name === 'svg') {
+              // No SVG raiz, remove tudo — BaseIcon define via props
+              delete node.attributes.fill
+              delete node.attributes.stroke
+              delete node.attributes['stroke-width']
+              delete node.attributes['stroke-linecap']
+              delete node.attributes['stroke-linejoin']
+              delete node.attributes['stroke-miterlimit']
+              delete node.attributes.color
+              delete node.attributes.xmlns
+              return
+            }
+
+            // Elementos filhos: fill colorido → currentColor, fill="none" → mantém
+            if (node.attributes.fill && node.attributes.fill !== 'none') {
+              node.attributes.fill = 'currentColor'
+            }
+
+            // Remove stroke hardcoded — herda stroke="currentColor" do SVG pai
+            if (node.attributes.stroke) {
+              delete node.attributes.stroke
+            }
+
+            // Remove stroke props — herdam do BaseIcon via SVG pai
+            delete node.attributes['stroke-width']
+            delete node.attributes['stroke-linecap']
+            delete node.attributes['stroke-linejoin']
+            delete node.attributes['stroke-miterlimit']
+          },
+        },
+      }),
     },
   ],
 }

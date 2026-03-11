@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function DeadlineIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path d="M16 2v4M8 2v4M3 9h18M12 13v3"/><path d="M12 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
+      <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path d="M16 2v4M8 2v4M3 9h18M12 13v3"/><path fill="currentColor" d="M12 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2"/>
     </BaseIcon>
   )
 }

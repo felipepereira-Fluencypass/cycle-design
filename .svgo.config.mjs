@@ -4,9 +4,11 @@
  * Objetivo: otimizar SVGs preservando a estrutura stroke-based.
  * Todos os ícones são desenhados em 24×24px no Figma.
  *
- * Regra central: NENHUM elemento filho (path, circle, rect...) deve ter
- * fill, stroke ou stroke-width hardcoded. Todos esses valores são
- * controlados pelo BaseIcon via herança CSS do SVG pai.
+ * Regras de normalização de cor:
+ *   fill="#color"   → fill="currentColor"  (mantém preenchimento, cor dinâmica)
+ *   fill="none"     → sem alteração         (preenchimento vazio intencional)
+ *   stroke="#color" → removido              (herda stroke="currentColor" do SVG pai)
+ *   stroke-width    → removido              (herda strokeWidth calculado pelo BaseIcon)
  */
 export default {
   plugins: [
@@ -14,35 +16,45 @@ export default {
       name: 'preset-default',
       params: {
         overrides: {
-          // Preserva viewBox — essencial para escalarmos via width/height no React
           removeViewBox: false,
-          // Não converte shapes em paths (preserva semântica do ícone)
           convertShapeToPath: false,
-          // Mantém grupos que organizam o ícone
           collapseGroups: false,
         },
       },
     },
-    // Remove width/height do SVG — definidos via props no React
     'removeDimensions',
-    // Remove cores e stroke de TODOS os elementos (svg, path, circle, rect, etc.)
-    // Sem o prefixo "svg:", o SVGO aplica a remoção em qualquer elemento.
-    // Isso garante que fills e strokes hardcoded (#181D27, #000, etc.) não
-    // sobrescrevam o stroke="currentColor" e strokeWidth do BaseIcon.
     {
-      name: 'removeAttrs',
-      params: {
-        attrs: [
-          'fill',
-          'stroke',
-          'stroke-width',
-          'stroke-linecap',
-          'stroke-linejoin',
-          'stroke-miterlimit',
-          'color',
-          'xmlns',
-        ],
-      },
+      name: 'normalizeCycleIcon',
+      fn: () => ({
+        element: {
+          enter(node) {
+            if (node.name === 'svg') {
+              delete node.attributes.fill
+              delete node.attributes.stroke
+              delete node.attributes['stroke-width']
+              delete node.attributes['stroke-linecap']
+              delete node.attributes['stroke-linejoin']
+              delete node.attributes['stroke-miterlimit']
+              delete node.attributes.color
+              delete node.attributes.xmlns
+              return
+            }
+
+            if (node.attributes.fill && node.attributes.fill !== 'none') {
+              node.attributes.fill = 'currentColor'
+            }
+
+            if (node.attributes.stroke) {
+              delete node.attributes.stroke
+            }
+
+            delete node.attributes['stroke-width']
+            delete node.attributes['stroke-linecap']
+            delete node.attributes['stroke-linejoin']
+            delete node.attributes['stroke-miterlimit']
+          },
+        },
+      }),
     },
   ],
 }

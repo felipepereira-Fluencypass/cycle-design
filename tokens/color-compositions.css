@@ -38,6 +38,7 @@
   --text-quaternary: var(--color-gray-light-500);             /* #717680 */
   --text-quaternary_on-brand: var(--color-brand-200);         /* #FFB0B2 */
   --text-white: var(--color-white);                           /* #FFFFFF */
+  --text-white_alt: var(--color-white);                       /* #FFFFFF */
   --text-black: var(--color-gray-light-900);                  /* #181D27 */
   --text-disabled: var(--color-gray-light-500);               /* #717680 */
   --text-placeholder: var(--color-gray-light-500);            /* #717680 */
@@ -125,6 +126,7 @@
   --fg-quaternary: var(--color-gray-light-400);               /* #A4A7AE */
   --fg-quaternary_hover: var(--color-gray-light-500);         /* #717680 */
   --fg-white: var(--color-white);                             /* #FFFFFF */
+  --fg-white_alt: var(--color-white);                         /* #FFFFFF */
   --fg-disabled: var(--color-gray-light-400);                 /* #A4A7AE */
   --fg-disabled_subtle: var(--color-gray-light-300);          /* #D5D7DA */
 
@@ -190,6 +192,7 @@
   --text-quaternary: var(--color-gray-dark-500);              /* #85888E */
   --text-quaternary_on-brand: var(--color-brand-200);         /* #FFB0B2 */
   --text-white: var(--color-gray-dark-50);                    /* #F7F7F7 */
+  --text-white_alt: var(--color-gray-light-900);              /* #181D27 */
   --text-black: var(--color-gray-dark-900);                   /* #13161B */
   --text-disabled: var(--color-gray-dark-500);                /* #85888E */
   --text-placeholder: var(--color-gray-dark-400);             /* #94979C */
@@ -277,6 +280,7 @@
   --fg-quaternary: var(--color-gray-dark-600);                /* #61656C */
   --fg-quaternary_hover: var(--color-gray-dark-500);          /* #85888E */
   --fg-white: var(--color-white);                             /* #FFFFFF */
+  --fg-white_alt: var(--color-gray-light-900);                /* #181D27 */
   --fg-disabled: var(--color-gray-dark-500);                  /* #85888E */
   --fg-disabled_subtle: var(--color-gray-dark-600);           /* #61656C */
 
@@ -338,6 +342,7 @@
     --text-quaternary: var(--color-gray-dark-500);
     --text-quaternary_on-brand: var(--color-brand-200);
     --text-white: var(--color-gray-dark-50);
+    --text-white_alt: var(--color-gray-light-900);
     --text-black: var(--color-gray-dark-900);
     --text-disabled: var(--color-gray-dark-500);
     --text-placeholder: var(--color-gray-dark-400);
@@ -425,6 +430,7 @@
     --fg-quaternary: var(--color-gray-dark-600);
     --fg-quaternary_hover: var(--color-gray-dark-500);
     --fg-white: var(--color-white);
+    --fg-white_alt: var(--color-gray-light-900);
     --fg-disabled: var(--color-gray-dark-500);
     --fg-disabled_subtle: var(--color-gray-dark-600);
 

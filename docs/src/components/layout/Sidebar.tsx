@@ -19,6 +19,8 @@ const navigation: NavGroup[] = [
       { label: 'Introdução', path: '/' },
       { label: 'Instalação', path: '/getting-started/installation' },
       { label: 'Dark Mode', path: '/getting-started/dark-mode' },
+      { label: 'llms.txt', path: '/ai/llms-txt' },
+      { label: 'MCP Server', path: '/ai/mcp' },
     ],
   },
   {
@@ -37,13 +39,6 @@ const navigation: NavGroup[] = [
     label: 'Guidelines',
     items: [
       { label: 'Decisões de Design', path: '/guidelines/decisions' },
-    ],
-  },
-  {
-    label: 'AI Ready',
-    items: [
-      { label: 'llms.txt', path: '/ai/llms-txt' },
-      { label: 'MCP Server', path: '/ai/mcp' },
     ],
   },
   {

@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function MoreOptionsIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path fill="currentColor" d="M12 6.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM12 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM12 20.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
+      <path fill="currentColor" stroke="none" d="M12 6.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM12 13.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM12 20.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
     </BaseIcon>
   )
 }

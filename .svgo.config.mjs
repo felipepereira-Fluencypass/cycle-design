@@ -19,6 +19,8 @@ export default {
           removeViewBox: false,
           convertShapeToPath: false,
           collapseGroups: false,
+          // Preserva stroke="none" explícito (ex: ReplayIcon que é fill puro)
+          removeUselessStrokeAndFill: false,
         },
       },
     },
@@ -42,9 +44,15 @@ export default {
 
             if (node.attributes.fill && node.attributes.fill !== 'none') {
               node.attributes.fill = 'currentColor'
+              node.attributes.stroke = 'none'
+              delete node.attributes['stroke-width']
+              delete node.attributes['stroke-linecap']
+              delete node.attributes['stroke-linejoin']
+              delete node.attributes['stroke-miterlimit']
+              return
             }
 
-            if (node.attributes.stroke) {
+            if (node.attributes.stroke && node.attributes.stroke !== 'none') {
               delete node.attributes.stroke
             }
 

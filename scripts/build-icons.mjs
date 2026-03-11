@@ -42,6 +42,8 @@ const SVGO_CONFIG = {
           removeViewBox: false,
           convertShapeToPath: false,
           collapseGroups: false,
+          // Preserva stroke="none" explícito (ex: ReplayIcon que é fill puro)
+          removeUselessStrokeAndFill: false,
         },
       },
     },
@@ -76,13 +78,22 @@ const SVGO_CONFIG = {
               return
             }
 
-            // Elementos filhos: fill colorido → currentColor, fill="none" → mantém
+            // Elementos filhos com fill colorido:
+            //   fill="currentColor" + stroke="none"
+            //   O stroke da BaseIcon não deve aparecer sobre elementos preenchidos
             if (node.attributes.fill && node.attributes.fill !== 'none') {
               node.attributes.fill = 'currentColor'
+              node.attributes.stroke = 'none'
+              // stroke props são irrelevantes num elemento fill — limpa de qualquer forma
+              delete node.attributes['stroke-width']
+              delete node.attributes['stroke-linecap']
+              delete node.attributes['stroke-linejoin']
+              delete node.attributes['stroke-miterlimit']
+              return
             }
 
-            // Remove stroke hardcoded — herda stroke="currentColor" do SVG pai
-            if (node.attributes.stroke) {
+            // Elementos stroke-only: remove cor hardcoded — herda do SVG pai
+            if (node.attributes.stroke && node.attributes.stroke !== 'none') {
               delete node.attributes.stroke
             }
 

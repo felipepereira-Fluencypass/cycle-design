@@ -14,7 +14,7 @@ import type { IconProps } from '../types'
 export function RecordedClassIcon(props: IconProps): JSX.Element {
   return (
     <BaseIcon {...props}>
-      <path d="M20 4H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path fill="currentColor" d="m11 10 3 1.5-3 1.5z"/><path fill="currentColor" d="M18 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/><path d="M8 21h8m-4-3v3"/>
+      <path d="M20 4H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/><path fill="currentColor" stroke="none" d="m11 10 3 1.5-3 1.5z"/><path fill="currentColor" d="M18 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3" stroke="none"/><path d="M8 21h8m-4-3v3"/>
     </BaseIcon>
   )
 }

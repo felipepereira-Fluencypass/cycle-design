@@ -1,0 +1,84 @@
+.section { margin-bottom: 52px; }
+.h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; letter-spacing: -0.3px; }
+.p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
+
+.borderPreview {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  margin-bottom: 16px;
+}
+
+.borderItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.borderLine {
+  width: 120px;
+  height: 0;
+}
+
+.borderInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.borderToken {
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.borderValue {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  font-family: var(--font-family-mono);
+}
+
+.radiusPreview {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 700px) {
+  .radiusPreview { grid-template-columns: repeat(3, 1fr); }
+}
+
+.radiusItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+}
+
+.radiusBox {
+  width: 48px;
+  height: 48px;
+  background: var(--bg-brand-primary);
+  border: 2px solid var(--border-brand);
+}
+
+.radiusToken {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--text-brand-primary);
+}
+
+.radiusValue {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  font-family: var(--font-family-mono);
+}

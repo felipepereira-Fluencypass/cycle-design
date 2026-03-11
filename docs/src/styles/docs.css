@@ -1,0 +1,112 @@
+/* ============================================
+   CYCLE DESIGN DOCS — Global Styles
+   Importa todos os tokens do design system
+   ============================================ */
+
+/* ============================================
+   LOGO CSS VARIABLES
+   ============================================ */
+:root,
+[data-theme="light"] {
+  --logo-body-fill: var(--color-gray-light-900);
+  --logo-accent-fill: var(--color-brand-400);
+}
+
+[data-theme="dark"] {
+  --logo-body-fill: var(--color-white);
+  --logo-accent-fill: var(--color-brand-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --logo-body-fill: var(--color-white);
+    --logo-accent-fill: var(--color-brand-500);
+  }
+}
+
+/* ============================================
+   RESET
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2xs);
+  line-height: var(--line-height-xs);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-headline);
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--text-brand-primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: var(--line-height-md);
+}
+
+code {
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-primary); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--border-quaternary); }
+
+/* ============================================
+   TRANSITIONS GLOBAIS
+   ============================================ */
+*, *::before, *::after {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+/* Exceção para animações que não devem sofrer transition */
+pre, code, pre *, code * {
+  transition: none;
+}

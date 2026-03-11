@@ -1,0 +1,147 @@
+/* ========== Functional swatch ========== */
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-secondary);
+  background: var(--bg-primary);
+  cursor: pointer;
+  position: relative;
+}
+
+.swatch:hover {
+  border-color: var(--border-primary);
+  background: var(--bg-secondary);
+}
+
+.swatch.sm .preview {
+  width: 28px;
+  height: 28px;
+}
+
+.swatch.md .preview {
+  width: 36px;
+  height: 36px;
+}
+
+.preview {
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.token {
+  font-family: var(--font-family-mono);
+  font-size: 12.5px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.description {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.value {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  color: var(--text-quaternary);
+}
+
+.copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-quaternary);
+  padding: 4px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.copy:hover {
+  color: var(--text-secondary);
+  background: var(--bg-tertiary);
+}
+
+/* Gradient preview strip */
+.gradientPreview {
+  width: 80px;
+  height: 36px;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+/* ========== Palette swatch ========== */
+.paletteSwatch {
+  cursor: pointer;
+  position: relative;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--border-secondary);
+}
+
+.paletteSwatch:hover .palettePreview {
+  filter: brightness(0.95);
+}
+
+.palettePreview {
+  width: 100%;
+  height: 56px;
+}
+
+.paletteInfo {
+  padding: 6px 8px;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-secondary);
+}
+
+.paletteStep {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.paletteValue {
+  display: block;
+  font-family: var(--font-family-mono);
+  font-size: 10px;
+  color: var(--text-quaternary);
+  margin-top: 1px;
+}
+
+.copiedBadge {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  font-size: 10px;
+  font-weight: 600;
+  border-radius: 100px;
+  white-space: nowrap;
+}

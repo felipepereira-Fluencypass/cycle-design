@@ -1,0 +1,86 @@
+.gridList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gridItem {
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.gridInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-secondary);
+  background: var(--bg-secondary);
+}
+
+.gridLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.gridName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.gridToken {
+  font-family: var(--font-family-mono);
+  font-size: 11.5px;
+  color: var(--text-brand-primary);
+}
+
+.gridSpecs {
+  display: flex;
+  gap: 24px;
+}
+
+.spec {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-end;
+}
+
+.specLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-quaternary);
+}
+
+.spec strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.spec span {
+  font-size: 12.5px;
+  color: var(--text-secondary);
+}
+
+.gridPreview {
+  display: flex;
+  gap: 4px;
+  padding: 12px 20px;
+  background: var(--bg-primary);
+}
+
+.gridCol {
+  flex: 1;
+  height: 20px;
+  background: var(--bg-brand-primary);
+  border: 1px solid var(--border-brand);
+  border-radius: 2px;
+  opacity: 0.7;
+}

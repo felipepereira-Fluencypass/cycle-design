@@ -1,0 +1,92 @@
+.section {
+  margin-bottom: 44px;
+}
+
+.h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .principlesGrid { grid-template-columns: 1fr; }
+}
+
+.principleCard {
+  padding: 16px 18px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+}
+
+.principleTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.principleDesc {
+  font-size: 13.5px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.techList {
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: 16px;
+}
+
+.techItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border-secondary);
+  font-size: 13.5px;
+}
+
+.techItem:last-child {
+  border-bottom: none;
+}
+
+.techName {
+  width: 140px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.techItem code {
+  font-size: 13px;
+}
+
+.techItem span:last-child {
+  color: var(--text-secondary);
+}

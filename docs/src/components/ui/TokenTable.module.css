@@ -1,0 +1,162 @@
+.tableWrapper {
+  overflow-x: auto;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  margin: 20px 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.th {
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-quaternary);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-secondary);
+  white-space: nowrap;
+}
+
+.row {
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.row:hover {
+  background: var(--bg-secondary);
+}
+
+.tokenCell {
+  padding: 12px 14px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.tokenName {
+  font-family: var(--font-family-mono);
+  font-size: 12.5px;
+  color: var(--text-brand-primary);
+  background: var(--bg-brand-primary);
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-brand);
+  display: inline-block;
+}
+
+.previewCell {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.colorPreview {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.shadowPreview {
+  width: 28px;
+  height: 28px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-secondary);
+}
+
+.radiusPreview {
+  width: 32px;
+  height: 32px;
+  background: var(--bg-brand-primary);
+  border: 2px solid var(--border-brand);
+}
+
+.opacityPreview {
+  background-image: linear-gradient(45deg, var(--border-secondary) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--border-secondary) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--border-secondary) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--border-secondary) 75%);
+  background-size: 8px 8px;
+  background-position: 0 0, 0 4px, 4px -4px, -4px 0;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-xs);
+}
+
+.opacityDot {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-brand-solid);
+  border-radius: var(--radius-xs);
+}
+
+.spacingPreview {
+  height: 8px;
+  background: var(--bg-brand-primary);
+  border: 1px solid var(--border-brand);
+  border-radius: 2px;
+  min-width: 4px;
+  max-width: 120px;
+}
+
+.valueCell {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.value {
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.descCell {
+  padding: 12px 14px;
+  vertical-align: middle;
+}
+
+.description {
+  display: block;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.usage {
+  display: block;
+  font-size: 12px;
+  color: var(--text-quaternary);
+  margin-top: 2px;
+}
+
+.copyCell {
+  padding: 12px 14px;
+  vertical-align: middle;
+  text-align: right;
+}
+
+.copyBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-quaternary);
+  padding: 5px;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+}
+
+.copyBtn:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}

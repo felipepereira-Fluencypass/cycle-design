@@ -1,0 +1,4 @@
+.section { margin-bottom: 48px; }
+.h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; letter-spacing: -0.3px; }
+.p { font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+.p strong { color: var(--text-primary); font-weight: 600; }

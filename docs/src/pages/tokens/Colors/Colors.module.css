@@ -1,0 +1,94 @@
+.section {
+  margin-bottom: 56px;
+}
+
+.h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+  scroll-margin-top: 80px;
+}
+
+.p {
+  font-size: 14.5px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+/* Palettes grid */
+.palettesGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.paletteBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.paletteHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.paletteName {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.paletteDesc {
+  font-size: 12.5px;
+  color: var(--text-tertiary);
+}
+
+.paletteSwatches {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+}
+
+@media (max-width: 900px) {
+  .paletteSwatches { grid-template-columns: repeat(6, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .paletteSwatches { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Swatch list */
+.swatchList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Grouped list */
+.groupedList {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+.tokenGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.groupLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-quaternary);
+  font-family: var(--font-family-body);
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--border-secondary);
+}

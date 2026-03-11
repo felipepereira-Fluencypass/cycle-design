@@ -1,0 +1,39 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: 60px;
+}
+
+.main {
+  flex: 1;
+  margin-left: 240px;
+  min-width: 0;
+}
+
+.content {
+  max-width: 860px;
+  padding: 52px 64px 96px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    padding: 44px 48px 80px;
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    padding: 36px 32px 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    margin-left: 0;
+  }
+
+  .content {
+    padding: 28px 20px 80px;
+  }
+}

@@ -1,0 +1,24 @@
+/**
+ * Cycle Design — Icon Size Tokens
+ *
+ * Fonte da verdade: figma/Icons size/icon-{size}.json
+ * Mapeamento: tamanho visual → px e strokeWidth
+ *
+ * Estes tokens são espelho dos valores em src/icons/sizes.ts.
+ * Ambos devem estar sempre sincronizados.
+ */
+:root {
+  /* Tamanhos */
+  --icon-size-xs: 16px;
+  --icon-size-sm: 24px;
+  --icon-size-md: 32px;
+  --icon-size-lg: 40px;
+  --icon-size-xl: 48px;
+
+  /* Stroke — derivado do tamanho, nunca configurado individualmente */
+  --icon-stroke-xs: 1.2;
+  --icon-stroke-sm: 1.5;
+  --icon-stroke-md: 1.8;
+  --icon-stroke-lg: 2.1;
+  --icon-stroke-xl: 2.4;
+}

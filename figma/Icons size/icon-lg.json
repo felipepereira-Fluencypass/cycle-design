@@ -1,0 +1,29 @@
+{
+  "size": {
+    "size": {
+      "$type": "number",
+      "$value": 40,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4325:232",
+        "com.figma.scopes": [
+          "WIDTH_HEIGHT"
+        ],
+        "com.figma.isOverride": true
+      }
+    },
+    "stroke": {
+      "$type": "number",
+      "$value": 2.0999999046325684,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4325:240",
+        "com.figma.scopes": [
+          "STROKE_FLOAT"
+        ],
+        "com.figma.isOverride": true
+      }
+    }
+  },
+  "$extensions": {
+    "com.figma.modeName": "lg"
+  }
+}

@@ -285,6 +285,32 @@
       "com.figma.isOverride": true
     }
   },
+  "text-white_alt": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.0941176488995552,
+        0.11372549086809158,
+        0.15294118225574493
+      ],
+      "alpha": 1,
+      "hex": "#181D27"
+    },
+    "$extensions": {
+      "com.figma.variableId": "VariableID:4389:8588",
+      "com.figma.scopes": [
+        "TEXT_FILL"
+      ],
+      "com.figma.aliasData": {
+        "targetVariableId": "VariableID:e71e2baa9e823aa32a5a3d5c365e895adeab9297/-1:-1",
+        "targetVariableName": "900",
+        "targetVariableSetId": "VariableCollectionId:c7afb114d3b7f0ede302c28e728284c2b28aaab1/-1:-1",
+        "targetVariableSetName": "Colors/Gray (light mode)"
+      },
+      "com.figma.isOverride": true
+    }
+  },
   "text-balck": {
     "$type": "color",
     "$value": {
@@ -1128,6 +1154,6 @@
     }
   },
   "$extensions": {
-    "com.figma.modeName": "Dark mode"
+    "com.figma.modeName": "Dark"
   }
 }

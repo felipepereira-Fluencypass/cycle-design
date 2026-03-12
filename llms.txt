@@ -1,4 +1,5 @@
-# Cycle Design
+
+\# Cycle Design
 
 > Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `@cycle/design` npm package.
 

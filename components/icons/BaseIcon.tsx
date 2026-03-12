@@ -2,7 +2,6 @@ import { forwardRef } from 'react'
 import type { Ref } from 'react'
 import { ICON_SIZES } from './sizes'
 import type { IconProps } from './types'
-import './icon-animations.css'
 
 /**
  * BaseIcon — wrapper SVG base de todos os ícones do Cycle Design.
@@ -20,10 +19,7 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
   props,
   ref: Ref<SVGSVGElement>
 ) {
-  const { size = 'sm', decorative, children, className, animation, ...rest } = props
-
-  const animClass = animation ? `icon-anim-${animation}` : undefined
-  const mergedClassName = [className, animClass].filter(Boolean).join(' ') || undefined
+  const { size = 'sm', decorative, children, className, ...rest } = props
 
   const { size: px, stroke } = ICON_SIZES[size]
 
@@ -45,7 +41,7 @@ export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
     strokeWidth: normalizedStroke,
     strokeLinecap: 'round' as const,
     strokeLinejoin: 'round' as const,
-    className: mergedClassName,
+    className,
     ...rest,
   }
 

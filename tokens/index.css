@@ -1,5 +1,8 @@
 /* Cycle Design — Tokens */
 
+/* 0. Reset */
+@import "./reset.css";
+
 /* 1. Primitivos */
 @import "./typography-primitives.css";
 @import "./color-primitives.css";

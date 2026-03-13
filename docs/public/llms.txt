@@ -1,0 +1,29 @@
+
+\# Cycle Design
+
+> Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `cycle-design` npm package.
+
+## Getting Started
+
+- [Overview](ai/overview.md): Architecture, token categories, brand palettes, and mandatory rules for using Cycle Design.
+- [Installation](ai/installation.md): How to install the package, import tokens, load fonts, and file structure.
+- [Dark Mode](ai/dark-mode.md): Theme switching via data-theme attribute, prefers-color-scheme support, and implementation guide.
+
+## Tokens
+
+- [Colors](ai/tokens/colors.md): Complete color system with 11 primitive palettes and functional tokens for text, border, foreground, and background. Includes semantic (critical, warning, positive) and 5 brand palettes.
+- [Typography](ai/tokens/typography.md): Font primitives (families, sizes, weights, line-heights) and 38 composition classes (body, subtitle, headline, display, button).
+- [Spacing](ai/tokens/spacing.md): 16 gap tokens (2px to 200px) and 7 inset/padding tokens (4px to 40px).
+- [Shadows](ai/tokens/shadows.md): 7 elevation levels from subtle (xs) to ultra emphasis (3xl), using multi-layer box shadows.
+- [Borders & Radius](ai/tokens/borders-radius.md): 5 border width tokens and 9 radius tokens (none to circular).
+- [Opacity](ai/tokens/opacity.md): 7 opacity levels from transparent (0) to opaque (1).
+- [Gradients](ai/tokens/gradients.md): 13 gray gradients and 5 brand gradients with light/dark mode support.
+- [Grid](ai/tokens/grid.md): Mobile-first responsive grid with 5 breakpoints (320px to 1584px), CSS Grid classes, and panel layout support.
+
+## Guidelines
+
+- [Design Decisions](ai/decisions.md): Architecture decisions, Storybook rationale, AI integration strategy, protections against mistakes, and update flow.
+
+## MCP Server
+
+- [MCP Server](ai/mcp.md): Model Context Protocol server for AI integrations. Allows AI assistants to browse tokens, search documentation, and look up specific CSS variables using natural language. Works with Claude Code, Cursor, VS Code, and more.

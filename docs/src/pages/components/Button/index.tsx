@@ -154,16 +154,16 @@ import { PlusIcon } from 'cycle-design/icons'`}
 <Button>Nova turma</Button>
 
 // Ícone à esquerda
-<Button iconLeft={<PlusIcon />}>Nova turma</Button>
+<Button iconLeft={<PlusIcon decorative />}>Nova turma</Button>
 
 // Ícone à direita
-<Button variant="outline" iconRight={<ChevronDownIcon />}>Opções</Button>
+<Button variant="outline" iconRight={<ChevronDownIcon decorative />}>Opções</Button>
 
 // Ícone nos dois lados
-<Button iconLeft={<SearchIcon />} iconRight={<ChevronDownIcon />}>Buscar</Button>
+<Button iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar</Button>
 
 // Icon-only — aria-label obrigatório
-<Button iconOnly icon={<CloseIcon />} aria-label="Fechar" />`}
+<Button iconOnly icon={<CloseIcon decorative />} aria-label="Fechar" />`}
         />
       </section>
 
@@ -221,37 +221,37 @@ import { PlusIcon } from 'cycle-design/icons'`}
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>iconLeft + texto</span>
           <div className={styles.examplesRow}>
-            <Button iconLeft={<PlusIcon />}>Nova turma</Button>
-            <Button variant="outline" iconLeft={<SearchIcon />}>Buscar</Button>
-            <Button variant="ghost" iconLeft={<PlusIcon />}>Adicionar</Button>
+            <Button iconLeft={<PlusIcon decorative />}>Nova turma</Button>
+            <Button variant="outline" iconLeft={<SearchIcon decorative />}>Buscar</Button>
+            <Button variant="ghost" iconLeft={<PlusIcon decorative />}>Adicionar</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>texto + iconRight</span>
           <div className={styles.examplesRow}>
-            <Button iconRight={<ChevronDownIcon />}>Opções</Button>
-            <Button variant="outline" iconRight={<ChevronDownIcon />}>Filtrar</Button>
-            <Button variant="ghost" iconRight={<ChevronDownIcon />}>Mais</Button>
+            <Button iconRight={<ChevronDownIcon decorative />}>Opções</Button>
+            <Button variant="outline" iconRight={<ChevronDownIcon decorative />}>Filtrar</Button>
+            <Button variant="ghost" iconRight={<ChevronDownIcon decorative />}>Mais</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>iconLeft + texto + iconRight</span>
           <div className={styles.examplesRow}>
-            <Button iconLeft={<SearchIcon />} iconRight={<ChevronDownIcon />}>Buscar turmas</Button>
-            <Button variant="outline" iconLeft={<SearchIcon />} iconRight={<ChevronDownIcon />}>Buscar turmas</Button>
+            <Button iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar turmas</Button>
+            <Button variant="outline" iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar turmas</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Icon-only</span>
           <div className={styles.examplesRow}>
-            <Button iconOnly icon={<PlusIcon />} aria-label="Adicionar" />
-            <Button iconOnly icon={<CloseIcon />} aria-label="Fechar" variant="outline" />
-            <Button iconOnly icon={<SearchIcon />} aria-label="Buscar" variant="ghost" />
-            <Button iconOnly icon={<PlusIcon />} aria-label="Adicionar" size="sm" />
-            <Button iconOnly icon={<PlusIcon />} aria-label="Adicionar" size="tiny" />
+            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" />
+            <Button iconOnly icon={<CloseIcon decorative />} aria-label="Fechar" variant="outline" />
+            <Button iconOnly icon={<SearchIcon decorative />} aria-label="Buscar" variant="ghost" />
+            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" size="sm" />
+            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" size="tiny" />
           </div>
         </div>
 
@@ -261,7 +261,7 @@ import { PlusIcon } from 'cycle-design/icons'`}
             <Button disabled>Filled disabled</Button>
             <Button variant="outline" disabled>Outline disabled</Button>
             <Button variant="ghost" disabled>Ghost disabled</Button>
-            <Button iconOnly icon={<PlusIcon />} aria-label="Adicionar" disabled />
+            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" disabled />
           </div>
         </div>
 
@@ -279,11 +279,11 @@ import { PlusIcon } from 'cycle-design/icons'`}
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Todos os tamanhos — iconLeft</span>
           <div className={styles.examplesRow}>
-            <Button size="giant" iconLeft={<PlusIcon />}>Giant</Button>
-            <Button size="lg"    iconLeft={<PlusIcon />}>Large</Button>
-            <Button size="md"    iconLeft={<PlusIcon />}>Medium</Button>
-            <Button size="sm"    iconLeft={<PlusIcon />}>Small</Button>
-            <Button size="tiny"  iconLeft={<PlusIcon />}>Tiny</Button>
+            <Button size="giant" iconLeft={<PlusIcon decorative />}>Giant</Button>
+            <Button size="lg"    iconLeft={<PlusIcon decorative />}>Large</Button>
+            <Button size="md"    iconLeft={<PlusIcon decorative />}>Medium</Button>
+            <Button size="sm"    iconLeft={<PlusIcon decorative />}>Small</Button>
+            <Button size="tiny"  iconLeft={<PlusIcon decorative />}>Tiny</Button>
           </div>
         </div>
       </section>

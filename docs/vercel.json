@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/((?!assets/|llms\\.txt|llms-full\\.txt).*)", "destination": "/index.html" }
+  ]
+}

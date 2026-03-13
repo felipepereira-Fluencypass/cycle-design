@@ -24,7 +24,7 @@ export function ButtonPlayground() {
         size,
         disabled,
         iconOnly: true as const,
-        icon: <CloseIcon />,
+        icon: <CloseIcon decorative />,
         'aria-label': ariaLabel || 'Ação',
       }
     : {
@@ -32,8 +32,8 @@ export function ButtonPlayground() {
         color,
         size,
         disabled,
-        iconLeft:  iconLeft  ? <PlusIcon />        : undefined,
-        iconRight: iconRight ? <ChevronDownIcon /> : undefined,
+        iconLeft:  iconLeft  ? <PlusIcon decorative />        : undefined,
+        iconRight: iconRight ? <ChevronDownIcon decorative /> : undefined,
         children:  label || 'Botão',
       }
 
@@ -203,14 +203,14 @@ function generateSnippet(opts: {
 
   if (opts.iconOnly) {
     props.push('iconOnly')
-    props.push('icon={<CloseIcon />}')
+    props.push('icon={<CloseIcon decorative />}')
     props.push(`aria-label="${opts.ariaLabel || 'Ação'}"`)
     const propsStr = props.length ? '\n  ' + props.join('\n  ') + '\n' : ''
     return `<Button${propsStr}/>`
   }
 
-  if (opts.iconLeft)  props.push('iconLeft={<PlusIcon />}')
-  if (opts.iconRight) props.push('iconRight={<ChevronDownIcon />}')
+  if (opts.iconLeft)  props.push('iconLeft={<PlusIcon decorative />}')
+  if (opts.iconRight) props.push('iconRight={<ChevronDownIcon decorative />}')
 
   const propsStr = props.length ? '\n  ' + props.join('\n  ') + '\n' : ''
   return `<Button${propsStr}>${opts.label || 'Botão'}</Button>`

@@ -14,12 +14,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 function findDocsDir(): string {
-  // When running from mcp/dist/index.js → project root is ../../
-  // When running from mcp/src/index.ts → project root is ../../
   const candidates = [
-    resolve(__dirname, "../../ai"),       // from dist/ or src/
-    resolve(__dirname, "../../../ai"),     // fallback
-    resolve(process.cwd(), "ai"),         // from project root
+    resolve(__dirname, "../docs/ai"),     // npm package (dist/../docs/ai)
+    resolve(__dirname, "../../ai"),       // local repo from dist/ or src/
+    resolve(__dirname, "../../../ai"),    // fallback
+    resolve(process.cwd(), "ai"),        // from project root
   ];
   for (const dir of candidates) {
     if (existsSync(dir)) return dir;
@@ -79,9 +78,16 @@ const docs = loadDocs(docsDir);
 
 // Also load llms-full.txt if available
 let llmsFullContent = "";
-const llmsFullPath = resolve(docsDir, "../llms-full.txt");
-if (existsSync(llmsFullPath)) {
-  llmsFullContent = readFileSync(llmsFullPath, "utf-8");
+const llmsFullCandidates = [
+  resolve(docsDir, "../llms-full.txt"),          // both npm (docs/) and local (ai/../)
+  resolve(__dirname, "../docs/llms-full.txt"),    // npm package explicitly
+  resolve(process.cwd(), "llms-full.txt"),        // project root
+];
+for (const candidate of llmsFullCandidates) {
+  if (existsSync(candidate)) {
+    llmsFullContent = readFileSync(candidate, "utf-8");
+    break;
+  }
 }
 
 // ---------------------------------------------------------------------------

@@ -7,28 +7,45 @@ const buildCode = `cd mcp
 npm install
 npm run build`
 
-const claudeCode = `claude mcp add cycle-design -- node /path/to/cycle-design/mcp/dist/index.js
-
-# Para escopo global (todos os projetos):
-claude mcp add cycle-design -s user -- node /path/to/cycle-design/mcp/dist/index.js`
-
-const vscodeCode = `{
-  "servers": {
+const mcpJsonShared = `{
+  "mcpServers": {
     "cycle-design": {
-      "command": "node",
-      "args": ["/path/to/cycle-design/mcp/dist/index.js"]
+      "command": "npx",
+      "args": ["cycle-design-mcp"]
     }
   }
 }`
 
-const cursorCode = `{
+const claudeCodeExternal = `claude mcp add cycle-design -- npx cycle-design-mcp`
+
+const vscodeExternal = `{
+  "servers": {
+    "cycle-design": {
+      "command": "npx",
+      "args": ["cycle-design-mcp"]
+    }
+  }
+}`
+
+const cursorExternal = `{
+  "mcpServers": {
+    "cycle-design": {
+      "command": "npx",
+      "args": ["cycle-design-mcp"]
+    }
+  }
+}`
+
+const mcpJsonLocal = `{
   "mcpServers": {
     "cycle-design": {
       "command": "node",
-      "args": ["/path/to/cycle-design/mcp/dist/index.js"]
+      "args": ["mcp/dist/index.js"]
     }
   }
 }`
+
+const validateClaude = `claude mcp list`
 
 const tools = [
   {
@@ -78,42 +95,114 @@ export default function Mcp() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>1. Build do server</h2>
+        <h2 className={styles.h2}>Quando usar cada abordagem</h2>
         <p className={styles.p}>
-          O server MCP está em <code>mcp/</code> na raiz do repositório. Faça o build antes de usar:
+          Existem duas formas de usar o MCP do Cycle Design, dependendo do contexto:
         </p>
-        <CodeBlock code={buildCode} language="bash" filename="terminal" />
+        <div className={styles.scenarioGrid}>
+          <div className={styles.scenarioCard}>
+            <h3 className={styles.scenarioTitle}>Neste repositório</h3>
+            <p className={styles.scenarioDesc}>
+              Você contribui diretamente no Cycle Design. O MCP roda a partir do código-fonte local.
+            </p>
+          </div>
+          <div className={styles.scenarioCard}>
+            <h3 className={styles.scenarioTitle}>Em projetos externos</h3>
+            <p className={styles.scenarioDesc}>
+              Seu projeto consome o Cycle Design como dependência. O MCP é instalado via npm.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>2. Configurar no seu cliente</h2>
+        <h2 className={styles.h2}>Uso neste repositório</h2>
+        <p className={styles.p}>
+          O repositório já inclui um arquivo <code>.mcp.json</code> na raiz com a configuração pronta.
+          Claude Code, VS Code e Cursor detectam esse arquivo automaticamente ao abrir o projeto.
+        </p>
 
-        <div className={styles.tabSection}>
-          <h3 className={styles.h3}>Claude Code</h3>
-          <CodeBlock code={claudeCode} language="bash" filename="terminal" />
-        </div>
+        <h3 className={styles.h3}>Pré-requisito: build do server</h3>
+        <p className={styles.p}>
+          Como o <code>.mcp.json</code> aponta para <code>mcp/dist/index.js</code>, você precisa
+          fazer o build uma vez antes de usar:
+        </p>
+        <CodeBlock code={buildCode} language="bash" filename="terminal" />
 
-        <div className={styles.tabSection}>
-          <h3 className={styles.h3}>VS Code</h3>
-          <p className={styles.p}>Adicione em <code>.vscode/mcp.json</code>:</p>
-          <CodeBlock code={vscodeCode} language="json" filename=".vscode/mcp.json" />
-        </div>
+        <h3 className={styles.h3}>Configuração automática</h3>
+        <p className={styles.p}>
+          Após o build, basta abrir o projeto. O <code>.mcp.json</code> na raiz configura o MCP
+          automaticamente:
+        </p>
+        <CodeBlock code={mcpJsonLocal} language="json" filename=".mcp.json (já incluído no repositório)" />
 
-        <div className={styles.tabSection}>
-          <h3 className={styles.h3}>Cursor</h3>
-          <p className={styles.p}>Adicione em <code>.cursor/mcp.json</code>:</p>
-          <CodeBlock code={cursorCode} language="json" filename=".cursor/mcp.json" />
-        </div>
-
-        <Callout type="warning" title="Substitua o caminho">
+        <Callout type="info" title="Nenhuma configuração adicional necessária">
           <p>
-            Troque <code>/path/to/cycle-design</code> pelo caminho real do repositório na sua máquina.
+            Não é preciso rodar <code>claude mcp add</code> nem criar arquivos em <code>.vscode/</code> ou <code>.cursor/</code>.
+            O <code>.mcp.json</code> na raiz é detectado automaticamente por todos os clientes compatíveis.
           </p>
         </Callout>
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>3. Ferramentas disponíveis</h2>
+        <h2 className={styles.h2}>Uso em projetos externos</h2>
+        <p className={styles.p}>
+          Para projetos que consomem o Cycle Design como dependência, o MCP está publicado no
+          npm como <code>cycle-design-mcp</code>. Não é necessário clonar o repositório nem fazer build.
+        </p>
+
+        <div className={styles.tabSection}>
+          <h3 className={styles.h3}>Configuração compartilhada (recomendado)</h3>
+          <p className={styles.p}>
+            Crie um arquivo <code>.mcp.json</code> na raiz do seu projeto. Toda a equipe recebe
+            a configuração automaticamente ao clonar o repositório:
+          </p>
+          <CodeBlock code={mcpJsonShared} language="json" filename=".mcp.json" />
+        </div>
+
+        <div className={styles.tabSection}>
+          <h3 className={styles.h3}>Configuração individual — Claude Code</h3>
+          <p className={styles.p}>
+            Se preferir configurar apenas para você, sem criar arquivo no projeto:
+          </p>
+          <CodeBlock code={claudeCodeExternal} language="bash" filename="terminal" />
+        </div>
+
+        <div className={styles.tabSection}>
+          <h3 className={styles.h3}>Configuração individual — VS Code</h3>
+          <p className={styles.p}>Adicione em <code>.vscode/mcp.json</code>:</p>
+          <CodeBlock code={vscodeExternal} language="json" filename=".vscode/mcp.json" />
+        </div>
+
+        <div className={styles.tabSection}>
+          <h3 className={styles.h3}>Configuração individual — Cursor</h3>
+          <p className={styles.p}>Adicione em <code>.cursor/mcp.json</code>:</p>
+          <CodeBlock code={cursorExternal} language="json" filename=".cursor/mcp.json" />
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Validando a configuração</h2>
+        <p className={styles.p}>
+          Para verificar se o MCP está ativo, use o comando abaixo no Claude Code:
+        </p>
+        <CodeBlock code={validateClaude} language="bash" filename="terminal" />
+        <p className={styles.p}>
+          O servidor <code>cycle-design</code> deve aparecer na lista. Em seguida, teste com
+          um prompt como <em>"Liste os tópicos de documentação do Cycle Design"</em> — o assistente
+          deve chamar a tool <code>list_topics</code> automaticamente.
+        </p>
+        <Callout type="tip" title="Dica">
+          <p>
+            No VS Code e Cursor, o MCP aparece no painel de ferramentas do assistente.
+            Se o servidor não aparecer, verifique se o build foi feito (uso local) ou se
+            o <code>npx</code> está acessível no PATH (uso externo).
+          </p>
+        </Callout>
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>Ferramentas disponíveis</h2>
         <p className={styles.p}>
           O server expõe 5 ferramentas que o assistente usa automaticamente:
         </p>
@@ -147,9 +236,9 @@ export default function Mcp() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Roadmap</h2>
         <p className={styles.p}>
-          O server atual (Fase 2A) foca em <strong>acesso à documentação</strong>. Quando os
+          O server atual foca em <strong>acesso à documentação</strong>. Quando os
           primeiros componentes React estiverem prontos, o MCP será estendido com ferramentas de
-          registry (Fase 2B):
+          registry:
         </p>
         <ul className={styles.roadmapList}>
           <li><span className={styles.done}>✓</span> <code>list_topics</code>, <code>get_doc</code>, <code>search_docs</code>, <code>get_token_value</code>, <code>get_all_docs</code></li>

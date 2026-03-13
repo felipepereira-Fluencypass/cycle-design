@@ -40,6 +40,34 @@
   color: var(--text-primary);
 }
 
+.scenarioGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-micro);
+  margin-top: var(--spacing-micro);
+}
+
+.scenarioCard {
+  background: var(--bg-secondary);
+  border: var(--border-hairline) solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-inset-md);
+}
+
+.scenarioTitle {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.scenarioDesc {
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
 .tabSection {
   margin-bottom: var(--spacing-sm);
 }

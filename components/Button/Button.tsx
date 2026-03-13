@@ -1,6 +1,5 @@
 import { forwardRef, cloneElement } from 'react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactElement, ReactNode } from 'react'
-import styles from './Button.module.css'
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -136,10 +135,10 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
   }
 
   const classNames = [
-    styles.btn,
-    styles[variant],
-    styles[size],
-    iconOnly ? styles.iconOnly : undefined,
+    'cd-btn',
+    `cd-btn--${variant}`,
+    `cd-btn--${size}`,
+    iconOnly ? 'cd-btn--icon-only' : undefined,
     className,
   ]
     .filter(Boolean)

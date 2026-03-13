@@ -1,29 +1,68 @@
 {
-  "name": "@cycle/design",
-  "version": "1.0.0",
-  "main": "src/index.ts",
-  "style": "src/index.css",
+  "name": "cycle-design",
+  "version": "0.1.0",
+  "description": "Cycle Design — Design System da Fluencypass",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./icons": {
+      "import": {
+        "types": "./dist/icons.d.ts",
+        "default": "./dist/icons.js"
+      },
+      "require": {
+        "types": "./dist/icons.d.cts",
+        "default": "./dist/icons.cjs"
+      }
+    },
+    "./tokens": "./dist/tokens.css",
+    "./styles.css": "./dist/styles.css"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build:icons": "node scripts/build-icons.mjs"
+    "build": "tsup && npm run build:css",
+    "build:css": "node scripts/build-css.mjs",
+    "build:icons": "node scripts/build-icons.mjs",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
   },
   "devDependencies": {
-    "typescript": "^5.4.0",
+    "@types/node": "^20.0.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
-    "@types/node": "^20.0.0",
+    "glob": "^11.0.0",
     "svgo": "^3.3.0",
-    "glob": "^11.0.0"
+    "tsup": "^8.5.1",
+    "typescript": "^5.4.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/felipepereira-Fluencypass/cycle-design.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cycle-design",
+    "design-system",
+    "fluencypass",
+    "react",
+    "tokens"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/felipepereira-Fluencypass/cycle-design/issues"

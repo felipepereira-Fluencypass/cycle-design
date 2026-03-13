@@ -1,16 +1,21 @@
 {
-  "name": "@cycle/mcp",
+  "name": "cycle-design-mcp",
   "version": "0.1.0",
   "description": "MCP server for Cycle Design — browse tokens and documentation via AI assistants",
   "type": "module",
   "bin": {
-    "cycle-mcp": "./dist/index.js"
+    "cycle-design-mcp": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "scripts": {
+    "prepare-docs": "rm -rf docs && mkdir -p docs && cp -r ../ai docs/ai && cp ../llms-full.txt docs/llms-full.txt",
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run prepare-docs && npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1"

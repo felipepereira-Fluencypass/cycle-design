@@ -2,7 +2,7 @@
  * Cycle Design — Icons (stable)
  *
  * Importação recomendada:
- * import { HomeIcon, PlusIcon } from '@cycle/design/icons'
+ * import { HomeIcon, PlusIcon } from 'cycle-design/icons'
  *
  * AUTO-GERADO pelo script build:icons. Não edite manualmente.
  */

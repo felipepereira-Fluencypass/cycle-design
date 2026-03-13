@@ -14,7 +14,7 @@ Reference document with all decisions and guidelines defined during the planning
 
 ### Components
 - React + TypeScript component library
-- Published as npm package (`@cycle/design`)
+- Published as npm package (`cycle-design`)
 - Strong typing of all props — serves as living documentation and safety net
 
 ### Tokens

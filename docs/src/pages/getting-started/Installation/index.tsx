@@ -3,32 +3,21 @@ import { CodeBlock } from '@/components/ui/CodeBlock'
 import { Callout } from '@/components/ui/Callout'
 import styles from './Installation.module.css'
 
-const installCode = `npm install @cycle/design
+const installCode = `npm install cycle-design
 # ou
-yarn add @cycle/design`
+yarn add cycle-design`
 
-const importFullCode = `/* No seu arquivo CSS global (ex: main.css, globals.css) */
+const importStylesCode = `/* Importa tokens + estilos dos componentes (recomendado) */
+import 'cycle-design/styles.css'`
 
-/* 1. Primitivos (base — não usar diretamente nas interfaces) */
-@import '@cycle/design/tokens/typography-primitives.css';
-@import '@cycle/design/tokens/color-primitives.css';
+const importTokensCode = `/* Alternativa: importar apenas os tokens, sem estilos de componentes */
+import 'cycle-design/tokens'`
 
-/* 2. Composições (tokens funcionais — use estes nas interfaces) */
-@import '@cycle/design/tokens/typography-compositions.css';
-@import '@cycle/design/tokens/color-compositions.css';
-@import '@cycle/design/tokens/color-compositions-bg.css';
-@import '@cycle/design/tokens/gradients.css';
+const importComponentsCode = `/* Componentes React */
+import { Button } from 'cycle-design'
 
-/* 3. Utilitários */
-@import '@cycle/design/tokens/border-width-tokens.css';
-@import '@cycle/design/tokens/radius-tokens.css';
-@import '@cycle/design/tokens/shadow-tokens.css';
-@import '@cycle/design/tokens/opacity-tokens.css';
-@import '@cycle/design/tokens/spacing-tokens.css';
-@import '@cycle/design/tokens/grid-tokens.css';`
-
-const importShortCode = `/* Alternativa: importar tudo de uma vez */
-@import '@cycle/design/tokens/index.css';`
+/* Ícones */
+import { SearchIcon, PlusIcon } from 'cycle-design/icons'`
 
 const htmlCode = `<!-- Light mode (padrão) -->
 <html data-theme="light">
@@ -61,7 +50,7 @@ export default function Installation() {
       <PageHeader
         badge="Getting Started"
         title="Instalação"
-        description="Como instalar o pacote @cycle/design e importar os tokens no seu projeto."
+        description="Como instalar o pacote cycle-design e importar tokens, componentes e ícones no seu projeto."
       />
 
       <section className={styles.section}>
@@ -70,18 +59,25 @@ export default function Installation() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>2. Importar os tokens</h2>
+        <h2 className={styles.h2}>2. Importar estilos</h2>
         <p className={styles.p}>
-          Importe os tokens no seu CSS global. A ordem de importação é importante —
-          primitivos antes das composições.
+          O pacote oferece dois entry points de CSS. Importe no seu arquivo de entrada
+          (ex: <code>main.tsx</code>, <code>App.tsx</code>).
         </p>
-        <CodeBlock code={importFullCode} language="css" filename="globals.css" />
-        <p className={styles.p}>Ou use o atalho que importa tudo na ordem correta:</p>
-        <CodeBlock code={importShortCode} language="css" filename="globals.css" />
+        <CodeBlock code={importStylesCode} language="tsx" filename="main.tsx" />
+        <p className={styles.p}>
+          Se você só precisa dos tokens (sem estilos de componentes):
+        </p>
+        <CodeBlock code={importTokensCode} language="tsx" filename="main.tsx" />
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>3. Configurar o tema</h2>
+        <h2 className={styles.h2}>3. Importar componentes e ícones</h2>
+        <CodeBlock code={importComponentsCode} language="tsx" filename="App.tsx" />
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.h2}>4. Configurar o tema</h2>
         <p className={styles.p}>
           Defina o atributo <code>data-theme</code> no elemento <code>{'<html>'}</code> para
           ativar o tema correto. O dark mode também é ativado automaticamente via{' '}
@@ -91,7 +87,7 @@ export default function Installation() {
       </section>
 
       <section className={styles.section}>
-        <h2 className={styles.h2}>4. Usar os tokens</h2>
+        <h2 className={styles.h2}>5. Usar os tokens</h2>
         <p className={styles.p}>
           Com os tokens importados, use as CSS Custom Properties em qualquer lugar do seu CSS.
           Sempre use tokens <strong>funcionais</strong> (composições), não primitivos.

@@ -3,31 +3,32 @@
 ## Install the package
 
 ```bash
-npm install @cycle/design
+npm install cycle-design
 ```
 
-## Import tokens
+## Import styles
 
-Import CSS token files in your main stylesheet or entry point. Order matters — primitives must come before compositions:
+The package provides two CSS entry points. Import in your app's entry file (e.g., `main.tsx`):
 
-```css
-/* 1. Primitives (base values) */
-@import '@cycle/design/tokens/typography-primitives.css';
-@import '@cycle/design/tokens/color-primitives.css';
+```tsx
+/* Recommended — includes tokens + component styles */
+import 'cycle-design/styles.css'
+```
 
-/* 2. Compositions (functional tokens) */
-@import '@cycle/design/tokens/typography-compositions.css';
-@import '@cycle/design/tokens/color-compositions.css';
-@import '@cycle/design/tokens/color-compositions-bg.css';
-@import '@cycle/design/tokens/gradients.css';
+If you only need the design tokens (no component styles):
 
-/* 3. Utilities */
-@import '@cycle/design/tokens/border-width-tokens.css';
-@import '@cycle/design/tokens/radius-tokens.css';
-@import '@cycle/design/tokens/shadow-tokens.css';
-@import '@cycle/design/tokens/opacity-tokens.css';
-@import '@cycle/design/tokens/spacing-tokens.css';
-@import '@cycle/design/tokens/grid-tokens.css';
+```tsx
+import 'cycle-design/tokens'
+```
+
+## Import components and icons
+
+```tsx
+/* React components */
+import { Button } from 'cycle-design'
+
+/* Icons */
+import { SearchIcon, PlusIcon } from 'cycle-design/icons'
 ```
 
 ## Load fonts
@@ -59,22 +60,12 @@ Cycle Design uses Open Sans and Fira Code. Add them to your HTML `<head>`:
 <button class="button-md">Click me</button>
 ```
 
-## File structure
+## Package entry points
 
 ```
-@cycle/design/
-├── tokens/
-│   ├── color-primitives.css        — Base color palettes
-│   ├── color-compositions.css      — Functional text/border/foreground colors
-│   ├── color-compositions-bg.css   — Functional background colors
-│   ├── typography-primitives.css   — Font families, sizes, weights
-│   ├── typography-compositions.css — 38 ready-to-use typography classes
-│   ├── spacing-tokens.css          — Gap and padding tokens
-│   ├── shadow-tokens.css           — Shadow elevation levels
-│   ├── radius-tokens.css           — Border radius values
-│   ├── border-width-tokens.css     — Border width values
-│   ├── opacity-tokens.css          — Opacity levels
-│   ├── gradients.css               — Linear gradients
-│   └── grid-tokens.css             — Responsive grid system
-└── components/                     — (future) React components
+cycle-design
+├── cycle-design/styles.css   — All tokens + component styles (recommended)
+├── cycle-design/tokens       — Only design tokens (CSS custom properties + typography classes)
+├── cycle-design              — React components (Button, etc.)
+└── cycle-design/icons        — Icon components (SearchIcon, PlusIcon, etc.)
 ```

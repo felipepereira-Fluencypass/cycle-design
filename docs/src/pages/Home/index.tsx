@@ -55,10 +55,10 @@ const sections = [
 ]
 
 const installCode = `/* 1. Instale o pacote */
-npm install @cycle/design
+npm install cycle-design
 
-/* 2. Importe os tokens no seu CSS global */
-@import '@cycle/design/tokens/index.css';
+/* 2. Importe no entry point do app */
+import 'cycle-design/styles.css'
 
 /* 3. Configure o tema no HTML */
 <html data-theme="light">`

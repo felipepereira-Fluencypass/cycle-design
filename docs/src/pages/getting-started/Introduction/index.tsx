@@ -67,7 +67,7 @@ export default function Introduction() {
         <div className={styles.techList}>
           <div className={styles.techItem}>
             <span className={styles.techName}>Pacote</span>
-            <code>@cycle/design</code>
+            <code>cycle-design</code>
           </div>
           <div className={styles.techItem}>
             <span className={styles.techName}>Framework</span>

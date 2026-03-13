@@ -1,6 +1,6 @@
 # Cycle Design
 
-> Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `@cycle/design` npm package.
+> Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `cycle-design` npm package.
 
 ---
 
@@ -10,7 +10,7 @@ Cycle Design is the Design System for **Fluencypass**. It provides a complete se
 
 ## Key Facts
 
-- **Package:** `@cycle/design`
+- **Package:** `cycle-design`
 - **Framework:** React + TypeScript
 - **Styling:** CSS Custom Properties (CSS variables)
 - **Fonts:** Open Sans (body, headline, display) + Fira Code (mono)
@@ -61,7 +61,7 @@ Each palette provides tokens for text, border, foreground, and background with v
 
 1. **Always use tokens** — never hardcode color values, font sizes, spacing, etc.
 2. **Use functional tokens, not primitives** — e.g., use `--text-primary` instead of `--color-gray-light-900`
-3. **Never recreate existing components** — always import from `@cycle/design`
+3. **Never recreate existing components** — always import from `cycle-design`
 4. **Edit source files directly** — never duplicate a component to modify it
 5. **Use typography classes** — 38 pre-built styles available (body, subtitle, headline, display, button)
 
@@ -72,31 +72,32 @@ Each palette provides tokens for text, border, foreground, and background with v
 ## Install the package
 
 ```bash
-npm install @cycle/design
+npm install cycle-design
 ```
 
-## Import tokens
+## Import styles
 
-Import CSS token files in your main stylesheet or entry point. Order matters — primitives must come before compositions:
+The package provides two CSS entry points. Import in your app's entry file (e.g., `main.tsx`):
 
-```css
-/* 1. Primitives (base values) */
-@import '@cycle/design/tokens/typography-primitives.css';
-@import '@cycle/design/tokens/color-primitives.css';
+```tsx
+/* Recommended — includes tokens + component styles */
+import 'cycle-design/styles.css'
+```
 
-/* 2. Compositions (functional tokens) */
-@import '@cycle/design/tokens/typography-compositions.css';
-@import '@cycle/design/tokens/color-compositions.css';
-@import '@cycle/design/tokens/color-compositions-bg.css';
-@import '@cycle/design/tokens/gradients.css';
+If you only need the design tokens (no component styles):
 
-/* 3. Utilities */
-@import '@cycle/design/tokens/border-width-tokens.css';
-@import '@cycle/design/tokens/radius-tokens.css';
-@import '@cycle/design/tokens/shadow-tokens.css';
-@import '@cycle/design/tokens/opacity-tokens.css';
-@import '@cycle/design/tokens/spacing-tokens.css';
-@import '@cycle/design/tokens/grid-tokens.css';
+```tsx
+import 'cycle-design/tokens'
+```
+
+## Import components and icons
+
+```tsx
+/* React components */
+import { Button } from 'cycle-design'
+
+/* Icons */
+import { SearchIcon, PlusIcon } from 'cycle-design/icons'
 ```
 
 ## Load fonts
@@ -128,24 +129,14 @@ Cycle Design uses Open Sans and Fira Code. Add them to your HTML `<head>`:
 <button class="button-md">Click me</button>
 ```
 
-## File structure
+## Package entry points
 
 ```
-@cycle/design/
-├── tokens/
-│   ├── color-primitives.css        — Base color palettes
-│   ├── color-compositions.css      — Functional text/border/foreground colors
-│   ├── color-compositions-bg.css   — Functional background colors
-│   ├── typography-primitives.css   — Font families, sizes, weights
-│   ├── typography-compositions.css — 38 ready-to-use typography classes
-│   ├── spacing-tokens.css          — Gap and padding tokens
-│   ├── shadow-tokens.css           — Shadow elevation levels
-│   ├── radius-tokens.css           — Border radius values
-│   ├── border-width-tokens.css     — Border width values
-│   ├── opacity-tokens.css          — Opacity levels
-│   ├── gradients.css               — Linear gradients
-│   └── grid-tokens.css             — Responsive grid system
-└── components/                     — (future) React components
+cycle-design
+├── cycle-design/styles.css   — All tokens + component styles (recommended)
+├── cycle-design/tokens       — Only design tokens (CSS custom properties + typography classes)
+├── cycle-design              — React components (Button, etc.)
+└── cycle-design/icons        — Icon components (SearchIcon, PlusIcon, etc.)
 ```
 
 ---
@@ -1012,7 +1003,7 @@ Reference document with all decisions and guidelines defined during the planning
 
 ### Components
 - React + TypeScript component library
-- Published as npm package (`@cycle/design`)
+- Published as npm package (`cycle-design`)
 - Strong typing of all props — serves as living documentation and safety net
 
 ### Tokens

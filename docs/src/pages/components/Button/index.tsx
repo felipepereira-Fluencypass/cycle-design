@@ -141,10 +141,10 @@ export default function ButtonPage() {
         <h2 className={styles.h2}>Importação</h2>
         <CodeBlock
           language="tsx"
-          code={`import { Button } from '@cycle/design'
+          code={`import { Button } from 'cycle-design'
 
 // Para usar ícones junto ao botão:
-import { PlusIcon } from '@cycle/design/icons'`}
+import { PlusIcon } from 'cycle-design/icons'`}
         />
 
         <p className={styles.p} style={{ marginTop: 16 }}>Exemplos prontos de uso:</p>

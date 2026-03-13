@@ -41,7 +41,7 @@ const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   ALL_CATEGORIES.filter(c => c.value !== 'all').map(c => [c.value, c.label])
 )
 
-const USAGE_CODE = `import { HomeIcon, PlusIcon } from '@cycle/design/icons'
+const USAGE_CODE = `import { HomeIcon, PlusIcon } from 'cycle-design/icons'
 
 // Decorativo — puramente visual, contexto já comunica o significado
 <HomeIcon size="sm" decorative />

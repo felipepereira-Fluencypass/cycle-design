@@ -8,7 +8,7 @@
 
 Cycle Design é o Design System da **Fluencypass**. Todos os projetos da Fluencypass devem importar e usar os tokens e componentes deste pacote. **Nunca crie tokens ou componentes do zero** — sempre use o que já existe aqui.
 
-- **Pacote:** `@cycle/design`
+- **Pacote:** `cycle-design`
 - **Framework:** React + TypeScript
 - **Estilização:** CSS Custom Properties (variáveis CSS)
 - **Fontes:** Open Sans (body, headline, display) + Fira Code (mono)
@@ -63,7 +63,7 @@ Antes de criar qualquer componente, verifique se já existe no Cycle Design. Se 
 const MyButton = styled.button`...`;
 
 // ✅ CORRETO — importar do Design System
-import { Button } from '@cycle/design';
+import { Button } from 'cycle-design';
 ```
 
 ### 4. Ao alterar um componente, edite o arquivo fonte
@@ -100,26 +100,20 @@ Existem 38 estilos de tipografia prontos. Use as classes CSS:
 
 ## Estrutura dos tokens
 
-### Arquivos CSS (importar nesta ordem)
+### Entry points do pacote
 
-```css
-/* 1. Primitivos (base) */
-@import '@cycle/design/tokens/typography-primitives.css';
-@import '@cycle/design/tokens/color-primitives.css';
+```tsx
+/* Recomendado — tokens + estilos dos componentes */
+import 'cycle-design/styles.css'
 
-/* 2. Composições (funcionais) */
-@import '@cycle/design/tokens/typography-compositions.css';
-@import '@cycle/design/tokens/color-compositions.css';
-@import '@cycle/design/tokens/color-compositions-bg.css';
-@import '@cycle/design/tokens/gradients.css';
+/* Alternativa — apenas tokens, sem estilos de componentes */
+import 'cycle-design/tokens'
 
-/* 3. Utilitários */
-@import '@cycle/design/tokens/border-width.css';
-@import '@cycle/design/tokens/border-radius.css';
-@import '@cycle/design/tokens/shadows.css';
-@import '@cycle/design/tokens/opacity.css';
-@import '@cycle/design/tokens/spacing.css';
-@import '@cycle/design/tokens/grid.css';
+/* Componentes React */
+import { Button } from 'cycle-design'
+
+/* Ícones */
+import { SearchIcon, PlusIcon } from 'cycle-design/icons'
 ```
 
 ### Referência rápida dos tokens

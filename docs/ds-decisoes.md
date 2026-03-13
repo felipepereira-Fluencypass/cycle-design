@@ -19,7 +19,7 @@
 ### Componentes
 
 - Biblioteca de componentes em **React + TypeScript**
-- Publicada como **pacote npm** (`@cycle/design`) para ser instalada em qualquer projeto
+- Publicada como **pacote npm** (`cycle-design`) para ser instalada em qualquer projeto
 - Tipagem forte de todas as props — serve como documentação viva e rede de segurança contra quebras
 
 ### Tokens
@@ -76,7 +76,7 @@ As ferramentas de IA (Claude Code, Cursor, Windsurf, Bolt) **não acessam Storyb
 ### Arquivo de regras para IAs (CLAUDE.md)
 
 Deve conter instruções explícitas como:
-- "Sempre importe componentes de `@cycle/design`"
+- "Sempre importe componentes de `cycle-design`"
 - "Nunca recrie um componente que já existe — modifique o arquivo fonte"
 - "Mantenha a interface de props retrocompatível"
 - "Ao adicionar componente novo, siga a estrutura de pastas definida"

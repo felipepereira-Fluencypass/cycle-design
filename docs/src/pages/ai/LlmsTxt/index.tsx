@@ -31,7 +31,7 @@ Cycle Design is the Design System for **Fluencypass**...
 
 ## Key Facts
 
-- **Package:** \`@cycle/design\`
+- **Package:** \`cycle-design\`
 - **Framework:** React + TypeScript
 ...`
 

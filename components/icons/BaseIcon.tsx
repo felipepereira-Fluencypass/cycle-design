@@ -13,7 +13,7 @@ import type { IconProps } from './types'
  * - Aceitar ref para casos avançados
  *
  * NÃO use BaseIcon diretamente — use os ícones nomeados:
- * import { HomeIcon } from '@cycle/design/icons'
+ * import { HomeIcon } from 'cycle-design/icons'
  */
 export const BaseIcon = forwardRef<SVGSVGElement, IconProps>(function BaseIcon(
   props,

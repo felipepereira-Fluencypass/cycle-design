@@ -4,7 +4,7 @@ Cycle Design is the Design System for **Fluencypass**. It provides a complete se
 
 ## Key Facts
 
-- **Package:** `@cycle/design`
+- **Package:** `cycle-design`
 - **Framework:** React + TypeScript
 - **Styling:** CSS Custom Properties (CSS variables)
 - **Fonts:** Open Sans (body, headline, display) + Fira Code (mono)
@@ -55,6 +55,6 @@ Each palette provides tokens for text, border, foreground, and background with v
 
 1. **Always use tokens** — never hardcode color values, font sizes, spacing, etc.
 2. **Use functional tokens, not primitives** — e.g., use `--text-primary` instead of `--color-gray-light-900`
-3. **Never recreate existing components** — always import from `@cycle/design`
+3. **Never recreate existing components** — always import from `cycle-design`
 4. **Edit source files directly** — never duplicate a component to modify it
 5. **Use typography classes** — 38 pre-built styles available (body, subtitle, headline, display, button)

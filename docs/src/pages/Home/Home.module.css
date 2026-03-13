@@ -63,7 +63,7 @@
 }
 
 .heroSubtitle {
-  font-size: 17px;
+  font-size: var(--font-size-xs);
   color: var(--text-secondary);
   max-width: 520px;
   line-height: 1.65;
@@ -141,7 +141,7 @@
 }
 
 .statValue {
-  font-size: 28px;
+  font-size: var(--font-size-xl);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -1px;
@@ -170,7 +170,7 @@
 }
 
 .sectionTitle {
-  font-size: 22px;
+  font-size: var(--font-size-lg);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.4px;
@@ -178,7 +178,7 @@
 }
 
 .sectionDesc {
-  font-size: 14.5px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -187,7 +187,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 13.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 600;
   color: var(--text-brand-primary);
   text-decoration: none;
@@ -218,7 +218,7 @@
 }
 
 .paletteName {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -287,14 +287,14 @@
 }
 
 .cardTitle {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 6px;
 }
 
 .cardDesc {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   color: var(--text-secondary);
   line-height: 1.55;
 }
@@ -303,7 +303,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 12.5px;
+  font-size: var(--font-size-3xs);
   font-weight: 600;
   color: var(--text-brand-primary);
   margin-top: 4px;

@@ -123,6 +123,9 @@ export default function Icons() {
 
   return (
     <div>
+      <span aria-live="polite" aria-atomic="true" className="sr-only">
+        {copied ? 'Copiado para a área de transferência' : ''}
+      </span>
       <PageHeader
         badge="Foundation"
         title="Icons"

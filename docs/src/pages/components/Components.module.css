@@ -29,6 +29,17 @@
   color: var(--text-primary);
 }
 
+.stable {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: var(--bg-group-primary);
+  border: 1px solid var(--border-group);
+  border-radius: 100px;
+  /* --text-group-secondary: 6.1:1 — contraste suficiente para texto pequeno */
+  color: var(--text-group-secondary);
+}
+
 .soon {
   font-size: 10px;
   font-weight: 600;
@@ -40,7 +51,7 @@
 }
 
 .cardDesc {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   color: var(--text-secondary);
   line-height: 1.55;
 }

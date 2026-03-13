@@ -12,6 +12,7 @@ export type TokenMeta = {
   description: string
   usage?: string
   note?: string
+  badge?: 'recomendado' | 'restrito' | 'decorativo'
 }
 
 // ============================================
@@ -125,7 +126,7 @@ export const textTokensGrouped: TokenSubGroup[] = [
       ['--text-tertiary', { label: 'Text Tertiary', description: 'Texto de menor ênfase, informações complementares.', usage: 'Metadados, legendas, hints, labels de campo' }],
       ['--text-tertiary_hover', { label: 'Text Tertiary Hover', description: 'Variante hover do texto terciário.', usage: 'Estado hover de elementos de suporte' }],
       ['--text-tertiary_on-brand', { label: 'Text Tertiary on Brand', description: 'Texto terciário sobre fundos de marca.', usage: 'Informações complementares em banners de marca' }],
-      ['--text-quaternary', { label: 'Text Quaternary', description: 'Texto muito sutil para elementos de baixa hierarquia.', usage: 'Timestamps, separadores textuais, microcopy' }],
+      ['--text-quaternary', { label: 'Text Quaternary', description: 'Texto muito sutil para elementos de baixa hierarquia.', usage: 'Timestamps, separadores textuais, microcopy', badge: 'restrito' }],
       ['--text-quaternary_on-brand', { label: 'Text Quaternary on Brand', description: 'Texto quaternário sobre fundos de marca.', usage: 'Microtextos em banners de marca' }],
       ['--text-white', { label: 'Text White', description: 'Texto sempre branco, independente do tema.', usage: 'Textos sobre fundos escuros fixos' }],
       ['--text-white_alt', { label: 'Text White Alt', description: 'Branco no light mode, escuro (#181D27) no dark mode. Inverte automaticamente com o tema.', usage: 'Textos que precisam contrastar com o fundo em ambos os temas' }],
@@ -138,15 +139,15 @@ export const textTokensGrouped: TokenSubGroup[] = [
   {
     label: 'Semantic',
     tokens: [
-      ['--text-critical-primary', { label: 'Text Critical', description: 'Texto de estado crítico ou erro.', usage: 'Mensagens de erro, validações negativas' }],
-      ['--text-warning-primary', { label: 'Text Warning', description: 'Texto de estado de alerta.', usage: 'Avisos, alertas de atenção' }],
-      ['--text-positive-primary', { label: 'Text Positive', description: 'Texto de estado positivo ou sucesso.', usage: 'Confirmações, mensagens de sucesso' }],
+      ['--text-critical-primary', { label: 'Text Critical', description: 'Texto de estado crítico ou erro.', usage: 'Mensagens de erro, validações negativas', badge: 'recomendado' }],
+      ['--text-warning-primary', { label: 'Text Warning', description: 'Texto de estado de alerta.', usage: 'Avisos, alertas de atenção', badge: 'restrito' }],
+      ['--text-positive-primary', { label: 'Text Positive', description: 'Texto de estado positivo ou sucesso.', usage: 'Confirmações, mensagens de sucesso', badge: 'recomendado' }],
     ],
   },
   {
     label: 'Brand',
     tokens: [
-      ['--text-brand-primary', { label: 'Text Brand Primary', description: 'Texto na cor da marca. Para links e destaques de identidade.', usage: 'Links, destaques de marca, CTAs textuais' }],
+      ['--text-brand-primary', { label: 'Text Brand Primary', description: 'Texto na cor da marca. Para links e destaques de identidade.', usage: 'Links, destaques de marca, CTAs textuais', badge: 'restrito' }],
       ['--text-brand-secondary', { label: 'Text Brand Secondary', description: 'Texto de marca em nível secundário.', usage: 'Sublinks, textos de apoio em cor de marca' }],
       ['--text-brand-secondary_hover', { label: 'Text Brand Secondary Hover', description: 'Hover do texto de marca secundário.', usage: 'Estado hover de links de marca' }],
       ['--text-brand-tertiary', { label: 'Text Brand Tertiary', description: 'Texto de marca em nível terciário.', usage: 'Informações complementares em cor de marca' }],
@@ -166,7 +167,7 @@ export const textTokensGrouped: TokenSubGroup[] = [
   {
     label: 'Private',
     tokens: [
-      ['--text-private-primary', { label: 'Text Private Primary', description: 'Texto na cor da paleta Private (laranja).', usage: 'Links e destaques de Private' }],
+      ['--text-private-primary', { label: 'Text Private Primary', description: 'Texto na cor da paleta Private (laranja).', usage: 'Links e destaques de Private', badge: 'restrito' }],
       ['--text-private-secondary', { label: 'Text Private Secondary', description: 'Texto Private em nível secundário.', usage: 'Textos de apoio em cor Private' }],
       ['--text-private-secondary_hover', { label: 'Text Private Secondary Hover', description: 'Hover do texto Private secundário.', usage: 'Estado hover de links Private' }],
       ['--text-private-tertiary', { label: 'Text Private Tertiary', description: 'Texto Private em nível terciário.', usage: 'Informações complementares Private' }],
@@ -176,7 +177,7 @@ export const textTokensGrouped: TokenSubGroup[] = [
   {
     label: 'Group',
     tokens: [
-      ['--text-group-primary', { label: 'Text Group Primary', description: 'Texto na cor da paleta Group (verde).', usage: 'Links e destaques de Group' }],
+      ['--text-group-primary', { label: 'Text Group Primary', description: 'Texto na cor da paleta Group (verde).', usage: 'Links e destaques de Group', badge: 'decorativo' }],
       ['--text-group-secondary', { label: 'Text Group Secondary', description: 'Texto Group em nível secundário.', usage: 'Textos de apoio em cor Group' }],
       ['--text-group-secondary_hover', { label: 'Text Group Secondary Hover', description: 'Hover do texto Group secundário.', usage: 'Estado hover de links Group' }],
       ['--text-group-tertiary', { label: 'Text Group Tertiary', description: 'Texto Group em nível terciário.', usage: 'Informações complementares Group' }],
@@ -264,7 +265,7 @@ export const fgTokensGrouped: TokenSubGroup[] = [
       ['--fg-secondary_hover', { label: 'Foreground Secondary Hover', description: 'Hover do foreground secundário.', usage: 'Estado hover de ícones interativos' }],
       ['--fg-tertiary', { label: 'Foreground Tertiary', description: 'Ícones de baixa hierarquia.', usage: 'Ícones decorativos, indicadores sutis' }],
       ['--fg-tertiary_hover', { label: 'Foreground Tertiary Hover', description: 'Hover do foreground terciário.', usage: 'Estado hover de ícones de terceiro nível' }],
-      ['--fg-quaternary', { label: 'Foreground Quaternary', description: 'Ícones muito sutis.', usage: 'Decorações, chevrons desabilitados' }],
+      ['--fg-quaternary', { label: 'Foreground Quaternary', description: 'Ícones muito sutis.', usage: 'Decorações, chevrons desabilitados', badge: 'decorativo' }],
       ['--fg-quaternary_hover', { label: 'Foreground Quaternary Hover', description: 'Hover do foreground quaternário.', usage: 'Estado hover de ícones quaternários' }],
       ['--fg-white', { label: 'Foreground White', description: 'Ícone sempre branco.', usage: 'Ícones sobre fundos escuros ou sólidos' }],
       ['--fg-white_alt', { label: 'Foreground White Alt', description: 'Branco no light mode, escuro (#181D27) no dark mode. Inverte automaticamente com o tema.', usage: 'Ícones que precisam contrastar com o fundo em ambos os temas' }],
@@ -302,9 +303,9 @@ export const fgTokensGrouped: TokenSubGroup[] = [
   {
     label: 'Group',
     tokens: [
-      ['--fg-group-primary', { label: 'Foreground Group Primary', description: 'Ícones na cor Group (verde).', usage: 'Ícones da funcionalidade Group' }],
+      ['--fg-group-primary', { label: 'Foreground Group Primary', description: 'Ícones na cor Group (verde).', usage: 'Ícones da funcionalidade Group', badge: 'decorativo' }],
       ['--fg-group-primary_alt', { label: 'Foreground Group Primary Alt', description: 'Variante alternativa do foreground Group.', usage: 'Ícones Group em contextos alternativos' }],
-      ['--fg-group-secondary', { label: 'Foreground Group Secondary', description: 'Ícones Group em nível secundário.', usage: 'Ícones decorativos Group' }],
+      ['--fg-group-secondary', { label: 'Foreground Group Secondary', description: 'Ícones Group em nível secundário.', usage: 'Ícones decorativos Group', badge: 'decorativo' }],
       ['--fg-group-secondary_alt', { label: 'Foreground Group Secondary Alt', description: 'Variante alternativa do foreground Group secundário.', usage: 'Ícones Group em fundos alternativos' }],
     ],
   },
@@ -320,11 +321,11 @@ export const fgTokensGrouped: TokenSubGroup[] = [
   {
     label: 'Semantic',
     tokens: [
-      ['--fg-critical-primary', { label: 'Foreground Critical Primary', description: 'Ícone de estado crítico.', usage: 'Ícones de erro e alerta crítico' }],
+      ['--fg-critical-primary', { label: 'Foreground Critical Primary', description: 'Ícone de estado crítico.', usage: 'Ícones de erro e alerta crítico', badge: 'recomendado' }],
       ['--fg-critical-secondary', { label: 'Foreground Critical Secondary', description: 'Ícone crítico em nível secundário.', usage: 'Ícones de suporte a estados de erro' }],
-      ['--fg-warning-primary', { label: 'Foreground Warning Primary', description: 'Ícone de estado de atenção.', usage: 'Ícones de aviso e alerta' }],
-      ['--fg-warning-secondary', { label: 'Foreground Warning Secondary', description: 'Ícone de atenção em nível secundário.', usage: 'Ícones de suporte a estados de atenção' }],
-      ['--fg-positive-primary', { label: 'Foreground Positive Primary', description: 'Ícone de estado positivo.', usage: 'Ícones de sucesso e confirmação' }],
+      ['--fg-warning-primary', { label: 'Foreground Warning Primary', description: 'Ícone de estado de atenção.', usage: 'Ícones de aviso e alerta', badge: 'restrito' }],
+      ['--fg-warning-secondary', { label: 'Foreground Warning Secondary', description: 'Ícone de atenção em nível secundário.', usage: 'Ícones de suporte a estados de atenção', badge: 'decorativo' }],
+      ['--fg-positive-primary', { label: 'Foreground Positive Primary', description: 'Ícone de estado positivo.', usage: 'Ícones de sucesso e confirmação', badge: 'recomendado' }],
       ['--fg-positive-secondary', { label: 'Foreground Positive Secondary', description: 'Ícone positivo em nível secundário.', usage: 'Ícones de suporte a estados de sucesso' }],
     ],
   },

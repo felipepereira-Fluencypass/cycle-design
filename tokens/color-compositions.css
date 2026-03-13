@@ -18,6 +18,15 @@
 /* ------------------------------------------
    LIGHT MODE (default)
    ------------------------------------------ */
+
+/*
+  Legenda de contraste (light mode):
+  ✅  = AA ou superior — uso irrestrito
+  ⚠️  = Uso restrito — ver condição no comentário do token
+  🚫 = Somente decorativo / disabled — nunca texto ou ícone informativo
+  ♿ = Isento WCAG 1.4.3 — contraste não obrigatório (disabled / placeholder)
+*/
+
 :root,
 [data-theme="light"] {
 
@@ -35,21 +44,29 @@
   --text-tertiary: var(--color-gray-light-600);               /* #535862 */
   --text-tertiary_hover: var(--color-gray-light-700);         /* #414651 */
   --text-tertiary_on-brand: var(--color-brand-100);           /* #FFD0D1 */
+  /* ⚠️ Contraste 4.6:1 — seguro apenas sobre --bg-primary. Não usar sobre --bg-secondary ou --bg-tertiary */
   --text-quaternary: var(--color-gray-light-500);             /* #717680 */
   --text-quaternary_on-brand: var(--color-brand-200);         /* #FFB0B2 */
   --text-white: var(--color-white);                           /* #FFFFFF */
   --text-white_alt: var(--color-white);                       /* #FFFFFF */
   --text-black: var(--color-gray-light-900);                  /* #181D27 */
+  /* ♿ Isento WCAG 1.4.3 — contraste não obrigatório para estados disabled */
   --text-disabled: var(--color-gray-light-500);               /* #717680 */
+  /* ♿ Isento WCAG 1.4.3 — contraste não obrigatório para placeholder */
   --text-placeholder: var(--color-gray-light-500);            /* #717680 */
+  /* ♿ Isento WCAG 1.4.3 — contraste não obrigatório para placeholder sutil */
   --text-placeholder_subtle: var(--color-gray-light-300);     /* #D5D7DA */
 
   /* TEXT — Semantic */
+  /* ✅ Contraste 6.7:1 — AA */
   --text-critical-primary: var(--color-critical-600);         /* #B32020 */
+  /* ⚠️ Contraste 4.1:1 — somente texto grande (≥18pt regular / ≥14pt bold) em light mode */
   --text-warning-primary: var(--color-warning-700);           /* #AA7200 */
-  --text-positive-primary: var(--color-positive-600);         /* #098A5E */
+  /* ✅ Contraste 6.1:1 — remapeado positive-600 → positive-700 (auditoria a11y v1) */
+  --text-positive-primary: var(--color-positive-700);         /* #07704C */
 
   /* TEXT — Brand */
+  /* ⚠️ Contraste 4.0:1 — somente texto grande (≥18pt regular / ≥14pt bold) em light mode. Decisão de identidade visual — não alterar o primitivo */
   --text-brand-primary: var(--color-brand-600);               /* #D45558 */
   --text-brand-secondary: var(--color-brand-800);             /* #8C2D2F */
   --text-brand-secondary_hover: var(--color-brand-900);       /* #6B1E20 */
@@ -64,6 +81,7 @@
   --text-class-tertiary_alt: var(--color-class-950);          /* #031244 */
 
   /* TEXT — Private */
+  /* ⚠️ Contraste 3.4:1 — somente texto grande ou ícones em light mode. Para corpo de texto usar --text-private-secondary (7.1:1) */
   --text-private-primary: var(--color-private-600);           /* #E56530 */
   --text-private-secondary: var(--color-private-800);         /* #993A16 */
   --text-private-secondary_hover: var(--color-private-900);   /* #73270E */
@@ -71,6 +89,7 @@
   --text-private-tertiary_alt: var(--color-private-950);      /* #4D1608 */
 
   /* TEXT — Group */
+  /* 🚫 Contraste 2.4:1 — não usar como texto ou ícone informativo em light mode. Usar --text-group-secondary (6.1:1) para texto */
   --text-group-primary: var(--color-group-600);               /* #00C234 */
   --text-group-secondary: var(--color-group-800);             /* #00731E */
   --text-group-secondary_hover: var(--color-group-900);       /* #004D14 */
@@ -123,10 +142,12 @@
   --fg-secondary_hover: var(--color-gray-light-800);          /* #252B37 */
   --fg-tertiary: var(--color-gray-light-600);                 /* #535862 */
   --fg-tertiary_hover: var(--color-gray-light-700);           /* #414651 */
+  /* 🚫 Contraste 2.4:1 — somente disabled e decorativo. Nunca ícone informativo */
   --fg-quaternary: var(--color-gray-light-400);               /* #A4A7AE */
   --fg-quaternary_hover: var(--color-gray-light-500);         /* #717680 */
   --fg-white: var(--color-white);                             /* #FFFFFF */
   --fg-white_alt: var(--color-white);                         /* #FFFFFF */
+  /* ♿ Isento WCAG 1.4.3 — contraste não obrigatório para estados disabled */
   --fg-disabled: var(--color-gray-light-400);                 /* #A4A7AE */
   --fg-disabled_subtle: var(--color-gray-light-300);          /* #D5D7DA */
 
@@ -149,8 +170,10 @@
   --fg-private-secondary_alt: var(--color-private-500);       /* #FF8041 */
 
   /* FOREGROUND — Group */
+  /* 🚫 Contraste 2.4:1 — decorativo apenas em light mode. Usar sobre fundos escuros ou substituir por --text-group-secondary para ícones informativos */
   --fg-group-primary: var(--color-group-600);                 /* #00C234 */
   --fg-group-primary_alt: var(--color-group-600);             /* #00C234 */
+  /* 🚫 Contraste 1.7:1 — decorativo apenas em light mode */
   --fg-group-secondary: var(--color-group-500);               /* #00E73E */
   --fg-group-secondary_alt: var(--color-group-500);           /* #00E73E */
 
@@ -161,11 +184,15 @@
   --fg-impulse-secondary_alt: var(--color-impulse-500);       /* #9810FA */
 
   /* FOREGROUND — Semantic */
+  /* ✅ Contraste 6.7:1 — AA */
   --fg-critical-primary: var(--color-critical-600);           /* #B32020 */
   --fg-critical-secondary: var(--color-critical-500);         /* #D42B2B */
-  --fg-warning-primary: var(--color-warning-600);             /* #D48E00 */
+  /* ⚠️ Contraste 4.1:1 — ícones UI apenas. Remapeado warning-600 → warning-700 (auditoria a11y v1) */
+  --fg-warning-primary: var(--color-warning-700);             /* #AA7200 */
+  /* 🚫 Contraste 2.0:1 — decorativo apenas em light mode */
   --fg-warning-secondary: var(--color-warning-500);           /* #F5A800 */
-  --fg-positive-primary: var(--color-positive-600);           /* #098A5E */
+  /* ✅ Contraste 6.1:1 — AA (alinhado ao remapeamento de --text-positive-primary) */
+  --fg-positive-primary: var(--color-positive-700);           /* #07704C */
   --fg-positive-secondary: var(--color-positive-500);         /* #0BA370 */
 }
 

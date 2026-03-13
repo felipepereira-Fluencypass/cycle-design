@@ -5,18 +5,20 @@ import styles from './Header.module.css'
 
 interface HeaderProps {
   theme: 'light' | 'dark'
+  isSidebarOpen: boolean
   onToggleTheme: () => void
   onToggleSidebar: () => void
 }
 
-export function Header({ theme, onToggleTheme, onToggleSidebar }: HeaderProps) {
+export function Header({ theme, isSidebarOpen, onToggleTheme, onToggleSidebar }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.left}>
         <button
           className={styles.menuToggle}
           onClick={onToggleSidebar}
-          aria-label="Abrir menu de navegação"
+          aria-label={isSidebarOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+          aria-expanded={isSidebarOpen}
         >
           <Menu size={18} />
         </button>

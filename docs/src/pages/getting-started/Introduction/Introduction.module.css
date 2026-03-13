@@ -11,7 +11,7 @@
 }
 
 .p {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 12px;
@@ -48,7 +48,7 @@
 }
 
 .principleDesc {
-  font-size: 13.5px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -66,7 +66,7 @@
   gap: 16px;
   padding: 11px 16px;
   border-bottom: 1px solid var(--border-secondary);
-  font-size: 13.5px;
+  font-size: var(--font-size-2xs);
 }
 
 .techItem:last-child {
@@ -84,7 +84,7 @@
 }
 
 .techItem code {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
 }
 
 .techItem span:last-child {

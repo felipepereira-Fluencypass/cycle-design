@@ -8,13 +8,13 @@
 .table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
 }
 
 .th {
   padding: 10px 14px;
   text-align: left;
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -44,7 +44,7 @@
 
 .tokenName {
   font-family: var(--font-family-mono);
-  font-size: 12.5px;
+  font-size: var(--font-size-3xs);
   color: var(--text-brand-primary);
   background: var(--bg-brand-primary);
   padding: 2px 7px;

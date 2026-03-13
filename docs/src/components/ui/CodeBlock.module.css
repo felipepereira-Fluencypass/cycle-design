@@ -22,7 +22,7 @@
   margin: 0 !important;
   padding: 20px 16px 20px 0 !important;
   border-radius: 0 !important;
-  font-size: 13px !important;
+  font-size: var(--font-size-3xs) !important;
   line-height: 1.7 !important;
   overflow-x: auto;
   font-family: var(--font-family-mono) !important;
@@ -60,4 +60,11 @@
 .copyButton:hover {
   background: rgba(255, 255, 255, 0.14);
   color: rgba(255, 255, 255, 0.9);
+}
+
+.copyButton:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-offset) #1a1f2e,
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
 }

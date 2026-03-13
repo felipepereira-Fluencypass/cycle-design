@@ -12,7 +12,7 @@
 }
 
 .p {
-  font-size: 14.5px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.65;
   margin-bottom: 20px;
@@ -44,7 +44,7 @@
 }
 
 .paletteDesc {
-  font-size: 12.5px;
+  font-size: var(--font-size-3xs);
   color: var(--text-tertiary);
 }
 
@@ -83,7 +83,7 @@
 }
 
 .groupLabel {
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -91,4 +91,178 @@
   font-family: var(--font-family-body);
   padding-bottom: 4px;
   border-bottom: 1px solid var(--border-secondary);
+}
+
+/* ── Badge legend (inside info callout) ──────────────────────── */
+
+.badgeLegend {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 8px 0 0;
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.badgeLegend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendBadgeRecomendado,
+.legendBadgeRestrito,
+.legendBadgeDecorativo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border-radius: 500px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.legendBadgeRecomendado {
+  background: var(--bg-positive-primary);
+  color: var(--text-positive-primary);
+  border: 1px solid var(--bg-positive-secondary);
+}
+
+.legendBadgeRestrito {
+  background: var(--bg-warning-primary);
+  color: var(--text-warning-primary);
+  border: 1px solid var(--bg-warning-secondary);
+}
+
+.legendBadgeDecorativo {
+  background: var(--bg-secondary);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-primary);
+}
+
+.calloutNote {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 10px;
+}
+
+/* ── Solid backgrounds table ─────────────────────────────────── */
+
+.solidBgSection {
+  margin-bottom: 32px;
+  padding: 20px;
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-primary);
+}
+
+.solidBgTitle {
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 6px;
+}
+
+.solidBgDesc {
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.solidBgTableWrapper {
+  overflow-x: auto;
+}
+
+.solidBgTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  font-family: var(--font-family-body);
+}
+
+.solidBgTable th {
+  text-align: left;
+  font-size: var(--font-size-4xs);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-quaternary);
+  padding: 0 12px 8px 0;
+  border-bottom: 1px solid var(--border-secondary);
+  white-space: nowrap;
+}
+
+.solidBgTable td {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--border-secondary);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.solidBgTable tr:last-child td {
+  border-bottom: none;
+}
+
+.solidBgTable code {
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-4xs);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-secondary);
+  border-radius: var(--radius-xs);
+  padding: 1px 5px;
+  color: var(--text-primary);
+}
+
+.colorDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.12);
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+.chipPass {
+  display: inline-flex;
+  padding: 1px 7px;
+  border-radius: 500px;
+  font-size: var(--font-size-4xs);
+  font-weight: 600;
+  background: var(--bg-positive-primary);
+  color: var(--text-positive-primary);
+  border: 1px solid var(--bg-positive-secondary);
+  white-space: nowrap;
+}
+
+.chipWarn {
+  display: inline-flex;
+  padding: 1px 7px;
+  border-radius: 500px;
+  font-size: var(--font-size-4xs);
+  font-weight: 600;
+  background: var(--bg-warning-primary);
+  color: var(--text-warning-primary);
+  border: 1px solid var(--bg-warning-secondary);
+  white-space: nowrap;
+}
+
+.chipFail {
+  display: inline-flex;
+  padding: 1px 7px;
+  border-radius: 500px;
+  font-size: var(--font-size-4xs);
+  font-weight: 600;
+  background: var(--bg-critical-primary);
+  color: var(--text-critical-primary);
+  border: 1px solid var(--bg-critical-secondary);
+  white-space: nowrap;
 }

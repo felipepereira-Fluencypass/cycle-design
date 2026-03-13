@@ -23,5 +23,9 @@ export function useClipboard(timeout = 1500) {
     [timeout]
   )
 
-  return { copy, copied }
+  // Texto anunciado por leitores de tela via aria-live.
+  // String vazia em repouso — preenchida durante o período de feedback.
+  const announcement = copied ? 'Copiado para a área de transferência' : ''
+
+  return { copy, copied, announcement }
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Header } from '@/components/layout/Header'
 import { PageLayout } from '@/components/layout/PageLayout'
@@ -18,18 +18,33 @@ import Opacity from '@/pages/tokens/Opacity'
 import Grid from '@/pages/tokens/Grid'
 import Icons from '@/pages/tokens/Icons'
 import Decisions from '@/pages/guidelines/Decisions'
+import Accessibility from '@/pages/guidelines/Accessibility'
 import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
+import ButtonPage from '@/pages/components/Button'
 
 export default function App() {
   const { theme, toggle } = useTheme()
   const [isSidebarOpen, setSidebarOpen] = useState(false)
 
+  useEffect(() => {
+    if (!isSidebarOpen) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSidebarOpen(false)
+    }
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isSidebarOpen])
+
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Ir para o conteúdo principal
+      </a>
       <Header
         theme={theme}
+        isSidebarOpen={isSidebarOpen}
         onToggleTheme={toggle}
         onToggleSidebar={() => setSidebarOpen(o => !o)}
       />
@@ -53,9 +68,11 @@ export default function App() {
           <Route path="/tokens/grid" element={<Grid />} />
           <Route path="/tokens/icons" element={<Icons />} />
           <Route path="/guidelines/decisions" element={<Decisions />} />
+          <Route path="/guidelines/accessibility" element={<Accessibility />} />
           <Route path="/ai/llms-txt" element={<LlmsTxt />} />
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
+          <Route path="/components/button" element={<ButtonPage />} />
         </Route>
       </Routes>
     </>

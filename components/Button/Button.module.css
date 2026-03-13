@@ -1,0 +1,144 @@
+/* ── Base ───────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-micro); /* 8px */
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-bold); /* 700 */
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition:
+    background-color 0.1s ease,
+    border-color 0.1s ease,
+    color 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-offset) var(--bg-primary),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Variant: filled ────────────────────────────────────────── */
+
+.filled {
+  background: var(--_btn-solid);
+  border-color: transparent;
+  color: var(--text-white);
+}
+
+.filled:not(:disabled):hover {
+  background: var(--_btn-solid-hover);
+}
+
+.filled:not(:disabled):active {
+  background: var(--_btn-solid-pressed);
+}
+
+.filled:disabled {
+  background: var(--bg-disabled);
+  color: var(--text-disabled);
+}
+
+/* ── Variant: outline ───────────────────────────────────────── */
+
+.outline {
+  background: var(--_btn-surface);
+  border-color: var(--_btn-border);
+  color: var(--text-primary);
+}
+
+.outline:not(:disabled):hover {
+  background: var(--_btn-surface-hover);
+}
+
+.outline:not(:disabled):active {
+  background: var(--_btn-surface-pressed);
+}
+
+.outline:disabled {
+  background: var(--bg-disabled);
+  border-color: var(--border-secondary);
+  color: var(--text-disabled);
+}
+
+/* ── Variant: ghost ─────────────────────────────────────────── */
+
+.ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--_btn-text-colored);
+}
+
+.ghost:not(:disabled):hover {
+  background: var(--_btn-surface); /* --bg-{color}-primary */
+}
+
+.ghost:not(:disabled):active {
+  background: var(--_btn-surface-hover); /* --bg-{color}-hover */
+}
+
+.ghost:disabled {
+  background: transparent;
+  color: var(--text-disabled);
+}
+
+/* ── Sizes ──────────────────────────────────────────────────── */
+
+.giant {
+  height: 56px;
+  padding: 16px 24px;
+  font-size: var(--font-size-xs); /* 16px */
+  border-radius: var(--radius-md);
+}
+
+.lg {
+  height: 48px;
+  padding: 12px 20px;
+  font-size: var(--font-size-xs); /* 16px */
+  border-radius: var(--radius-md);
+}
+
+.md {
+  height: 40px;
+  padding: 8px 16px;
+  font-size: var(--font-size-2xs); /* 14px */
+  border-radius: var(--radius-md);
+}
+
+.sm {
+  height: 32px;
+  padding: 8px 12px;
+  font-size: var(--font-size-3xs); /* 12px */
+  border-radius: var(--radius-sm);
+}
+
+.tiny {
+  height: 24px;
+  padding: 4px 8px;
+  font-size: var(--font-size-3xs); /* 12px */
+  border-radius: var(--radius-sm);
+}
+
+/* ── Icon-only (square) ─────────────────────────────────────── */
+
+.iconOnly.giant { width: 56px; padding: 0; }
+.iconOnly.lg    { width: 48px; padding: 0; }
+.iconOnly.md    { width: 40px; padding: 0; }
+.iconOnly.sm    { width: 32px; padding: 0; }
+.iconOnly.tiny  { width: 24px; padding: 0; }

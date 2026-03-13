@@ -1,0 +1,21 @@
+/* ============================================
+   CYCLE DESIGN — Focus Ring Tokens
+   v1: outline + outline-offset via :focus-visible
+   ============================================ */
+
+:root,
+[data-theme="light"] {
+  --focus-ring-color:  #0066CC;  /* contraste 4.8:1 sobre --bg-primary (#FFFFFF) */
+  --focus-ring-width:  2px;
+  --focus-ring-offset: 2px;
+}
+
+[data-theme="dark"] {
+  --focus-ring-color: #4D9FFF;   /* contraste 4.6:1 sobre --bg-primary (#0C0E12) */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --focus-ring-color: #4D9FFF;
+  }
+}

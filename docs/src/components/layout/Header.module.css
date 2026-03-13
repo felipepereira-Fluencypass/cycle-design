@@ -32,7 +32,7 @@
 
 
 .logoText {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: var(--text-primary);
   font-family: var(--font-family-headline);
@@ -40,7 +40,7 @@
 }
 
 .version {
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 600;
   color: var(--text-quaternary);
   background: var(--bg-tertiary);
@@ -89,7 +89,7 @@
   border: 1px solid var(--border-secondary);
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   font-weight: 500;
   cursor: pointer;
   font-family: var(--font-family-body);

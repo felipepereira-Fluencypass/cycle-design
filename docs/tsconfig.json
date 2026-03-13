@@ -19,7 +19,8 @@
     "paths": {
       "@/*": ["src/*"],
       "@icons": ["../components/icons/index.ts"],
-      "@icons/*": ["../components/icons/*"]
+      "@icons/*": ["../components/icons/*"],
+      "@components/*": ["../components/*"]
     }
   },
   "include": ["src"],

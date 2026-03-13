@@ -31,13 +31,13 @@
 
 .shadowToken {
   font-family: var(--font-family-mono);
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   color: var(--text-brand-primary);
   text-align: center;
 }
 
 .shadowUsage {
-  font-size: 11.5px;
+  font-size: var(--font-size-4xs);
   color: var(--text-tertiary);
   text-align: center;
   line-height: 1.4;

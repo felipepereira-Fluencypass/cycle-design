@@ -1,6 +1,6 @@
 .section { margin-bottom: 52px; }
 .h2 { font-size: 20px; font-weight: 700; color: var(--text-primary); margin-bottom: 10px; letter-spacing: -0.3px; }
-.p { font-size: 14.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
+.p { font-size: var(--font-size-2xs); color: var(--text-secondary); line-height: 1.65; margin-bottom: 20px; }
 
 .borderPreview {
   display: flex;
@@ -73,12 +73,12 @@
 
 .radiusToken {
   font-family: var(--font-family-mono);
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   color: var(--text-brand-primary);
 }
 
 .radiusValue {
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   color: var(--text-tertiary);
   font-family: var(--font-family-mono);
 }

@@ -4,16 +4,25 @@ import { useClipboard } from '@/hooks/useClipboard'
 import { getTokenValue } from '@/lib/tokens'
 import styles from './ColorSwatch.module.css'
 
+type BadgeVariant = 'recomendado' | 'restrito' | 'decorativo'
+
+const badgeLabel: Record<BadgeVariant, string> = {
+  recomendado: 'recomendado',
+  restrito: 'restrito',
+  decorativo: 'decorativo',
+}
+
 interface ColorSwatchProps {
   token: string
   label: string
   description?: string
   size?: 'sm' | 'md'
+  badge?: BadgeVariant
 }
 
-export function ColorSwatch({ token, label, description, size = 'md' }: ColorSwatchProps) {
+export function ColorSwatch({ token, label, description, size = 'md', badge }: ColorSwatchProps) {
   const [value, setValue] = useState('')
-  const { copy, copied } = useClipboard()
+  const { copy, copied, announcement } = useClipboard()
 
   useEffect(() => {
     setValue(getTokenValue(token))
@@ -21,12 +30,22 @@ export function ColorSwatch({ token, label, description, size = 'md' }: ColorSwa
 
   return (
     <div className={`${styles.swatch} ${styles[size]}`} onClick={() => copy(token)}>
+      <span aria-live="polite" aria-atomic="true" className="sr-only">
+        {announcement}
+      </span>
       <div
         className={styles.preview}
         style={{ background: `var(${token})` }}
       />
       <div className={styles.info}>
-        <span className={styles.token}>{token}</span>
+        <span className={styles.tokenRow}>
+          <span className={styles.token}>{token}</span>
+          {badge && (
+            <span className={`${styles.badge} ${styles[`badge-${badge}`]}`}>
+              {badgeLabel[badge]}
+            </span>
+          )}
+        </span>
         {description && <span className={styles.description}>{description}</span>}
         <span className={styles.value}>{value || '—'}</span>
       </div>
@@ -44,10 +63,13 @@ interface GradientSwatchProps {
 }
 
 export function GradientSwatch({ token, label, description }: GradientSwatchProps) {
-  const { copy, copied } = useClipboard()
+  const { copy, copied, announcement } = useClipboard()
 
   return (
     <div className={`${styles.swatch} ${styles.md}`} onClick={() => copy(token)}>
+      <span aria-live="polite" aria-atomic="true" className="sr-only">
+        {announcement}
+      </span>
       <div
         className={styles.gradientPreview}
         style={{ background: `var(${token})` }}
@@ -72,7 +94,7 @@ interface PaletteSwatchProps {
 export function PaletteSwatch({ tokenName, step }: PaletteSwatchProps) {
   const token = `--${tokenName}-${step}`
   const [value, setValue] = useState('')
-  const { copy, copied } = useClipboard()
+  const { copy, copied, announcement } = useClipboard()
 
   useEffect(() => {
     setValue(getTokenValue(token))
@@ -80,6 +102,9 @@ export function PaletteSwatch({ tokenName, step }: PaletteSwatchProps) {
 
   return (
     <div className={styles.paletteSwatch} onClick={() => copy(token)} title={token}>
+      <span aria-live="polite" aria-atomic="true" className="sr-only">
+        {announcement}
+      </span>
       <div
         className={styles.palettePreview}
         style={{ background: `var(${token})` }}

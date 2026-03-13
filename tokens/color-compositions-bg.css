@@ -37,6 +37,7 @@
   --bg-brand-primary_alt: var(--color-brand-50);              /* #FFE8E8 */
   --bg-brand-hover: var(--color-brand-100);                   /* #FFD0D1 */
   --bg-brand-secondary: var(--color-brand-100);               /* #FFD0D1 */
+  /* ⚠️ Texto branco: 4.0:1 / Texto dark: 4.2:1 — nenhuma opção atinge AA para texto normal. Somente texto grande */
   --bg-brand-solid: var(--color-brand-600);                   /* #D45558 */
   --bg-brand-solid_hover: var(--color-brand-700);             /* #B33E41 */
   --bg-brand-section: var(--color-brand-800);                 /* #8C2D2F */
@@ -57,6 +58,7 @@
   --bg-private-primary_alt: var(--color-private-50);          /* #FFEDE0 */
   --bg-private-hover: var(--color-private-100);               /* #FFD9C2 */
   --bg-private-secondary: var(--color-private-100);           /* #FFD9C2 */
+  /* ⚠️ Texto branco: 3.4:1 (UI only) — preferir --text-primary (#181D27, 5.0:1) para texto */
   --bg-private-solid: var(--color-private-600);               /* #E56530 */
   --bg-private-solid_hover: var(--color-private-700);         /* #BF4D20 */
   --bg-private-section: var(--color-private-800);             /* #993A16 */
@@ -67,6 +69,7 @@
   --bg-group-primary_alt: var(--color-group-50);              /* #E0FFE9 */
   --bg-group-hover: var(--color-group-100);                   /* #B8FFD0 */
   --bg-group-secondary: var(--color-group-100);               /* #B8FFD0 */
+  /* ⚠️ Texto branco: 2.4:1 — usar obrigatoriamente --text-primary (#181D27, 7.1:1) */
   --bg-group-solid: var(--color-group-600);                   /* #00C234 */
   --bg-group-solid_hover: var(--color-group-700);             /* #009929 */
   --bg-group-section: var(--color-group-800);                 /* #00731E */
@@ -89,10 +92,12 @@
   --bg-critical-solid_hover: var(--color-critical-700);       /* #8F1717 */
   --bg-warning-primary: var(--color-warning-50);              /* #FFF5D9 */
   --bg-warning-secondary: var(--color-warning-100);           /* #FEEAB0 */
+  /* ⚠️ Texto branco: 2.7:1 — usar obrigatoriamente --text-primary (#181D27, 6.2:1) */
   --bg-warning-solid: var(--color-warning-600);               /* #D48E00 */
   --bg-warning-solid_hover: var(--color-warning-700);         /* #AA7200 */
   --bg-positive-primary: var(--color-positive-50);            /* #E0FAF0 */
   --bg-positive-secondary: var(--color-positive-100);         /* #B8F2D9 */
+  /* ⚠️ Texto branco: 4.4:1 — somente texto grande. Para corpo de texto preferir --text-primary */
   --bg-positive-solid: var(--color-positive-600);             /* #098A5E */
   --bg-positive-solid_hover: var(--color-positive-700);       /* #07704C */
 }

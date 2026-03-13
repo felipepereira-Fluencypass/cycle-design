@@ -18,7 +18,7 @@ interface TokenTableProps {
 
 function TokenRowItem({ row }: { row: TokenRow }) {
   const [computedValue, setComputedValue] = useState('')
-  const { copy, copied } = useClipboard()
+  const { copy, copied, announcement } = useClipboard()
 
   useEffect(() => {
     if (!row.value) {
@@ -79,6 +79,9 @@ function TokenRowItem({ row }: { row: TokenRow }) {
         )}
       </td>
       <td className={styles.copyCell}>
+        <span aria-live="polite" aria-atomic="true" className="sr-only">
+          {announcement}
+        </span>
         <button
           className={styles.copyBtn}
           onClick={() => copy(row.token)}

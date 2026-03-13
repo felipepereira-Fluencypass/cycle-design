@@ -246,6 +246,130 @@ Cada paleta tem tokens de text, border, foreground e background com variações 
 
 ---
 
+## Acessibilidade — regras obrigatórias
+
+Todo componente do Cycle Design deve seguir estas regras. Elas não são sugestões — são parte da definição de pronto. A guideline completa está em `/guidelines/accessibility` na documentação.
+
+### A1. Nunca remova o focus indicator
+
+`outline: none` ou `outline: 0` sem um substituto visual é proibido. Se `overflow: hidden` bloquear o outline, use `box-shadow` duplo:
+
+```css
+/* ❌ Proibido */
+.button:focus-visible { outline: none; }
+
+/* ✅ Correto — box-shadow como substituto quando overflow: hidden */
+.button:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-offset) var(--bg-primary),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+```
+
+Sempre use `:focus-visible`, nunca `:focus` genérico.
+
+### A2. Tokens decorativos nunca são informativos
+
+Tokens com ratio de contraste abaixo de 3:1 são proibidos em qualquer texto ou ícone que comunique informação:
+
+```css
+/* ❌ Proibido — ratio 2.4:1, invisível para baixa visão */
+.label { color: var(--text-group-primary); }
+.icon  { color: var(--fg-quaternary); }
+
+/* ✅ Correto */
+.label { color: var(--text-group-secondary); } /* 6.1:1 */
+.icon  { color: var(--fg-tertiary); }          /* ~5.9:1 */
+```
+
+Tokens com badge `restrito` (ratio 3:1–4.4:1) só podem ser usados nas condições documentadas na aba Colors. Adicione um comentário no código indicando que a condição é cumprida.
+
+### A3. Todo botão icon-only exige aria-label
+
+Nenhum `<button>` pode ter apenas um SVG ou ícone como filho sem texto acessível:
+
+```tsx
+/* ❌ Proibido */
+<button onClick={close}><CloseIcon size="sm" decorative /></button>
+
+/* ✅ Correto */
+<button onClick={close} aria-label="Fechar"><CloseIcon size="sm" decorative /></button>
+```
+
+### A4. Feedback de ação exige aria-live
+
+Qualquer mudança de estado visível (copiado, salvo, carregando→concluído) precisa de uma live region para leitores de tela. Use o padrão do `useClipboard`:
+
+```tsx
+/* ✅ Live region sempre presente no DOM — nunca renderizar condicionalmente */
+<span aria-live="polite" aria-atomic="true" className="sr-only">
+  {announcement}
+</span>
+```
+
+### A5. Elementos interativos: HTML nativo primeiro
+
+Use `<button>` para ações e `<a>` para navegação. Não use `<div>`, `<span>` ou `<li>` com `onClick` — eles não recebem foco por teclado nativamente e não comunicam papel ao leitor de tela. `role` e `tabIndex` são último recurso para casos sem equivalente HTML nativo:
+
+```tsx
+/* ❌ Proibido */
+<div onClick={handleAction} className="btn">Salvar</div>
+
+/* ✅ Correto — HTML nativo */
+<button onClick={handleAction}>Salvar</button>
+
+/* ⚠️ Último recurso — apenas quando HTML nativo não é possível */
+<div role="button" tabIndex={0} onClick={handleAction} onKeyDown={handleKeyDown}>
+  Salvar
+</div>
+```
+
+### A6. Tokens de cor restrita exigem comentário de contexto
+
+Ao usar token com badge `restrito`, adicione um comentário inline indicando que a condição de uso é cumprida:
+
+```css
+/* ✅ Correto — uso explicitamente justificado */
+.sectionTitle {
+  /* --text-brand-primary: 4.0:1 — uso aceito: texto grande (24px bold) */
+  color: var(--text-brand-primary);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+}
+```
+
+### A7. Ícones exigem decorative ou aria-label
+
+Todo componente de ícone do Cycle Design deve receber uma das duas props. Omitir as duas é proibido — o TypeScript emite erro:
+
+```tsx
+/* ❌ Proibido — TypeScript error */
+<SearchIcon size="sm" />
+
+/* ✅ Decorativo — acompanha texto visível */
+<SearchIcon size="sm" decorative />
+
+/* ✅ Informativo — único indicador da ação */
+<SearchIcon size="sm" aria-label="Buscar" />
+```
+
+### A8. Tipografia: apenas a escala oficial
+
+Nunca use `font-size` em `px` hardcoded fora da escala do Cycle Design. Use sempre `var(--font-size-*)`:
+
+```css
+/* ❌ Proibido — px hardcoded fora da escala */
+.caption { font-size: 13px; }
+
+/* ✅ Correto — token da escala oficial */
+.caption { font-size: var(--font-size-3xs); } /* 12px / 0.75rem */
+```
+
+Valores como 11px, 12.5px, 13px, 13.5px, 15px não existem na escala. Se um tamanho intermediário for necessário, solicite como nova entrada no Figma antes de usar.
+
+---
+
 ## Ao criar novos componentes
 
 1. Use TypeScript com props tipadas
@@ -254,6 +378,7 @@ Cada paleta tem tokens de text, border, foreground e background com variações 
 4. Siga a estrutura de pastas existente
 5. Inclua suporte a dark mode via tokens funcionais
 6. Documente as props com JSDoc
+7. Passe o checklist de acessibilidade em `/guidelines/accessibility` antes de marcar como stable
 
 ---
 

@@ -11,7 +11,7 @@ export function PageLayout({ isSidebarOpen, onCloseSidebar }: PageLayoutProps) {
   return (
     <div className={styles.layout}>
       <Sidebar isOpen={isSidebarOpen} onClose={onCloseSidebar} />
-      <main className={styles.main}>
+      <main id="main-content" className={styles.main}>
         <div className={styles.content}>
           <Outlet />
         </div>

@@ -40,13 +40,53 @@
   gap: 2px;
 }
 
+.tokenRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
 .token {
   font-family: var(--font-family-mono);
-  font-size: 12.5px;
+  font-size: var(--font-size-3xs);
   color: var(--text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-family-body);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.badge-recomendado {
+  background: var(--bg-positive-primary);
+  color: var(--text-positive-primary);
+  border: 1px solid var(--bg-positive-secondary);
+}
+
+.badge-restrito {
+  background: var(--bg-warning-primary);
+  color: var(--text-warning-primary);
+  border: 1px solid var(--bg-warning-secondary);
+}
+
+.badge-decorativo {
+  background: var(--bg-secondary);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-primary);
 }
 
 .description {
@@ -59,7 +99,7 @@
 
 .value {
   font-family: var(--font-family-mono);
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   color: var(--text-quaternary);
 }
 
@@ -115,7 +155,7 @@
 
 .paletteStep {
   display: block;
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.2;

@@ -4,7 +4,7 @@
 
 .badge {
   display: inline-block;
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -17,7 +17,7 @@
 }
 
 .title {
-  font-size: 36px;
+  font-size: var(--font-size-2xl);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.5px;

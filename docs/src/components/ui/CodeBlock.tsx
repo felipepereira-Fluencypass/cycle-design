@@ -10,13 +10,16 @@ interface CodeBlockProps {
 }
 
 export function CodeBlock({ code, language = 'css', filename }: CodeBlockProps) {
-  const { copy, copied } = useClipboard()
+  const { copy, copied, announcement } = useClipboard()
   const trimmed = code.trim()
 
   return (
     <div className={styles.wrapper}>
       {filename && <div className={styles.filename}>{filename}</div>}
       <div className={styles.container}>
+        <span aria-live="polite" aria-atomic="true" className="sr-only">
+          {announcement}
+        </span>
         <button
           className={styles.copyButton}
           onClick={() => copy(trimmed)}

@@ -22,7 +22,7 @@
 .navGroupLabel {
   display: block;
   padding: 0 20px 6px;
-  font-size: 11px;
+  font-size: var(--font-size-4xs);
   font-weight: 700;
   letter-spacing: 0.07em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 7px 20px;
-  font-size: 13.5px;
+  font-size: var(--font-size-2xs);
   font-weight: 400;
   color: var(--text-secondary);
   text-decoration: none;

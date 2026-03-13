@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useMatch, useResolvedPath } from 'react-router-dom'
 import styles from './Sidebar.module.css'
 
 interface NavItem {
@@ -40,15 +40,34 @@ const navigation: NavGroup[] = [
     label: 'Guidelines',
     items: [
       { label: 'Decisões de Design', path: '/guidelines/decisions' },
+      { label: 'Acessibilidade', path: '/guidelines/accessibility' },
     ],
   },
   {
     label: 'Components',
     items: [
-      { label: 'Em breve', path: '/components', disabled: true },
+      { label: 'Button', path: '/components/button' },
     ],
   },
 ]
+
+function SidebarNavLink({ item, onClose }: { item: NavItem; onClose: () => void }) {
+  const resolved = useResolvedPath(item.path)
+  const match = useMatch({ path: resolved.pathname, end: item.path === '/' })
+  const isActive = match !== null
+
+  return (
+    <NavLink
+      to={item.path}
+      end={item.path === '/'}
+      className={`${styles.navItem} ${isActive ? styles.active : ''}`}
+      aria-current={isActive ? 'page' : undefined}
+      onClick={onClose}
+    >
+      {item.label}
+    </NavLink>
+  )
+}
 
 interface SidebarProps {
   isOpen: boolean
@@ -64,7 +83,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
         aria-hidden="true"
       />
       <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
-        <nav>
+        <nav aria-label="Seções da documentação">
           {navigation.map((group) => (
             <div key={group.label} className={styles.navGroup}>
               <span className={styles.navGroupLabel}>{group.label}</span>
@@ -75,17 +94,7 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                     <span className={styles.badge}>Em breve</span>
                   </span>
                 ) : (
-                  <NavLink
-                    key={item.path}
-                    to={item.path}
-                    end={item.path === '/'}
-                    className={({ isActive }) =>
-                      `${styles.navItem} ${isActive ? styles.active : ''}`
-                    }
-                    onClick={onClose}
-                  >
-                    {item.label}
-                  </NavLink>
+                  <SidebarNavLink key={item.path} item={item} onClose={onClose} />
                 )
               )}
             </div>

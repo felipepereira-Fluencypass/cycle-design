@@ -9,6 +9,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
       '@tokens': path.resolve(__dirname, '../tokens'),
       '@icons': path.resolve(__dirname, '../components/icons'),
+      '@components': path.resolve(__dirname, '../components'),
     },
   },
 })

@@ -11,7 +11,7 @@
 }
 
 .p {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 12px;
@@ -38,14 +38,14 @@
 
 .fileName {
   font-family: var(--font-family-mono);
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   font-weight: 600;
   color: var(--text-brand-primary);
   margin-bottom: 8px;
 }
 
 .fileDesc {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   color: var(--text-secondary);
   line-height: 1.6;
   margin: 0;

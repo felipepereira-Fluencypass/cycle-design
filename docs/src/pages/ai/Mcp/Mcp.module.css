@@ -11,14 +11,14 @@
 }
 
 .h3 {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 8px;
 }
 
 .p {
-  font-size: 15px;
+  font-size: var(--font-size-2xs);
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 12px;
@@ -33,7 +33,7 @@
 .h3 code,
 .h2 code {
   font-family: var(--font-family-mono);
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   background: var(--bg-tertiary);
   padding: 1px 5px;
   border-radius: var(--radius-xs);
@@ -74,7 +74,7 @@
 }
 
 .toolExample {
-  font-size: 13px;
+  font-size: var(--font-size-3xs);
   color: var(--text-tertiary);
   font-style: italic;
 }

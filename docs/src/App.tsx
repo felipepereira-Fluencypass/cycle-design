@@ -46,6 +46,10 @@ import TooltipPage from '@/pages/components/Tooltip'
 import PopoverPage from '@/pages/components/Popover'
 import TabsPage from '@/pages/components/Tabs'
 import SheetPage from '@/pages/components/Sheet'
+import TablePage from '@/pages/components/Table'
+import PaginationPage from '@/pages/components/Pagination'
+import BreadcrumbPage from '@/pages/components/Breadcrumb'
+import AccordionPage from '@/pages/components/Accordion'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -119,6 +123,10 @@ export default function App() {
           <Route path="/components/popover" element={<PopoverPage />} />
           <Route path="/components/tabs" element={<TabsPage />} />
           <Route path="/components/sheet" element={<SheetPage />} />
+          <Route path="/components/table" element={<TablePage />} />
+          <Route path="/components/pagination" element={<PaginationPage />} />
+          <Route path="/components/breadcrumb" element={<BreadcrumbPage />} />
+          <Route path="/components/accordion" element={<AccordionPage />} />
         </Route>
       </Routes>
     </>

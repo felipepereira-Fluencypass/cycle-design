@@ -70,6 +70,10 @@ const navigation: NavGroup[] = [
       { label: 'Popover', path: '/components/popover' },
       { label: 'Tabs', path: '/components/tabs' },
       { label: 'Sheet', path: '/components/sheet' },
+      { label: 'Table', path: '/components/table' },
+      { label: 'Pagination', path: '/components/pagination' },
+      { label: 'Breadcrumb', path: '/components/breadcrumb' },
+      { label: 'Accordion', path: '/components/accordion' },
     ],
   },
 ]

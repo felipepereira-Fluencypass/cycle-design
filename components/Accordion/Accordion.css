@@ -1,0 +1,93 @@
+/* ── Accordion ─────────────────────────────────────────────────── */
+
+.cd-accordion {
+  border: var(--border-hairline) solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* ── Item ──────────────────────────────────────────────────────── */
+
+.cd-accordion-item {
+  border-bottom: var(--border-hairline) solid var(--border-secondary);
+}
+
+.cd-accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* ── Header ────────────────────────────────────────────────────── */
+
+.cd-accordion-header {
+  margin: 0;
+}
+
+/* ── Trigger ───────────────────────────────────────────────────── */
+
+.cd-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--spacing-mini) var(--spacing-3xs);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.cd-accordion-trigger:hover {
+  background: var(--bg-secondary);
+}
+
+.cd-accordion-trigger:focus-visible {
+  outline: var(--border-thin) solid var(--focus-ring-color);
+  outline-offset: calc(-1 * var(--border-thin));
+}
+
+/* ── Chevron ───────────────────────────────────────────────────── */
+
+.cd-accordion-chevron {
+  color: var(--fg-tertiary);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.cd-accordion-trigger[data-state="open"] .cd-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+/* ── Content ───────────────────────────────────────────────────── */
+
+.cd-accordion-content {
+  overflow: hidden;
+}
+
+.cd-accordion-content[data-state="open"] {
+  animation: cd-accordion-expand 0.2s ease-out;
+}
+
+.cd-accordion-content[data-state="closed"] {
+  animation: cd-accordion-collapse 0.2s ease-out;
+}
+
+@keyframes cd-accordion-expand {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes cd-accordion-collapse {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+.cd-accordion-content__inner {
+  padding: 0 var(--spacing-3xs) var(--spacing-mini);
+  font-size: var(--font-size-2xs);
+  color: var(--text-secondary);
+  line-height: 1.65;
+}

@@ -27,6 +27,10 @@ import '@components/Tooltip/Tooltip.css'
 import '@components/Popover/Popover.css'
 import '@components/Tabs/Tabs.css'
 import '@components/Sheet/Sheet.css'
+import '@components/Table/Table.css'
+import '@components/Pagination/Pagination.css'
+import '@components/Breadcrumb/Breadcrumb.css'
+import '@components/Accordion/Accordion.css'
 import './styles/docs.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

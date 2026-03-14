@@ -89,3 +89,20 @@ export {
   SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription,
 } from '../components/Sheet'
 export type { SheetContentProps, SheetSide, SheetHeaderProps, SheetFooterProps } from '../components/Sheet'
+
+export { Table } from '../components/Table'
+export type {
+  TableProps, TableHeaderProps, TableBodyProps, TableFooterProps,
+  TableRowProps, TableHeadProps, TableCellProps, TableCaptionProps,
+} from '../components/Table'
+
+export { Pagination } from '../components/Pagination'
+export type { PaginationProps } from '../components/Pagination'
+
+export { Breadcrumb } from '../components/Breadcrumb'
+export type { BreadcrumbProps, BreadcrumbItemProps } from '../components/Breadcrumb'
+
+export {
+  Accordion, AccordionItem, AccordionTrigger, AccordionContent,
+} from '../components/Accordion'
+export type { AccordionProps } from '../components/Accordion'

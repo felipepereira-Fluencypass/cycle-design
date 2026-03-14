@@ -23,33 +23,11 @@ import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
 import ButtonPage from '@/pages/components/Button'
-import LabelPage from '@/pages/components/Label'
-import InputPage from '@/pages/components/Input'
-import TextareaPage from '@/pages/components/Textarea'
-import SelectPage from '@/pages/components/Select'
 import CheckboxPage from '@/pages/components/Checkbox'
-import RadioGroupPage from '@/pages/components/RadioGroup'
 import SwitchPage from '@/pages/components/Switch'
-import FieldPage from '@/pages/components/Field'
-import CardPage from '@/pages/components/Card'
-import BadgePage from '@/pages/components/Badge'
-import AvatarPage from '@/pages/components/Avatar'
 import AlertPage from '@/pages/components/Alert'
-import SeparatorPage from '@/pages/components/Separator'
 import SkeletonPage from '@/pages/components/Skeleton'
 import SpinnerPage from '@/pages/components/Spinner'
-import ProgressPage from '@/pages/components/Progress'
-import DialogPage from '@/pages/components/Dialog'
-import ToastPage from '@/pages/components/Toast'
-import DropdownMenuPage from '@/pages/components/DropdownMenu'
-import TooltipPage from '@/pages/components/Tooltip'
-import PopoverPage from '@/pages/components/Popover'
-import TabsPage from '@/pages/components/Tabs'
-import SheetPage from '@/pages/components/Sheet'
-import TablePage from '@/pages/components/Table'
-import PaginationPage from '@/pages/components/Pagination'
-import BreadcrumbPage from '@/pages/components/Breadcrumb'
-import AccordionPage from '@/pages/components/Accordion'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -100,33 +78,11 @@ export default function App() {
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
           <Route path="/components/button" element={<ButtonPage />} />
-          <Route path="/components/label" element={<LabelPage />} />
-          <Route path="/components/input" element={<InputPage />} />
-          <Route path="/components/textarea" element={<TextareaPage />} />
-          <Route path="/components/select" element={<SelectPage />} />
           <Route path="/components/checkbox" element={<CheckboxPage />} />
-          <Route path="/components/radio-group" element={<RadioGroupPage />} />
           <Route path="/components/switch" element={<SwitchPage />} />
-          <Route path="/components/field" element={<FieldPage />} />
-          <Route path="/components/card" element={<CardPage />} />
-          <Route path="/components/badge" element={<BadgePage />} />
-          <Route path="/components/avatar" element={<AvatarPage />} />
           <Route path="/components/alert" element={<AlertPage />} />
-          <Route path="/components/separator" element={<SeparatorPage />} />
           <Route path="/components/skeleton" element={<SkeletonPage />} />
           <Route path="/components/spinner" element={<SpinnerPage />} />
-          <Route path="/components/progress" element={<ProgressPage />} />
-          <Route path="/components/dialog" element={<DialogPage />} />
-          <Route path="/components/toast" element={<ToastPage />} />
-          <Route path="/components/dropdown-menu" element={<DropdownMenuPage />} />
-          <Route path="/components/tooltip" element={<TooltipPage />} />
-          <Route path="/components/popover" element={<PopoverPage />} />
-          <Route path="/components/tabs" element={<TabsPage />} />
-          <Route path="/components/sheet" element={<SheetPage />} />
-          <Route path="/components/table" element={<TablePage />} />
-          <Route path="/components/pagination" element={<PaginationPage />} />
-          <Route path="/components/breadcrumb" element={<BreadcrumbPage />} />
-          <Route path="/components/accordion" element={<AccordionPage />} />
         </Route>
       </Routes>
     </>

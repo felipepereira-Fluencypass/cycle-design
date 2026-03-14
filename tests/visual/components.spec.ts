@@ -12,31 +12,11 @@ import { test, expect } from '@playwright/test'
 
 const components = [
   'button',
-  'input',
-  'select',
   'checkbox',
-  'radio-group',
   'switch',
-  'textarea',
-  'card',
-  'badge',
-  'avatar',
   'alert',
-  'separator',
   'skeleton',
   'spinner',
-  'progress',
-  'dialog',
-  'toast',
-  'dropdown-menu',
-  'tooltip',
-  'popover',
-  'tabs',
-  'sheet',
-  'table',
-  'pagination',
-  'breadcrumb',
-  'accordion',
 ]
 
 for (const component of components) {
@@ -55,7 +35,7 @@ for (const component of components) {
 }
 
 // Dark mode variants for key components
-const darkModeComponents = ['button', 'card', 'alert', 'badge', 'table']
+const darkModeComponents = ['button', 'alert']
 
 for (const component of darkModeComponents) {
   test(`${component} — dark mode snapshot`, async ({ page }) => {

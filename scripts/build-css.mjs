@@ -50,6 +50,11 @@ console.log('✓ dist/tokens.css')
 
 const componentCssFiles = [
   join(ROOT, 'components', 'Button', 'Button.css'),
+  join(ROOT, 'components', 'Checkbox', 'Checkbox.css'),
+  join(ROOT, 'components', 'Switch', 'Switch.css'),
+  join(ROOT, 'components', 'Alert', 'Alert.css'),
+  join(ROOT, 'components', 'Skeleton', 'Skeleton.css'),
+  join(ROOT, 'components', 'Spinner', 'Spinner.css'),
 ]
 
 const componentCss = componentCssFiles

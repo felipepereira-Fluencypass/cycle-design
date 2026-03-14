@@ -31,6 +31,14 @@ import CheckboxPage from '@/pages/components/Checkbox'
 import RadioGroupPage from '@/pages/components/RadioGroup'
 import SwitchPage from '@/pages/components/Switch'
 import FieldPage from '@/pages/components/Field'
+import CardPage from '@/pages/components/Card'
+import BadgePage from '@/pages/components/Badge'
+import AvatarPage from '@/pages/components/Avatar'
+import AlertPage from '@/pages/components/Alert'
+import SeparatorPage from '@/pages/components/Separator'
+import SkeletonPage from '@/pages/components/Skeleton'
+import SpinnerPage from '@/pages/components/Spinner'
+import ProgressPage from '@/pages/components/Progress'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -89,6 +97,14 @@ export default function App() {
           <Route path="/components/radio-group" element={<RadioGroupPage />} />
           <Route path="/components/switch" element={<SwitchPage />} />
           <Route path="/components/field" element={<FieldPage />} />
+          <Route path="/components/card" element={<CardPage />} />
+          <Route path="/components/badge" element={<BadgePage />} />
+          <Route path="/components/avatar" element={<AvatarPage />} />
+          <Route path="/components/alert" element={<AlertPage />} />
+          <Route path="/components/separator" element={<SeparatorPage />} />
+          <Route path="/components/skeleton" element={<SkeletonPage />} />
+          <Route path="/components/spinner" element={<SpinnerPage />} />
+          <Route path="/components/progress" element={<ProgressPage />} />
         </Route>
       </Routes>
     </>

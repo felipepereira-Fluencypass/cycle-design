@@ -1,0 +1,19 @@
+/* ── Spinner ───────────────────────────────────────────────────── */
+
+.cd-spinner {
+  color: var(--fg-brand-primary);
+  animation: cd-spinner-rotate 0.75s linear infinite;
+}
+
+.cd-spinner__track {
+  opacity: var(--opacity-light);
+}
+
+.cd-spinner__indicator {
+  opacity: var(--opacity-opaque);
+}
+
+@keyframes cd-spinner-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

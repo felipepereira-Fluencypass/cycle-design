@@ -1,0 +1,40 @@
+/* ── Card ──────────────────────────────────────────────────────── */
+
+.cd-card {
+  background: var(--bg-primary);
+  border: var(--border-hairline) solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+/* Elevation */
+.cd-card--elevation-flat { box-shadow: none; }
+.cd-card--elevation-sm   { box-shadow: var(--shadow-sm); }
+.cd-card--elevation-md   { box-shadow: var(--shadow-md); }
+.cd-card--elevation-lg   { box-shadow: var(--shadow-lg); }
+
+/* Padding */
+.cd-card--padding-none { padding: 0; }
+.cd-card--padding-sm   { padding: var(--spacing-inset-sm); }
+.cd-card--padding-md   { padding: var(--spacing-inset-md); }
+.cd-card--padding-lg   { padding: var(--spacing-inset-lg); }
+
+/* Subcomponents */
+.cd-card__header {
+  padding-bottom: var(--spacing-micro);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.cd-card__body {
+  color: var(--text-secondary);
+  font-size: var(--font-size-2xs);
+  line-height: 1.65;
+}
+
+.cd-card__footer {
+  padding-top: var(--spacing-micro);
+  display: flex;
+  gap: var(--spacing-micro);
+  justify-content: flex-end;
+}

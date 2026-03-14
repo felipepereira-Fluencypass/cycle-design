@@ -1,0 +1,84 @@
+/* ── Alert ─────────────────────────────────────────────────────── */
+
+.cd-alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-micro);
+  padding: var(--spacing-mini);
+  border-radius: var(--radius-sm);
+  background: var(--_alert-bg);
+  color: var(--text-primary);
+}
+
+/* ── Icon ──────────────────────────────────────────────────────── */
+
+.cd-alert__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--_alert-fg);
+  margin-top: var(--spacing-quarck);
+}
+
+.cd-alert__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Content ───────────────────────────────────────────────────── */
+
+.cd-alert__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.cd-alert__title {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.cd-alert__message {
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: var(--spacing-quarck);
+}
+
+.cd-alert__title + .cd-alert__message {
+  margin-top: var(--spacing-quarck);
+}
+
+/* ── Dismiss button ───────────────────────────────────────────── */
+
+.cd-alert__dismiss {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--fg-tertiary);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.cd-alert__dismiss:hover {
+  color: var(--fg-primary);
+  background: var(--alpha-backdrop);
+}
+
+.cd-alert__dismiss:focus-visible {
+  outline: var(--border-thin) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.cd-alert__dismiss svg {
+  width: 14px;
+  height: 14px;
+}

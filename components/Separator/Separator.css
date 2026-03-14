@@ -1,0 +1,18 @@
+/* ── Separator ─────────────────────────────────────────────────── */
+
+.cd-separator {
+  border: none;
+  background: var(--border-secondary);
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.cd-separator--horizontal {
+  width: 100%;
+  height: var(--border-hairline);
+}
+
+.cd-separator--vertical {
+  width: var(--border-hairline);
+  align-self: stretch;
+}

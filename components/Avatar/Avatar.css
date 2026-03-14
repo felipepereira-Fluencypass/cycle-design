@@ -1,0 +1,54 @@
+/* ── Avatar ────────────────────────────────────────────────────── */
+
+.cd-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_avatar-size);
+  height: var(--_avatar-size);
+  border-radius: var(--radius-circular);
+  background: var(--bg-tertiary);
+  overflow: hidden;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+
+.cd-avatar__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.cd-avatar__fallback {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  user-select: none;
+  line-height: 1;
+}
+
+/* Fallback font size scales with avatar */
+.cd-avatar--xl .cd-avatar__fallback { font-size: var(--font-size-md); }
+.cd-avatar--lg .cd-avatar__fallback { font-size: var(--font-size-xs); }
+.cd-avatar--md .cd-avatar__fallback { font-size: var(--font-size-2xs); }
+.cd-avatar--sm .cd-avatar__fallback { font-size: var(--font-size-3xs); }
+.cd-avatar--xs .cd-avatar__fallback { font-size: var(--font-size-4xs); }
+
+/* ── Status indicator ─────────────────────────────────────────── */
+
+.cd-avatar__status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  min-width: 8px;
+  min-height: 8px;
+  border-radius: var(--radius-circular);
+  border: var(--border-thin) solid var(--bg-primary);
+}
+
+.cd-avatar__status--online { background: var(--bg-positive-solid); }
+.cd-avatar__status--offline { background: var(--bg-tertiary); }
+.cd-avatar__status--busy { background: var(--bg-critical-solid); }

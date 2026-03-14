@@ -21,3 +21,6 @@
 @import "./spacing-tokens.css";
 @import "./grid-tokens.css";
 @import "./focus-tokens.css";
+
+/* 4. Deprecated — aliases retrocompativeis (remover em v2) */
+@import "./deprecated.css";

@@ -46,8 +46,27 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "npm run build && changeset publish",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "size": "size-limit",
+    "size:check": "size-limit --limit"
   },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "25 kB",
+      "name": "JS (components)"
+    },
+    {
+      "path": "dist/styles.css",
+      "limit": "15 kB",
+      "name": "CSS (styles)"
+    },
+    {
+      "path": "dist/tokens.css",
+      "limit": "15 kB",
+      "name": "CSS (tokens)"
+    }
+  ],
   "peerDependencies": {
     "react": ">=17.0.0",
     "react-dom": ">=17.0.0"
@@ -56,6 +75,8 @@
     "@changesets/changelog-github": "^0.6.0",
     "@changesets/cli": "^2.30.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.58.2",
+    "@size-limit/file": "^12.0.1",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -70,6 +91,7 @@
     "prettier": "^3.8.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "size-limit": "^12.0.1",
     "stylelint": "^17.4.0",
     "stylelint-config-standard": "^40.0.0",
     "svgo": "^3.3.0",

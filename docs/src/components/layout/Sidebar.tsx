@@ -47,7 +47,14 @@ const navigation: NavGroup[] = [
     label: 'Components',
     items: [
       { label: 'Button', path: '/components/button' },
-      { label: 'Forms', path: '/components/forms' },
+      { label: 'Label', path: '/components/label' },
+      { label: 'Input', path: '/components/input' },
+      { label: 'Textarea', path: '/components/textarea' },
+      { label: 'Select', path: '/components/select' },
+      { label: 'Checkbox', path: '/components/checkbox' },
+      { label: 'Radio Group', path: '/components/radio-group' },
+      { label: 'Switch', path: '/components/switch' },
+      { label: 'Field', path: '/components/field' },
     ],
   },
 ]

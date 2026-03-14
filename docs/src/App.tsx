@@ -23,7 +23,14 @@ import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
 import ButtonPage from '@/pages/components/Button'
-import FormsPage from '@/pages/components/Forms'
+import LabelPage from '@/pages/components/Label'
+import InputPage from '@/pages/components/Input'
+import TextareaPage from '@/pages/components/Textarea'
+import SelectPage from '@/pages/components/Select'
+import CheckboxPage from '@/pages/components/Checkbox'
+import RadioGroupPage from '@/pages/components/RadioGroup'
+import SwitchPage from '@/pages/components/Switch'
+import FieldPage from '@/pages/components/Field'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -74,7 +81,14 @@ export default function App() {
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
           <Route path="/components/button" element={<ButtonPage />} />
-          <Route path="/components/forms" element={<FormsPage />} />
+          <Route path="/components/label" element={<LabelPage />} />
+          <Route path="/components/input" element={<InputPage />} />
+          <Route path="/components/textarea" element={<TextareaPage />} />
+          <Route path="/components/select" element={<SelectPage />} />
+          <Route path="/components/checkbox" element={<CheckboxPage />} />
+          <Route path="/components/radio-group" element={<RadioGroupPage />} />
+          <Route path="/components/switch" element={<SwitchPage />} />
+          <Route path="/components/field" element={<FieldPage />} />
         </Route>
       </Routes>
     </>

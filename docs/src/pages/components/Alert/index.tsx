@@ -1,7 +1,7 @@
 import { PageHeader } from '@/components/ui/PageHeader'
 import { CodeBlock } from '@/components/ui/CodeBlock'
 import { Alert } from '@components/Alert'
-import styles from '../Forms/Forms.module.css'
+import styles from '../Components.module.css'
 
 const VARIANTS = ['info', 'positive', 'warning', 'critical'] as const
 

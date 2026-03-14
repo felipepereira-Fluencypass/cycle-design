@@ -55,3 +55,76 @@
   color: var(--text-secondary);
   line-height: 1.55;
 }
+
+/* ── Shared doc page styles ────────────────────────────────── */
+
+.section {
+  margin-bottom: 48px;
+}
+
+.h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  letter-spacing: -0.3px;
+}
+
+.h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.p {
+  font-size: var(--font-size-2xs);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+.demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-micro);
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-secondary);
+}
+
+.demoRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-mini);
+}
+
+.demoColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-micro);
+}
+
+.colorsGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-micro);
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-mini);
+}
+
+.colorLabel {
+  font-size: var(--font-size-3xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-tertiary);
+  text-transform: capitalize;
+  width: 64px;
+  flex-shrink: 0;
+}

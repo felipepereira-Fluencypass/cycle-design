@@ -1,0 +1,117 @@
+/* ── Toast Viewport ────────────────────────────────────────────── */
+
+.cd-toast-viewport {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-micro);
+  padding: var(--spacing-3xs);
+  max-width: 420px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  outline: none;
+}
+
+/* ── Toast ─────────────────────────────────────────────────────── */
+
+.cd-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-micro);
+  padding: var(--spacing-mini);
+  background: var(--bg-primary);
+  border: var(--border-hairline) solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border-left: var(--border-thick) solid var(--_toast-accent);
+  animation: cd-toast-in 0.2s ease-out;
+}
+
+.cd-toast[data-state="closed"] {
+  animation: cd-toast-out 0.15s ease-in;
+}
+
+@keyframes cd-toast-in {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes cd-toast-out {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(100%); }
+}
+
+/* ── Title ────────────────────────────────────────────────────── */
+
+.cd-toast-title {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+/* ── Description ──────────────────────────────────────────────── */
+
+.cd-toast-description {
+  font-size: var(--font-size-3xs);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-top: var(--spacing-quarck);
+}
+
+/* ── Action ───────────────────────────────────────────────────── */
+
+.cd-toast-action {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: var(--spacing-nano) var(--spacing-micro);
+  font-size: var(--font-size-3xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-brand-primary);
+  background: transparent;
+  border: var(--border-hairline) solid var(--border-brand);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.cd-toast-action:hover {
+  background: var(--bg-brand-primary);
+}
+
+.cd-toast-action:focus-visible {
+  outline: var(--border-thin) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* ── Close ────────────────────────────────────────────────────── */
+
+.cd-toast-close {
+  flex-shrink: 0;
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--fg-tertiary);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.cd-toast-close:hover {
+  color: var(--fg-primary);
+}
+
+.cd-toast-close:focus-visible {
+  outline: var(--border-thin) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}

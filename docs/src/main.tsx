@@ -20,6 +20,13 @@ import '@components/Separator/Separator.css'
 import '@components/Skeleton/Skeleton.css'
 import '@components/Spinner/Spinner.css'
 import '@components/Progress/Progress.css'
+import '@components/Dialog/Dialog.css'
+import '@components/Toast/Toast.css'
+import '@components/DropdownMenu/DropdownMenu.css'
+import '@components/Tooltip/Tooltip.css'
+import '@components/Popover/Popover.css'
+import '@components/Tabs/Tabs.css'
+import '@components/Sheet/Sheet.css'
 import './styles/docs.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

@@ -39,6 +39,13 @@ import SeparatorPage from '@/pages/components/Separator'
 import SkeletonPage from '@/pages/components/Skeleton'
 import SpinnerPage from '@/pages/components/Spinner'
 import ProgressPage from '@/pages/components/Progress'
+import DialogPage from '@/pages/components/Dialog'
+import ToastPage from '@/pages/components/Toast'
+import DropdownMenuPage from '@/pages/components/DropdownMenu'
+import TooltipPage from '@/pages/components/Tooltip'
+import PopoverPage from '@/pages/components/Popover'
+import TabsPage from '@/pages/components/Tabs'
+import SheetPage from '@/pages/components/Sheet'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -105,6 +112,13 @@ export default function App() {
           <Route path="/components/skeleton" element={<SkeletonPage />} />
           <Route path="/components/spinner" element={<SpinnerPage />} />
           <Route path="/components/progress" element={<ProgressPage />} />
+          <Route path="/components/dialog" element={<DialogPage />} />
+          <Route path="/components/toast" element={<ToastPage />} />
+          <Route path="/components/dropdown-menu" element={<DropdownMenuPage />} />
+          <Route path="/components/tooltip" element={<TooltipPage />} />
+          <Route path="/components/popover" element={<PopoverPage />} />
+          <Route path="/components/tabs" element={<TabsPage />} />
+          <Route path="/components/sheet" element={<SheetPage />} />
         </Route>
       </Routes>
     </>

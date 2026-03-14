@@ -1,0 +1,29 @@
+/* ── Popover Content ───────────────────────────────────────────── */
+
+.cd-popover-content {
+  z-index: 50;
+  min-width: 200px;
+  background: var(--bg-primary);
+  border: var(--border-hairline) solid var(--border-secondary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-mini);
+  animation: cd-popover-in 0.12s ease-out;
+  outline: none;
+}
+
+.cd-popover-content:focus-visible {
+  outline: var(--border-thin) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+@keyframes cd-popover-in {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── Arrow ─────────────────────────────────────────────────────── */
+
+.cd-popover-arrow {
+  fill: var(--bg-primary);
+}

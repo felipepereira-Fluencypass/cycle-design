@@ -63,6 +63,13 @@ const navigation: NavGroup[] = [
       { label: 'Skeleton', path: '/components/skeleton' },
       { label: 'Spinner', path: '/components/spinner' },
       { label: 'Progress', path: '/components/progress' },
+      { label: 'Dialog', path: '/components/dialog' },
+      { label: 'Toast', path: '/components/toast' },
+      { label: 'Dropdown Menu', path: '/components/dropdown-menu' },
+      { label: 'Tooltip', path: '/components/tooltip' },
+      { label: 'Popover', path: '/components/popover' },
+      { label: 'Tabs', path: '/components/tabs' },
+      { label: 'Sheet', path: '/components/sheet' },
     ],
   },
 ]

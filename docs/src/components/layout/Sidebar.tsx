@@ -47,6 +47,7 @@ const navigation: NavGroup[] = [
     label: 'Components',
     items: [
       { label: 'Button', path: '/components/button' },
+      { label: 'Forms', path: '/components/forms' },
     ],
   },
 ]

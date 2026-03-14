@@ -23,6 +23,7 @@ import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
 import ButtonPage from '@/pages/components/Button'
+import FormsPage from '@/pages/components/Forms'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -73,6 +74,7 @@ export default function App() {
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
           <Route path="/components/button" element={<ButtonPage />} />
+          <Route path="/components/forms" element={<FormsPage />} />
         </Route>
       </Routes>
     </>

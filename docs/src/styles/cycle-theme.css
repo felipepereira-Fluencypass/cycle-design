@@ -1,0 +1,201 @@
+/*
+ * Cycle Design Theme for docs site.
+ * This is a local copy of src/globals.css with Tailwind imports
+ * resolved from docs/node_modules. Kept in sync with the source.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+:root {
+  --radius: 8px;
+
+  --background: #FFFFFF;
+  --foreground: #181D27;
+
+  --card: #FFFFFF;
+  --card-foreground: #181D27;
+
+  --popover: #FFFFFF;
+  --popover-foreground: #181D27;
+
+  --primary: #D45558;
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #FAFAFA;
+  --secondary-foreground: #181D27;
+
+  --muted: #F5F5F5;
+  --muted-foreground: #535862;
+
+  --accent: #FAFAFA;
+  --accent-foreground: #181D27;
+
+  --destructive: #B32020;
+  --destructive-foreground: #FFFFFF;
+
+  --border: #E9EAEB;
+  --input: #D5D7DA;
+  --ring: #ED6A6D;
+
+  --chart-1: #D45558;
+  --chart-2: #1A5FE0;
+  --chart-3: #FF8041;
+  --chart-4: #00C234;
+  --chart-5: #9810FA;
+
+  --sidebar: #FAFAFA;
+  --sidebar-foreground: #181D27;
+  --sidebar-primary: #D45558;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F5F5F5;
+  --sidebar-accent-foreground: #181D27;
+  --sidebar-border: #E9EAEB;
+  --sidebar-ring: #ED6A6D;
+
+  --brand: #D45558;
+  --brand-foreground: #FFFFFF;
+  --class: #1A5FE0;
+  --class-foreground: #FFFFFF;
+  --private: #E56530;
+  --private-foreground: #FFFFFF;
+  --group: #00C234;
+  --group-foreground: #FFFFFF;
+  --impulse: #7D0DD4;
+  --impulse-foreground: #FFFFFF;
+  --warning: #D48E00;
+  --warning-foreground: #FFFFFF;
+  --positive: #098A5E;
+  --positive-foreground: #FFFFFF;
+}
+
+.dark,
+[data-theme="dark"] {
+  --background: #0C0E12;
+  --foreground: #F7F7F7;
+
+  --card: #13161B;
+  --card-foreground: #F7F7F7;
+
+  --popover: #13161B;
+  --popover-foreground: #F7F7F7;
+
+  --primary: #ED6A6D;
+  --primary-foreground: #FFF5F5;
+
+  --secondary: #22262F;
+  --secondary-foreground: #F7F7F7;
+
+  --muted: #22262F;
+  --muted-foreground: #94979C;
+
+  --accent: #22262F;
+  --accent-foreground: #F7F7F7;
+
+  --destructive: #D42B2B;
+  --destructive-foreground: #F7F7F7;
+
+  --border: #373A41;
+  --input: #373A41;
+  --ring: #F57B7E;
+
+  --chart-1: #ED6A6D;
+  --chart-2: #4D8AFF;
+  --chart-3: #FF9158;
+  --chart-4: #1AFF61;
+  --chart-5: #B844FF;
+
+  --sidebar: #13161B;
+  --sidebar-foreground: #F7F7F7;
+  --sidebar-primary: #ED6A6D;
+  --sidebar-primary-foreground: #FFF5F5;
+  --sidebar-accent: #22262F;
+  --sidebar-accent-foreground: #F7F7F7;
+  --sidebar-border: #373A41;
+  --sidebar-ring: #F57B7E;
+
+  --brand: #ED6A6D;
+  --brand-foreground: #FFF5F5;
+  --class: #2E74FF;
+  --class-foreground: #E0EBFF;
+  --private: #FF8041;
+  --private-foreground: #FFEDE0;
+  --group: #00E73E;
+  --group-foreground: #E0FFE9;
+  --impulse: #9810FA;
+  --impulse-foreground: #F7E0FF;
+  --warning: #F5A800;
+  --warning-foreground: #332300;
+  --positive: #0BA370;
+  --positive-foreground: #022318;
+}
+
+@theme inline {
+  --font-sans: 'Open Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-class: var(--class);
+  --color-class-foreground: var(--class-foreground);
+  --color-private: var(--private);
+  --color-private-foreground: var(--private-foreground);
+  --color-group: var(--group);
+  --color-group-foreground: var(--group-foreground);
+  --color-impulse: var(--impulse);
+  --color-impulse-foreground: var(--impulse-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius));
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}

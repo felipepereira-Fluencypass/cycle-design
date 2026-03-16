@@ -6,7 +6,6 @@ import { useTheme } from '@/hooks/useTheme'
 
 // Pages
 import Home from '@/pages/Home'
-import Introduction from '@/pages/getting-started/Introduction'
 import Installation from '@/pages/getting-started/Installation'
 import DarkMode from '@/pages/getting-started/DarkMode'
 import Colors from '@/pages/tokens/Colors'
@@ -22,14 +21,9 @@ import Accessibility from '@/pages/guidelines/Accessibility'
 import Testing from '@/pages/guidelines/Testing'
 import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
-import ShadcnSetup from '@/pages/getting-started/ShadcnSetup'
 import FigmaSetup from '@/pages/guidelines/FigmaSetup'
 import Components from '@/pages/components'
-import ButtonPage from '@/pages/components/Button'
-import CheckboxPage from '@/pages/components/Checkbox'
-import SwitchPage from '@/pages/components/Switch'
-import AlertPage from '@/pages/components/Alert'
-import SkeletonPage from '@/pages/components/Skeleton'
+import ComponentPage from '@/pages/components/ComponentPage'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -63,10 +57,8 @@ export default function App() {
           />
         }>
           <Route path="/" element={<Home />} />
-          <Route path="/getting-started/introduction" element={<Introduction />} />
           <Route path="/getting-started/installation" element={<Installation />} />
           <Route path="/getting-started/dark-mode" element={<DarkMode />} />
-          <Route path="/getting-started/shadcn-setup" element={<ShadcnSetup />} />
           <Route path="/tokens/colors" element={<Colors />} />
           <Route path="/tokens/typography" element={<Typography />} />
           <Route path="/tokens/spacing" element={<Spacing />} />
@@ -82,11 +74,7 @@ export default function App() {
           <Route path="/ai/llms-txt" element={<LlmsTxt />} />
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
-          <Route path="/components/button" element={<ButtonPage />} />
-          <Route path="/components/checkbox" element={<CheckboxPage />} />
-          <Route path="/components/switch" element={<SwitchPage />} />
-          <Route path="/components/alert" element={<AlertPage />} />
-          <Route path="/components/skeleton" element={<SkeletonPage />} />
+          <Route path="/components/:slug" element={<ComponentPage />} />
         </Route>
       </Routes>
     </>

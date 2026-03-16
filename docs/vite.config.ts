@@ -1,5 +1,6 @@
 import { defineConfig, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
 // Files outside docs/ (e.g. ../src/components/ui/button.tsx) import
@@ -33,7 +34,7 @@ function resolveParentImports(): Plugin {
 }
 
 export default defineConfig({
-  plugins: [resolveParentImports(), react()],
+  plugins: [resolveParentImports(), tailwindcss(), react()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

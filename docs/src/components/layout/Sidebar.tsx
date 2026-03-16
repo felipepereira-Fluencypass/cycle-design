@@ -1,4 +1,5 @@
 import { NavLink, useMatch, useResolvedPath } from 'react-router-dom'
+import { componentRegistry, categoryOrder, getComponentsByCategory } from '@/data/component-registry'
 import styles from './Sidebar.module.css'
 
 interface NavItem {
@@ -12,6 +13,18 @@ interface NavGroup {
   items: NavItem[]
 }
 
+/* ── Build component nav from registry ──────────────────── */
+const componentsByCategory = getComponentsByCategory()
+const componentGroups: NavGroup[] = categoryOrder
+  .filter(cat => componentsByCategory[cat]?.length)
+  .map(cat => ({
+    label: cat,
+    items: componentsByCategory[cat].map(c => ({
+      label: c.name,
+      path: `/components/${c.slug}`,
+    })),
+  }))
+
 const navigation: NavGroup[] = [
   {
     label: 'Getting Started',
@@ -19,13 +32,12 @@ const navigation: NavGroup[] = [
       { label: 'Introdução', path: '/' },
       { label: 'Instalação', path: '/getting-started/installation' },
       { label: 'Dark Mode', path: '/getting-started/dark-mode' },
-      { label: 'Setup shadcn/ui', path: '/getting-started/shadcn-setup' },
       { label: 'llms.txt', path: '/ai/llms-txt' },
       { label: 'MCP Server', path: '/ai/mcp' },
     ],
   },
   {
-    label: 'Foundation',
+    label: 'Theme',
     items: [
       { label: 'Colors', path: '/tokens/colors' },
       { label: 'Typography', path: '/tokens/typography' },
@@ -46,16 +58,7 @@ const navigation: NavGroup[] = [
       { label: 'Test Coverage', path: '/guidelines/testing' },
     ],
   },
-  {
-    label: 'Components',
-    items: [
-      { label: 'Button', path: '/components/button' },
-      { label: 'Checkbox', path: '/components/checkbox' },
-      { label: 'Switch', path: '/components/switch' },
-      { label: 'Alert', path: '/components/alert' },
-      { label: 'Skeleton', path: '/components/skeleton' },
-    ],
-  },
+  ...componentGroups,
 ]
 
 function SidebarNavLink({ item, onClose }: { item: NavItem; onClose: () => void }) {

@@ -6,6 +6,11 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Scan parent component sources so Tailwind generates their utility classes */
+@source "../../../src/components/ui";
+@source "../../../src/lib";
+@source "../../src";
+
 @custom-variant dark (&:is([data-theme="dark"] *));
 
 :root {

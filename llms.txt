@@ -23,6 +23,8 @@
 ## Guidelines
 
 - [Design Decisions](ai/decisions.md): Architecture decisions, Storybook rationale, AI integration strategy, protections against mistakes, and update flow.
+- [Improvement Plan](ai/improvement-plan.md): Quality improvement roadmap (motion tokens, reduced-motion, z-index, asChild, data attributes, compound components, cn utility, Figma mapping). Complementary to the action plan.
+- [Analysis vs shadcn/ui](ai/analysis-vs-shadcn.md): Comparative quality analysis against shadcn/ui — strengths, gaps, and recommendations.
 
 ## MCP Server
 

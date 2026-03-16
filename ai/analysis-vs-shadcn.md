@@ -1,6 +1,7 @@
 # Cycle Design vs shadcn/ui — Análise Comparativa
 
-> Análise feita em 2026-03-13 comparando o estado atual do Cycle Design com o shadcn/ui.
+> Análise inicial em 2026-03-13, atualizada em 2026-03-16 com análise de qualidade.
+> Foco da atualização: qualidade dos componentes e tokens, não quantidade.
 
 ---
 
@@ -140,14 +141,68 @@ Não há ESLint, Prettier, ou Stylelint configurados.
 
 ---
 
+---
+
+## Análise de Qualidade (2026-03-16)
+
+> Análise focada em práticas de construção de componentes e tokens,
+> comparando padrões do shadcn/ui com o Cycle Design.
+
+### Gaps de qualidade identificados
+
+| Prioridade | Gap | Impacto |
+|---|---|---|
+| **P0** | `prefers-reduced-motion` ausente | Acessibilidade WCAG 2.1 (2.3.3) — afeta usuários reais |
+| **P0** | Tokens de motion/animação ausentes | Valores inconsistentes nos 6 componentes (0.1s, 0.15s, 0.2s) |
+| **P1** | Tokens de z-index ausentes | Bloqueante para Dialog, Toast, Tooltip, Dropdown |
+| **P1** | `asChild` / polimorfismo ausente | Bloqueante para uso com Next.js `<Link>` e React Router |
+| **P1** | Mapeamento Figma → Código ausente | Essencial para fluxo IA → código |
+| **P2** | Compound components (padrão) | Escalabilidade de componentes complexos futuros |
+| **P2** | Data attributes nos estados | Extensibilidade para consumidores e testes |
+| **P3** | Utilitário `cn()` para classes | Qualidade de vida para devs |
+| **P3** | OKLCH colors (vs HEX atual) | Futuro-proofing, interpolação perceptual |
+
+### Typography: Classes CSS vs Utility classes
+
+O shadcn/ui usa utility classes do Tailwind diretamente no JSX:
+```tsx
+<h1 className="text-4xl font-extrabold tracking-tight">Título</h1>
+```
+
+O Cycle Design usa classes pré-compostas:
+```tsx
+<h1 className="headline-lg">Título</h1>
+```
+
+**Conclusão:** O approach do Cycle é mais adequado para um design system multi-projeto.
+Classes pré-compostas garantem consistência — todos os projetos da Fluencypass usam
+o mesmo `.headline-lg`. Com utilities, cada dev pode compor valores diferentes.
+Para o fluxo IA, a classe com nome idêntico ao Figma (`headline/lg` → `.headline-lg`)
+é a melhor DX possível — mapeamento 1:1 direto.
+
+### Onde o Cycle é superior ao shadcn (ampliado)
+
+| Aspecto | Cycle Design | shadcn/ui |
+|---|---|---|
+| Documentação de contraste WCAG | ✅ Badges ✅⚠️🚫♿ em cada token | Sem documentação de contraste |
+| Acessibilidade em compile-time | ✅ TypeScript enforce aria-label | Delega ao Radix (runtime) |
+| Focus ring tokenizado | ✅ `--focus-ring-*` centralizados | Inline no Tailwind |
+| Color injection sem class explosion | ✅ CSS vars runtime (`--_btn-solid`) | CVA + Tailwind classes |
+
+> Plano de correção detalhado: ver `ai/improvement-plan.md`
+
+---
+
 ## Conclusão
 
-A fundação do Cycle Design é sólida e em vários aspectos superior ao shadcn. O risco principal não é a arquitetura — é a **falta de componentes** e a **ausência de testes**. Os 14 componentes de prioridade alta são o que separa o Cycle Design de ser usável no dia-a-dia.
+A fundação do Cycle Design é sólida e em vários aspectos superior ao shadcn. Existem dois eixos de melhoria:
+
+1. **Quantidade** — falta de componentes (ver Fases 2-5 do `action-plan.md`)
+2. **Qualidade** — gaps de infraestrutura: motion tokens, reduced-motion, z-index, polimorfismo (ver `improvement-plan.md`)
 
 ### Próximos passos recomendados
 
-1. Configurar Vitest + Testing Library
-2. Implementar Input, Select, Dialog, Card e Table
-3. Adicionar CSS reset mínimo
-4. Corrigir valores hardcoded no Button
-5. Estabelecer CHANGELOG e política de deprecation
+1. Executar Q0-Q2 do improvement-plan (motion, reduced-motion, z-index)
+2. Criar mapeamento Figma → Código (Q7)
+3. Implementar `asChild` no Button (Q3)
+4. Continuar Fases 2-5 do action-plan (componentes)

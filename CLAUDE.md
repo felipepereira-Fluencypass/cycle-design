@@ -362,6 +362,73 @@ Nunca use `font-size` em `px` hardcoded fora da escala do Cycle Design. Use semp
 
 Valores como 11px, 12.5px, 13px, 13.5px, 15px não existem na escala. Se um tamanho intermediário for necessário, solicite como nova entrada no Figma antes de usar.
 
+### A9. Respeitar `prefers-reduced-motion`
+
+Animações e transições devem ser desabilitadas para usuários que preferem movimento reduzido (WCAG 2.1, critério 2.3.3). O reset global já inclui a media query, mas componentes com animação infinita (Spinner, Skeleton) devem ter fallback explícito:
+
+```css
+/* ❌ Proibido — animação infinita sem fallback */
+.spinner { animation: spin 0.75s linear infinite; }
+
+/* ✅ Correto — fallback para reduced-motion */
+.spinner { animation: spin 0.75s var(--ease-linear) infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .spinner { animation: none; }
+}
+```
+
+### A10. Use tokens de motion — nunca hardcode durações ou easings
+
+Transições e animações devem usar os tokens de motion, nunca valores literais:
+
+```css
+/* ❌ Proibido — valores hardcoded */
+.card { transition: background-color 0.2s ease; }
+
+/* ✅ Correto — tokens de motion */
+.card { transition: background-color var(--transition-normal); }
+```
+
+Tokens disponíveis:
+
+| Token | Valor | Uso |
+|-------|-------|-----|
+| `--duration-instant` | 0ms | Sem animação (disabled, reduced-motion) |
+| `--duration-fast` | 100ms | Micro: hover, press, toggle |
+| `--duration-normal` | 200ms | Padrão: transições de estado |
+| `--duration-slow` | 300ms | Entrada/saída de elementos |
+| `--duration-slower` | 500ms | Overlays, modais, page transitions |
+| `--ease-default` | cubic-bezier(0.4, 0, 0.2, 1) | Standard |
+| `--ease-in` | cubic-bezier(0.4, 0, 1, 1) | Saída de tela |
+| `--ease-out` | cubic-bezier(0, 0, 0.2, 1) | Entrada na tela |
+| `--ease-linear` | linear | Progresso, spinners |
+| `--transition-fast` | 100ms ease-default | Atalho para micro-interações |
+| `--transition-normal` | 200ms ease-default | Atalho para transições padrão |
+| `--transition-slow` | 300ms ease-out | Atalho para entradas/saídas |
+
+### A11. Use tokens de z-index para componentes overlay
+
+Nunca use valores numéricos de z-index diretamente. Use os tokens da escala:
+
+```css
+/* ❌ Proibido */
+.modal { z-index: 9999; }
+
+/* ✅ Correto */
+.modal { z-index: var(--z-modal); }
+```
+
+| Token | Valor | Uso |
+|-------|-------|-----|
+| `--z-base` | 0 | Conteúdo padrão |
+| `--z-dropdown` | 100 | Dropdown menus, selects |
+| `--z-sticky` | 200 | Headers fixos, barras de navegação |
+| `--z-overlay` | 300 | Backdrop de modais/sheets |
+| `--z-modal` | 400 | Dialog, Sheet, Drawer |
+| `--z-popover` | 500 | Popover, Tooltip |
+| `--z-toast` | 600 | Toast notifications |
+| `--z-tooltip` | 700 | Tooltip (acima de toast) |
+
 ---
 
 ## Ao criar novos componentes
@@ -373,6 +440,12 @@ Valores como 11px, 12.5px, 13px, 13.5px, 15px não existem na escala. Se um tama
 5. Inclua suporte a dark mode via tokens funcionais
 6. Documente as props com JSDoc
 7. Passe o checklist de acessibilidade em `/guidelines/accessibility` antes de marcar como stable
+8. Exponha `data-*` attributes para estados (variant, size, disabled, state)
+9. Use `forwardRef` com named function (não arrow function anônima)
+10. Use `cn()` de `src/utils/cn` para combinar classNames
+11. Componentes overlay devem usar tokens de z-index (`--z-modal`, `--z-toast`, etc.)
+12. Transições devem usar tokens de motion (`--transition-fast`, `--transition-normal`, etc.)
+13. Componentes complexos com layout flexível devem usar compound pattern (ver `ai/patterns/compound-components.md`)
 
 ---
 

@@ -1,0 +1,36 @@
+/* ============================================
+   CYCLE DESIGN — MOTION TOKENS
+   ============================================
+   Tokens de duração e easing para transições
+   e animações. Garantem consistência de timing
+   em todos os componentes.
+
+   Guidelines:
+   - Micro-interações (hover, press): --duration-fast
+   - Transições de estado: --duration-normal
+   - Entrada/saída de elementos: --duration-slow
+   - Overlays e modais: --duration-slower
+
+   Fonte: Material Design 3 easing curves
+   ============================================ */
+
+:root {
+
+  /* ── Duration ────────────────────────────── */
+  --duration-instant:  0ms;     /* Sem animação (disabled, reduced-motion) */
+  --duration-fast:     100ms;   /* Micro: hover, press, toggle */
+  --duration-normal:   200ms;   /* Padrão: transições de estado */
+  --duration-slow:     300ms;   /* Entrada/saída de elementos */
+  --duration-slower:   500ms;   /* Overlays, modais, page transitions */
+
+  /* ── Easing ──────────────────────────────── */
+  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);   /* Standard — entrada e saída suaves */
+  --ease-in:       cubic-bezier(0.4, 0, 1, 1);      /* Aceleração — elemento saindo da tela */
+  --ease-out:      cubic-bezier(0, 0, 0.2, 1);      /* Desaceleração — elemento entrando na tela */
+  --ease-linear:   linear;                           /* Constante — progresso, spinners */
+
+  /* ── Composições (atalhos semânticos) ────── */
+  --transition-fast:    var(--duration-fast) var(--ease-default);
+  --transition-normal:  var(--duration-normal) var(--ease-default);
+  --transition-slow:    var(--duration-slow) var(--ease-out);
+}

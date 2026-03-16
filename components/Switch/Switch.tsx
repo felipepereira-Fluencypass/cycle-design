@@ -1,5 +1,6 @@
 import { forwardRef, useId } from 'react'
 import type { InputHTMLAttributes, CSSProperties, ReactNode } from 'react'
+import { cn } from '../../src/utils/cn'
 
 export type SwitchSize = 'md' | 'sm'
 export type SwitchColor = 'brand' | 'class' | 'private' | 'group' | 'impulse'
@@ -38,17 +39,22 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
     '--_switch-solid-hover': `var(--bg-${color}-solid_hover)`,
   } as CSSProperties
 
-  const wrapperClasses = [
+  const wrapperClasses = cn(
     'cd-switch',
     `cd-switch--${size}`,
-    disabled ? 'cd-switch--disabled' : undefined,
+    disabled && 'cd-switch--disabled',
     className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
 
   return (
-    <label className={wrapperClasses} style={colorVars} htmlFor={id}>
+    <label
+      className={wrapperClasses}
+      style={colorVars}
+      htmlFor={id}
+      data-size={size}
+      data-color={color}
+      data-disabled={disabled || undefined}
+    >
       <input
         ref={ref}
         id={id}

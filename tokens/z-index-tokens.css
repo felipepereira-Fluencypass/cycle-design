@@ -1,0 +1,21 @@
+/* ============================================
+   CYCLE DESIGN — Z-INDEX TOKENS
+   ============================================
+   Escala de empilhamento para componentes overlay.
+   Valores espaçados em incrementos de 100 para
+   permitir inserções futuras sem refatoração.
+
+   Nunca use valores numéricos de z-index direto.
+   Sempre use var(--z-*).
+   ============================================ */
+
+:root {
+  --z-base:      0;       /* Conteúdo padrão */
+  --z-dropdown:  100;     /* Dropdown menus, selects */
+  --z-sticky:    200;     /* Headers fixos, barras de navegação */
+  --z-overlay:   300;     /* Backdrop de modais/sheets */
+  --z-modal:     400;     /* Dialog, Sheet, Drawer */
+  --z-popover:   500;     /* Popover, Tooltip */
+  --z-toast:     600;     /* Toast notifications (acima de tudo) */
+  --z-tooltip:   700;     /* Tooltip (acima de toast quando necessário) */
+}

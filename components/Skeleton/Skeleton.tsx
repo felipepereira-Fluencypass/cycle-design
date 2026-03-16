@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import type { HTMLAttributes, CSSProperties } from 'react'
+import { cn } from '../../src/utils/cn'
 
 export type SkeletonVariant = 'text' | 'circular' | 'rectangular'
 
@@ -34,14 +35,12 @@ export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(function Skel
   },
   ref,
 ) {
-  const classNames = [
+  const classNames = cn(
     'cd-skeleton',
     `cd-skeleton--${variant}`,
-    isStatic ? 'cd-skeleton--static' : undefined,
+    isStatic && 'cd-skeleton--static',
     className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
 
   const sizeStyle: CSSProperties = {
     width: typeof width === 'number' ? `${width}px` : width,
@@ -54,6 +53,8 @@ export const Skeleton = forwardRef<HTMLSpanElement, SkeletonProps>(function Skel
       className={classNames}
       style={{ ...sizeStyle, ...style }}
       aria-hidden="true"
+      data-variant={variant}
+      data-static={isStatic || undefined}
       {...rest}
     />
   )

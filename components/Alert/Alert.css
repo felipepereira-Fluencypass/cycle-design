@@ -65,7 +65,7 @@
   color: var(--fg-tertiary);
   border-radius: var(--radius-xs);
   cursor: pointer;
-  transition: color 0.15s ease, background 0.15s ease;
+  transition: color var(--transition-fast), background var(--transition-fast);
 }
 
 .cd-alert__dismiss:hover {

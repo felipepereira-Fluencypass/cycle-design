@@ -1,5 +1,6 @@
 import { forwardRef, cloneElement } from 'react'
 import type { HTMLAttributes, CSSProperties, ReactElement, ReactNode } from 'react'
+import { cn } from '../../src/utils/cn'
 
 export type AlertVariant = 'info' | 'positive' | 'warning' | 'critical'
 
@@ -77,13 +78,11 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
     '--_alert-text': `var(--text-${color}-primary)`,
   } as CSSProperties
 
-  const classNames = [
+  const classNames = cn(
     'cd-alert',
     `cd-alert--${variant}`,
     className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
 
   const iconEl = icon
     ? cloneElement(icon as ReactElement<Record<string, unknown>>, { decorative: true })
@@ -96,6 +95,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
       ref={ref}
       className={classNames}
       role={role}
+      data-variant={variant}
       style={{ ...colorVars, ...style } as CSSProperties}
       {...rest}
     >

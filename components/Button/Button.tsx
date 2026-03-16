@@ -1,5 +1,7 @@
 import { forwardRef, cloneElement } from 'react'
 import type { ButtonHTMLAttributes, CSSProperties, ReactElement, ReactNode } from 'react'
+import { cn } from '../../src/utils/cn'
+import { Slot } from '../Slot'
 
 // ── Types ────────────────────────────────────────────────────
 
@@ -31,6 +33,21 @@ type BaseProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
   color?: ButtonColor
   /** Size variant. @default 'md' */
   size?: ButtonSize
+  /**
+   * Render as the child element instead of `<button>`.
+   * Useful for rendering as `<a>`, Next.js `<Link>`, or React Router `<Link>`.
+   *
+   * @example
+   * <Button asChild>
+   *   <a href="/page">Link styled as button</a>
+   * </Button>
+   *
+   * @example
+   * <Button asChild>
+   *   <Link href="/dashboard">Dashboard</Link>
+   * </Button>
+   */
+  asChild?: boolean
 }
 
 /**
@@ -92,12 +109,19 @@ export type ButtonProps = TextButtonProps | IconOnlyButtonProps
  * @example
  * // Icon-only
  * <Button iconOnly icon={<CloseIcon />} aria-label="Fechar" />
+ *
+ * @example
+ * // As link (asChild)
+ * <Button asChild>
+ *   <a href="/page">Link que parece botão</a>
+ * </Button>
  */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
   {
     variant = 'filled',
     color = 'brand',
     size = 'md',
+    asChild,
     iconOnly,
     icon,
     iconLeft,
@@ -134,22 +158,26 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     '--_btn-text-colored':    `var(--text-${color}-primary)`,
   }
 
-  const classNames = [
+  const classNamesMerged = cn(
     'cd-btn',
     `cd-btn--${variant}`,
     `cd-btn--${size}`,
-    iconOnly ? 'cd-btn--icon-only' : undefined,
+    iconOnly && 'cd-btn--icon-only',
     className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
+
+  const Comp = asChild ? Slot : 'button'
 
   return (
-    <button
-      ref={ref}
-      className={classNames}
-      disabled={disabled}
-      aria-disabled={disabled}
+    <Comp
+      ref={ref as never}
+      className={classNamesMerged}
+      disabled={asChild ? undefined : disabled}
+      aria-disabled={disabled || undefined}
+      data-variant={variant}
+      data-size={size}
+      data-color={color}
+      data-disabled={disabled || undefined}
       style={{ ...colorVars, ...style } as CSSProperties}
       {...rest}
     >
@@ -162,6 +190,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           {iconRightEl}
         </>
       )}
-    </button>
+    </Comp>
   )
 })

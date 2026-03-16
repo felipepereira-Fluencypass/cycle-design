@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useId } from 'react'
 import type { InputHTMLAttributes, CSSProperties, ReactNode } from 'react'
+import { cn } from '../../src/utils/cn'
 
 export type CheckboxSize = 'md' | 'sm'
 export type CheckboxColor = 'brand' | 'class' | 'private' | 'group' | 'impulse'
@@ -60,18 +61,24 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(function Che
     '--_check-border': `var(--border-${color})`,
   } as CSSProperties
 
-  const wrapperClasses = [
+  const wrapperClasses = cn(
     'cd-checkbox',
     `cd-checkbox--${size}`,
-    error ? 'cd-checkbox--error' : undefined,
-    disabled ? 'cd-checkbox--disabled' : undefined,
+    error && 'cd-checkbox--error',
+    disabled && 'cd-checkbox--disabled',
     className,
-  ]
-    .filter(Boolean)
-    .join(' ')
+  )
 
   return (
-    <label className={wrapperClasses} style={colorVars} htmlFor={id}>
+    <label
+      className={wrapperClasses}
+      style={colorVars}
+      htmlFor={id}
+      data-size={size}
+      data-color={color}
+      data-disabled={disabled || undefined}
+      data-error={error || undefined}
+    >
       <input
         ref={(node) => {
           internalRef.current = node

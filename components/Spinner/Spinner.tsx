@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
 import type { SVGAttributes } from 'react'
+import { cn } from '../../src/utils/cn'
 
 export type SpinnerSize = 'lg' | 'md' | 'sm' | 'xs'
 
@@ -35,7 +36,7 @@ export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(function Spinner(
 ) {
   const px = SIZE_PX[size]
 
-  const classNames = ['cd-spinner', className].filter(Boolean).join(' ')
+  const classNames = cn('cd-spinner', className)
 
   return (
     <svg
@@ -47,6 +48,7 @@ export const Spinner = forwardRef<SVGSVGElement, SpinnerProps>(function Spinner(
       fill="none"
       role="status"
       aria-label={ariaLabel}
+      data-size={size}
       {...rest}
     >
       <circle

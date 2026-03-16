@@ -2,7 +2,7 @@
 
 .cd-spinner {
   color: var(--fg-brand-primary);
-  animation: cd-spinner-rotate 0.75s linear infinite;
+  animation: cd-spinner-rotate 0.75s var(--ease-linear) infinite;
 }
 
 .cd-spinner__track {

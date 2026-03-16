@@ -446,6 +446,23 @@ Nunca use valores numéricos de z-index diretamente. Use os tokens da escala:
 11. Componentes overlay devem usar tokens de z-index (`--z-modal`, `--z-toast`, etc.)
 12. Transições devem usar tokens de motion (`--transition-fast`, `--transition-normal`, etc.)
 13. Componentes complexos com layout flexível devem usar compound pattern (ver `ai/patterns/compound-components.md`)
+14. **OBRIGATÓRIO:** Ao criar, alterar ou remover qualquer componente ou token, atualize `ai/figma-mapping.md` com o mapeamento Figma → Código correspondente. Esta regra não tem exceções — a IA depende deste arquivo para gerar código correto a partir do Figma.
+
+---
+
+## Manutenção obrigatória da documentação AI
+
+Sempre que houver alteração no design system (componente novo, token novo, alteração de API, remoção), os seguintes arquivos **devem** ser atualizados na mesma PR:
+
+| Arquivo | Quando atualizar |
+|---|---|
+| `ai/figma-mapping.md` | Qualquer componente ou token novo/alterado/removido |
+| `ai/tokens/*.md` | Token novo ou alterado |
+| `CLAUDE.md` | Nova regra de uso, novo token category, novo componente |
+| `llms.txt` | Novo arquivo em `ai/` |
+| `llms-full.txt` | Qualquer alteração em arquivos `ai/` (regenerar) |
+
+Não é aceitável fazer merge de uma PR que adiciona componente/token sem atualizar a documentação AI correspondente.
 
 ---
 

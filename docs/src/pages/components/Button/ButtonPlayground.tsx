@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Button } from '@components/Button'
 import type { ButtonVariant, ButtonColor, ButtonSize } from '@components/Button'
-import { PlusIcon } from '@icons/_generated/PlusIcon'
-import { ChevronDownIcon } from '@icons/_generated/ChevronDownIcon'
-import { CloseIcon } from '@icons/_generated/CloseIcon'
+import { CourseIcon } from '@icons/_generated/CourseIcon'
+import { ExerciseIcon } from '@icons/_generated/ExerciseIcon'
+import { AiIcon } from '@icons/_generated/AiIcon'
 import styles from './Button.module.css'
 
 export function ButtonPlayground() {
@@ -24,7 +24,7 @@ export function ButtonPlayground() {
         size,
         disabled,
         iconOnly: true as const,
-        icon: <CloseIcon decorative />,
+        icon: <AiIcon decorative />,
         'aria-label': ariaLabel || 'Ação',
       }
     : {
@@ -32,8 +32,8 @@ export function ButtonPlayground() {
         color,
         size,
         disabled,
-        iconLeft:  iconLeft  ? <PlusIcon decorative />        : undefined,
-        iconRight: iconRight ? <ChevronDownIcon decorative /> : undefined,
+        iconLeft:  iconLeft  ? <CourseIcon decorative />        : undefined,
+        iconRight: iconRight ? <ExerciseIcon decorative /> : undefined,
         children:  label || 'Botão',
       }
 
@@ -133,7 +133,7 @@ export function ButtonPlayground() {
                   checked={iconLeft}
                   onChange={(e) => setIconLeft(e.target.checked)}
                 />
-                PlusIcon
+                CourseIcon
               </label>
             </div>
 
@@ -145,7 +145,7 @@ export function ButtonPlayground() {
                   checked={iconRight}
                   onChange={(e) => setIconRight(e.target.checked)}
                 />
-                ChevronDownIcon
+                ExerciseIcon
               </label>
             </div>
 
@@ -203,14 +203,14 @@ function generateSnippet(opts: {
 
   if (opts.iconOnly) {
     props.push('iconOnly')
-    props.push('icon={<CloseIcon decorative />}')
+    props.push('icon={<AiIcon decorative />}')
     props.push(`aria-label="${opts.ariaLabel || 'Ação'}"`)
     const propsStr = props.length ? '\n  ' + props.join('\n  ') + '\n' : ''
     return `<Button${propsStr}/>`
   }
 
-  if (opts.iconLeft)  props.push('iconLeft={<PlusIcon decorative />}')
-  if (opts.iconRight) props.push('iconRight={<ChevronDownIcon decorative />}')
+  if (opts.iconLeft)  props.push('iconLeft={<CourseIcon decorative />}')
+  if (opts.iconRight) props.push('iconRight={<ExerciseIcon decorative />}')
 
   const propsStr = props.length ? '\n  ' + props.join('\n  ') + '\n' : ''
   return `<Button${propsStr}>${opts.label || 'Botão'}</Button>`

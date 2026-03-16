@@ -22,18 +22,11 @@ const SIZES: { label: string; value: IconSize }[] = [
 
 const ALL_CATEGORIES: { label: string; value: IconCategory | 'all' }[] = [
   { label: 'Todas as categorias', value: 'all' },
-  { label: 'Navigation', value: 'navigation' },
-  { label: 'Actions', value: 'actions' },
-  { label: 'Status', value: 'status' },
-  { label: 'Forms', value: 'forms' },
-  { label: 'Files', value: 'files' },
-  { label: 'Video', value: 'video' },
-  { label: 'User', value: 'user' },
   { label: 'Language Learning', value: 'language-learning' },
   { label: 'Learning Core', value: 'learning-core' },
   { label: 'Lesson Formats', value: 'lesson-formats' },
-  { label: 'Schedule', value: 'schedule' },
-  { label: 'Marketplace', value: 'marketplace' },
+  { label: 'Forms', value: 'forms' },
+  { label: 'Status', value: 'status' },
   { label: 'Technology', value: 'technology' },
 ]
 
@@ -41,13 +34,13 @@ const CATEGORY_LABELS: Record<string, string> = Object.fromEntries(
   ALL_CATEGORIES.filter(c => c.value !== 'all').map(c => [c.value, c.label])
 )
 
-const USAGE_CODE = `import { HomeIcon, PlusIcon } from 'cycle-design/icons'
+const USAGE_CODE = `import { LessonIcon, QuizIcon } from 'cycle-design/icons'
 
 // Decorativo — puramente visual, contexto já comunica o significado
-<HomeIcon size="sm" decorative />
+<LessonIcon size="sm" decorative />
 
 // Semântico — comunica algo ao usuário (aria-label obrigatório)
-<HomeIcon size="md" aria-label="Ir para a home" />
+<LessonIcon size="md" aria-label="Ver aula" />
 
 // Tamanhos disponíveis: xs (16px) · sm (24px) · md (32px) · lg (40px) · xl (48px)`
 
@@ -129,7 +122,7 @@ export default function Icons() {
       <PageHeader
         badge="Foundation"
         title="Icons"
-        description={`${Object.keys(iconMap).length} ícones stroke-based organizados em 13 categorias. Tamanho e stroke são controlados pela prop size.`}
+        description={`${Object.keys(iconMap).length} ícones custom stroke-based organizados em 6 categorias. Ícones genéricos foram migrados para Lucide. Tamanho e stroke são controlados pela prop size.`}
       />
 
       {/* Documentação de uso */}

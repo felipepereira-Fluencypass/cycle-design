@@ -1,8 +1,8 @@
 import { Button } from '@components/Button'
-import { PlusIcon } from '@icons/_generated/PlusIcon'
-import { ChevronDownIcon } from '@icons/_generated/ChevronDownIcon'
-import { CloseIcon } from '@icons/_generated/CloseIcon'
-import { SearchIcon } from '@icons/_generated/SearchIcon'
+import { CourseIcon } from '@icons/_generated/CourseIcon'
+import { ExerciseIcon } from '@icons/_generated/ExerciseIcon'
+import { AiIcon } from '@icons/_generated/AiIcon'
+import { LessonIcon } from '@icons/_generated/LessonIcon'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Callout } from '@/components/ui/Callout'
 import { CodeBlock } from '@/components/ui/CodeBlock'
@@ -144,7 +144,7 @@ export default function ButtonPage() {
           code={`import { Button } from 'cycle-design'
 
 // Para usar ícones junto ao botão:
-import { PlusIcon } from 'cycle-design/icons'`}
+import { CourseIcon } from 'cycle-design/icons'`}
         />
 
         <p className={styles.p} style={{ marginTop: 16 }}>Exemplos prontos de uso:</p>
@@ -154,16 +154,16 @@ import { PlusIcon } from 'cycle-design/icons'`}
 <Button>Nova turma</Button>
 
 // Ícone à esquerda
-<Button iconLeft={<PlusIcon decorative />}>Nova turma</Button>
+<Button iconLeft={<CourseIcon decorative />}>Nova turma</Button>
 
 // Ícone à direita
-<Button variant="outline" iconRight={<ChevronDownIcon decorative />}>Opções</Button>
+<Button variant="outline" iconRight={<ExerciseIcon decorative />}>Opções</Button>
 
 // Ícone nos dois lados
-<Button iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar</Button>
+<Button iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar</Button>
 
 // Icon-only — aria-label obrigatório
-<Button iconOnly icon={<CloseIcon decorative />} aria-label="Fechar" />`}
+<Button iconOnly icon={<AiIcon decorative />} aria-label="Fechar" />`}
         />
       </section>
 
@@ -221,37 +221,37 @@ import { PlusIcon } from 'cycle-design/icons'`}
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>iconLeft + texto</span>
           <div className={styles.examplesRow}>
-            <Button iconLeft={<PlusIcon decorative />}>Nova turma</Button>
-            <Button variant="outline" iconLeft={<SearchIcon decorative />}>Buscar</Button>
-            <Button variant="ghost" iconLeft={<PlusIcon decorative />}>Adicionar</Button>
+            <Button iconLeft={<CourseIcon decorative />}>Nova turma</Button>
+            <Button variant="outline" iconLeft={<LessonIcon decorative />}>Buscar</Button>
+            <Button variant="ghost" iconLeft={<CourseIcon decorative />}>Adicionar</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>texto + iconRight</span>
           <div className={styles.examplesRow}>
-            <Button iconRight={<ChevronDownIcon decorative />}>Opções</Button>
-            <Button variant="outline" iconRight={<ChevronDownIcon decorative />}>Filtrar</Button>
-            <Button variant="ghost" iconRight={<ChevronDownIcon decorative />}>Mais</Button>
+            <Button iconRight={<ExerciseIcon decorative />}>Opções</Button>
+            <Button variant="outline" iconRight={<ExerciseIcon decorative />}>Filtrar</Button>
+            <Button variant="ghost" iconRight={<ExerciseIcon decorative />}>Mais</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>iconLeft + texto + iconRight</span>
           <div className={styles.examplesRow}>
-            <Button iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar turmas</Button>
-            <Button variant="outline" iconLeft={<SearchIcon decorative />} iconRight={<ChevronDownIcon decorative />}>Buscar turmas</Button>
+            <Button iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar turmas</Button>
+            <Button variant="outline" iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar turmas</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Icon-only</span>
           <div className={styles.examplesRow}>
-            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" />
-            <Button iconOnly icon={<CloseIcon decorative />} aria-label="Fechar" variant="outline" />
-            <Button iconOnly icon={<SearchIcon decorative />} aria-label="Buscar" variant="ghost" />
-            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" size="sm" />
-            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" size="tiny" />
+            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" />
+            <Button iconOnly icon={<AiIcon decorative />} aria-label="Fechar" variant="outline" />
+            <Button iconOnly icon={<LessonIcon decorative />} aria-label="Buscar" variant="ghost" />
+            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" size="sm" />
+            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" size="tiny" />
           </div>
         </div>
 
@@ -261,7 +261,7 @@ import { PlusIcon } from 'cycle-design/icons'`}
             <Button disabled>Filled disabled</Button>
             <Button variant="outline" disabled>Outline disabled</Button>
             <Button variant="ghost" disabled>Ghost disabled</Button>
-            <Button iconOnly icon={<PlusIcon decorative />} aria-label="Adicionar" disabled />
+            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" disabled />
           </div>
         </div>
 
@@ -279,11 +279,11 @@ import { PlusIcon } from 'cycle-design/icons'`}
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Todos os tamanhos — iconLeft</span>
           <div className={styles.examplesRow}>
-            <Button size="giant" iconLeft={<PlusIcon decorative />}>Giant</Button>
-            <Button size="lg"    iconLeft={<PlusIcon decorative />}>Large</Button>
-            <Button size="md"    iconLeft={<PlusIcon decorative />}>Medium</Button>
-            <Button size="sm"    iconLeft={<PlusIcon decorative />}>Small</Button>
-            <Button size="tiny"  iconLeft={<PlusIcon decorative />}>Tiny</Button>
+            <Button size="giant" iconLeft={<CourseIcon decorative />}>Giant</Button>
+            <Button size="lg"    iconLeft={<CourseIcon decorative />}>Large</Button>
+            <Button size="md"    iconLeft={<CourseIcon decorative />}>Medium</Button>
+            <Button size="sm"    iconLeft={<CourseIcon decorative />}>Small</Button>
+            <Button size="tiny"  iconLeft={<CourseIcon decorative />}>Tiny</Button>
           </div>
         </div>
       </section>

@@ -210,14 +210,35 @@ Figma: spacing/micro      → CSS: var(--spacing-micro)
 
 | Figma Component | React Import | Props principais |
 |---|---|---|
-| Button | `import { Button } from 'cycle-design'` | `variant` (default, destructive, outline, secondary, ghost, link), `size` (default, sm, lg, icon), `asChild` |
-| Input | `import { Input } from 'cycle-design'` | `type`, `placeholder`, `disabled` |
-| Textarea | `import { Textarea } from 'cycle-design'` | `placeholder`, `disabled` |
-| Label | `import { Label } from 'cycle-design'` | `htmlFor` |
-| Card | `import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from 'cycle-design'` | compound pattern |
-| Dialog | `import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from 'cycle-design'` | compound pattern |
+| Accordion | `import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from 'cycle-design'` | compound pattern |
+| Alert | `import { Alert, AlertTitle, AlertDescription } from 'cycle-design'` | `variant` (default, destructive) |
+| Alert Dialog | `import { AlertDialog, AlertDialogTrigger, AlertDialogContent, ... } from 'cycle-design'` | compound pattern |
+| Avatar | `import { Avatar, AvatarImage, AvatarFallback } from 'cycle-design'` | compound pattern |
 | Badge | `import { Badge } from 'cycle-design'` | `variant` (default, secondary, destructive, outline) |
+| Button | `import { Button } from 'cycle-design'` | `variant` (default, destructive, outline, secondary, ghost, link), `size` (default, sm, lg, icon), `asChild` |
+| Card | `import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from 'cycle-design'` | compound pattern |
+| Checkbox | `import { Checkbox } from 'cycle-design'` | `checked`, `onCheckedChange`, `disabled` |
+| Dialog | `import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from 'cycle-design'` | compound pattern |
+| Dropdown Menu | `import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem, ... } from 'cycle-design'` | compound pattern |
+| Input | `import { Input } from 'cycle-design'` | `type`, `placeholder`, `disabled` |
+| Label | `import { Label } from 'cycle-design'` | `htmlFor` |
+| Popover | `import { Popover, PopoverTrigger, PopoverContent } from 'cycle-design'` | compound pattern |
+| Progress | `import { Progress } from 'cycle-design'` | `value` (0-100) |
+| Scroll Area | `import { ScrollArea, ScrollBar } from 'cycle-design'` | compound pattern |
+| Select | `import { Select, SelectTrigger, SelectContent, SelectItem, ... } from 'cycle-design'` | compound pattern |
 | Separator | `import { Separator } from 'cycle-design'` | `orientation` (horizontal, vertical) |
+| Skeleton | `import { Skeleton } from 'cycle-design'` | `className` (dimensões via Tailwind) |
+| Switch | `import { Switch } from 'cycle-design'` | `checked`, `onCheckedChange`, `disabled` |
+| Tabs | `import { Tabs, TabsList, TabsTrigger, TabsContent } from 'cycle-design'` | compound pattern |
+| Textarea | `import { Textarea } from 'cycle-design'` | `placeholder`, `disabled` |
+| Toggle | `import { Toggle } from 'cycle-design'` | `variant` (default, outline), `size` (default, sm, lg) |
+| Tooltip | `import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from 'cycle-design'` | compound pattern |
+
+### Patterns (organismos)
+
+| Componente | Import | Uso |
+|---|---|---|
+| LoginForm | `import { LoginForm } from 'cycle-design'` | Formulário de login completo (email + senha + forgot password) |
 
 ### Mapeamento shadcn vars → Cycle tokens
 

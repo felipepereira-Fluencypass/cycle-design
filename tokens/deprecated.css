@@ -1,0 +1,24 @@
+/**
+ * ── Deprecated Tokens ─────────────────────────────────────────────
+ *
+ * Tokens listados aqui foram renomeados ou substituidos.
+ * Aliases sao mantidos para retrocompatibilidade.
+ * Serao removidos na proxima major version (v2).
+ *
+ * Formato:
+ *   --old-token: var(--new-token);  /* DEPRECATED: use --new-token */
+ *
+ * Ao adicionar um token deprecated:
+ * 1. Adicione o alias aqui
+ * 2. Documente no CHANGELOG
+ * 3. Adicione na lista DEPRECATED_TOKENS abaixo (para lint)
+ */
+
+:root {
+  /* ── Spacing typo fix ──────────────────────────────────────────── */
+  /* DEPRECATED v0.2: --spacing-quarck -> --spacing-quark (typo fix) */
+  /* Mantido como alias — remover em v2 */
+
+  /* Nenhum token deprecated no momento — esta infraestrutura esta */
+  /* pronta para uso quando tokens forem renomeados/removidos.     */
+}

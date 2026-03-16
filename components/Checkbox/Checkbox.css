@@ -1,0 +1,147 @@
+/* ── Checkbox ───────────────────────────────────────────────── */
+
+.cd-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-micro); /* 8px */
+  cursor: pointer;
+  user-select: none;
+}
+
+.cd-checkbox--disabled {
+  cursor: not-allowed;
+}
+
+/* ── Hidden native input ───────────────────────────────────── */
+
+.cd-checkbox__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Visual control ────────────────────────────────────────── */
+
+.cd-checkbox__control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: var(--border-thin) solid var(--border-primary);
+  border-radius: var(--radius-xs); /* 4px */
+  background: var(--bg-primary);
+  color: var(--text-white);
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────── */
+
+.cd-checkbox--md .cd-checkbox__control {
+  width: var(--spacing-2xs); /* 20px */
+  height: var(--spacing-2xs); /* 20px */
+}
+
+.cd-checkbox--sm .cd-checkbox__control {
+  width: var(--spacing-3xs); /* 16px */
+  height: var(--spacing-3xs); /* 16px */
+}
+
+/* ── Icons (hidden by default) ─────────────────────────────── */
+
+.cd-checkbox__icon {
+  display: none;
+  width: 75%;
+  height: 75%;
+}
+
+/* ── Hover ─────────────────────────────────────────────────── */
+
+.cd-checkbox:hover:not(.cd-checkbox--disabled) .cd-checkbox__control {
+  border-color: var(--_check-border);
+}
+
+/* ── Focus ─────────────────────────────────────────────────── */
+
+.cd-checkbox__input:focus-visible + .cd-checkbox__control {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-offset) var(--bg-primary),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+
+/* ── Checked ───────────────────────────────────────────────── */
+
+.cd-checkbox__input:checked + .cd-checkbox__control {
+  background: var(--_check-solid);
+  border-color: var(--_check-solid);
+}
+
+.cd-checkbox__input:checked + .cd-checkbox__control .cd-checkbox__icon--check {
+  display: block;
+}
+
+.cd-checkbox:hover:not(.cd-checkbox--disabled) .cd-checkbox__input:checked + .cd-checkbox__control {
+  background: var(--_check-solid-hover);
+  border-color: var(--_check-solid-hover);
+}
+
+/* ── Indeterminate ─────────────────────────────────────────── */
+
+.cd-checkbox__input:indeterminate + .cd-checkbox__control {
+  background: var(--_check-solid);
+  border-color: var(--_check-solid);
+}
+
+.cd-checkbox__input:indeterminate + .cd-checkbox__control .cd-checkbox__icon--check {
+  display: none;
+}
+
+.cd-checkbox__input:indeterminate + .cd-checkbox__control .cd-checkbox__icon--indeterminate {
+  display: block;
+}
+
+/* ── Error ─────────────────────────────────────────────────── */
+
+.cd-checkbox--error .cd-checkbox__control {
+  border-color: var(--border-critical);
+}
+
+/* ── Disabled ──────────────────────────────────────────────── */
+
+.cd-checkbox--disabled .cd-checkbox__control {
+  background: var(--bg-disabled);
+  border-color: var(--border-secondary);
+}
+
+.cd-checkbox__input:disabled:checked + .cd-checkbox__control {
+  background: var(--bg-disabled);
+  border-color: var(--border-secondary);
+  color: var(--text-disabled);
+}
+
+/* ── Label ─────────────────────────────────────────────────── */
+
+.cd-checkbox__label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2xs); /* 14px */
+  line-height: var(--line-height-xs); /* 20px */
+  color: var(--text-primary);
+}
+
+.cd-checkbox--sm .cd-checkbox__label {
+  font-size: var(--font-size-3xs); /* 12px */
+  line-height: var(--line-height-2xs); /* 18px */
+}
+
+.cd-checkbox--disabled .cd-checkbox__label {
+  color: var(--text-disabled);
+}

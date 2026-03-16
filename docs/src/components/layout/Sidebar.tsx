@@ -47,6 +47,11 @@ const navigation: NavGroup[] = [
     label: 'Components',
     items: [
       { label: 'Button', path: '/components/button' },
+      { label: 'Checkbox', path: '/components/checkbox' },
+      { label: 'Switch', path: '/components/switch' },
+      { label: 'Alert', path: '/components/alert' },
+      { label: 'Skeleton', path: '/components/skeleton' },
+      { label: 'Spinner', path: '/components/spinner' },
     ],
   },
 ]

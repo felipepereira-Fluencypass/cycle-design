@@ -1,0 +1,144 @@
+/* ── Switch ─────────────────────────────────────────────────── */
+
+.cd-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-micro); /* 8px */
+  cursor: pointer;
+  user-select: none;
+}
+
+.cd-switch--disabled {
+  cursor: not-allowed;
+}
+
+/* ── Hidden native input ───────────────────────────────────── */
+
+.cd-switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ── Track ─────────────────────────────────────────────────── */
+
+.cd-switch__track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: var(--radius-pill);
+  background: var(--bg-quaternary);
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.15s ease;
+}
+
+/* ── Thumb ─────────────────────────────────────────────────── */
+
+.cd-switch__thumb {
+  position: absolute;
+  border-radius: var(--radius-circular);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-xs);
+  transition: transform 0.2s ease;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────── */
+
+.cd-switch--md .cd-switch__track {
+  width: var(--spacing-md); /* 40px */
+  height: var(--spacing-xs); /* 24px */
+  padding: var(--spacing-quarck); /* 2px */
+}
+
+.cd-switch--md .cd-switch__thumb {
+  width: var(--spacing-2xs); /* 20px */
+  height: var(--spacing-2xs); /* 20px */
+  left: var(--spacing-quarck); /* 2px */
+}
+
+.cd-switch--sm .cd-switch__track {
+  width: var(--spacing-sm); /* 32px */
+  height: var(--spacing-2xs); /* 20px */
+  padding: var(--spacing-quarck); /* 2px */
+}
+
+.cd-switch--sm .cd-switch__thumb {
+  width: var(--spacing-3xs); /* 16px */
+  height: var(--spacing-3xs); /* 16px */
+  left: var(--spacing-quarck); /* 2px */
+}
+
+/* ── Hover ─────────────────────────────────────────────────── */
+
+.cd-switch:hover:not(.cd-switch--disabled) .cd-switch__track {
+  background: var(--bg-tertiary);
+}
+
+/* ── Focus ─────────────────────────────────────────────────── */
+
+.cd-switch__input:focus-visible + .cd-switch__track {
+  outline: none;
+  box-shadow:
+    0 0 0 var(--focus-ring-offset) var(--bg-primary),
+    0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+}
+
+/* ── Checked ───────────────────────────────────────────────── */
+
+.cd-switch__input:checked + .cd-switch__track {
+  background: var(--_switch-solid);
+}
+
+.cd-switch:hover:not(.cd-switch--disabled) .cd-switch__input:checked + .cd-switch__track {
+  background: var(--_switch-solid-hover);
+}
+
+/* Thumb slides to the right when checked */
+.cd-switch--md .cd-switch__input:checked + .cd-switch__track .cd-switch__thumb {
+  transform: translateX(var(--spacing-3xs)); /* 16px */
+}
+
+.cd-switch--sm .cd-switch__input:checked + .cd-switch__track .cd-switch__thumb {
+  transform: translateX(var(--spacing-mini)); /* 12px */
+}
+
+/* ── Disabled ──────────────────────────────────────────────── */
+
+.cd-switch--disabled .cd-switch__track {
+  background: var(--bg-disabled);
+}
+
+.cd-switch__input:disabled:checked + .cd-switch__track {
+  background: var(--bg-disabled);
+}
+
+.cd-switch--disabled .cd-switch__thumb {
+  background: var(--bg-tertiary);
+  box-shadow: none;
+}
+
+/* ── Label ─────────────────────────────────────────────────── */
+
+.cd-switch__label {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-2xs); /* 14px */
+  line-height: var(--line-height-xs); /* 20px */
+  color: var(--text-primary);
+}
+
+.cd-switch--sm .cd-switch__label {
+  font-size: var(--font-size-3xs); /* 12px */
+  line-height: var(--line-height-2xs); /* 18px */
+}
+
+.cd-switch--disabled .cd-switch__label {
+  color: var(--text-disabled);
+}

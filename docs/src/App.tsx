@@ -23,6 +23,11 @@ import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
 import ButtonPage from '@/pages/components/Button'
+import CheckboxPage from '@/pages/components/Checkbox'
+import SwitchPage from '@/pages/components/Switch'
+import AlertPage from '@/pages/components/Alert'
+import SkeletonPage from '@/pages/components/Skeleton'
+import SpinnerPage from '@/pages/components/Spinner'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -73,6 +78,11 @@ export default function App() {
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />
           <Route path="/components/button" element={<ButtonPage />} />
+          <Route path="/components/checkbox" element={<CheckboxPage />} />
+          <Route path="/components/switch" element={<SwitchPage />} />
+          <Route path="/components/alert" element={<AlertPage />} />
+          <Route path="/components/skeleton" element={<SkeletonPage />} />
+          <Route path="/components/spinner" element={<SpinnerPage />} />
         </Route>
       </Routes>
     </>

@@ -1,0 +1,48 @@
+/* ============================================
+   CYCLE DESIGN — MINIMAL RESET
+   ============================================
+   Reset cirurgico para garantir consistencia
+   entre browsers. Nao e um reset completo —
+   apenas o minimo necessario para o design
+   system funcionar de forma previsivel.
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}

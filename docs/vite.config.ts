@@ -12,4 +12,9 @@ export default defineConfig({
       '@components': path.resolve(__dirname, '../components'),
     },
   },
+  server: {
+    fs: {
+      allow: [path.resolve(__dirname, '..')],
+    },
+  },
 })

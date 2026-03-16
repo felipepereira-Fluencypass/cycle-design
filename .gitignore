@@ -6,3 +6,9 @@ mcp/dist/
 mcp/docs/
 docs/dist
 dist/
+
+# Playwright
+test-results/
+playwright-report/
+tests/visual/results/
+tests/visual/snapshots/

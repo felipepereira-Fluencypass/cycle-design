@@ -7,7 +7,7 @@
 export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './components/ui/accordion'
 
 // Alert
-export { Alert, AlertTitle, AlertDescription } from './components/ui/alert'
+export { Alert, AlertTitle, AlertDescription, alertVariants } from './components/ui/alert'
 
 // Alert Dialog
 export {
@@ -20,7 +20,8 @@ export {
 export { AspectRatio } from './components/ui/aspect-ratio'
 
 // Avatar
-export { Avatar, AvatarImage, AvatarFallback } from './components/ui/avatar'
+export { Avatar, AvatarImage, AvatarFallback, avatarVariants } from './components/ui/avatar'
+export type { AvatarProps } from './components/ui/avatar'
 
 // Badge
 export { Badge, badgeVariants } from './components/ui/badge'
@@ -46,7 +47,8 @@ export {
 } from './components/ui/carousel'
 
 // Checkbox
-export { Checkbox } from './components/ui/checkbox'
+export { Checkbox, checkboxVariants } from './components/ui/checkbox'
+export type { CheckboxProps } from './components/ui/checkbox'
 
 // Collapsible
 export { Collapsible, CollapsibleTrigger, CollapsibleContent } from './components/ui/collapsible'
@@ -91,7 +93,8 @@ export {
 export { HoverCard, HoverCardTrigger, HoverCardContent } from './components/ui/hover-card'
 
 // Input
-export { Input } from './components/ui/input'
+export { Input, inputVariants } from './components/ui/input'
+export type { InputProps } from './components/ui/input'
 
 // Input OTP
 export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from './components/ui/input-otp'
@@ -127,7 +130,8 @@ export { Popover, PopoverTrigger, PopoverContent } from './components/ui/popover
 export { Progress } from './components/ui/progress'
 
 // Radio Group
-export { RadioGroup, RadioGroupItem } from './components/ui/radio-group'
+export { RadioGroup, RadioGroupItem, radioGroupItemVariants } from './components/ui/radio-group'
+export type { RadioGroupItemProps } from './components/ui/radio-group'
 
 // Resizable
 export { ResizablePanelGroup, ResizablePanel, ResizableHandle } from './components/ui/resizable'
@@ -140,7 +144,9 @@ export {
   Select, SelectGroup, SelectValue, SelectTrigger, SelectContent,
   SelectLabel, SelectItem, SelectSeparator, SelectScrollUpButton,
   SelectScrollDownButton,
+  selectTriggerVariants,
 } from './components/ui/select'
+export type { SelectTriggerProps } from './components/ui/select'
 
 // Separator
 export { Separator } from './components/ui/separator'
@@ -161,7 +167,8 @@ export { Slider } from './components/ui/slider'
 export { Toaster } from './components/ui/sonner'
 
 // Switch
-export { Switch } from './components/ui/switch'
+export { Switch, switchVariants } from './components/ui/switch'
+export type { SwitchProps } from './components/ui/switch'
 
 // Table
 export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell, TableCaption } from './components/ui/table'
@@ -170,7 +177,8 @@ export { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableC
 export { Tabs, TabsList, TabsTrigger, TabsContent } from './components/ui/tabs'
 
 // Textarea
-export { Textarea } from './components/ui/textarea'
+export { Textarea, textareaVariants } from './components/ui/textarea'
+export type { TextareaProps } from './components/ui/textarea'
 
 // Toast
 export {

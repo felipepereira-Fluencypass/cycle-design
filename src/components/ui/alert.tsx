@@ -11,6 +11,12 @@ const alertVariants = cva(
         default: "bg-background text-foreground",
         destructive:
           "border-destructive/50 text-destructive dark:border-destructive [&>svg]:text-destructive",
+        warning:
+          "border-warning/50 text-warning-foreground bg-warning/10 dark:border-warning [&>svg]:text-warning",
+        positive:
+          "border-positive/50 text-positive-foreground bg-positive/10 dark:border-positive [&>svg]:text-positive",
+        info:
+          "border-class/50 text-class-foreground bg-class/10 dark:border-class [&>svg]:text-class",
       },
     },
     defaultVariants: {
@@ -59,4 +65,4 @@ const AlertDescription = React.forwardRef<
   )
 })
 
-export { Alert, AlertTitle, AlertDescription }
+export { Alert, AlertTitle, AlertDescription, alertVariants }

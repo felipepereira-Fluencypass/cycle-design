@@ -166,20 +166,32 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     className,
   )
 
-  const Comp = asChild ? Slot : 'button'
+  const sharedProps = {
+    className: classNamesMerged,
+    'aria-disabled': disabled || undefined,
+    'data-variant': variant,
+    'data-size': size,
+    'data-color': color,
+    'data-disabled': disabled || undefined,
+    style: { ...colorVars, ...style } as CSSProperties,
+    ...rest,
+  }
+
+  if (asChild) {
+    // asChild: render the child element (e.g. <a>) with Button's styling props
+    // The child's own children (text) are preserved.
+    return (
+      <Slot ref={ref as never} {...sharedProps}>
+        {children as ReactNode}
+      </Slot>
+    )
+  }
 
   return (
-    <Comp
-      ref={ref as never}
-      className={classNamesMerged}
-      disabled={asChild ? undefined : disabled}
-      aria-disabled={disabled || undefined}
-      data-variant={variant}
-      data-size={size}
-      data-color={color}
-      data-disabled={disabled || undefined}
-      style={{ ...colorVars, ...style } as CSSProperties}
-      {...rest}
+    <button
+      ref={ref}
+      disabled={disabled}
+      {...sharedProps}
     >
       {iconOnly ? (
         iconOnlyEl
@@ -190,6 +202,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
           {iconRightEl}
         </>
       )}
-    </Comp>
+    </button>
   )
 })

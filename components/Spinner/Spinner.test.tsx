@@ -42,4 +42,11 @@ describe('Spinner', () => {
     render(<Spinner ref={ref} />)
     expect(ref.current).toBeInstanceOf(SVGSVGElement)
   })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data-size', () => {
+    render(<Spinner size="lg" />)
+    expect(screen.getByRole('status')).toHaveAttribute('data-size', 'lg')
+  })
 })

@@ -447,6 +447,51 @@ Nunca use valores numéricos de z-index diretamente. Use os tokens da escala:
 12. Transições devem usar tokens de motion (`--transition-fast`, `--transition-normal`, etc.)
 13. Componentes complexos com layout flexível devem usar compound pattern (ver `ai/patterns/compound-components.md`)
 14. **OBRIGATÓRIO:** Ao criar, alterar ou remover qualquer componente ou token, atualize `ai/figma-mapping.md` com o mapeamento Figma → Código correspondente. Esta regra não tem exceções — a IA depende deste arquivo para gerar código correto a partir do Figma.
+15. **OBRIGATÓRIO:** Todo componente deve ter testes que cubram as 4 camadas do checklist de testes (ver abaixo). Nenhum componente pode ser marcado como stable sem todos os testes passando.
+
+---
+
+## Checklist de testes obrigatório por componente
+
+Todo componente do Cycle Design **deve** ter testes cobrindo estas 4 camadas. Este checklist deve ser atualizado na página `/guidelines/testing` da documentação visual quando os testes forem escritos.
+
+### Camada 1 — Renderização e props
+- [ ] Renderiza sem erros com props padrão
+- [ ] Aplica todas as variantes (variant, size, color)
+- [ ] Aplica className customizada sem sobrescrever as internas
+- [ ] Merge de style sem perder CSS custom properties internas
+- [ ] Forward ref para o elemento DOM correto
+- [ ] Passthrough de atributos nativos HTML
+
+### Camada 2 — Interação e comportamento
+- [ ] Responde a click/onChange corretamente
+- [ ] Funciona com teclado (Enter, Space, Tab)
+- [ ] Recebe foco via Tab
+- [ ] Não recebe foco quando disabled
+- [ ] Não dispara eventos quando disabled
+- [ ] asChild renderiza como elemento filho (se aplicável)
+
+### Camada 3 — Acessibilidade
+- [ ] Role semântico correto (button, checkbox, switch, status, alert)
+- [ ] aria-label presente quando obrigatório (icon-only)
+- [ ] aria-disabled quando disabled
+- [ ] aria-invalid quando error (se aplicável)
+- [ ] aria-hidden em elementos decorativos
+
+### Camada 4 — Data attributes
+- [ ] Expõe data-variant (se aplicável)
+- [ ] Expõe data-size (se aplicável)
+- [ ] Expõe data-color (se aplicável)
+- [ ] Expõe data-disabled quando disabled
+- [ ] Expõe data-state (se tem estados como checked/unchecked)
+
+### Camada extra — Tokens (em `tests/token-contract.test.ts`)
+- [ ] Valores de spacing tokens conferem com Figma
+- [ ] Valores de border/radius tokens conferem com Figma
+- [ ] Valores de motion tokens conferem com especificação
+- [ ] Valores de z-index tokens conferem com especificação
+
+**Regra:** Se qualquer camada falhar, o componente **não pode** ser publicado.
 
 ---
 

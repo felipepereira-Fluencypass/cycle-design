@@ -203,4 +203,117 @@ describe('Button', () => {
     const btn = screen.getByTestId('my-btn')
     expect(btn).toHaveAttribute('type', 'submit')
   })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data attributes for variant, size, color', () => {
+    render(<Button variant="outline" size="lg" color="class">Test</Button>)
+    const btn = screen.getByRole('button')
+    expect(btn).toHaveAttribute('data-variant', 'outline')
+    expect(btn).toHaveAttribute('data-size', 'lg')
+    expect(btn).toHaveAttribute('data-color', 'class')
+  })
+
+  it('exposes data-disabled when disabled', () => {
+    render(<Button disabled>Test</Button>)
+    expect(screen.getByRole('button')).toHaveAttribute('data-disabled', 'true')
+  })
+
+  it('does not expose data-disabled when enabled', () => {
+    render(<Button>Test</Button>)
+    expect(screen.getByRole('button')).not.toHaveAttribute('data-disabled')
+  })
+
+  // ── Keyboard interaction ─────────────────────────────────
+
+  it('can be activated with Enter key', async () => {
+    const user = userEvent.setup()
+    const handleClick = vi.fn()
+    render(<Button onClick={handleClick}>Press</Button>)
+    screen.getByRole('button').focus()
+    await user.keyboard('{Enter}')
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('can be activated with Space key', async () => {
+    const user = userEvent.setup()
+    const handleClick = vi.fn()
+    render(<Button onClick={handleClick}>Press</Button>)
+    screen.getByRole('button').focus()
+    await user.keyboard(' ')
+    expect(handleClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('is focusable via Tab', async () => {
+    const user = userEvent.setup()
+    render(<Button>Focus me</Button>)
+    await user.tab()
+    expect(screen.getByRole('button')).toHaveFocus()
+  })
+
+  it('is not focusable when disabled', async () => {
+    const user = userEvent.setup()
+    render(<Button disabled>Disabled</Button>)
+    await user.tab()
+    expect(screen.getByRole('button')).not.toHaveFocus()
+  })
+
+  // ── asChild ──────────────────────────────────────────────
+
+  it('renders as child element when asChild is true', () => {
+    render(
+      <Button asChild>
+        <a href="/page">Link Button</a>
+      </Button>,
+    )
+    const el = screen.getByText('Link Button')
+    expect(el.tagName).toBe('A')
+    expect(el).toHaveAttribute('href', '/page')
+    expect(el.className).toContain('cd-btn')
+    expect(el.className).toContain('cd-btn--filled')
+  })
+
+  it('applies color CSS vars when asChild', () => {
+    render(
+      <Button asChild color="class">
+        <a href="/page">Link</a>
+      </Button>,
+    )
+    const el = screen.getByText('Link')
+    expect(el.style.getPropertyValue('--_btn-solid')).toBe('var(--bg-class-solid)')
+  })
+
+  it('applies data attributes when asChild', () => {
+    render(
+      <Button asChild variant="ghost" size="sm" color="impulse">
+        <a href="/page">Link</a>
+      </Button>,
+    )
+    const el = screen.getByText('Link')
+    expect(el).toHaveAttribute('data-variant', 'ghost')
+    expect(el).toHaveAttribute('data-size', 'sm')
+    expect(el).toHaveAttribute('data-color', 'impulse')
+  })
+
+  it('does not set disabled attribute on child when asChild', () => {
+    render(
+      <Button asChild disabled>
+        <a href="/page">Link</a>
+      </Button>,
+    )
+    const el = screen.getByText('Link')
+    // asChild should use aria-disabled, not disabled (anchors don't support disabled)
+    expect(el).toHaveAttribute('aria-disabled', 'true')
+    expect(el).not.toHaveAttribute('disabled')
+  })
+
+  it('forwards ref when asChild', () => {
+    const ref = createRef<HTMLButtonElement>()
+    render(
+      <Button asChild ref={ref}>
+        <a href="/page">Link</a>
+      </Button>,
+    )
+    expect(ref.current).toBeInstanceOf(HTMLAnchorElement)
+  })
 })

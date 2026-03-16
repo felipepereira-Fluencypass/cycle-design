@@ -29,6 +29,7 @@
 - [Analysis vs shadcn/ui](ai/analysis-vs-shadcn.md): Comparative quality analysis against shadcn/ui — strengths, gaps, and recommendations.
 - [Compound Components](ai/patterns/compound-components.md): Guide for when and how to use compound components pattern vs monolithic props.
 - [Figma Mapping](ai/figma-mapping.md): Complete Figma → Code translation reference for all tokens, typography, colors, spacing, and components.
+- [Testing Checklist](ai/testing-checklist.md): Mandatory 4-layer testing checklist for components (rendering, interaction, accessibility, data attributes) and token contract tests.
 
 ## MCP Server
 

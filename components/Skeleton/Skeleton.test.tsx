@@ -43,4 +43,16 @@ describe('Skeleton', () => {
     render(<Skeleton ref={ref} />)
     expect(ref.current).toBeInstanceOf(HTMLSpanElement)
   })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data-variant', () => {
+    const { container } = render(<Skeleton variant="circular" />)
+    expect(container.firstChild).toHaveAttribute('data-variant', 'circular')
+  })
+
+  it('exposes data-static when static', () => {
+    const { container } = render(<Skeleton static />)
+    expect(container.firstChild).toHaveAttribute('data-static', 'true')
+  })
 })

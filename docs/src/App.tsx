@@ -19,6 +19,7 @@ import Grid from '@/pages/tokens/Grid'
 import Icons from '@/pages/tokens/Icons'
 import Decisions from '@/pages/guidelines/Decisions'
 import Accessibility from '@/pages/guidelines/Accessibility'
+import Testing from '@/pages/guidelines/Testing'
 import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
 import Components from '@/pages/components'
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="/tokens/icons" element={<Icons />} />
           <Route path="/guidelines/decisions" element={<Decisions />} />
           <Route path="/guidelines/accessibility" element={<Accessibility />} />
+          <Route path="/guidelines/testing" element={<Testing />} />
           <Route path="/ai/llms-txt" element={<LlmsTxt />} />
           <Route path="/ai/mcp" element={<Mcp />} />
           <Route path="/components" element={<Components />} />

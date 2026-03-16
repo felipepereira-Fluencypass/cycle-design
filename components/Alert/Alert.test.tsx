@@ -60,4 +60,29 @@ describe('Alert', () => {
     render(<Alert ref={ref}>Test</Alert>)
     expect(ref.current).toBeInstanceOf(HTMLDivElement)
   })
+
+  // ── Keyboard interaction ─────────────────────────────────
+
+  it('dismiss button is focusable via Tab', async () => {
+    const user = userEvent.setup()
+    render(<Alert onDismiss={() => {}}>T</Alert>)
+    await user.tab()
+    expect(screen.getByRole('button', { name: 'Fechar' })).toHaveFocus()
+  })
+
+  it('dismiss button activates with Enter', async () => {
+    const user = userEvent.setup()
+    const onDismiss = vi.fn()
+    render(<Alert onDismiss={onDismiss}>T</Alert>)
+    await user.tab()
+    await user.keyboard('{Enter}')
+    expect(onDismiss).toHaveBeenCalledOnce()
+  })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data-variant', () => {
+    render(<Alert variant="warning" data-testid="alert">T</Alert>)
+    expect(screen.getByTestId('alert')).toHaveAttribute('data-variant', 'warning')
+  })
 })

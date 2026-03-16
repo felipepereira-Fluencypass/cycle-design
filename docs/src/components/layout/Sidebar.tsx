@@ -41,6 +41,7 @@ const navigation: NavGroup[] = [
     items: [
       { label: 'Decisões de Design', path: '/guidelines/decisions' },
       { label: 'Acessibilidade', path: '/guidelines/accessibility' },
+      { label: 'Test Coverage', path: '/guidelines/testing' },
     ],
   },
   {

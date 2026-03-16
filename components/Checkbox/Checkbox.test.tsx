@@ -127,4 +127,53 @@ describe('Checkbox', () => {
     expect(label.classList.contains('cd-checkbox')).toBe(true)
     expect(label.classList.contains('custom')).toBe(true)
   })
+
+  // ── Keyboard interaction ─────────────────────────────────
+
+  it('toggles with Space key', async () => {
+    const user = userEvent.setup()
+    const onChange = vi.fn()
+    render(<Checkbox onChange={onChange} />)
+    const checkbox = screen.getByRole('checkbox')
+
+    await user.tab()
+    expect(checkbox).toHaveFocus()
+
+    await user.keyboard(' ')
+    expect(checkbox).toBeChecked()
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
+
+  it('is focusable via Tab', async () => {
+    const user = userEvent.setup()
+    render(<Checkbox label="Focus me" />)
+    await user.tab()
+    expect(screen.getByRole('checkbox')).toHaveFocus()
+  })
+
+  it('is not focusable when disabled', async () => {
+    const user = userEvent.setup()
+    render(<Checkbox disabled label="Disabled" />)
+    await user.tab()
+    expect(screen.getByRole('checkbox')).not.toHaveFocus()
+  })
+
+  it('does not toggle when disabled and clicked', async () => {
+    const user = userEvent.setup()
+    const onChange = vi.fn()
+    render(<Checkbox disabled onChange={onChange} />)
+    await user.click(screen.getByRole('checkbox'))
+    expect(onChange).not.toHaveBeenCalled()
+  })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data attributes', () => {
+    const { container } = render(<Checkbox size="sm" color="class" error disabled />)
+    const label = container.querySelector('label')!
+    expect(label).toHaveAttribute('data-size', 'sm')
+    expect(label).toHaveAttribute('data-color', 'class')
+    expect(label).toHaveAttribute('data-disabled', 'true')
+    expect(label).toHaveAttribute('data-error', 'true')
+  })
 })

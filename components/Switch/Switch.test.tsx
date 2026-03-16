@@ -68,4 +68,50 @@ describe('Switch', () => {
     expect(ref.current).toBeInstanceOf(HTMLInputElement)
     expect(ref.current).toHaveClass('cd-switch__input')
   })
+
+  // ── Keyboard interaction ─────────────────────────────────
+
+  it('toggles with Space key', async () => {
+    const user = userEvent.setup()
+    render(<Switch label="Toggle" />)
+    const sw = screen.getByRole('switch')
+
+    await user.tab()
+    expect(sw).toHaveFocus()
+
+    await user.keyboard(' ')
+    expect(sw).toBeChecked()
+  })
+
+  it('is focusable via Tab', async () => {
+    const user = userEvent.setup()
+    render(<Switch />)
+    await user.tab()
+    expect(screen.getByRole('switch')).toHaveFocus()
+  })
+
+  it('is not focusable when disabled', async () => {
+    const user = userEvent.setup()
+    render(<Switch disabled />)
+    await user.tab()
+    expect(screen.getByRole('switch')).not.toHaveFocus()
+  })
+
+  it('does not toggle when disabled', async () => {
+    const user = userEvent.setup()
+    render(<Switch disabled />)
+    const sw = screen.getByRole('switch')
+    await user.click(sw)
+    expect(sw).not.toBeChecked()
+  })
+
+  // ── Data attributes ──────────────────────────────────────
+
+  it('exposes data attributes', () => {
+    const { container } = render(<Switch size="sm" color="private" disabled />)
+    const wrapper = container.firstElementChild!
+    expect(wrapper).toHaveAttribute('data-size', 'sm')
+    expect(wrapper).toHaveAttribute('data-color', 'private')
+    expect(wrapper).toHaveAttribute('data-disabled', 'true')
+  })
 })

@@ -19,6 +19,7 @@ const navigation: NavGroup[] = [
       { label: 'Introdução', path: '/' },
       { label: 'Instalação', path: '/getting-started/installation' },
       { label: 'Dark Mode', path: '/getting-started/dark-mode' },
+      { label: 'Setup shadcn/ui', path: '/getting-started/shadcn-setup' },
       { label: 'llms.txt', path: '/ai/llms-txt' },
       { label: 'MCP Server', path: '/ai/mcp' },
     ],
@@ -41,6 +42,7 @@ const navigation: NavGroup[] = [
     items: [
       { label: 'Decisões de Design', path: '/guidelines/decisions' },
       { label: 'Acessibilidade', path: '/guidelines/accessibility' },
+      { label: 'Configurar Figma', path: '/guidelines/figma-setup' },
       { label: 'Test Coverage', path: '/guidelines/testing' },
     ],
   },

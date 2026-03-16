@@ -13,7 +13,7 @@ const brandPalettes = [
 ]
 
 const stats = [
-  { value: '38', label: 'Estilos de tipografia' },
+  { value: '58+', label: 'Componentes shadcn/ui' },
   { value: '11', label: 'Paletas de cor' },
   { value: '5', label: 'Paletas de marca' },
   { value: '2', label: 'Temas — light & dark' },
@@ -54,14 +54,14 @@ const sections = [
   },
 ]
 
-const installCode = `/* 1. Instale o pacote */
-npm install cycle-design
+const installCode = `/* 1. Inicialize o shadcn no projeto */
+npx shadcn@latest init
 
-/* 2. Importe no entry point do app */
-import 'cycle-design/styles.css'
+/* 2. Substitua globals.css pelo tema Cycle */
+/* (veja Setup shadcn/ui na documentação) */
 
-/* 3. Configure o tema no HTML */
-<html data-theme="light">`
+/* 3. Adicione componentes conforme necessário */
+npx shadcn@latest add button dialog select toast`
 
 export default function Home() {
   return (
@@ -80,8 +80,8 @@ export default function Home() {
         </h1>
 
         <p className={styles.heroSubtitle}>
-          Tokens, componentes e padrões para criar produtos consistentes,
-          acessíveis e alinhados à identidade visual da Fluencypass.
+          shadcn/ui + foundations Fluencypass. 58+ componentes prontos, acessíveis
+          e com a identidade visual da marca.
         </p>
 
         <div className={styles.heroActions}>
@@ -141,7 +141,7 @@ export default function Home() {
             Três passos para usar os tokens do Cycle Design em qualquer projeto.
           </p>
         </div>
-        <CodeBlock code={installCode} language="css" filename="global.css" />
+        <CodeBlock code={installCode} language="bash" filename="terminal" />
         <Link to="/getting-started/installation" className={styles.sectionLink}>
           Ver guia completo de instalação <ArrowRight size={14} />
         </Link>

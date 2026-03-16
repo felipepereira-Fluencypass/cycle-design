@@ -13,6 +13,30 @@ export default function Decisions() {
       />
 
       <section className={styles.section}>
+        <h2 className={styles.h2}>shadcn/ui como base de componentes</h2>
+        <p className={styles.p}>
+          O Cycle Design usa o <strong>shadcn/ui</strong> como base de componentes ao invés de
+          construir componentes do zero. Os motivos:
+        </p>
+        <p className={styles.p}>
+          <strong>1. Velocidade:</strong> 58+ componentes prontos com acessibilidade nativa (Radix UI),
+          keyboard support, focus trap e screen reader support.
+        </p>
+        <p className={styles.p}>
+          <strong>2. Customização total:</strong> O shadcn copia componentes no projeto (não é npm package).
+          Isso significa controle total do código — podemos ajustar qualquer detalhe.
+        </p>
+        <p className={styles.p}>
+          <strong>3. Separação clara:</strong> Foundations (cores, tipografia, spacing) vêm do Figma
+          via CSS variables. Comportamento vem do shadcn/Radix. Cada camada evolui independentemente.
+        </p>
+        <p className={styles.p}>
+          <strong>4. Comunidade:</strong> shadcn é o design system mais popular do ecossistema React.
+          Documentação abundante, exemplos, e atualizações frequentes.
+        </p>
+      </section>
+
+      <section className={styles.section}>
         <h2 className={styles.h2}>Tokens em camadas</h2>
         <p className={styles.p}>
           O Cycle Design usa um modelo de tokens em duas camadas: <strong>primitivos</strong> e{' '}

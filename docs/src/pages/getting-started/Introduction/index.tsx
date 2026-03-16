@@ -5,20 +5,20 @@ import styles from './Introduction.module.css'
 
 const principles = [
   {
-    title: 'Tokens em camadas',
-    desc: 'Primitivos definem valores base; composições funcionais os mapeiam para contextos semânticos. Sempre use as composições nas interfaces.',
+    title: 'Foundations do Cycle, componentes do shadcn',
+    desc: 'Os tokens de cor, tipografia, radius e spacing vêm do Figma (Cycle Design). Os componentes de UI são do shadcn/ui, customizados com esses tokens.',
   },
   {
     title: 'Dark mode nativo',
-    desc: 'Ao usar tokens funcionais, o dark mode funciona automaticamente. Não é necessário escrever CSS adicional para temas.',
+    desc: 'Ao usar as variáveis CSS do tema, o dark mode funciona automaticamente em todos os componentes shadcn.',
   },
   {
     title: 'Fonte única de verdade',
-    desc: 'Todos os valores vêm do Figma e são exportados como CSS Custom Properties. Nunca hardcode valores — sempre use var(--token-name).',
+    desc: 'Todos os valores visuais vêm do Figma. O globals.css traduz esses valores para as variáveis CSS que o shadcn espera.',
   },
   {
-    title: 'Extensível por design',
-    desc: 'A estrutura é preparada para crescer. Novos componentes seguem as mesmas convenções de tokens e estilos já estabelecidas.',
+    title: '58+ componentes prontos',
+    desc: 'Dialog, Select, Toast, Tabs, Popover, Tooltip e dezenas de outros — todos com a identidade visual da Fluencypass.',
   },
 ]
 
@@ -28,20 +28,21 @@ export default function Introduction() {
       <PageHeader
         badge="Getting Started"
         title="Introdução"
-        description="Cycle Design é o design system da Fluencypass. Uma coleção de tokens, padrões e (em breve) componentes para construir produtos consistentes e com alta qualidade visual."
+        description="Cycle Design é o design system da Fluencypass. Usa shadcn/ui como base de componentes, customizado com os foundations (cores, tipografia, radius, shadows) da identidade visual Fluencypass."
       />
 
       <section className={styles.section}>
         <h2 className={styles.h2}>O que é o Cycle Design?</h2>
         <p className={styles.p}>
-          O Cycle Design é a camada de abstração visual entre o Figma e o código.
-          Ele define <strong>como as coisas devem parecer</strong> em todos os produtos
-          da Fluencypass — cores, tipografia, espaçamentos, sombras e muito mais.
+          O Cycle Design combina os <strong>foundations visuais da Fluencypass</strong> (cores,
+          tipografia, espaçamento, sombras) com os <strong>componentes do shadcn/ui</strong>.
+          Os foundations definem <em>como as coisas parecem</em>, o shadcn define{' '}
+          <em>como elas se comportam</em>.
         </p>
         <p className={styles.p}>
-          Em vez de cada time inventar seus próprios valores, o Cycle Design fornece
-          um vocabulário comum. Isso garante consistência entre produtos e facilita
-          a comunicação entre designers e desenvolvedores.
+          Na prática, isso significa que você usa componentes do shadcn normalmente
+          (Button, Dialog, Select, Toast...) e eles já saem com a identidade visual da
+          Fluencypass — incluindo dark mode automático.
         </p>
       </section>
 
@@ -60,22 +61,25 @@ export default function Introduction() {
       <section className={styles.section}>
         <h2 className={styles.h2}>Tecnologia</h2>
         <p className={styles.p}>
-          O Cycle Design usa <strong>CSS Custom Properties</strong> como mecanismo
-          de entrega dos tokens. Isso significa que funciona com qualquer framework —
-          React, Vue, Angular, ou HTML puro.
+          O Cycle Design usa <strong>shadcn/ui + Tailwind CSS v4</strong> para componentes
+          e <strong>CSS Custom Properties</strong> para os tokens de design.
         </p>
         <div className={styles.techList}>
           <div className={styles.techItem}>
-            <span className={styles.techName}>Pacote</span>
-            <code>cycle-design</code>
+            <span className={styles.techName}>Componentes</span>
+            <span>shadcn/ui (58+ componentes)</span>
+          </div>
+          <div className={styles.techItem}>
+            <span className={styles.techName}>Estilização</span>
+            <span>Tailwind CSS v4 + CSS Variables</span>
+          </div>
+          <div className={styles.techItem}>
+            <span className={styles.techName}>Primitivos</span>
+            <span>Radix UI (acessibilidade nativa)</span>
           </div>
           <div className={styles.techItem}>
             <span className={styles.techName}>Framework</span>
             <span>React + TypeScript</span>
-          </div>
-          <div className={styles.techItem}>
-            <span className={styles.techName}>Estilização</span>
-            <span>CSS Custom Properties</span>
           </div>
           <div className={styles.techItem}>
             <span className={styles.techName}>Fontes</span>
@@ -94,9 +98,9 @@ export default function Introduction() {
 
       <Callout type="info" title="Próximo passo">
         <p>
-          Pronto para começar? Veja como{' '}
-          <Link to="/getting-started/installation">instalar e configurar</Link> o
-          Cycle Design no seu projeto.
+          Pronto para começar? Veja o{' '}
+          <Link to="/getting-started/shadcn-setup">setup com shadcn/ui</Link> para
+          configurar seu projeto com o tema Cycle Design.
         </p>
       </Callout>
     </div>

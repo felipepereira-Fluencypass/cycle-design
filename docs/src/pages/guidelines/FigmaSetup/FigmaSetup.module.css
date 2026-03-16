@@ -1,0 +1,208 @@
+.section {
+  margin-bottom: 48px;
+}
+
+.h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  letter-spacing: -0.3px;
+}
+
+.p {
+  font-size: var(--font-size-2xs);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ── Flow diagram ── */
+
+.flowDiagram {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-secondary);
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 140px;
+  padding: 12px 16px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-sm);
+}
+
+.flowNumber {
+  font-size: var(--font-size-3xs);
+  font-weight: 700;
+  color: var(--text-white);
+  background: var(--bg-brand-solid);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-circular);
+}
+
+.flowLabel {
+  font-size: var(--font-size-2xs);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.flowDesc {
+  font-size: var(--font-size-4xs);
+  color: var(--text-tertiary);
+  text-align: center;
+}
+
+.flowArrow {
+  font-size: 20px;
+  color: var(--text-quaternary);
+  flex-shrink: 0;
+}
+
+/* ── Tables ── */
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-3xs);
+}
+
+.table th {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border-secondary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-tertiary);
+  color: var(--text-primary);
+  vertical-align: top;
+}
+
+.table code {
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+  background: var(--bg-tertiary);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+  color: var(--text-brand-secondary);
+}
+
+/* ── Color dots ── */
+
+.colorCell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-family: var(--font-family-mono);
+  font-size: 11px;
+}
+
+.colorDot {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-secondary);
+  flex-shrink: 0;
+}
+
+/* ── List ── */
+
+.list {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+
+.list li {
+  font-size: var(--font-size-2xs);
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.list li code {
+  font-family: var(--font-family-mono);
+  font-size: 12px;
+  background: var(--bg-tertiary);
+  padding: 1px 5px;
+  border-radius: var(--radius-xs);
+}
+
+/* ── Checklist ── */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-secondary);
+}
+
+.checkItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--font-size-2xs);
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.checkBox {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-primary);
+  border-radius: var(--radius-xs);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .flowDiagram {
+    flex-direction: column;
+  }
+
+  .flowArrow {
+    transform: rotate(90deg);
+  }
+
+  .table {
+    font-size: 11px;
+  }
+
+  .table th,
+  .table td {
+    padding: 8px 10px;
+  }
+}

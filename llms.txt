@@ -1,7 +1,7 @@
 
 \# Cycle Design
 
-> Cycle Design is the design system for Fluencypass. It provides CSS design tokens (colors, typography, spacing, shadows, borders, opacity, gradients, grid) and React components for building consistent user interfaces. Built with React, TypeScript, and CSS Custom Properties. Supports light and dark themes via `[data-theme]` attribute. Published as `cycle-design` npm package.
+> Cycle Design is the design system for Fluencypass. It uses **shadcn/ui** as the component base, customized with Cycle Design foundations (colors, typography, spacing, shadows, radius). Built with React, TypeScript, Tailwind CSS v4, and Radix UI primitives. Supports light and dark themes via `[data-theme]` attribute. The Figma remains the source of truth for visual values.
 
 ## Getting Started
 
@@ -30,6 +30,12 @@
 - [Compound Components](ai/patterns/compound-components.md): Guide for when and how to use compound components pattern vs monolithic props.
 - [Figma Mapping](ai/figma-mapping.md): Complete Figma → Code translation reference for all tokens, typography, colors, spacing, and components.
 - [Testing Checklist](ai/testing-checklist.md): Mandatory 4-layer testing checklist for components (rendering, interaction, accessibility, data attributes) and token contract tests.
+
+## shadcn/ui Integration
+
+- [shadcn Architecture](ai/shadcn-architecture.md): Architectural decision to use shadcn/ui as component base. Layer diagram, variable mapping, setup steps, and rules for AI.
+- [shadcn Theme Mapping](ai/shadcn-theme-mapping.md): Complete globals.css with all shadcn CSS variables mapped to Cycle Design values (light/dark). Ready to copy-paste.
+- [Figma Setup for shadcn](ai/figma-shadcn-guide.md): Step-by-step guide for designers to configure the Figma library aligned with shadcn/ui variables. Includes every component, every variable, every decision.
 
 ## MCP Server
 

@@ -22,6 +22,8 @@ import Accessibility from '@/pages/guidelines/Accessibility'
 import Testing from '@/pages/guidelines/Testing'
 import LlmsTxt from '@/pages/ai/LlmsTxt'
 import Mcp from '@/pages/ai/Mcp'
+import ShadcnSetup from '@/pages/getting-started/ShadcnSetup'
+import FigmaSetup from '@/pages/guidelines/FigmaSetup'
 import Components from '@/pages/components'
 import ButtonPage from '@/pages/components/Button'
 import CheckboxPage from '@/pages/components/Checkbox'
@@ -65,6 +67,7 @@ export default function App() {
           <Route path="/getting-started/introduction" element={<Introduction />} />
           <Route path="/getting-started/installation" element={<Installation />} />
           <Route path="/getting-started/dark-mode" element={<DarkMode />} />
+          <Route path="/getting-started/shadcn-setup" element={<ShadcnSetup />} />
           <Route path="/tokens/colors" element={<Colors />} />
           <Route path="/tokens/typography" element={<Typography />} />
           <Route path="/tokens/spacing" element={<Spacing />} />
@@ -75,6 +78,7 @@ export default function App() {
           <Route path="/tokens/icons" element={<Icons />} />
           <Route path="/guidelines/decisions" element={<Decisions />} />
           <Route path="/guidelines/accessibility" element={<Accessibility />} />
+          <Route path="/guidelines/figma-setup" element={<FigmaSetup />} />
           <Route path="/guidelines/testing" element={<Testing />} />
           <Route path="/ai/llms-txt" element={<LlmsTxt />} />
           <Route path="/ai/mcp" element={<Mcp />} />

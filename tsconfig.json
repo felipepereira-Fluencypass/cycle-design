@@ -16,6 +16,6 @@
       "cycle-design/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", "components/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "scripts", "mcp", "docs"]
 }

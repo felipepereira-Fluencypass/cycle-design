@@ -35,7 +35,12 @@
 
 - [shadcn Architecture](ai/shadcn-architecture.md): Architectural decision to use shadcn/ui as component base. Layer diagram, variable mapping, setup steps, and rules for AI.
 - [shadcn Theme Mapping](ai/shadcn-theme-mapping.md): Complete globals.css with all shadcn CSS variables mapped to Cycle Design values (light/dark). Ready to copy-paste.
+- [shadcn Migration](ai/shadcn-migration.md): Migration guide from old hand-built components to shadcn/ui. Stack comparison, component mapping, and setup steps.
 - [Figma Setup for shadcn](ai/figma-shadcn-guide.md): Step-by-step guide for designers to configure the Figma library aligned with shadcn/ui variables. Includes every component, every variable, every decision.
+
+## Documentation
+
+- [Installation Guide](docs/INSTALLATION.md): Complete setup guide for new projects using Cycle Design with shadcn/ui. Covers Next.js, Vite, fonts, dark mode, product palettes, and all available components.
 
 ## MCP Server
 

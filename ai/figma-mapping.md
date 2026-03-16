@@ -204,32 +204,73 @@ Figma: spacing/micro      → CSS: var(--spacing-micro)
 
 ---
 
-## Components
+## Components (shadcn/ui customizado)
+
+> Os componentes são shadcn/ui com tema Cycle aplicado. API nativa do shadcn.
 
 | Figma Component | React Import | Props principais |
 |---|---|---|
-| Button | `import { Button } from 'cycle-design'` | `variant`, `size`, `color`, `iconLeft`, `iconRight`, `iconOnly`, `asChild` |
-| Checkbox | `import { Checkbox } from 'cycle-design'` | `size`, `color`, `label`, `indeterminate`, `error` |
-| Switch | `import { Switch } from 'cycle-design'` | `size`, `color`, `label` |
-| Alert | `import { Alert } from 'cycle-design'` | `variant`, `title`, `icon`, `onDismiss` |
-| Skeleton | `import { Skeleton } from 'cycle-design'` | `variant`, `width`, `height`, `static` |
-| Spinner | `import { Spinner } from 'cycle-design'` | `size`, `aria-label` |
+| Button | `import { Button } from 'cycle-design'` | `variant` (default, destructive, outline, secondary, ghost, link), `size` (default, sm, lg, icon), `asChild` |
+| Input | `import { Input } from 'cycle-design'` | `type`, `placeholder`, `disabled` |
+| Textarea | `import { Textarea } from 'cycle-design'` | `placeholder`, `disabled` |
+| Label | `import { Label } from 'cycle-design'` | `htmlFor` |
+| Card | `import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from 'cycle-design'` | compound pattern |
+| Dialog | `import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from 'cycle-design'` | compound pattern |
+| Badge | `import { Badge } from 'cycle-design'` | `variant` (default, secondary, destructive, outline) |
+| Separator | `import { Separator } from 'cycle-design'` | `orientation` (horizontal, vertical) |
+
+### Mapeamento shadcn vars → Cycle tokens
+
+| Variável shadcn | Token Cycle (light) | Token Cycle (dark) |
+|---|---|---|
+| `--primary` | `--bg-brand-solid` (#D45558) | `--bg-brand-solid` (#ED6A6D) |
+| `--primary-foreground` | `--text-white` (#FFFFFF) | `--text-primary_on-brand` (#FFF5F5) |
+| `--secondary` | `--bg-secondary` (#FAFAFA) | `--bg-tertiary` (#22262F) |
+| `--destructive` | `--bg-critical-solid` (#B32020) | `--bg-critical-solid` (#D42B2B) |
+| `--background` | `--bg-primary` (#FFFFFF) | `--bg-primary` (#0C0E12) |
+| `--foreground` | `--text-primary` (#181D27) | `--text-primary` (#F7F7F7) |
+| `--border` | `--border-secondary` (#E9EAEB) | `--border-primary` (#373A41) |
+| `--ring` | `--border-brand` (#ED6A6D) | `--border-brand` (#F57B7E) |
+
+### Paletas extras (não existem no shadcn padrão)
+
+| Classe Tailwind | Paleta | Uso |
+|---|---|---|
+| `bg-brand` | Brand (coral) | Identidade Fluencypass |
+| `bg-class` | Class (azul) | Funcionalidade de aulas |
+| `bg-private` | Private (laranja) | Aulas particulares |
+| `bg-group` | Group (verde) | Grupos |
+| `bg-impulse` | Impulse (roxo) | Promoções |
+| `bg-warning` | Warning (amarelo) | Alertas |
+| `bg-positive` | Positive (verde) | Sucesso |
 
 ---
 
 ## Ícones
 
-Os ícones no Figma seguem a estrutura `icon/{category}/{name}`. No código:
+### Biblioteca padrão: Lucide React
+
+O Cycle Design usa **Lucide React** como biblioteca de ícones padrão (mesma do shadcn/ui):
 
 ```tsx
-// Figma: icon/navigation/search
-import { SearchIcon } from 'cycle-design/icons'
+import { Search, Plus, X, Check, Trash2, Pencil } from 'lucide-react'
 
-// Uso decorativo (acompanha texto)
-<SearchIcon size="sm" decorative />
+// Em botões (shadcn cuida do sizing via [&_svg])
+<Button><Search /> Buscar</Button>
 
-// Uso informativo (único indicador)
-<SearchIcon size="sm" aria-label="Buscar" />
+// Standalone
+<Search className="h-4 w-4" />
+```
+
+### Ícones custom Fluencypass
+
+Ícones específicos do domínio (language-learning, lesson-formats) que não existem no Lucide continuam em `cycle-design/icons`:
+
+```tsx
+import { ConversationIcon, FluencyIcon } from 'cycle-design/icons'
+
+<ConversationIcon size="sm" decorative />
+<FluencyIcon size="sm" aria-label="Fluency" />
 ```
 
 | Figma Size | Code Size | Pixels |

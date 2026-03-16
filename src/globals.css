@@ -1,0 +1,269 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+/*
+ * ============================================================
+ * CYCLE DESIGN × SHADCN/UI — Theme Variables
+ * ============================================================
+ * Fonte de verdade: Cycle Design Foundations (Figma)
+ * Mapeamento: ai/shadcn-theme-mapping.md
+ * ============================================================
+ */
+
+:root {
+  /* ──────────────────────────────────────
+   * Radius
+   * ────────────────────────────────────── */
+  --radius: 8px; /* Cycle: --radius-sm */
+
+  /* ──────────────────────────────────────
+   * Core: Background & Foreground
+   * ────────────────────────────────────── */
+  --background: #FFFFFF;           /* Cycle: --bg-primary */
+  --foreground: #181D27;           /* Cycle: --text-primary */
+
+  /* ──────────────────────────────────────
+   * Card
+   * ────────────────────────────────────── */
+  --card: #FFFFFF;                 /* Cycle: --bg-primary */
+  --card-foreground: #181D27;      /* Cycle: --text-primary */
+
+  /* ──────────────────────────────────────
+   * Popover
+   * ────────────────────────────────────── */
+  --popover: #FFFFFF;              /* Cycle: --bg-primary */
+  --popover-foreground: #181D27;   /* Cycle: --text-primary */
+
+  /* ──────────────────────────────────────
+   * Primary — Brand (vermelho/coral)
+   * ────────────────────────────────────── */
+  --primary: #D45558;              /* Cycle: --bg-brand-solid */
+  --primary-foreground: #FFFFFF;   /* Cycle: --text-white */
+
+  /* ──────────────────────────────────────
+   * Secondary
+   * ────────────────────────────────────── */
+  --secondary: #FAFAFA;            /* Cycle: --bg-secondary */
+  --secondary-foreground: #181D27; /* Cycle: --text-primary */
+
+  /* ──────────────────────────────────────
+   * Muted
+   * ────────────────────────────────────── */
+  --muted: #F5F5F5;               /* Cycle: --bg-tertiary */
+  --muted-foreground: #535862;     /* Cycle: --text-tertiary */
+
+  /* ──────────────────────────────────────
+   * Accent
+   * ────────────────────────────────────── */
+  --accent: #FAFAFA;               /* Cycle: --bg-primary_hover */
+  --accent-foreground: #181D27;    /* Cycle: --text-primary */
+
+  /* ──────────────────────────────────────
+   * Destructive
+   * ────────────────────────────────────── */
+  --destructive: #B32020;          /* Cycle: --bg-critical-solid */
+  --destructive-foreground: #FFFFFF; /* Cycle: --text-white */
+
+  /* ──────────────────────────────────────
+   * Border, Input, Ring
+   * ────────────────────────────────────── */
+  --border: #E9EAEB;              /* Cycle: --border-secondary */
+  --input: #D5D7DA;               /* Cycle: --border-primary */
+  --ring: #ED6A6D;                /* Cycle: --border-brand (focus ring) */
+
+  /* ──────────────────────────────────────
+   * Chart (5 paletas de marca)
+   * ────────────────────────────────────── */
+  --chart-1: #D45558;             /* Cycle: Brand 600 */
+  --chart-2: #1A5FE0;             /* Cycle: Class 600 */
+  --chart-3: #FF8041;             /* Cycle: Private 500 */
+  --chart-4: #00C234;             /* Cycle: Group 600 */
+  --chart-5: #9810FA;             /* Cycle: Impulse 500 */
+
+  /* ──────────────────────────────────────
+   * Sidebar
+   * ────────────────────────────────────── */
+  --sidebar: #FAFAFA;             /* Cycle: --bg-secondary */
+  --sidebar-foreground: #181D27;  /* Cycle: --text-primary */
+  --sidebar-primary: #D45558;     /* Cycle: --bg-brand-solid */
+  --sidebar-primary-foreground: #FFFFFF; /* Cycle: --text-white */
+  --sidebar-accent: #F5F5F5;      /* Cycle: --bg-tertiary */
+  --sidebar-accent-foreground: #181D27; /* Cycle: --text-primary */
+  --sidebar-border: #E9EAEB;      /* Cycle: --border-secondary */
+  --sidebar-ring: #ED6A6D;        /* Cycle: --border-brand */
+
+  /* ──────────────────────────────────────
+   * Paletas de produto Fluencypass
+   * ────────────────────────────────────── */
+  --brand: #D45558;
+  --brand-foreground: #FFFFFF;
+
+  --class: #1A5FE0;
+  --class-foreground: #FFFFFF;
+
+  --private: #E56530;
+  --private-foreground: #FFFFFF;
+
+  --group: #00C234;
+  --group-foreground: #FFFFFF;
+
+  --impulse: #7D0DD4;
+  --impulse-foreground: #FFFFFF;
+
+  /* ── Semânticas extras ── */
+  --warning: #D48E00;
+  --warning-foreground: #FFFFFF;
+
+  --positive: #098A5E;
+  --positive-foreground: #FFFFFF;
+}
+
+/* ──────────────────────────────────────
+ * DARK MODE
+ * ────────────────────────────────────── */
+.dark,
+[data-theme="dark"] {
+  --background: #0C0E12;          /* Cycle: --bg-primary */
+  --foreground: #F7F7F7;          /* Cycle: --text-primary */
+
+  --card: #13161B;                /* Cycle: --bg-primary_alt */
+  --card-foreground: #F7F7F7;     /* Cycle: --text-primary */
+
+  --popover: #13161B;             /* Cycle: --bg-primary_alt */
+  --popover-foreground: #F7F7F7;  /* Cycle: --text-primary */
+
+  --primary: #ED6A6D;             /* Cycle: --bg-brand-solid */
+  --primary-foreground: #FFF5F5;  /* Cycle: --text-primary_on-brand */
+
+  --secondary: #22262F;           /* Cycle: --bg-tertiary */
+  --secondary-foreground: #F7F7F7; /* Cycle: --text-primary */
+
+  --muted: #22262F;               /* Cycle: --bg-tertiary */
+  --muted-foreground: #94979C;    /* Cycle: --text-tertiary */
+
+  --accent: #22262F;              /* Cycle: --bg-primary_hover */
+  --accent-foreground: #F7F7F7;   /* Cycle: --text-primary */
+
+  --destructive: #D42B2B;         /* Cycle: --bg-critical-solid */
+  --destructive-foreground: #F7F7F7; /* Cycle: --text-primary */
+
+  --border: #373A41;              /* Cycle: --border-primary */
+  --input: #373A41;               /* Cycle: --border-primary */
+  --ring: #F57B7E;                /* Cycle: --border-brand */
+
+  --chart-1: #ED6A6D;             /* Cycle: Brand 500 */
+  --chart-2: #4D8AFF;             /* Cycle: Class 400 */
+  --chart-3: #FF9158;             /* Cycle: Private 400 */
+  --chart-4: #1AFF61;             /* Cycle: Group 400 */
+  --chart-5: #B844FF;             /* Cycle: Impulse 400 */
+
+  --sidebar: #13161B;
+  --sidebar-foreground: #F7F7F7;
+  --sidebar-primary: #ED6A6D;
+  --sidebar-primary-foreground: #FFF5F5;
+  --sidebar-accent: #22262F;
+  --sidebar-accent-foreground: #F7F7F7;
+  --sidebar-border: #373A41;
+  --sidebar-ring: #F57B7E;
+
+  /* ── Paletas de produto (dark) ── */
+  --brand: #ED6A6D;
+  --brand-foreground: #FFF5F5;
+
+  --class: #2E74FF;
+  --class-foreground: #E0EBFF;
+
+  --private: #FF8041;
+  --private-foreground: #FFEDE0;
+
+  --group: #00E73E;
+  --group-foreground: #E0FFE9;
+
+  --impulse: #9810FA;
+  --impulse-foreground: #F7E0FF;
+
+  --warning: #F5A800;
+  --warning-foreground: #332300;
+
+  --positive: #0BA370;
+  --positive-foreground: #022318;
+}
+
+/* ──────────────────────────────────────
+ * @theme inline — Registro no Tailwind v4
+ * ────────────────────────────────────── */
+@theme inline {
+  --font-sans: 'Open Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Paletas de produto Fluencypass */
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-class: var(--class);
+  --color-class-foreground: var(--class-foreground);
+  --color-private: var(--private);
+  --color-private-foreground: var(--private-foreground);
+  --color-group: var(--group);
+  --color-group-foreground: var(--group-foreground);
+  --color-impulse: var(--impulse);
+  --color-impulse-foreground: var(--impulse-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius));
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 8px);
+}
+
+/* ──────────────────────────────────────
+ * Base styles
+ * ────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+}

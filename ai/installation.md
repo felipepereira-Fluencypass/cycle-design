@@ -1,71 +1,145 @@
 # Cycle Design — Installation
 
+> Cycle Design é um design system baseado em shadcn/ui com tema Fluencypass.
+
 ## Install the package
 
 ```bash
 npm install cycle-design
 ```
 
-## Import styles
+## Peer dependencies
 
-The package provides two CSS entry points. Import in your app's entry file (e.g., `main.tsx`):
+O projeto consumidor precisa de:
 
-```tsx
-/* Recommended — includes tokens + component styles */
-import 'cycle-design/styles.css'
+```bash
+npm install tailwindcss@4 @tailwindcss/vite  # ou @tailwindcss/postcss
+npm install lucide-react                       # ícones (padrão shadcn)
 ```
 
-If you only need the design tokens (no component styles):
+## Configure the theme
 
-```tsx
-import 'cycle-design/tokens'
+### Option A: Copy globals.css (recommended)
+
+Copy the Cycle Design theme to your project's main CSS file:
+
+```bash
+# Source file:
+# node_modules/cycle-design/src/globals.css
 ```
 
-## Import components and icons
+Replace your `app/globals.css` (Next.js) or `src/index.css` (Vite) with the contents above.
 
-```tsx
-/* React components */
-import { Button } from 'cycle-design'
+### Option B: Import directly
 
-/* Icons */
-import { SearchIcon, PlusIcon } from 'cycle-design/icons'
+```css
+@import "cycle-design/globals.css";
 ```
 
 ## Load fonts
 
-Cycle Design uses Open Sans and Fira Code. Add them to your HTML `<head>`:
+Cycle Design uses **Open Sans** (body, headlines) and **Fira Code** (monospace).
+
+### Next.js
+
+```tsx
+import { Open_Sans, Fira_Code } from 'next/font/google'
+
+const openSans = Open_Sans({ subsets: ['latin'], variable: '--font-sans' })
+const firaCode = Fira_Code({ subsets: ['latin'], variable: '--font-mono' })
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="pt-BR" className={`${openSans.variable} ${firaCode.variable}`}>
+      <body>{children}</body>
+    </html>
+  )
+}
+```
+
+### Vite / Outros
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+```
+
+## Import components
+
+```tsx
+import { Button, Card, CardHeader, CardTitle, CardContent, Input, Label } from 'cycle-design'
+import { cn } from 'cycle-design'  // utility for combining classes
+```
+
+## Import icons
+
+### Lucide (default — same as shadcn)
+
+```tsx
+import { Search, Plus, X, Check } from 'lucide-react'
+```
+
+### Custom Fluencypass icons (language-learning, etc.)
+
+```tsx
+import { ConversationIcon, FluencyIcon } from 'cycle-design/icons'
 ```
 
 ## Usage example
 
-```css
-.card {
-  color: var(--text-primary);
-  background: var(--bg-primary);
-  padding: var(--spacing-inset-md);
-  border: var(--border-hairline) solid var(--border-primary);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
+```tsx
+import { Button, Card, CardHeader, CardTitle, CardContent, Input, Label } from 'cycle-design'
+
+export function LoginCard() {
+  return (
+    <Card className="w-[350px]">
+      <CardHeader>
+        <CardTitle>Login</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input id="email" type="email" placeholder="seu@email.com" />
+        </div>
+        <Button className="w-full">Entrar</Button>
+      </CardContent>
+    </Card>
+  )
 }
 ```
 
-```html
-<h2 class="headline-md">Title</h2>
-<p class="body-md">Paragraph text</p>
-<button class="button-md">Click me</button>
+## Dark mode
+
+```tsx
+// Toggle
+document.documentElement.setAttribute('data-theme', 'dark')
+
+// Or use .dark class (shadcn convention)
+document.documentElement.classList.add('dark')
+```
+
+## Product palettes (Tailwind classes)
+
+Beyond shadcn's `primary`/`secondary`/`destructive`:
+
+```tsx
+<div className="bg-brand text-brand-foreground">Brand</div>
+<div className="bg-class text-class-foreground">Class</div>
+<div className="bg-private text-private-foreground">Private</div>
+<div className="bg-group text-group-foreground">Group</div>
+<div className="bg-impulse text-impulse-foreground">Impulse</div>
+<div className="bg-warning text-warning-foreground">Warning</div>
+<div className="bg-positive text-positive-foreground">Positive</div>
 ```
 
 ## Package entry points
 
 ```
 cycle-design
-├── cycle-design/styles.css   — All tokens + component styles (recommended)
-├── cycle-design/tokens       — Only design tokens (CSS custom properties + typography classes)
-├── cycle-design              — React components (Button, etc.)
-└── cycle-design/icons        — Icon components (SearchIcon, PlusIcon, etc.)
+├── cycle-design               — React components (Button, Card, Dialog, etc.)
+├── cycle-design/globals.css   — Theme CSS (copy to your project)
+├── cycle-design/icons         — Custom Fluencypass icon components
+├── cycle-design/styles.css    — Legacy: tokens + old component styles
+└── cycle-design/tokens        — Legacy: only design tokens
 ```

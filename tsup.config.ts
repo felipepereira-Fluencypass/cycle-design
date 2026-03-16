@@ -4,7 +4,7 @@ const shared = {
   format: ['esm', 'cjs'] as const,
   dts: true,
   sourcemap: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', 'tailwindcss'],
   esbuildOptions(options: Record<string, unknown>) {
     options.jsx = 'automatic'
   },

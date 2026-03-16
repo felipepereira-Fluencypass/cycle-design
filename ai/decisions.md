@@ -1,76 +1,101 @@
 # Cycle Design — Design Decisions
 
-Reference document with all decisions and guidelines defined during the planning of Cycle Design.
+Reference document with all decisions and guidelines defined during the planning and evolution of Cycle Design.
 
 ## Vision
 
-**Goal:** Build a complete design system (code + documentation + design) that serves as the single source of truth for the entire Fluencypass team (+5 people), with light and dark theme support.
+**Goal:** Provide a complete design system (code + documentation + design) that serves as the single source of truth for the entire Fluencypass team, with light and dark theme support.
 
 **Team profile:** Design-led, with technical collaboration.
 
 **Priority:** Long-term robustness and scalability.
 
-## Architecture
+## Architecture Decision: shadcn/ui
 
-### Components
-- React + TypeScript component library
-- Published as npm package (`cycle-design`)
-- Strong typing of all props — serves as living documentation and safety net
-
-### Tokens
-- Source of truth: Figma variables
-- Colors, typography, spacing, border radius and breakpoints defined as Figma variables, exportable as JSON
-- Shadows defined as Figma components (extracted manually or via Figma connection)
-- In code: tokens converted to CSS custom properties with theme switching support (light/dark)
-
-### Documentation
-- Custom React documentation site (no Storybook initially)
-- Deployed on Vercel or Netlify
-- Each component will have: interactive preview, props table, usage examples, and guidelines
-
-### Figma Integration
-- Code Connect mapping each Figma component to the actual code component
-- Update flow: Figma change → share updated node/JSON → generate corresponding code
-
-## Storybook Decision
-
-**Current decision:** Start without Storybook, using custom documentation site.
+**Decision (2026-03):** Use shadcn/ui as the component base, customized with Cycle Design foundations.
 
 **Rationale:**
-- Faster initial velocity without configuration overhead
-- Team iterates faster on first components
-- Zero learning curve for documentation tool
+- Building 40+ accessible, production-ready components from scratch would take months
+- shadcn/ui provides battle-tested components built on Radix UI primitives
+- Components are copied into the project (not a dependency) — full control over customization
+- Cycle Design's strength is its foundation layer (440+ tokens, 5 brand palettes, dark mode) — shadcn/ui handles the component layer
+- Tailwind CSS v4 provides the styling engine, with Cycle tokens mapped via CSS variables in `globals.css`
 
-**Open door for the future:**
-- Component structure is 100% Storybook-compatible
-- When the team feels the need (~10-15 mature components), Storybook can be added
-- No work will be lost in migration
+**What Cycle Design adds on top of shadcn:**
+- 440+ design tokens with automatic light/dark mode
+- 5 brand palettes (Brand, Class, Private, Group, Impulse) + semantic palettes (warning, positive)
+- 38 typography composition classes
+- Custom Fluencypass icons (169+) with accessibility enforced via TypeScript
+- AI-ready documentation (llms.txt, MCP server, ai/ folder)
+- WCAG contrast documentation per token
+
+### Tokens
+
+- Source of truth: Figma variables
+- Colors, typography, spacing, border radius, shadows, motion, z-index defined as Figma variables
+- In code: tokens mapped to shadcn CSS variables via `globals.css` with theme switching support (light/dark)
+- Functional tokens adapt automatically between themes — primitives do not
+
+### Documentation
+
+- Custom React documentation site
+- Each component follows shadcn/ui docs conventions
+- AI-ready docs in `ai/` folder with structured Markdown
+
+### Figma Integration
+
+- Figma variables map 1:1 to CSS custom properties
+- Typography: Figma `headline/lg` → CSS `.headline-lg`
+- Colors: Figma `text/primary` → CSS `var(--text-primary)`
+- Complete mapping in `ai/figma-mapping.md`
 
 ## AI Integration (Vibe Coding)
 
 AI tools (Claude Code, Cursor, Windsurf, Bolt) don't access Storybook or documentation sites — they read code files. For correct usage, they need:
 
-1. Component code with typed TypeScript props
+1. Component code with typed TypeScript props (shadcn/ui components in `src/components/ui/`)
 2. Rules file (`CLAUDE.md`, `.cursorrules`) at the project root
-3. Usage examples within code or context files
+3. Structured AI documentation in `ai/` folder
+4. MCP server for programmatic access to tokens and docs
 
 ## Protections Against AI Mistakes
 
 | Protection | How it works |
 |------------|-------------|
-| Package architecture | Components are exported with typed interfaces. Changes are made in source files. |
-| Rules file for AI | Explicit instructions to never duplicate components. |
+| shadcn/ui conventions | Components follow well-known API patterns. AI tools already know shadcn. |
+| Rules file for AI | Explicit instructions to use existing components and tokens. |
 | TypeScript | Incompatible prop changes cause errors everywhere the component is used. |
+| Tailwind CSS v4 | Class-based styling is visible and diffable. |
+| `cn()` utility | Prevents Tailwind class conflicts via tailwind-merge. |
 | Git | Complete version history. Any change can be reverted. |
 | Semantic versioning | Breaking changes only in major versions, with changelog. |
+
+## Key Technical Decisions
+
+### cn() uses tailwind-merge
+
+Unlike the old Cycle Design which used a simple clsx, the new architecture uses `clsx + tailwind-merge` because shadcn/ui components rely on Tailwind classes. `tailwind-merge` resolves conflicts when users pass custom classes that overlap with component defaults.
+
+### Dark mode: dual selector support
+
+Both `.dark` class (shadcn convention) and `[data-theme="dark"]` attribute (Cycle convention) are supported. This ensures compatibility with shadcn ecosystem tools while maintaining backward compatibility with existing Fluencypass projects.
+
+### Patterns vs UI components
+
+- **UI components** (`src/components/ui/`): shadcn/ui primitives — generic, reusable, no business logic
+- **Patterns** (`src/components/patterns/`): Fluencypass-specific compositions — combine multiple UI components with business context (e.g., LoginForm)
+
+### Typography: composition classes over utilities
+
+Cycle Design uses pre-composed typography classes (`.headline-lg`, `.body-md`) rather than Tailwind utility composition (`text-4xl font-extrabold`). This ensures consistency across all Fluencypass projects — every project uses the same `.headline-lg` with identical values from Figma.
 
 ## Update Flow
 
 ```
 Designer changes in Figma
-    → Shares updated node/JSON
-    → AI generates updated code (visible diff)
-    → Dev team reviews and applies
+    → Updates globals.css token values
+    → shadcn components automatically reflect the change
+    → Dev team reviews the diff
     → TypeScript validates nothing broke
     → New package version published
     → Projects update dependency

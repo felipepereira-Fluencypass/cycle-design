@@ -1,6 +1,6 @@
+import { Skeleton } from '@ui/skeleton'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Skeleton } from '@components/Skeleton'
 import styles from '../Components.module.css'
 
 export default function SkeletonPage() {
@@ -9,53 +9,47 @@ export default function SkeletonPage() {
       <PageHeader
         badge="Components"
         title="Skeleton"
-        description="Placeholder de carregamento animado que indica ao usuario que o conteudo esta sendo carregado."
+        description="Placeholder de carregamento animado. Usa animate-pulse do Tailwind com o tema Cycle Design."
       />
 
-      {/* ── Variantes ────────────────────────────────────────── */}
+      {/* ── Exemplos ────────────────────────────────────────────── */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Variantes</h2>
+        <h2 className={styles.h2}>Exemplos</h2>
         <p className={styles.p}>
-          O Skeleton possui tres variantes: text (padrao), circular e rectangular.
+          O Skeleton é um div com animação de pulso. Controle tamanho e forma via className ou style.
         </p>
 
-        <h3 className={styles.h3}>Text (padrao)</h3>
+        <h3 className={styles.h3}>Texto</h3>
         <div className={styles.demo}>
           <div className={styles.demoColumn}>
-            <Skeleton width="100%" />
-            <Skeleton width="80%" />
-            <Skeleton width="60%" />
+            <Skeleton className="h-4 w-full" />
+            <Skeleton className="h-4 w-[80%]" />
+            <Skeleton className="h-4 w-[60%]" />
           </div>
         </div>
 
-        <h3 className={styles.h3}>Circular</h3>
+        <h3 className={styles.h3}>Circular (avatar)</h3>
         <div className={styles.demo}>
           <div className={styles.demoRow}>
-            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton className="h-10 w-10 rounded-full" />
+            <Skeleton className="h-12 w-12 rounded-full" />
           </div>
         </div>
 
-        <h3 className={styles.h3}>Rectangular</h3>
+        <h3 className={styles.h3}>Card</h3>
         <div className={styles.demo}>
-          <div className={styles.demoColumn}>
-            <Skeleton variant="rectangular" width="100%" height={120} />
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <Skeleton className="h-12 w-12 rounded-full" />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: 1 }}>
+              <Skeleton className="h-4 w-[60%]" />
+              <Skeleton className="h-4 w-[40%]" />
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* ── Static ───────────────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Static (sem animacao)</h2>
-        <p className={styles.p}>
-          A prop static desabilita a animacao de pulso, exibindo apenas o placeholder estatico.
-        </p>
-
+        <h3 className={styles.h3}>Retangular (imagem)</h3>
         <div className={styles.demo}>
-          <div className={styles.demoColumn}>
-            <Skeleton width="100%" static />
-            <Skeleton variant="circular" width={40} height={40} static />
-            <Skeleton variant="rectangular" width="100%" height={80} static />
-          </div>
+          <Skeleton className="h-[120px] w-full rounded-lg" />
         </div>
       </section>
 
@@ -64,33 +58,26 @@ export default function SkeletonPage() {
         <h2 className={styles.h2}>Import</h2>
         <CodeBlock
           language="tsx"
-          code={`import { Skeleton } from 'cycle-design'`}
-        />
-      </section>
-
-      {/* ── Exemplo de uso ───────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Exemplo de uso</h2>
-        <p className={styles.p}>
-          Utilize o Skeleton como placeholder enquanto o conteudo real esta sendo carregado. Combine variantes para simular o layout final.
-        </p>
-
-        <CodeBlock
-          language="tsx"
           code={`import { Skeleton } from 'cycle-design'
 
-{/* Text — linhas de texto */}
-<Skeleton width="100%" />
-<Skeleton width="80%" />
+{/* Texto */}
+<Skeleton className="h-4 w-full" />
+<Skeleton className="h-4 w-[80%]" />
 
-{/* Circular — avatar */}
-<Skeleton variant="circular" width={40} height={40} />
+{/* Avatar circular */}
+<Skeleton className="h-12 w-12 rounded-full" />
 
-{/* Rectangular — imagem ou card */}
-<Skeleton variant="rectangular" width="100%" height={120} />
+{/* Imagem retangular */}
+<Skeleton className="h-[120px] w-full rounded-lg" />
 
-{/* Static — sem animacao */}
-<Skeleton width="100%" static />`}
+{/* Card skeleton */}
+<div className="flex items-center gap-4">
+  <Skeleton className="h-12 w-12 rounded-full" />
+  <div className="flex flex-col gap-2">
+    <Skeleton className="h-4 w-[250px]" />
+    <Skeleton className="h-4 w-[200px]" />
+  </div>
+</div>`}
         />
       </section>
     </div>

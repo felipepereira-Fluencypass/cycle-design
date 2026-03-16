@@ -6,13 +6,16 @@
 
 ## Sobre o projeto
 
-Cycle Design é o Design System da **Fluencypass**. Todos os projetos da Fluencypass devem importar e usar os tokens e componentes deste pacote. **Nunca crie tokens ou componentes do zero** — sempre use o que já existe aqui.
+Cycle Design é o Design System da **Fluencypass**, construído sobre **shadcn/ui** com tema customizado Cycle. Os componentes de UI vêm do shadcn/ui, customizados com os foundations visuais da Fluencypass (cores, tipografia, radius, shadows) via CSS variables.
 
 - **Pacote:** `cycle-design`
 - **Framework:** React + TypeScript
-- **Estilização:** CSS Custom Properties (variáveis CSS)
+- **Componentes:** shadcn/ui (40+ componentes) com Radix UI primitives
+- **Estilização:** Tailwind CSS v4 + CSS Custom Properties (variáveis CSS)
+- **Utilitários:** `cn()` (clsx + tailwind-merge) para combinar classes
 - **Fontes:** Open Sans (body, headline, display) + Fira Code (mono)
-- **Temas:** Light mode (padrão) + Dark mode via `[data-theme="dark"]`
+- **Ícones:** Lucide (padrão shadcn) + ícones customizados Fluencypass
+- **Temas:** Light mode (padrão) + Dark mode via `.dark` ou `[data-theme="dark"]`
 
 ---
 
@@ -54,21 +57,29 @@ Os tokens são organizados em camadas. Use sempre os **funcionais** (composiçõ
 
 Isso garante que o dark mode funcione automaticamente.
 
-### 3. Nunca recrie componentes existentes
+### 3. Use componentes shadcn/ui — nunca crie do zero
 
-Antes de criar qualquer componente, verifique se já existe no Cycle Design. Se existir, importe-o:
+O Cycle Design inclui 40+ componentes shadcn/ui já tematizados. Antes de criar qualquer componente, verifique se já existe:
 
 ```tsx
 // ❌ ERRADO — criar botão do zero
 const MyButton = styled.button`...`;
 
-// ✅ CORRETO — importar do Design System
-import { Button } from 'cycle-design';
+// ✅ CORRETO — importar do Cycle Design (que usa shadcn/ui)
+import { Button } from 'cycle-design'
+
+<Button variant="default">Salvar</Button>
+<Button variant="outline">Cancelar</Button>
+<Button variant="ghost">Opções</Button>
+<Button variant="destructive">Excluir</Button>
+<Button size="sm">Pequeno</Button>
+<Button size="lg">Grande</Button>
+<Button size="icon" aria-label="Buscar"><Search /></Button>
 ```
 
 ### 4. Ao alterar um componente, edite o arquivo fonte
 
-Nunca duplique um componente pra fazer alterações. Sempre edite o arquivo original e mantenha a interface de props retrocompatível.
+Nunca duplique um componente pra fazer alterações. Sempre edite o arquivo original em `src/components/ui/` e mantenha a interface de props retrocompatível.
 
 ### 5. Use as classes de tipografia
 
@@ -98,25 +109,140 @@ Existem 38 estilos de tipografia prontos. Use as classes CSS:
 
 ---
 
-## Estrutura dos tokens
+## Arquitetura
+
+### Stack
+
+```
+┌─────────────────────────────────┐
+│     Cycle Design Foundations     │ ← Figma (fonte de verdade)
+│  (cores, tipografia, radius...)  │
+├─────────────────────────────────┤
+│       CSS Variables (tema)       │ ← globals.css
+├─────────────────────────────────┤
+│    shadcn/ui (40+ componentes)   │ ← src/components/ui/
+├─────────────────────────────────┤
+│  Radix UI (primitivos headless)  │ ← Acessibilidade, keyboard, focus
+├─────────────────────────────────┤
+│      Tailwind CSS v4 (engine)    │ ← Classes utilitárias
+└─────────────────────────────────┘
+```
 
 ### Entry points do pacote
 
 ```tsx
-/* Recomendado — tokens + estilos dos componentes */
+/* Componentes React (shadcn/ui tematizados) */
+import { Button, Card, Dialog, Input, Label, Select } from 'cycle-design'
+
+/* Utilitário cn() para combinar classes */
+import { cn } from 'cycle-design'
+
+/* Tema CSS (copiar para globals.css ou importar direto) */
+import 'cycle-design/globals.css'
+
+/* Ícones customizados Fluencypass */
+import { ConversationIcon, FluencyIcon } from 'cycle-design/icons'
+
+/* Ícones Lucide (padrão shadcn — peer dependency) */
+import { Search, Plus, X } from 'lucide-react'
+
+/* Legacy — apenas tokens, sem componentes shadcn */
 import 'cycle-design/styles.css'
-
-/* Alternativa — apenas tokens, sem estilos de componentes */
 import 'cycle-design/tokens'
-
-/* Componentes React */
-import { Button } from 'cycle-design'
-
-/* Ícones */
-import { SearchIcon, PlusIcon } from 'cycle-design/icons'
 ```
 
-### Referência rápida dos tokens
+### Componentes disponíveis
+
+Todos os componentes seguem a API do shadcn/ui:
+
+| Componente | Importação |
+|-----------|-----------|
+| Accordion | `Accordion, AccordionItem, AccordionTrigger, AccordionContent` |
+| Alert | `Alert, AlertTitle, AlertDescription` |
+| Alert Dialog | `AlertDialog, AlertDialogTrigger, AlertDialogContent, ...` |
+| Avatar | `Avatar, AvatarImage, AvatarFallback` |
+| Badge | `Badge` (variants: default, secondary, destructive, outline) |
+| Button | `Button` (variants: default, destructive, outline, secondary, ghost, link) |
+| Card | `Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter` |
+| Checkbox | `Checkbox` |
+| Dialog | `Dialog, DialogTrigger, DialogContent, DialogHeader, ...` |
+| Dropdown Menu | `DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, ...` |
+| Input | `Input` |
+| Label | `Label` |
+| Popover | `Popover, PopoverTrigger, PopoverContent` |
+| Progress | `Progress` |
+| Scroll Area | `ScrollArea, ScrollBar` |
+| Select | `Select, SelectTrigger, SelectContent, SelectItem, ...` |
+| Separator | `Separator` |
+| Skeleton | `Skeleton` |
+| Switch | `Switch` |
+| Tabs | `Tabs, TabsList, TabsTrigger, TabsContent` |
+| Textarea | `Textarea` |
+| Toggle | `Toggle` |
+| Tooltip | `Tooltip, TooltipTrigger, TooltipContent, TooltipProvider` |
+
+### Patterns (organismos)
+
+Patterns são composições de componentes shadcn/ui para casos de uso comuns da Fluencypass. Ficam em `src/components/patterns/`:
+
+```tsx
+import { LoginForm } from 'cycle-design'
+```
+
+Patterns combinam vários componentes UI com lógica de negócio. Para criar novos patterns, componha componentes existentes de `src/components/ui/`.
+
+---
+
+## Tailwind CSS v4 e cn()
+
+### Utilitário cn()
+
+O `cn()` combina `clsx` + `tailwind-merge` para resolver conflitos de classes Tailwind:
+
+```tsx
+import { cn } from 'cycle-design'
+
+// Merge correto de classes Tailwind
+<div className={cn("p-4 bg-primary", isActive && "bg-accent", className)} />
+```
+
+### Classes Tailwind com tokens Cycle
+
+O `globals.css` registra as variáveis CSS do Cycle Design no `@theme inline`, permitindo uso via classes Tailwind:
+
+```tsx
+// Cores shadcn padrão
+<div className="bg-primary text-primary-foreground" />
+<div className="bg-destructive text-destructive-foreground" />
+<div className="bg-muted text-muted-foreground" />
+
+// Paletas de produto Cycle (extras)
+<div className="bg-brand text-brand-foreground" />
+<div className="bg-class text-class-foreground" />
+<div className="bg-private text-private-foreground" />
+<div className="bg-group text-group-foreground" />
+<div className="bg-impulse text-impulse-foreground" />
+<div className="bg-warning text-warning-foreground" />
+<div className="bg-positive text-positive-foreground" />
+```
+
+---
+
+## Referência rápida dos tokens
+
+### Tema CSS (globals.css)
+
+O `globals.css` mapeia as variáveis shadcn para tokens Cycle Design. Mapeamento completo em `ai/shadcn-theme-mapping.md`.
+
+| Variável shadcn | Token Cycle (light) | Token Cycle (dark) |
+|---|---|---|
+| `--primary` | `--bg-brand-solid` (#D45558) | `--bg-brand-solid` (#ED6A6D) |
+| `--primary-foreground` | `--text-white` (#FFFFFF) | `--text-primary_on-brand` (#FFF5F5) |
+| `--destructive` | `--bg-critical-solid` (#B32020) | `--bg-critical-solid` (#D42B2B) |
+| `--background` | `--bg-primary` (#FFFFFF) | `--bg-primary` (#0C0E12) |
+| `--foreground` | `--text-primary` (#181D27) | `--text-primary` (#F7F7F7) |
+| `--border` | `--border-secondary` (#E9EAEB) | `--border-primary` (#373A41) |
+| `--ring` | `--border-brand` (#ED6A6D) | `--border-brand` (#F57B7E) |
 
 #### Cores (funcionais — com suporte light/dark)
 | Prefixo | Uso |
@@ -210,17 +336,36 @@ import { SearchIcon, PlusIcon } from 'cycle-design/icons'
 
 ## Dark mode
 
-O tema é controlado via atributo `data-theme` no `<html>`:
+O tema suporta dois mecanismos para ativar dark mode:
 
 ```html
-<!-- Light (padrão) -->
-<html data-theme="light">
-
-<!-- Dark -->
+<!-- Método 1: data-theme attribute (Cycle Design) -->
 <html data-theme="dark">
+
+<!-- Método 2: .dark class (shadcn convention) -->
+<html class="dark">
+
+<!-- Ambos funcionam. Light é o padrão. -->
+<html data-theme="light">
+<html> <!-- sem classe = light -->
 ```
 
 Também suporta `prefers-color-scheme` automaticamente. Ao usar tokens funcionais (não primitivos), o dark mode funciona sem nenhuma alteração no código dos componentes.
+
+```tsx
+// Toggle theme
+function toggleTheme() {
+  const html = document.documentElement
+  const isDark = html.classList.contains('dark') || html.getAttribute('data-theme') === 'dark'
+  if (isDark) {
+    html.classList.remove('dark')
+    html.setAttribute('data-theme', 'light')
+  } else {
+    html.classList.add('dark')
+    html.setAttribute('data-theme', 'dark')
+  }
+}
+```
 
 ---
 
@@ -236,7 +381,7 @@ O Cycle Design tem 5 paletas de marca além das neutras e semânticas:
 | **Group** | Funcionalidade "Group" (verde) |
 | **Impulse** | Funcionalidade "Impulse" (roxo) |
 
-Cada paleta tem tokens de text, border, foreground e background com variações primary, secondary, hover, solid, section.
+Cada paleta tem tokens de text, border, foreground e background com variações primary, secondary, hover, solid, section. Também disponíveis como classes Tailwind: `bg-brand`, `text-class-foreground`, etc.
 
 ---
 
@@ -285,15 +430,15 @@ Nenhum `<button>` pode ter apenas um SVG ou ícone como filho sem texto acessív
 
 ```tsx
 /* ❌ Proibido */
-<button onClick={close}><CloseIcon size="sm" decorative /></button>
+<Button size="icon"><X /></Button>
 
 /* ✅ Correto */
-<button onClick={close} aria-label="Fechar"><CloseIcon size="sm" decorative /></button>
+<Button size="icon" aria-label="Fechar"><X /></Button>
 ```
 
 ### A4. Feedback de ação exige aria-live
 
-Qualquer mudança de estado visível (copiado, salvo, carregando→concluído) precisa de uma live region para leitores de tela. Use o padrão do `useClipboard`:
+Qualquer mudança de estado visível (copiado, salvo, carregando→concluído) precisa de uma live region para leitores de tela:
 
 ```tsx
 /* ✅ Live region sempre presente no DOM — nunca renderizar condicionalmente */
@@ -304,19 +449,19 @@ Qualquer mudança de estado visível (copiado, salvo, carregando→concluído) p
 
 ### A5. Elementos interativos: HTML nativo primeiro
 
-Use `<button>` para ações e `<a>` para navegação. Não use `<div>`, `<span>` ou `<li>` com `onClick` — eles não recebem foco por teclado nativamente e não comunicam papel ao leitor de tela. `role` e `tabIndex` são último recurso para casos sem equivalente HTML nativo:
+Use `<button>` para ações e `<a>` para navegação. Não use `<div>`, `<span>` ou `<li>` com `onClick`. Os componentes shadcn/ui já usam elementos semânticos corretos. Para navegação com estilo de botão, use `asChild`:
 
 ```tsx
 /* ❌ Proibido */
 <div onClick={handleAction} className="btn">Salvar</div>
 
-/* ✅ Correto — HTML nativo */
-<button onClick={handleAction}>Salvar</button>
+/* ✅ Correto — componente shadcn */
+<Button onClick={handleAction}>Salvar</Button>
 
-/* ⚠️ Último recurso — apenas quando HTML nativo não é possível */
-<div role="button" tabIndex={0} onClick={handleAction} onKeyDown={handleKeyDown}>
-  Salvar
-</div>
+/* ✅ Correto — asChild para navegação */
+<Button asChild>
+  <a href="/page">Ir para página</a>
+</Button>
 ```
 
 ### A6. Tokens de cor restrita exigem comentário de contexto
@@ -335,16 +480,23 @@ Ao usar token com badge `restrito`, adicione um comentário inline indicando que
 
 ### A7. Ícones exigem decorative ou aria-label
 
-Todo componente de ícone do Cycle Design deve receber uma das duas props. Omitir as duas é proibido — o TypeScript emite erro:
+Ícones Lucide em contexto informativo precisam de `aria-label`. Ícones decorativos (ao lado de texto visível) devem usar `aria-hidden`:
 
 ```tsx
-/* ❌ Proibido — TypeScript error */
-<SearchIcon size="sm" />
+/* ❌ Proibido — ícone sem contexto acessível */
+<Button size="icon"><Search /></Button>
 
 /* ✅ Decorativo — acompanha texto visível */
-<SearchIcon size="sm" decorative />
+<Button><Search aria-hidden="true" />Buscar</Button>
 
 /* ✅ Informativo — único indicador da ação */
+<Button size="icon" aria-label="Buscar"><Search aria-hidden="true" /></Button>
+```
+
+Para ícones customizados Fluencypass, use as props `decorative` ou `aria-label`:
+
+```tsx
+<SearchIcon size="sm" decorative />
 <SearchIcon size="sm" aria-label="Buscar" />
 ```
 
@@ -364,7 +516,7 @@ Valores como 11px, 12.5px, 13px, 13.5px, 15px não existem na escala. Se um tama
 
 ### A9. Respeitar `prefers-reduced-motion`
 
-Animações e transições devem ser desabilitadas para usuários que preferem movimento reduzido (WCAG 2.1, critério 2.3.3). O reset global já inclui a media query, mas componentes com animação infinita (Spinner, Skeleton) devem ter fallback explícito:
+Animações e transições devem ser desabilitadas para usuários que preferem movimento reduzido (WCAG 2.1, critério 2.3.3). O reset global já inclui a media query, mas componentes com animação infinita devem ter fallback explícito:
 
 ```css
 /* ❌ Proibido — animação infinita sem fallback */
@@ -431,35 +583,47 @@ Nunca use valores numéricos de z-index diretamente. Use os tokens da escala:
 
 ---
 
-## Ao criar novos componentes
+## Ao criar ou modificar componentes
+
+### Componentes UI (src/components/ui/)
+
+Estes são componentes shadcn/ui. Ao modificar:
+
+1. Mantenha a API compatível com shadcn/ui (para facilitar atualizações futuras)
+2. Use `cn()` de `src/lib/utils` para combinar classNames
+3. Use Tailwind CSS v4 classes + variáveis CSS do tema para estilização
+4. Mantenha suporte a dark mode via variáveis CSS (automático com o tema)
+5. Use `forwardRef` conforme o padrão shadcn
+6. Componentes overlay devem usar tokens de z-index (`--z-modal`, `--z-toast`, etc.)
+7. Transições devem usar tokens de motion (`--transition-fast`, `--transition-normal`, etc.)
+
+### Patterns (src/components/patterns/)
+
+Patterns são organismos que combinam componentes UI para casos de uso Fluencypass:
 
 1. Use TypeScript com props tipadas
-2. Use apenas tokens do Cycle Design (nunca valores hardcoded)
-3. Exporte o componente no index principal do pacote
-4. Siga a estrutura de pastas existente
-5. Inclua suporte a dark mode via tokens funcionais
-6. Documente as props com JSDoc
-7. Passe o checklist de acessibilidade em `/guidelines/accessibility` antes de marcar como stable
-8. Exponha `data-*` attributes para estados (variant, size, disabled, state)
-9. Use `forwardRef` com named function (não arrow function anônima)
-10. Use `cn()` de `src/utils/cn` para combinar classNames
-11. Componentes overlay devem usar tokens de z-index (`--z-modal`, `--z-toast`, etc.)
-12. Transições devem usar tokens de motion (`--transition-fast`, `--transition-normal`, etc.)
-13. Componentes complexos com layout flexível devem usar compound pattern (ver `ai/patterns/compound-components.md`)
-14. **OBRIGATÓRIO:** Ao criar, alterar ou remover qualquer componente ou token, atualize `ai/figma-mapping.md` com o mapeamento Figma → Código correspondente. Esta regra não tem exceções — a IA depende deste arquivo para gerar código correto a partir do Figma.
-15. **OBRIGATÓRIO:** Todo componente deve ter testes que cubram as 4 camadas do checklist de testes (ver abaixo). Nenhum componente pode ser marcado como stable sem todos os testes passando.
+2. Componha usando componentes de `src/components/ui/` — nunca crie UI primitiva
+3. Exporte o pattern no `src/index.ts`
+4. Documente as props com JSDoc
+5. Siga a estrutura de pastas: `src/components/patterns/nome-do-pattern.tsx`
+
+### Para ambos
+
+1. Exponha `data-*` attributes para estados quando relevante (variant, size, disabled, state)
+2. Passe o checklist de acessibilidade em `/guidelines/accessibility` antes de marcar como stable
+3. **OBRIGATÓRIO:** Ao criar, alterar ou remover qualquer componente ou token, atualize `ai/figma-mapping.md` com o mapeamento Figma → Código correspondente. Esta regra não tem exceções — a IA depende deste arquivo para gerar código correto a partir do Figma.
+4. **OBRIGATÓRIO:** Todo componente deve ter testes que cubram as 4 camadas do checklist de testes (ver abaixo).
 
 ---
 
 ## Checklist de testes obrigatório por componente
 
-Todo componente do Cycle Design **deve** ter testes cobrindo estas 4 camadas. Este checklist deve ser atualizado na página `/guidelines/testing` da documentação visual quando os testes forem escritos.
+Todo componente do Cycle Design **deve** ter testes cobrindo estas 4 camadas.
 
 ### Camada 1 — Renderização e props
 - [ ] Renderiza sem erros com props padrão
-- [ ] Aplica todas as variantes (variant, size, color)
-- [ ] Aplica className customizada sem sobrescrever as internas
-- [ ] Merge de style sem perder CSS custom properties internas
+- [ ] Aplica todas as variantes via className (shadcn usa CVA)
+- [ ] Aplica className customizada via `cn()` sem sobrescrever as internas
 - [ ] Forward ref para o elemento DOM correto
 - [ ] Passthrough de atributos nativos HTML
 
@@ -469,7 +633,7 @@ Todo componente do Cycle Design **deve** ter testes cobrindo estas 4 camadas. Es
 - [ ] Recebe foco via Tab
 - [ ] Não recebe foco quando disabled
 - [ ] Não dispara eventos quando disabled
-- [ ] asChild renderiza como elemento filho (se aplicável)
+- [ ] asChild renderiza como elemento filho (se aplicável — Button, etc.)
 
 ### Camada 3 — Acessibilidade
 - [ ] Role semântico correto (button, checkbox, switch, status, alert)
@@ -479,11 +643,9 @@ Todo componente do Cycle Design **deve** ter testes cobrindo estas 4 camadas. Es
 - [ ] aria-hidden em elementos decorativos
 
 ### Camada 4 — Data attributes
-- [ ] Expõe data-variant (se aplicável)
-- [ ] Expõe data-size (se aplicável)
-- [ ] Expõe data-color (se aplicável)
-- [ ] Expõe data-disabled quando disabled
-- [ ] Expõe data-state (se tem estados como checked/unchecked)
+- [ ] Expõe data-state (Radix UI — checked/unchecked, open/closed, etc.)
+- [ ] Expõe data-disabled quando disabled (Radix UI)
+- [ ] Expõe data-variant, data-size se customizado
 
 ### Camada extra — Tokens (em `tests/token-contract.test.ts`)
 - [ ] Valores de spacing tokens conferem com Figma
@@ -537,6 +699,7 @@ Tools disponíveis: `list_topics`, `get_doc`, `search_docs`, `get_token_value`, 
 
 ## Fonte de verdade
 
-- **Design:** Figma → Cycle • Design System
+- **Design:** Figma → Cycle * Design System
 - **Tokens:** Variáveis do Figma (exportadas em JSON)
+- **Componentes:** shadcn/ui com tema Cycle aplicado via `globals.css`
 - **Prioridade em caso de conflito:** Sempre seguir os primitives do Figma

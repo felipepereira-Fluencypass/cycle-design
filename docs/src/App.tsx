@@ -30,7 +30,6 @@ import CheckboxPage from '@/pages/components/Checkbox'
 import SwitchPage from '@/pages/components/Switch'
 import AlertPage from '@/pages/components/Alert'
 import SkeletonPage from '@/pages/components/Skeleton'
-import SpinnerPage from '@/pages/components/Spinner'
 
 export default function App() {
   const { theme, toggle } = useTheme()
@@ -88,7 +87,6 @@ export default function App() {
           <Route path="/components/switch" element={<SwitchPage />} />
           <Route path="/components/alert" element={<AlertPage />} />
           <Route path="/components/skeleton" element={<SkeletonPage />} />
-          <Route path="/components/spinner" element={<SpinnerPage />} />
         </Route>
       </Routes>
     </>

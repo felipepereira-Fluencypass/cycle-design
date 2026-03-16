@@ -1,13 +1,13 @@
 
 \# Cycle Design
 
-> Cycle Design is the design system for Fluencypass. It uses **shadcn/ui** as the component base, customized with Cycle Design foundations (colors, typography, spacing, shadows, radius). Built with React, TypeScript, Tailwind CSS v4, and Radix UI primitives. Supports light and dark themes via `[data-theme]` attribute. The Figma remains the source of truth for visual values.
+> Cycle Design is the design system for Fluencypass. It uses **shadcn/ui** as the component base, customized with Cycle Design foundations (colors, typography, spacing, shadows, radius). Built with React, TypeScript, Tailwind CSS v4, and Radix UI primitives. Supports light and dark themes via `.dark` class or `[data-theme]` attribute. The Figma remains the source of truth for visual values.
 
 ## Getting Started
 
-- [Overview](ai/overview.md): Architecture, token categories, brand palettes, and mandatory rules for using Cycle Design.
-- [Installation](ai/installation.md): How to install the package, import tokens, load fonts, and file structure.
-- [Dark Mode](ai/dark-mode.md): Theme switching via data-theme attribute, prefers-color-scheme support, and implementation guide.
+- [Overview](ai/overview.md): Architecture, token categories, brand palettes, available components, and mandatory rules for using Cycle Design.
+- [Installation](ai/installation.md): How to install the package, import globals.css, load fonts, import components, and project setup for Next.js and Vite.
+- [Dark Mode](ai/dark-mode.md): Theme switching via .dark class and data-theme attribute, prefers-color-scheme support, dual selector strategy, and implementation guide.
 
 ## Tokens
 
@@ -24,9 +24,7 @@
 
 ## Guidelines
 
-- [Design Decisions](ai/decisions.md): Architecture decisions, Storybook rationale, AI integration strategy, protections against mistakes, and update flow.
-- [Improvement Plan](ai/improvement-plan.md): Quality improvement roadmap (motion tokens, reduced-motion, z-index, asChild, data attributes, compound components, cn utility, Figma mapping). Complementary to the action plan.
-- [Analysis vs shadcn/ui](ai/analysis-vs-shadcn.md): Comparative quality analysis against shadcn/ui — strengths, gaps, and recommendations.
+- [Design Decisions](ai/decisions.md): Architecture decisions including shadcn/ui adoption rationale, dual dark mode selectors, cn() with tailwind-merge, patterns vs UI components, and update flow.
 - [Compound Components](ai/patterns/compound-components.md): Guide for when and how to use compound components pattern vs monolithic props.
 - [Figma Mapping](ai/figma-mapping.md): Complete Figma → Code translation reference for all tokens, typography, colors, spacing, and components.
 - [Testing Checklist](ai/testing-checklist.md): Mandatory 4-layer testing checklist for components (rendering, interaction, accessibility, data attributes) and token contract tests.

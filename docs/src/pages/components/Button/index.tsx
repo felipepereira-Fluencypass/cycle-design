@@ -1,8 +1,5 @@
-import { Button } from '@components/Button'
-import { CourseIcon } from '@icons/_generated/CourseIcon'
-import { ExerciseIcon } from '@icons/_generated/ExerciseIcon'
-import { AiIcon } from '@icons/_generated/AiIcon'
-import { LessonIcon } from '@icons/_generated/LessonIcon'
+import { Button } from '@ui/button'
+import { ChevronRight, Plus, Search, X, Loader2 } from 'lucide-react'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { Callout } from '@/components/ui/Callout'
 import { CodeBlock } from '@/components/ui/CodeBlock'
@@ -15,65 +12,30 @@ const propsData = [
   {
     name: 'children',
     type: 'ReactNode',
-    required: 'obrigatória*',
+    required: 'obrigatória',
     defaultVal: '—',
-    description: 'Texto do botão. Obrigatório no modo texto; proibido em iconOnly.',
+    description: 'Conteúdo do botão (texto, ícones, etc.).',
   },
   {
     name: 'variant',
-    type: '"filled" | "outline" | "ghost"',
+    type: '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
     required: 'opcional',
-    defaultVal: '"filled"',
+    defaultVal: '"default"',
     description: 'Estilo visual do botão.',
   },
   {
-    name: 'color',
-    type: '"brand" | "class" | "private" | "group" | "impulse"',
-    required: 'opcional',
-    defaultVal: '"brand"',
-    description: 'Paleta de cores aplicada ao botão.',
-  },
-  {
     name: 'size',
-    type: '"giant" | "lg" | "md" | "sm" | "tiny"',
+    type: '"default" | "sm" | "lg" | "icon"',
     required: 'opcional',
-    defaultVal: '"md"',
-    description: 'Tamanho do botão. Controla altura, padding e fonte.',
+    defaultVal: '"default"',
+    description: 'Tamanho do botão. "icon" cria botão quadrado para ícones.',
   },
   {
-    name: 'iconLeft',
-    type: 'ReactElement',
-    required: 'opcional',
-    defaultVal: '—',
-    description: 'Ícone à esquerda do texto. Automaticamente decorativo. Não disponível em iconOnly.',
-  },
-  {
-    name: 'iconRight',
-    type: 'ReactElement',
-    required: 'opcional',
-    defaultVal: '—',
-    description: 'Ícone à direita do texto. Automaticamente decorativo. Não disponível em iconOnly.',
-  },
-  {
-    name: 'iconOnly',
-    type: 'true',
+    name: 'asChild',
+    type: 'boolean',
     required: 'opcional',
     defaultVal: 'false',
-    description: 'Ativa o modo icon-only. O botão fica quadrado. Exige icon e aria-label.',
-  },
-  {
-    name: 'icon',
-    type: 'ReactElement',
-    required: 'obrigatória*',
-    defaultVal: '—',
-    description: 'Ícone exibido no modo iconOnly. Proibido no modo texto.',
-  },
-  {
-    name: 'aria-label',
-    type: 'string',
-    required: 'obrigatória*',
-    defaultVal: '—',
-    description: 'Nome acessível. Obrigatório e único em iconOnly — é a única fonte de significado para leitores de tela.',
+    description: 'Renderiza como o elemento filho (útil para links com aparência de botão).',
   },
   {
     name: 'disabled',
@@ -92,7 +54,7 @@ export default function ButtonPage() {
       <PageHeader
         badge="Components"
         title="Button"
-        description="Elemento interativo primário do Cycle Design. Suporta texto, ícones laterais e modo icon-only, com três variantes e cinco paletas de cores."
+        description="Elemento interativo primário do Cycle Design. Baseado no shadcn/ui Button com variantes, tamanhos e suporte a ícones via Lucide React."
       />
 
       {/* ── Visão geral ── */}
@@ -100,38 +62,28 @@ export default function ButtonPage() {
         <h2 className={styles.h2}>Visão geral</h2>
         <p className={styles.p}>
           O Button é usado para acionar uma ação. Escolha a <strong>variante</strong> pelo nível de
-          hierarquia visual (filled → outline → ghost) e a <strong>color</strong> pela paleta
-          funcional do contexto.
+          hierarquia visual (default → secondary → outline → ghost) e combine com ícones do Lucide React.
         </p>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Variants</span>
           <div className={styles.examplesRow}>
-            <Button variant="filled">Filled</Button>
+            <Button variant="default">Default</Button>
+            <Button variant="secondary">Secondary</Button>
             <Button variant="outline">Outline</Button>
             <Button variant="ghost">Ghost</Button>
-          </div>
-        </div>
-
-        <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>Colors (filled)</span>
-          <div className={styles.examplesRow}>
-            <Button color="brand">Brand</Button>
-            <Button color="class">Class</Button>
-            <Button color="private">Private</Button>
-            <Button color="group">Group</Button>
-            <Button color="impulse">Impulse</Button>
+            <Button variant="link">Link</Button>
+            <Button variant="destructive">Destructive</Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Sizes</span>
           <div className={styles.examplesRow}>
-            <Button size="giant">Giant</Button>
             <Button size="lg">Large</Button>
-            <Button size="md">Medium</Button>
+            <Button size="default">Default</Button>
             <Button size="sm">Small</Button>
-            <Button size="tiny">Tiny</Button>
+            <Button size="icon" aria-label="Adicionar"><Plus /></Button>
           </div>
         </div>
       </section>
@@ -143,8 +95,8 @@ export default function ButtonPage() {
           language="tsx"
           code={`import { Button } from 'cycle-design'
 
-// Para usar ícones junto ao botão:
-import { CourseIcon } from 'cycle-design/icons'`}
+// Ícones via Lucide React
+import { Plus, Search, ChevronRight } from 'lucide-react'`}
         />
 
         <p className={styles.p} style={{ marginTop: 16 }}>Exemplos prontos de uso:</p>
@@ -153,17 +105,20 @@ import { CourseIcon } from 'cycle-design/icons'`}
           code={`// Apenas texto
 <Button>Nova turma</Button>
 
-// Ícone à esquerda
-<Button iconLeft={<CourseIcon decorative />}>Nova turma</Button>
+// Com ícone à esquerda
+<Button><Plus className="mr-2 h-4 w-4" /> Nova turma</Button>
 
-// Ícone à direita
-<Button variant="outline" iconRight={<ExerciseIcon decorative />}>Opções</Button>
-
-// Ícone nos dois lados
-<Button iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar</Button>
+// Com ícone à direita
+<Button variant="outline">Próximo <ChevronRight className="ml-2 h-4 w-4" /></Button>
 
 // Icon-only — aria-label obrigatório
-<Button iconOnly icon={<AiIcon decorative />} aria-label="Fechar" />`}
+<Button size="icon" aria-label="Buscar"><Search /></Button>
+
+// Como link
+<Button variant="link">Ver mais</Button>
+
+// Com loading
+<Button disabled><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Salvando...</Button>`}
         />
       </section>
 
@@ -171,9 +126,7 @@ import { CourseIcon } from 'cycle-design/icons'`}
       <section className={styles.section}>
         <h2 className={styles.h2}>Props</h2>
         <p className={styles.p}>
-          * As props marcadas como obrigatória dependem do modo: <code>children</code> é obrigatório
-          no modo texto; <code>icon</code> e <code>aria-label</code> são obrigatórios em{' '}
-          <code>iconOnly</code>.
+          Além das props listadas, o Button aceita todos os atributos nativos de <code>&lt;button&gt;</code>.
         </p>
         <div className={styles.tableWrapper}>
           <table className={styles.propsTable}>
@@ -210,80 +163,37 @@ import { CourseIcon } from 'cycle-design/icons'`}
         <h2 className={styles.h2}>Exemplos de uso</h2>
 
         <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>Apenas texto</span>
+          <span className={styles.examplesGroupLabel}>Com ícones</span>
           <div className={styles.examplesRow}>
-            <Button>Nova turma</Button>
-            <Button variant="outline">Ver detalhes</Button>
-            <Button variant="ghost">Cancelar</Button>
-          </div>
-        </div>
-
-        <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>iconLeft + texto</span>
-          <div className={styles.examplesRow}>
-            <Button iconLeft={<CourseIcon decorative />}>Nova turma</Button>
-            <Button variant="outline" iconLeft={<LessonIcon decorative />}>Buscar</Button>
-            <Button variant="ghost" iconLeft={<CourseIcon decorative />}>Adicionar</Button>
-          </div>
-        </div>
-
-        <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>texto + iconRight</span>
-          <div className={styles.examplesRow}>
-            <Button iconRight={<ExerciseIcon decorative />}>Opções</Button>
-            <Button variant="outline" iconRight={<ExerciseIcon decorative />}>Filtrar</Button>
-            <Button variant="ghost" iconRight={<ExerciseIcon decorative />}>Mais</Button>
-          </div>
-        </div>
-
-        <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>iconLeft + texto + iconRight</span>
-          <div className={styles.examplesRow}>
-            <Button iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar turmas</Button>
-            <Button variant="outline" iconLeft={<LessonIcon decorative />} iconRight={<ExerciseIcon decorative />}>Buscar turmas</Button>
+            <Button><Plus className="mr-2 h-4 w-4" /> Nova turma</Button>
+            <Button variant="outline"><Search className="mr-2 h-4 w-4" /> Buscar</Button>
+            <Button variant="ghost">Próximo <ChevronRight className="ml-2 h-4 w-4" /></Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Icon-only</span>
           <div className={styles.examplesRow}>
-            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" />
-            <Button iconOnly icon={<AiIcon decorative />} aria-label="Fechar" variant="outline" />
-            <Button iconOnly icon={<LessonIcon decorative />} aria-label="Buscar" variant="ghost" />
-            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" size="sm" />
-            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" size="tiny" />
+            <Button size="icon" aria-label="Adicionar"><Plus /></Button>
+            <Button size="icon" variant="outline" aria-label="Buscar"><Search /></Button>
+            <Button size="icon" variant="ghost" aria-label="Fechar"><X /></Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
           <span className={styles.examplesGroupLabel}>Disabled</span>
           <div className={styles.examplesRow}>
-            <Button disabled>Filled disabled</Button>
+            <Button disabled>Default disabled</Button>
             <Button variant="outline" disabled>Outline disabled</Button>
             <Button variant="ghost" disabled>Ghost disabled</Button>
-            <Button iconOnly icon={<CourseIcon decorative />} aria-label="Adicionar" disabled />
+            <Button size="icon" disabled aria-label="Adicionar"><Plus /></Button>
           </div>
         </div>
 
         <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>Todas as colors — outline</span>
+          <span className={styles.examplesGroupLabel}>Loading</span>
           <div className={styles.examplesRow}>
-            <Button variant="outline" color="brand">Brand</Button>
-            <Button variant="outline" color="class">Class</Button>
-            <Button variant="outline" color="private">Private</Button>
-            <Button variant="outline" color="group">Group</Button>
-            <Button variant="outline" color="impulse">Impulse</Button>
-          </div>
-        </div>
-
-        <div className={styles.examplesGroup}>
-          <span className={styles.examplesGroupLabel}>Todos os tamanhos — iconLeft</span>
-          <div className={styles.examplesRow}>
-            <Button size="giant" iconLeft={<CourseIcon decorative />}>Giant</Button>
-            <Button size="lg"    iconLeft={<CourseIcon decorative />}>Large</Button>
-            <Button size="md"    iconLeft={<CourseIcon decorative />}>Medium</Button>
-            <Button size="sm"    iconLeft={<CourseIcon decorative />}>Small</Button>
-            <Button size="tiny"  iconLeft={<CourseIcon decorative />}>Tiny</Button>
+            <Button disabled><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Salvando...</Button>
           </div>
         </div>
       </section>
@@ -337,42 +247,26 @@ import { CourseIcon } from 'cycle-design/icons'`}
 
         <Callout type="warning" title="Icon-only exige aria-label">
           <p>
-            Quando <code>iconOnly</code> é <code>true</code>, o botão não tem texto visível.
+            Quando <code>size="icon"</code>, o botão não tem texto visível.
             O <code>aria-label</code> é obrigatório — é o único nome acessível para leitores
-            de tela. O TypeScript exigirá a prop em tempo de compilação.
+            de tela.
           </p>
         </Callout>
 
         <div style={{ marginTop: 16 }}>
-          <Callout type="info" title="Ícones ao lado do texto são decorativos">
+          <Callout type="info" title="Focus ring via Tailwind">
             <p>
-              <code>iconLeft</code> e <code>iconRight</code> recebem <code>decorative=true</code>{' '}
-              automaticamente. O texto do botão já fornece o nome acessível — duplicar com
-              aria-label nos ícones causaria repetição para leitores de tela.
+              O componente usa <code>focus-visible:ring-2</code> com offset para garantir
+              visibilidade do indicador de foco. O ring segue os tokens de cor do tema.
             </p>
           </Callout>
         </div>
 
         <div style={{ marginTop: 16 }}>
-          <Callout type="info" title="Focus ring via tokens do sistema">
+          <Callout type="info" title="asChild para navegação">
             <p>
-              O componente usa <code>:focus-visible</code> com <code>box-shadow</code> duplo
-              baseado nos tokens <code>--focus-ring-offset</code>, <code>--focus-ring-width</code>{' '}
-              e <code>--focus-ring-color</code>. O <code>outline</code> nativo é suprimido para
-              evitar conflito com o <code>border-radius</code>, mas o indicador visual está sempre
-              presente — nunca é removido.
-            </p>
-          </Callout>
-        </div>
-
-        <div style={{ marginTop: 16 }}>
-          <Callout type="warning" title="Restrição de contraste: color=&quot;group&quot;">
-            <p>
-              A paleta <code>group</code> tem contraste inferior a 4.5:1 no modo filled em light
-              mode. Use <code>color="group"</code> apenas quando o contexto ao redor garante
-              legibilidade independente — por exemplo, texto grande (≥ 24px) ou em superfícies
-              já sinalizadas com a paleta group. Adicione um comentário no código justificando
-              o uso.
+              Use <code>asChild</code> com um <code>&lt;a&gt;</code> ou componente de rota
+              quando o botão funcionar como link. Isso preserva a semântica HTML correta.
             </p>
           </Callout>
         </div>

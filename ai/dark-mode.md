@@ -2,17 +2,26 @@
 
 ## How it works
 
-Dark mode is controlled via the `data-theme` attribute on the `<html>` element:
+Dark mode is controlled via two mechanisms — both are supported simultaneously:
 
 ```html
-<!-- Light mode (default) -->
-<html data-theme="light">
+<!-- Method 1: data-theme attribute (Cycle Design convention) -->
+<html data-theme="light">  <!-- Light mode -->
+<html data-theme="dark">   <!-- Dark mode -->
 
-<!-- Dark mode -->
-<html data-theme="dark">
+<!-- Method 2: .dark class (shadcn/ui convention) -->
+<html class="dark">         <!-- Dark mode -->
+<html>                       <!-- Light mode (default) -->
 ```
 
-The system also respects `prefers-color-scheme` automatically. If no `data-theme` attribute is set, the user's OS preference is used.
+The system also respects `prefers-color-scheme` automatically. If no `data-theme` attribute or `.dark` class is set, the user's OS preference is used.
+
+## Why both selectors?
+
+- **`[data-theme="dark"]`** — Original Cycle Design convention, used by Cycle token layer
+- **`.dark`** — shadcn/ui and Tailwind CSS convention, used by shadcn components and Tailwind's `dark:` variant
+
+Both are set in `globals.css` to ensure all layers respond to theme changes. When toggling theme in JavaScript, set both for maximum compatibility.
 
 ## Why functional tokens matter
 
@@ -39,29 +48,52 @@ Using primitives directly breaks dark mode:
 ## Implementation in JavaScript/React
 
 ```tsx
-// Toggle theme
+// Toggle theme (supports both selectors)
 function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
-  const next = current === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
+  const html = document.documentElement
+  const isDark = html.classList.contains('dark') || html.getAttribute('data-theme') === 'dark'
+
+  if (isDark) {
+    html.classList.remove('dark')
+    html.setAttribute('data-theme', 'light')
+  } else {
+    html.classList.add('dark')
+    html.setAttribute('data-theme', 'dark')
+  }
 }
 
 // Respect OS preference on load
 function initTheme() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const theme = prefersDark ? 'dark' : 'light'
+  document.documentElement.setAttribute('data-theme', theme)
+  if (prefersDark) {
+    document.documentElement.classList.add('dark')
+  }
 }
 ```
 
+## Tailwind dark: variant
+
+With the `.dark` class approach, Tailwind's `dark:` variant works naturally:
+
+```tsx
+<div className="bg-white dark:bg-gray-900">
+  Adapts to dark mode
+</div>
+```
+
+However, prefer using shadcn CSS variables (e.g., `bg-background`, `text-foreground`) which adapt automatically without `dark:` prefixes.
+
 ## How theme switching works internally
 
-The CSS uses three selectors to cover all scenarios:
+The CSS in `globals.css` uses multiple selectors to cover all scenarios:
 
-1. **`:root, [data-theme="light"]`** — Light mode values (default)
-2. **`[data-theme="dark"]`** — Dark mode values when explicitly set
-3. **`@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) }`** — Auto dark mode when no explicit theme is set
+1. **`:root`** — Light mode values (default)
+2. **`.dark, [data-theme="dark"]`** — Dark mode values when explicitly set
+3. **`@media (prefers-color-scheme: dark)`** — Auto dark mode when no explicit theme is set
 
 This means:
 - If `data-theme="light"` is set, light mode is always used
-- If `data-theme="dark"` is set, dark mode is always used
-- If no `data-theme` is set, the OS preference is respected
+- If `data-theme="dark"` or `.dark` class is set, dark mode is always used
+- If neither is set, the OS preference is respected

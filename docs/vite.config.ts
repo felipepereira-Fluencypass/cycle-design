@@ -10,6 +10,8 @@ export default defineConfig({
       '@tokens': path.resolve(__dirname, '../tokens'),
       '@icons': path.resolve(__dirname, '../components/icons'),
       '@components': path.resolve(__dirname, '../components'),
+      '@ui': path.resolve(__dirname, '../src/components/ui'),
+      '@lib': path.resolve(__dirname, '../src/lib'),
     },
   },
   server: {

@@ -1,9 +1,8 @@
+import { Switch } from '@ui/switch'
+import { Label } from '@ui/label'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Switch } from '@components/Switch'
 import styles from '../Components.module.css'
-
-const COLORS = ['brand', 'class', 'private', 'group', 'impulse'] as const
 
 export default function SwitchPage() {
   return (
@@ -11,57 +10,34 @@ export default function SwitchPage() {
       <PageHeader
         badge="Components"
         title="Switch"
-        description="Controle liga/desliga com role=&quot;switch&quot; nativo. 5 paletas de cor e animacao de slide."
+        description="Controle liga/desliga baseado em Radix UI com role=switch nativo, animação de slide e suporte a teclado."
       />
 
-      {/* ── Cores ────────────────────────────────────────────── */}
+      {/* ── Exemplos ────────────────────────────────────────────── */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Cores</h2>
+        <h2 className={styles.h2}>Exemplos</h2>
         <p className={styles.p}>
-          Cinco paletas de cor alinham o switch ao contexto funcional da interface.
+          O Switch do shadcn/ui usa Radix primitives. Suporta interação por teclado (Space) e leitores de tela nativamente.
         </p>
 
         <div className={styles.demo}>
-          <div className={styles.colorsGrid}>
-            {COLORS.map((color) => (
-              <div key={color} className={styles.colorRow}>
-                <span className={styles.colorLabel}>{color}</span>
-                <Switch color={color} label="Off" />
-                <Switch color={color} label="On" defaultChecked />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Tamanhos ─────────────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Tamanhos</h2>
-        <p className={styles.p}>
-          Dois tamanhos disponiveis: md (padrao) e sm para contextos compactos.
-        </p>
-
-        <div className={styles.demo}>
-          <div className={styles.demoRow}>
-            <Switch size="md" label="Medium (default)" defaultChecked />
-            <Switch size="sm" label="Small" defaultChecked />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Estados ──────────────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Estados</h2>
-        <p className={styles.p}>
-          Todos os estados visuais suportados pelo componente.
-        </p>
-
-        <div className={styles.demo}>
-          <div className={styles.demoRow}>
-            <Switch label="Default" />
-            <Switch label="Checked" defaultChecked />
-            <Switch label="Disabled" disabled />
-            <Switch label="Disabled checked" disabled defaultChecked />
+          <div className={styles.demoColumn}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Switch id="notifications" />
+              <Label htmlFor="notifications">Notificações</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Switch id="dark-mode" defaultChecked />
+              <Label htmlFor="dark-mode">Dark mode</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Switch id="disabled-sw" disabled />
+              <Label htmlFor="disabled-sw" style={{ opacity: 0.5 }}>Disabled</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Switch id="disabled-checked-sw" disabled defaultChecked />
+              <Label htmlFor="disabled-checked-sw" style={{ opacity: 0.5 }}>Disabled checked</Label>
+            </div>
           </div>
         </div>
       </section>
@@ -72,10 +48,18 @@ export default function SwitchPage() {
         <CodeBlock
           language="tsx"
           code={`import { Switch } from 'cycle-design'
+import { Label } from 'cycle-design'
 
-<Switch label="Notificacoes" />
-<Switch color="class" label="Dark mode" defaultChecked />
-<Switch color="impulse" size="sm" label="Compacto" />`}
+<div className="flex items-center gap-2">
+  <Switch id="notifications" />
+  <Label htmlFor="notifications">Notificações</Label>
+</div>
+
+{/* Checked por padrão */}
+<Switch defaultChecked />
+
+{/* Disabled */}
+<Switch disabled />`}
         />
       </section>
     </div>

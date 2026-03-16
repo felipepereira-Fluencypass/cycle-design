@@ -1,9 +1,8 @@
+import { Checkbox } from '@ui/checkbox'
+import { Label } from '@ui/label'
 import { PageHeader } from '@/components/ui/PageHeader'
 import { CodeBlock } from '@/components/ui/CodeBlock'
-import { Checkbox } from '@components/Checkbox'
 import styles from '../Components.module.css'
-
-const COLORS = ['brand', 'class', 'private', 'group', 'impulse'] as const
 
 export default function CheckboxPage() {
   return (
@@ -11,59 +10,34 @@ export default function CheckboxPage() {
       <PageHeader
         badge="Components"
         title="Checkbox"
-        description="Controle de selecao com 5 paletas de cor, 2 tamanhos, e estado indeterminate. Usa input nativo para acessibilidade."
+        description="Controle de seleção baseado em Radix UI com acessibilidade nativa. Usa o tema Cycle Design para cores e focus ring."
       />
 
-      {/* ── Cores ────────────────────────────────────────────── */}
+      {/* ── Exemplos ────────────────────────────────────────────── */}
       <section className={styles.section}>
-        <h2 className={styles.h2}>Cores</h2>
+        <h2 className={styles.h2}>Exemplos</h2>
         <p className={styles.p}>
-          Cinco paletas de cor alinham o checkbox ao contexto funcional da interface.
+          O Checkbox do shadcn/ui usa Radix primitives com suporte nativo a keyboard, focus trap e screen readers.
         </p>
 
         <div className={styles.demo}>
-          <div className={styles.colorsGrid}>
-            {COLORS.map((color) => (
-              <div key={color} className={styles.colorRow}>
-                <span className={styles.colorLabel}>{color}</span>
-                <Checkbox color={color} label="Unchecked" />
-                <Checkbox color={color} label="Checked" defaultChecked />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Tamanhos ─────────────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Tamanhos</h2>
-        <p className={styles.p}>
-          Dois tamanhos disponiveis: md (padrao) e sm para contextos compactos.
-        </p>
-
-        <div className={styles.demo}>
-          <div className={styles.demoRow}>
-            <Checkbox size="md" label="Medium (default)" defaultChecked />
-            <Checkbox size="sm" label="Small" defaultChecked />
-          </div>
-        </div>
-      </section>
-
-      {/* ── Estados ──────────────────────────────────────────── */}
-      <section className={styles.section}>
-        <h2 className={styles.h2}>Estados</h2>
-        <p className={styles.p}>
-          Todos os estados visuais suportados pelo componente.
-        </p>
-
-        <div className={styles.demo}>
-          <div className={styles.demoRow}>
-            <Checkbox label="Default" />
-            <Checkbox label="Checked" defaultChecked />
-            <Checkbox label="Indeterminate" indeterminate />
-            <Checkbox label="Error" error />
-            <Checkbox label="Disabled" disabled />
-            <Checkbox label="Disabled checked" disabled defaultChecked />
+          <div className={styles.demoColumn}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Checkbox id="terms" />
+              <Label htmlFor="terms">Aceito os termos de uso</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Checkbox id="newsletter" defaultChecked />
+              <Label htmlFor="newsletter">Receber newsletter</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Checkbox id="disabled-example" disabled />
+              <Label htmlFor="disabled-example" style={{ opacity: 0.5 }}>Disabled</Label>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <Checkbox id="disabled-checked" disabled defaultChecked />
+              <Label htmlFor="disabled-checked" style={{ opacity: 0.5 }}>Disabled checked</Label>
+            </div>
           </div>
         </div>
       </section>
@@ -74,10 +48,18 @@ export default function CheckboxPage() {
         <CodeBlock
           language="tsx"
           code={`import { Checkbox } from 'cycle-design'
+import { Label } from 'cycle-design'
 
-<Checkbox label="Aceito os termos" />
-<Checkbox color="class" label="Selecionar todos" indeterminate />
-<Checkbox color="impulse" label="Notificacoes" defaultChecked />`}
+<div className="flex items-center gap-2">
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">Aceito os termos</Label>
+</div>
+
+{/* Checked por padrão */}
+<Checkbox defaultChecked />
+
+{/* Disabled */}
+<Checkbox disabled />`}
         />
       </section>
     </div>

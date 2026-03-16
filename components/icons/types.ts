@@ -9,18 +9,11 @@ export type { IconSize }
  * Usado no manifest para documentação, não afeta imports.
  */
 export type IconCategory =
-  | 'navigation'
-  | 'actions'
-  | 'status'
-  | 'forms'
-  | 'files'
-  | 'video'
-  | 'user'
   | 'language-learning'
   | 'learning-core'
   | 'lesson-formats'
-  | 'schedule'
-  | 'marketplace'
+  | 'forms'
+  | 'status'
   | 'technology'
 
 /**
